@@ -1,0 +1,13 @@
+.future-card__icon {
+    display: block;
+}
+
+.future-card__icon_big {
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+.future-card__icon_little {
+    width: 55px;
+    margin-bottom: 5px;
+}

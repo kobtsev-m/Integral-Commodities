@@ -1,0 +1,13 @@
+.milestone {
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    box-shadow: 2px 4px 8px 0 rgba(2, 86, 156, .1);
+    padding: 45px 22px 55px 30px;
+
+    background: #F3F5F8;
+    border-radius: 5px;
+
+    font-family: var(--font-montserrat);
+}

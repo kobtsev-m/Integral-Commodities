@@ -1,0 +1,9 @@
+.footer__countries-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  grid-row-gap: 15px;
+  justify-content: space-between;
+}

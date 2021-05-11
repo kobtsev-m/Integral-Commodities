@@ -1,0 +1,18 @@
+.events_link {
+    align-self: center;
+    width: 327px;
+
+    box-sizing: border-box;
+    padding: 15px 31px;
+
+    background: var(--p-orange-accent);
+    border-radius: 5px;
+
+    font-size: 100%;
+    line-height: 21px;
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    color: #FFFFFF;
+
+    text-decoration: none;
+}

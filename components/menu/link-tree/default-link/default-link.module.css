@@ -1,0 +1,24 @@
+.defaultLink {
+  margin-bottom: 12px;
+}
+
+.defaultLink_bigger {
+  margin-bottom: 15px;
+}
+
+.defaultLink__text {
+  font-size: 14px;
+  line-height: 1.35;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  color: var(--grey-default);
+}
+
+.defaultLink__text_bigger {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.defaultLink__text_active {
+  opacity: .7;
+}

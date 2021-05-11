@@ -1,0 +1,13 @@
+.feature__answer {
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--p-blue);
+}
+
+.feature__answer_size-36 {
+    font-size: 36px;
+}
+
+.feature__answer_size-48 {
+    font-size: 48px;
+}

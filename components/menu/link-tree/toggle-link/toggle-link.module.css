@@ -1,0 +1,45 @@
+.toggleLink {
+  margin-bottom: 15px;
+}
+
+.toggleLink_biggerShift {
+  margin-bottom: 15px;
+}
+
+.toggleLink__text {
+  font-size: 18px;
+  line-height: 1.35;
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  color: var(--grey-default);
+
+  cursor: pointer;
+}
+
+.toggleLink__textArrow {
+  position: relative;
+  display: inline-block;
+
+  width: 6px;
+  margin-left: 6px;
+
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.toggleLink__textArrow:after {
+  content: '';
+
+  position: absolute;
+  top: 45%;
+  left: 0;
+  transform: translateY(-50%);
+
+  width: 0;
+  height: 0;
+
+  border-style: solid;
+  border-width: 4px 3px 0 3px;
+  border-color: transparent transparent transparent transparent;
+  border-top-color: var(--p-orange-accent);
+}

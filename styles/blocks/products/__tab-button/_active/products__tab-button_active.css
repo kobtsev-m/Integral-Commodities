@@ -1,0 +1,22 @@
+.products__tab-button_active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--p-blue);
+  border-radius: 2px;
+}
+
+.products__tab-button_type_polymers::after {
+  background-color: var(--p-blue);
+}
+
+.products__tab-button_type_fertilizers::after {
+  background-color: var(--green);
+}
+
+.products__tab-button_type_sulphur::after {
+  background-color: #fae96b;
+}

@@ -1,0 +1,14 @@
+.samplesInfo {
+  grid-area: info;
+
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  color: var(--grey-default);
+}
+
+.samplesInfo__attention {
+  font-weight: 700;
+  color: var(--p-blue);
+}

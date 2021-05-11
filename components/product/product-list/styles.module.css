@@ -1,0 +1,18 @@
+.showMoreBtn {
+  background-color: transparent;
+  border: none;
+  color: #02569c;
+  font-family: var(--font-montserrat);
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.showMoreBtn:hover {
+   opacity: 0.6;
+ }
+
+.showMoreBtn:active {
+   opacity: 0.3;
+ }

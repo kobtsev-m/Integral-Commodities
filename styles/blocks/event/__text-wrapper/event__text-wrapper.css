@@ -1,0 +1,6 @@
+.event__text-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    font-family: var(--font-montserrat);
+}

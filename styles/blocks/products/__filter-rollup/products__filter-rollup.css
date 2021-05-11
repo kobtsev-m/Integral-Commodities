@@ -1,0 +1,9 @@
+.products__filter-rollup {
+  padding: 0;
+  width: 10px;
+  height: 5px;
+  margin: 0 0 0 10px;
+  border: none;
+  background: url('../../../../public/images/icon-rollup.svg');
+  background-size: cover;
+}

@@ -1,0 +1,9 @@
+.footer__copyright-link {
+  font-size: 14px;
+  line-height: 17px;
+  font-family: var(--font-montserrat);
+  color: #fff;
+  text-decoration: none;
+  padding-bottom: 11px;
+  border-bottom: 1px solid white;
+}

@@ -1,0 +1,6 @@
+.footer__office-title {
+  margin: 0;
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}

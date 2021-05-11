@@ -1,0 +1,11 @@
+.slogan {
+  font-family: var(--font-montserrat);
+  max-width: 1000px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 62px;
+  line-height: 76px;
+  text-align: center;
+
+  color: #02569C;
+}

@@ -1,0 +1,15 @@
+.tabSamples {
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-rows: 80px auto;
+  grid-gap: 60px;
+  grid-template-areas:
+    "photo info"
+    "photo form";
+
+  box-sizing: border-box;
+  padding: 68px 200px 190px 60px;
+
+  background-color: #F3F5F8;
+  border-radius: 3px;
+}

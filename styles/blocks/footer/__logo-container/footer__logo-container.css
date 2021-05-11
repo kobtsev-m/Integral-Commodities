@@ -1,0 +1,5 @@
+.footer__logo-container {
+  grid-column: 1 / 3;
+  padding-bottom: 19px;
+  border-bottom: 1px solid white;
+}

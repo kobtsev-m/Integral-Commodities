@@ -1,0 +1,8 @@
+.products__filter-title {
+  font-family: var(--font-montserrat);
+  color: var(--grey);
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+}

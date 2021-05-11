@@ -1,0 +1,5 @@
+.products__search-form {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}

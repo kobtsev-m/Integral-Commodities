@@ -1,0 +1,11 @@
+.future-desc__text {
+    box-sizing: border-box;
+    margin: 0;
+    padding-right: 50px;
+
+    font-size: 20px;
+    line-height: 1.3;
+    font-family: var(--font-montserrat);
+    font-weight: 400;
+    color: var(--grey-default);
+}

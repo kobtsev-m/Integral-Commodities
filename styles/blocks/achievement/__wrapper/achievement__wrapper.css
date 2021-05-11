@@ -1,0 +1,10 @@
+.achievement__wrapper {
+    position: relative;
+
+    display: flex;
+    box-sizing: border-box;
+    padding: 101px 0 103px 55px;
+
+    background: #F3F5F8;
+    border-radius: 5px;
+}

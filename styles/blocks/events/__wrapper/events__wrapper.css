@@ -1,0 +1,10 @@
+.events__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    padding: 60px 53px 75px 53px;
+
+    background: #F3F5F8;
+    border-radius: 5px;
+}

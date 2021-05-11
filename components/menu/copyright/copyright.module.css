@@ -1,0 +1,11 @@
+.copyright {
+  margin-bottom: 38px;
+}
+
+.copyright__text {
+  font-size: 13px;
+  line-height: 1.55;
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  color: var(--grey-default);
+}

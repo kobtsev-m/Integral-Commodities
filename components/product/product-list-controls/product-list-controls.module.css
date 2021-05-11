@@ -1,0 +1,23 @@
+.filterForm {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.filterForm__resetBtn {
+  align-self: center;
+  font-size: 12px;
+  border: 2px solid red;
+  border-radius: 3px;
+  padding: 3px 8px;
+  background-color: white;
+  font-family: var(--font-montserrat);
+  outline: none;
+  cursor: pointer;
+  transition: all 300ms ease;
+  margin-left: auto;
+}
+
+.filterForm__resetBtn:hover {
+  background-color: red;
+  color: white;
+}

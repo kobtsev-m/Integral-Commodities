@@ -1,0 +1,10 @@
+.offices__header {
+    max-width: 1160px;
+    margin: 0 auto 57px auto;
+
+    font-size: 36px;
+    line-height: 1.3;
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    color: var(--grey-default);
+}

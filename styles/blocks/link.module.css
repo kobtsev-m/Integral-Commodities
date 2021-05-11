@@ -1,0 +1,10 @@
+.link {
+  cursor: pointer;
+  display: block;
+  transition: all 300ms ease;
+}
+
+.link:hover {
+  transform: translateX(5px);
+  opacity: .6;
+}

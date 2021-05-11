@@ -1,0 +1,6 @@
+.office__map {
+  flex: 0 1;
+  height: auto;
+
+  max-height: 85%;
+}

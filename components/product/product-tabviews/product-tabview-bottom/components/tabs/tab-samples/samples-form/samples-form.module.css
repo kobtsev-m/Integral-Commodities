@@ -1,0 +1,42 @@
+.samplesForm {
+  grid-area: form;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.samplesForm__header {
+  margin-bottom: 20px;
+
+  font-size: 20px;
+  line-height: 1.3;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  color: var(--grey-default);
+}
+
+.samplesForm__button {
+  align-self: flex-start;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px 60px;
+
+  border: none;
+  border-radius: 5px;
+  background-color: var(--p-orange-accent);
+
+  font-size: 18px;
+  line-height: 21px;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  color: #FFFFFF;
+
+  cursor: pointer;
+}
+
+.samplesForm__button:focus {
+  outline: none;
+}

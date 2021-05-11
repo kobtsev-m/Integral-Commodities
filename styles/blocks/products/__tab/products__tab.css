@@ -1,0 +1,7 @@
+.products__tab {
+  width: 137px;
+}
+
+.products__tab:not(:last-child) {
+  margin-right: 125px;
+}

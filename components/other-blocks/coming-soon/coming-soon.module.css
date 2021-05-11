@@ -1,0 +1,26 @@
+.comingSoon {
+  margin-top: 80px;
+  margin-bottom: 150px;
+  background-color: var(--tab-light-grey);
+  padding: 50px 0 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comingSoon__icon {
+  display: block;
+  width: 120px;
+  height: 94px;
+  background: url("../../../public/images/icon-coming-soon.svg") no-repeat;
+  background-size: cover;
+}
+
+.comingSoon__header {
+  margin: 20px 0 0;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 78px;
+  font-family: var(--font-montserrat);
+  color: var(--p-blue);
+}

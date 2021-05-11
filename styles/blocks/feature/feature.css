@@ -1,0 +1,10 @@
+.feature {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 54px;
+
+    background: #F3F5F8;
+    border-radius: 5px;
+
+    font-family: var(--font-montserrat);
+}

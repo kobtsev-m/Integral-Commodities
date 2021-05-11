@@ -1,0 +1,11 @@
+.footer__list-item {
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+}
+
+.footer__list-item:not(:last-child) {
+  margin-bottom: 10px;
+}

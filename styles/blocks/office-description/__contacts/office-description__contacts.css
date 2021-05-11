@@ -1,0 +1,11 @@
+.office-description__contacts {
+  margin: 0;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+
+  white-space: pre;
+}

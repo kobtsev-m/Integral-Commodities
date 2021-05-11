@@ -1,0 +1,9 @@
+.products__show-more {
+  font-family: var(--font-montserrat);
+  align-self: center;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--p-blue);
+  text-decoration: none;
+}

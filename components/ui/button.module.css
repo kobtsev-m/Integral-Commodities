@@ -1,0 +1,22 @@
+.btn {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font: inherit;
+  font-size: 14px;
+  background-color: var(--p-blue);
+  border: 4px solid var(--p-blue);
+  font-family: var(--font-montserrat);
+  border-radius: 6px;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  transition: all 200ms ease-out;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #fff;
+  color: var(--p-blue);
+}

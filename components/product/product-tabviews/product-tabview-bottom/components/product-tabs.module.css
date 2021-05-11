@@ -1,0 +1,20 @@
+.tabsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tabItem {
+  font-family: var(--font-montserrat);
+  color: var(--p-grey-dark);
+  font-size: 22px;
+  line-height: 27px;
+  padding-bottom: 10px;
+}
+
+.tabItem_active {
+  color: var(--p-text);
+  border-bottom: 2px solid var(--p-blue);
+}

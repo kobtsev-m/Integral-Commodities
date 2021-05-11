@@ -1,0 +1,16 @@
+.milestones__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    flex: 0 0 26px;
+    display: block;
+}
+
+.milestones__arrow_left {
+    left: calc(-41px - 26px);
+}
+
+.milestones__arrow_right {
+    right: calc(-41px - 26px);
+}

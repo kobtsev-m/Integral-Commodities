@@ -1,0 +1,82 @@
+.product__link {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  min-height: 500px;
+  flex-direction: column;
+  padding: 34px 20px 36px 20px;
+  border-top: 4px solid var(--p-blue);
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+  transition: all 200ms ease-out;
+}
+
+.product__link_category_polymers {
+   border-color: var(--p-blue);
+ }
+
+.product__link_category_fertilizers {
+   border-color: var(--green);
+ }
+
+.product__link_category_sulphur {
+   border-color: #fae96b;
+ }
+
+.product__link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+}
+
+.product__title {
+  margin: 0 0 30px;
+  font-family: var(--font-montserrat);
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--p-blue);
+}
+
+.product__titleValue {
+  font-family: var(--font-montserrat);
+  color: var(--p-blue);
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.product__infoList {
+  padding: 0;
+  list-style: none;
+  margin: 0 0 20px;
+}
+
+.product__infoItem {
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 25px;
+}
+
+.product__infoItem:last-child {
+   margin-bottom: 35px;
+ }
+
+.product__infoValue {
+  font-weight: bold;
+}
+
+.product__price {
+  margin: auto 0 0;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 22px;
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+}
+
+.product__priceValue {
+  color: var(--p-orange-accent)
+}

@@ -1,0 +1,10 @@
+.office {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 73px 0 53px;
+
+  background: #F3F5F8;
+  border-radius: 5px;
+}

@@ -1,0 +1,7 @@
+.futures__item_big {
+    grid-column-start: span 3;
+}
+
+.futures__item_little {
+    grid-column-start: span 2;
+}

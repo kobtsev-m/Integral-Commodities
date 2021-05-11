@@ -1,0 +1,14 @@
+.header__menu-button {
+  width: 57px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  background: url('../../../../public/images/icon-menu.svg');
+  background-size: cover;
+
+  cursor: pointer;
+}
+
+.header__menu-button:focus {
+  outline: none;
+}

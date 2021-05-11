@@ -1,0 +1,7 @@
+.footer__representations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 250px));
+  grid-template-rows: repeat(2, min-content);
+  grid-column-gap: 45px;
+  grid-row-gap: 30px;
+}

@@ -1,0 +1,174 @@
+.orderContainer {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.orderContainer__title {
+  margin: 0 0 37px;
+  font-family: var(--font-montserrat);
+  color: var(--p-blue);
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 78px;
+}
+
+.orderContainer__intro {
+  font-family: var(--font-montserrat);
+  color: var(--p-text);
+  font-size: 18px;
+  line-height: 27px;
+  margin: 74px 0 60px;
+}
+
+.orderContainer__messageContainer {
+  margin-bottom: 60px;
+}
+
+.orderContainer__message {
+  margin: 0;
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+  font-size: 20px;
+}
+
+.orderContainer__documentPreview {
+  max-width: 1060px;
+}
+
+.orderContainer__controlsContainer {
+  display: flex;
+  margin: 46px 0 184px;
+  justify-content: center;
+}
+
+.orderContainer__confirmButton {
+  width: 200px;
+  display: block;
+  text-align: center;
+}
+
+.orderContainer__detailsGrid {
+  margin: -285px 0 66px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, 260px));
+  grid-template-rows: 285px auto auto;
+  justify-content: space-between;
+  align-items: center;
+  grid-column-gap: 40px;
+  grid-row-gap: 60px;
+}
+
+.orderContainer__detailsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orderContainer__detailIconContainer {
+  width: 65px;
+  height: 61px;
+}
+
+.orderContainer__detailIcon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.orderContainer__detailTitle {
+  margin: 20px 0 10px;
+  font-family: var(--font-montserrat);
+  color: var(--icons);
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+}
+
+.orderContainer__detailValue {
+  margin: 0;
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+  font-size: 22px;
+  line-height: 27px;
+  text-align: center;
+}
+
+.orderContainer__detailsRowBg {
+  height: 285px;
+  background-color: var(--tab-light-grey);
+}
+
+.orderContainer__document {
+  height: 671px;
+  overflow: scroll;
+  border: 1px solid var(--tab-light-grey);
+  padding: 10px 100px 10px 60px;
+  font-family: var(--font-montserrat);
+}
+
+.orderContainer__documentHeader {
+  text-align: center;
+}
+
+.orderContainer__documentHeader:last-child {
+  margin-bottom: 20px;
+}
+
+.orderContainer__documentDate {
+  text-align: right;
+}
+
+.step3__textContent {
+  font-family: var(--font-montserrat);
+  font-size: 18px;
+  line-height: 150%;
+
+  color: #2E2C2F;
+  margin: 0;
+}
+
+.step3__title {
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 78px;
+  font-family: var(--font-montserrat);
+  margin: 0 0 80px;
+
+  color: #2E2C2F;
+}
+
+.step3__tabs {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.step3__tab {
+  font-size: 20px;
+  line-height: 130%;
+  font-family: var(--font-montserrat);
+
+  display: flex;
+  align-items: center;
+  color: #909195;
+}
+
+.step3__tab_active {
+  color: #02569C;
+}
+
+.step3__tab:not(:last-child) {
+  margin-right: 56px;
+}
+
+.step3__beforeForm {
+  max-width: 800px;
+  margin-bottom: 80px;
+}
+
+.step3__beforeForm .step3__textContent:not(:last-child) {
+  margin-bottom: 1em;
+}

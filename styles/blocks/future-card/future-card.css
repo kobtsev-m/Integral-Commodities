@@ -1,0 +1,20 @@
+.future-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-sizing: border-box;
+    box-shadow: 2px 4px 8px 0 rgba(2, 86, 156, .1);
+
+    background: #F3F5F8;
+    border-radius: 5px;
+}
+
+.future-card_big {
+    padding: 44px 54px;
+}
+
+.future-card_little {
+    align-items: center;
+    padding: 35px 75px 35px 75px;
+}
