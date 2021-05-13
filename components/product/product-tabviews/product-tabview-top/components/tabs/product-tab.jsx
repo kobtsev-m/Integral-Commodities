@@ -1,14 +1,14 @@
-import ProductInfo from "../../../../product-info/product-info";
-import classes from "../../../../product-details/product-details.module.css";
-import ProductTabviewBottom from "../../../product-tabview-bottom/product-tabview-bottom";
+import ProductInfo from '../../../../product-info/product-info';
+import classes from '../../../../product-details/product-details.module.css';
+import ProductTabviewBottom from '../../../product-tabview-bottom/product-tabview-bottom';
 
 function getProductProperties(product) {
   if (product.properties) {
-    return product.properties.split("• ").slice(1);
+    return product.properties.split('• ').slice(1);
   }
 }
 
-function TabProduct(props) {
+function ProductTab(props) {
   const { product } = props;
   const features = product.tech_data;
   const productProperties = getProductProperties(product);
@@ -50,9 +50,9 @@ function TabProduct(props) {
           </div>
         )}
       </div>
-      <ProductTabviewBottom product={product}  />
+      <ProductTabviewBottom product={product} />
     </>
   );
 }
 
-export default TabProduct;
+export default ProductTab;

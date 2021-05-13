@@ -2,6 +2,8 @@
 @import url('../../styles/vendor/fonts.css');
 @import url('../../styles/vendor/variables.css');
 
+@import url('bootstrap/dist/css/bootstrap.min.css');
+
 @import url('../../styles/blocks/root/root.css');
 @import url('../../styles/blocks/root/__header/root__header.css');
 @import url('../../styles/blocks/root/__products/root__products.css');

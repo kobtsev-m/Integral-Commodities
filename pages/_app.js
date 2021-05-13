@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 
 import { pageview } from '../utils/analytics';
 
-import "../styles/globals.css";
-import "../public/css/index.css";
-import Layout from "../components/layout/layout";
+import '../styles/globals.css';
+import '../public/css/index.css';
+import Layout from '../components/layout/layout';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
-    }
+    };
   }, [router.events]);
 
   return (
@@ -29,6 +29,5 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
 
 export default MyApp;

@@ -1,0 +1,290 @@
+/* Text input */
+.textInputWrapper {
+    position: relative;
+}
+
+.textInput {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    padding: 1em;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 10px;
+}
+
+.textInput:focus {
+    outline: 0;
+}
+
+.textInput::placeholder {
+    color: #c4c4c4;
+}
+
+.textInput.isInvalid {
+    border: 1px solid rgba(251, 63, 74);
+}
+
+.textInput.rounded {
+    font-size: 14px;
+    line-height: 140%;
+    padding: 0.85em 1.5em;
+    border-radius: 23px;
+}
+
+.textInput.changing {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* Error span */
+.errorSpan {
+    position: absolute;
+    color: #fff;
+    background: rgba(251, 63, 74, 0.8);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 0.3em 0.6em;
+    z-index: 2000;
+}
+
+.isInvalid:not(:hover) ~ .errorSpan {
+    display: none;
+}
+
+.errorSpan.above {
+    bottom: 115%;
+}
+
+.errorSpan.below {
+    top: 115%;
+}
+
+/* Checbox */
+.checkboxInput {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.checkboxInput + label {
+    display: flex;
+    user-select: none;
+}
+
+.checkboxInput + label::before {
+    content: '';
+    margin-top: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    margin-right: 0.5em;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.checkboxInput:checked + label::before {
+    border-color: #0b76ef;
+    background-color: #02569c;
+    background-image: url('/images/ui/checkbox-icon.svg');
+}
+
+.checkboxInput:not(:disabled):not(:checked) + label:hover::before {
+    border-color: #b3d7ff;
+}
+
+.checkboxInput:not(:disabled):active + label::before {
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+}
+
+.checkboxInput:focus + label::before {
+    box-shadow: 0 0 0 0.15em rgba(0, 123, 255, 0.25);
+}
+
+.checkboxInput:focus:not(:checked) + label::before {
+    border-color: #80bdff;
+}
+
+.checkboxInput:disabled + label::before {
+    background-color: #e9ecef;
+}
+
+/* Textarea */
+.textarea {
+    font-size: 16px;
+    line-height: 20px;
+    resize: none;
+}
+
+/* Search */
+.search {
+    position: relative;
+}
+
+.search__icon {
+    position: absolute;
+    top: 50%;
+    right: 0.2em;
+    width: 4em;
+    height: 2em;
+    transform: translateY(-50%);
+    color: #dedede;
+    border-left: 1px solid #dedede;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #fff;
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.search__icon.searchIcon {
+    background-image: url('/images/ui/search-icon.svg');
+}
+
+.search__icon.cancelIcon {
+    background-image: url('/images/ui/cancel-icon.svg');
+}
+
+.search__dropdown {
+    position: absolute;
+    top: 100%;
+    right: 1px;
+    width: calc(100% - 2px);
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.search__dropdown.rounded {
+    font-size: 14px;
+    line-height: 140%;
+    border-bottom-left-radius: 23px;
+    border-bottom-right-radius: 23px;
+}
+
+.search__dropdown__item {
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    cursor: pointer;
+}
+
+.search__dropdown__item.active {
+    background: rgba(222, 222, 222, 0.22);
+}
+
+.search__dropdown__loading {
+    padding: 1em;
+    opacity: 0.6;
+}
+
+.search__secondaryText {
+    color: #dddddd;
+}
+
+/* Calendar */
+.calendar {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.calendar__chevron {
+    color: rgb(2, 86, 156);
+}
+
+.calendar__scrollbox {
+    height: 20em;
+    overflow-y: scroll;
+}
+
+.calendar__scrollbox::-webkit-scrollbar {
+    width: 4px;
+}
+
+.calendar__scrollbox::-webkit-scrollbar-track {
+    background: #dedede;
+    border-radius: 10px;
+}
+
+.calendar__scrollbox::-webkit-scrollbar-thumb {
+    background-color: #02569c;
+    border-radius: 10px;
+}
+
+.calendar__item {
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    transition: 0.25s ease-in-out;
+    padding: 1em;
+}
+
+.calendar__item.active {
+    color: #fff;
+    background-color: rgb(2, 86, 156, 0.9);
+    box-shadow: 0px 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Buttons */
+.btn {
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    padding: 0.5em;
+    transition: 0.1s ease-in-out;
+}
+
+.btn.large {
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 1em 3em;
+}
+
+.btn.orange {
+    background-color: #f66e08;
+}
+
+.btn.orange:hover {
+    background-color: #f7842d;
+}
+
+.btn.orange:focus {
+    outline: 0;
+    box-shadow: 0px 0px 0 0.15em rgba(246, 110, 8, 0.5);
+}
+
+.btn.red {
+    background-color: #fb3f4a;
+}
+
+.btn.red:hover {
+    background-color: #fc5c65;
+}
+
+.btn.red:focus {
+    outline: 0;
+    box-shadow: 0px 0px 0 0.15em rgba(251, 63, 74, 0.5);
+}
+
+/* Text colors */
+
+.textOrange {
+    color: #f66e08;
+}
+
+.textRed {
+    color: #fb3f4a;
+}
+
+.textLightGrey {
+    color: #dedede;
+}
