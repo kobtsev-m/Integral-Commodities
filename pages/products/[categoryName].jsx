@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
-import ProductsList from "../../components/product/product-list/product-list";
-import ProductListTabs from "../../components/product/product-list-tabs/product-list-tabs";
-import LatestOffers from "../../components/product/latest-offers/latest-offers";
-import LoadingSpinner from "../../components/ui/loading";
-import ProductListControls from "../../components/product/product-list-controls/product-list-controls";
-import AskForQuote from "../../components/other-blocks/ask-for-quote/ask-for-quote";
+import ProductsList from '../../components/product/product-list/product-list';
+import ProductListTabs from '../../components/product/product-list-tabs/product-list-tabs';
+import LatestOffers from '../../components/product/latest-offers/latest-offers';
+import LoadingSpinner from '../../components/ui/loading';
+import ProductListControls from '../../components/product/product-list-controls/product-list-controls';
+import AskForQuote from '../../components/other-blocks/ask-for-quote/ask-for-quote';
 
-import { getAllOffers, getAllProducts } from "../../api/api";
-import { Filter, TABS } from "../../utils/const";
+import { getAllOffers, getAllProducts } from '../../api/api';
+import { Filter, TABS } from '../../utils/const';
 
 function prepareFilterOptions(filter) {
   return filter.options.reduce((acc, option) => {
@@ -24,7 +24,7 @@ function getFiltersInitialState(category) {
       const filterOptions = prepareFilterOptions(filter);
       acc = {
         ...acc,
-        [filter.name]: filterOptions,
+        [filter.name]: filterOptions
       };
       return acc;
     }, {});
@@ -76,7 +76,7 @@ function HomePage() {
 
   function prepareProductDataValue(value) {
     return String(value)
-      .split(",")
+      .split(',')
       .map((content) => content.trim());
   }
 
@@ -113,7 +113,7 @@ function HomePage() {
     if (Object.keys(fulfilledFilter).length) {
       filteredProducts = filteredProducts.filter((product) => {
         const productData = product.card_data.slice();
-        productData.push({ key: "Grade", value: product.grade });
+        productData.push({ key: 'Grade', value: product.grade });
         return Object.entries(fulfilledFilter).every(
           ([filterName, filterOptions]) => {
             const productValueToFilter = getValueByKeyName(
@@ -140,7 +140,7 @@ function HomePage() {
 
     setFiltersState({
       ...filtersState,
-      [filterName]: { ...filtersState[filterName], ...valueToChange },
+      [filterName]: { ...filtersState[filterName], ...valueToChange }
     });
   }
 
@@ -155,7 +155,7 @@ function HomePage() {
       </h2>
       <section className="products root__products">
         <ProductListTabs activeTab={category} tabs={TABS} />
-        {category === "polymers" && (
+        {category === 'polymers' && (
           <ProductListControls
             filtersState={filtersState}
             onSearchSubmit={handleSearchSubmit}
