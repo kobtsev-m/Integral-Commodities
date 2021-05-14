@@ -1,7 +1,7 @@
-import { nanoid } from "nanoid";
+import { nanoid } from 'nanoid';
 
-import classes from "../../product-card.module.css";
-import ProductCardInfoItem from "../product-card-info-item/product-card-info-item";
+import styles from '../../product-card.module.css';
+import ProductCardInfoItem from '../product-card-info-item/product-card-info-item';
 
 function ProductCardInfoList(props) {
   const { fields, fieldsToFilter } = props;
@@ -13,7 +13,7 @@ function ProductCardInfoList(props) {
   }
 
   return (
-    <ul className={classes.product__infoList}>
+    <ul className={styles.product__infoList}>
       {filterFields(fields).map((item) => (
         <ProductCardInfoItem key={nanoid()} field={item} />
       ))}

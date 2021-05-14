@@ -1,7 +1,8 @@
 .logo {
-  display: block;
-  width: 261px;
-  height: 62px;
-  background: url('../../../public/images/logo-header.svg');
-  background-size: cover;
+    display: block;
+    width: 261px;
+    height: 62px;
+    background: url('../../../public/images/logo-header.svg');
+    background-size: cover;
+    cursor: pointer;
 }

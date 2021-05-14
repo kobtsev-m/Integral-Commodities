@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { pageview } from '../utils/analytics';
+import GlobalState from 'state/state';
+import Layout from 'components/layout/layout';
 
-import '../styles/globals.css';
-import '../public/css/index.css';
-import Layout from '../components/layout/layout';
+import { pageview } from 'utils/analytics';
+import 'public/css/index.css';
 
-function MyApp({ Component, pageProps }) {
+function AppWrapper({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
@@ -22,12 +22,12 @@ function MyApp({ Component, pageProps }) {
   }, [router.events]);
 
   return (
-    <>
+    <GlobalState>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </GlobalState>
   );
 }
 
-export default MyApp;
+export default AppWrapper;

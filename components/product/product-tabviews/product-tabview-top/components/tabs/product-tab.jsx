@@ -1,5 +1,5 @@
 import ProductInfo from '../../../../product-info/product-info';
-import classes from '../../../../product-details/product-details.module.css';
+import styles from '../../../../product-details/product-details.module.css';
 import ProductTabviewBottom from '../../../product-tabview-bottom/product-tabview-bottom';
 
 function getProductProperties(product) {
@@ -17,22 +17,22 @@ function ProductTab(props) {
   return (
     <>
       <ProductInfo features={features} />
-      <div className={classes.productPage__info}>
+      <div className={styles.productPage__info}>
         {product.description && (
           <div style={{ marginBottom: 40 }}>
-            <h2 className={classes.productPage__infoTitle}>Description</h2>
-            <p className={classes.productPage__infoContent}>
+            <h2 className={styles.productPage__infoTitle}>Description</h2>
+            <p className={styles.productPage__infoContent}>
               {product.description}
             </p>
           </div>
         )}
         {!!hasProperties && (
           <div style={{ marginBottom: 40 }}>
-            <h2 className={classes.productPage__infoTitle}>Properties</h2>
+            <h2 className={styles.productPage__infoTitle}>Properties</h2>
             <ul>
               {productProperties.map((property, i) => (
                 <li
-                  className={classes.productPage__infoContent}
+                  className={styles.productPage__infoContent}
                   key={`property-${i}`}
                 >
                   {property}
@@ -43,8 +43,8 @@ function ProductTab(props) {
         )}
         {product.packaging && (
           <div style={{ marginBottom: 40 }}>
-            <h2 className={classes.productPage__infoTitle}>Packaging</h2>
-            <p className={classes.productPage__infoContent}>
+            <h2 className={styles.productPage__infoTitle}>Packaging</h2>
+            <p className={styles.productPage__infoContent}>
               {product.packaging}
             </p>
           </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import classes from './custom-ui.module.css';
+import styles from './custom-ui.module.css';
 
 function CustomCheckboxGroup(props) {
   const [checkboxes, setCheckboxes] = useState([]);
@@ -28,7 +28,7 @@ function CustomCheckboxGroup(props) {
         <div key={i} className={props.className} style={props.style}>
           <input
             type={'checkbox'}
-            className={classes.checkboxInput}
+            className={styles.checkboxInput}
             id={`${props.name}_${i}`}
             value={checkbox.value}
             checked={checkbox.isChecked}

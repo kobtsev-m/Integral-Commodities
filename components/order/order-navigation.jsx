@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import classes from './order-navigation.module.css';
+import styles from './order-navigation.module.css';
 import IconNext from '../icons/icon-next';
-import classnames from 'classnames';
+import cn from 'classnames';
 
 const Step = {
   step1: 'Confirm deal',
@@ -11,11 +11,11 @@ const Step = {
   step5: 'Track order'
 };
 
-const stepStyles = classes.orderNavigation__item;
-const activeStepStyles = classes.orderNavigation__item_active;
+const stepStyles = styles.orderNavigation__item;
+const activeStepStyles = styles.orderNavigation__item_active;
 
 function getStepClassNames(isActive) {
-  return classnames(stepStyles, {
+  return cn(stepStyles, {
     [activeStepStyles]: isActive
   });
 }
@@ -25,8 +25,8 @@ function OrderNavigation() {
   const route = router.route;
   const activeRouteTab = route.split('/')[2].split('-').join('');
   return (
-    <div className={classes.orderNavigation}>
-      <ul className={classes.orderNavigation__list}>
+    <div className={styles.orderNavigation}>
+      <ul className={styles.orderNavigation__list}>
         {Object.entries(Step).map(([key, value]) => {
           const isActiveTab = activeRouteTab === key;
           let link = `/order/step-${key.slice(-1)}`;

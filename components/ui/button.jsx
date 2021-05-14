@@ -1,10 +1,10 @@
-import Link from "next/link";
-import classes from "./button.module.css";
+import Link from 'next/link';
+import styles from './button.module.css';
 
 function Button(props) {
   if (props.usualLink) {
     return (
-      <a href={props.link} className={classes.btn}>
+      <a href={props.link} className={styles.btn}>
         {props.children}
       </a>
     );
@@ -13,13 +13,13 @@ function Button(props) {
   if (props.link) {
     return (
       <Link href={props.link}>
-        <a className={classes.btn}>{props.children}</a>
+        <a className={styles.btn}>{props.children}</a>
       </Link>
     );
   }
 
   return (
-    <button className={classes.btn} onClick={props.onClick}>
+    <button className={styles.btn} onClick={props.onClick}>
       {props.children}
     </button>
   );

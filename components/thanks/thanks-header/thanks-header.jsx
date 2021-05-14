@@ -1,16 +1,14 @@
-import classes from './thanks-header.module.scss';
+import styles from './thanks-header.module.scss';
 
 function ThanksHeader() {
   return (
-    <div className={classes.thanksHeader}>
+    <div className={styles.thanksHeader}>
       <img
-        className={classes.thanksHeader__checkImg}
+        className={styles.thanksHeader__checkImg}
         src="/images/thanks-check.svg"
         alt=""
       />
-      <h1 className={classes.thanksHeader__text}>
-        Thank you
-      </h1>
+      <h1 className={styles.thanksHeader__text}>Thank you</h1>
     </div>
   );
 }

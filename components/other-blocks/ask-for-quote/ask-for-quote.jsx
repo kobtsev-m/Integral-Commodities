@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
-import AskForQuotePopup from "./components/popup";
-import classes from "./ask-for-quote.module.css";
-import popupClasses from "./components/popup.module.css";
+import AskForQuotePopup from './components/popup';
+import styles from './ask-for-quote.module.css';
+import popupClasses from './components/popup.module.css';
 
 const SCRIPT_NAME =
   '(function(s, t, e, p, f, o, r, m) {\n' +
@@ -20,7 +20,7 @@ function AskForQuote() {
   const formRef = useRef();
 
   useEffect(() => {
-    const script = document.createElement("script");
+    const script = document.createElement('script');
     script.textContent = SCRIPT_NAME;
     document.body.appendChild(script);
 
@@ -36,20 +36,20 @@ function AskForQuote() {
 
   return (
     <>
-      <div className={classes.ask}>
+      <div className={styles.ask}>
         <img
-          className={classes.ask__image}
+          className={styles.ask__image}
           src="../../images/icon-attention.svg"
           alt="attention"
         />
-        <p className={classes.ask__text}>
+        <p className={styles.ask__text}>
           We deliver worldwide door-to-door and offer volume based, contract
-          based and other discounts. Please complete the brief form to receive a
-          custom quote within 24 hours.
+          based and other discounts. Please complete the brief form to receive
+          a custom quote within 24 hours.
         </p>
         <button
           type="button"
-          className={classes.ask__link}
+          className={styles.ask__link}
           onClick={handleButtonClick}
         >
           Ask for quote

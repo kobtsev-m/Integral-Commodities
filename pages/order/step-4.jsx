@@ -1,20 +1,20 @@
-import classes from "./step-1.module.css";
-import Button from "../../components/ui/button";
-import OrderNavigation from "../../components/order/order-navigation";
-import Breadcrumbs from "../../components/ui/breadcrumbs";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import classnames from "classnames";
+import styles from './step-1.module.css';
+import Button from '../../components/ui/button';
+import OrderNavigation from '../../components/order/order-navigation';
+import Breadcrumbs from '../../components/ui/breadcrumbs';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import cn from 'classnames';
 
 function OrderStep3() {
   const breadcrumbs = [
     {
-      title: "Home",
-      link: "/",
+      title: 'Home',
+      link: '/'
     },
     {
-      title: "Order process",
-    },
+      title: 'Order process'
+    }
   ];
 
   const router = useRouter();
@@ -26,32 +26,32 @@ function OrderStep3() {
 
   useEffect(() => {
     // if (formType) {
-    const script = document.createElement("script");
-    script.id = "kyc";
+    const script = document.createElement('script');
+    script.id = 'kyc';
     script.textContent = scriptText;
     document.body.appendChild(script);
     // }
   }, [formType]);
 
-  const tabStyles = classes.step3__tab;
-  const activeTabStyles = classes.step3__tab_active;
+  const tabStyles = styles.step3__tab;
+  const activeTabStyles = styles.step3__tab_active;
 
   function getItemClassNames(isActive) {
-    return classnames(tabStyles, {
-      [activeTabStyles]: isActive,
+    return cn(tabStyles, {
+      [activeTabStyles]: isActive
     });
   }
 
   return (
-    <section className={classes.orderContainer}>
+    <section className={styles.orderContainer}>
       <div style={{ marginTop: 65 }}>
         <Breadcrumbs list={breadcrumbs} />
       </div>
-      <div className={classes.step3__orderNavigationContainer}>
+      <div className={styles.step3__orderNavigationContainer}>
         <OrderNavigation />
       </div>
       <p
-        className={classes.step3__textContent}
+        className={styles.step3__textContent}
         style={{ marginTop: 80, marginBottom: 90 }}
       >
         Please select one of the following payment methods:

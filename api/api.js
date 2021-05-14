@@ -1,13 +1,7 @@
 const BACKEND_URL = 'https://integral-commodities.ch/api/v1';
 
-export async function getAllProducts(cb) {
-  const response = await fetch(`${BACKEND_URL}/products`);
-  const data = await response.json();
-  cb(data);
-  return data;
-}
-export async function getProductById(id, cb) {
-  const response = await fetch(`${BACKEND_URL}/products/${id}`);
+async function getRequest(requestUrl, callback) {
+  const response = await fetch(`${BACKEND_URL}${requestUrl}`);
   if (!response.ok) {
     throw Error(response.statusText);
   }
@@ -15,26 +9,24 @@ export async function getProductById(id, cb) {
   if (!data) {
     throw Error(response.statusText);
   }
-  if (cb) {
-    cb(data);
+  if (callback) {
+    callback(data);
   }
   return data;
 }
-export async function getAnalogsByProductId(id, cb) {
-  const response = await fetch(`${BACKEND_URL}/analogs/${id}`);
-  const data = await response.json();
-  if (cb) {
-    cb(data);
-  }
-  return data;
+
+export async function getProductsApi(cb) {
+  return await getRequest('/products', cb);
 }
-export async function getAllOffers(cb) {
-  const response = await fetch(`${BACKEND_URL}/offers`);
-  const data = await response.json();
-  cb(data);
-  return data;
+export async function getProductByIdApi(id, cb) {
+  return await getRequest(`/products/${id}`, cb);
 }
-export async function getProductsBySearchString(searchString) {
-  const response = await fetch(`${BACKEND_URL}/search?search=${searchString}`);
-  return await response.json();
+export async function getAnalogsByProductIdApi(id, cb) {
+  return await getRequest(`/analogs/${id}`, cb);
+}
+export async function getOffersApi(cb) {
+  return await getRequest('/offers', cb);
+}
+export async function getProductsBySearchStringApi(searchString) {
+  return await getRequest(`/search?search=${searchString}`);
 }

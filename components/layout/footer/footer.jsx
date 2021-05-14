@@ -1,28 +1,28 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import FooterCard from "./components/footer-card";
+import FooterCard from './components/footer-card';
 
-import linkClasses from "../../../styles/blocks/link.module.css";
-import classnames from "classnames";
+import linkClasses from '../../../styles/blocks/link.module.css';
+import cn from 'classnames';
 
 export const FooterLink = {
   HDPE: {
-    blowMoulding: "Blown moulding",
-    film: "Film",
-    injectionMoulding: "Injection moulding",
-    monofilamentYarn: "Monofilament / Yarn",
-    pipe: "Pipe",
+    blowMoulding: 'Blown moulding',
+    film: 'Film',
+    injectionMoulding: 'Injection moulding',
+    monofilamentYarn: 'Monofilament / Yarn',
+    pipe: 'Pipe'
   },
   LDPE: {
-    film: "Film",
+    film: 'Film'
   },
   PP: {
-    blowMoulding: "Blown moulding",
-    extrusion: "Extrusion",
-    injectionMoulding: "Injection moulding",
-    fiberYarn: "Fiber / Yarn",
+    blowMoulding: 'Blown moulding',
+    extrusion: 'Extrusion',
+    injectionMoulding: 'Injection moulding',
+    fiberYarn: 'Fiber / Yarn'
   },
-  Sulphur: {},
+  Sulphur: {}
 };
 
 function Footer() {
@@ -43,7 +43,7 @@ function Footer() {
               <li className="footer__list-item">
                 <a
                   href="/about"
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                 >
                   About
                 </a>
@@ -51,7 +51,7 @@ function Footer() {
               <li className="footer__list-item">
                 <a
                   href="/order"
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                 >
                   Order process
                 </a>
@@ -59,7 +59,7 @@ function Footer() {
               <li className="footer__list-item">
                 <a
                   href="/about#futures"
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                 >
                   Services
                 </a>
@@ -67,7 +67,7 @@ function Footer() {
               <li className="footer__list-item">
                 <a
                   href="/partners"
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                 >
                   Partners
                 </a>
@@ -75,14 +75,14 @@ function Footer() {
             </ul>
           </div>
           <div className="footer__card">
-            <h3 className={classnames("footer__card-title", linkClasses.link)}>
+            <h3 className={cn('footer__card-title', linkClasses.link)}>
               <Link href="/products/fertilizers">Fertilizers</Link>
             </h3>
             <ul className="footer__links-list">
               <li className="footer__list-item">
                 <a
                   href="/products/id/9?tab=offer"
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                 >
                   Urea grade B
                 </a>
@@ -90,7 +90,7 @@ function Footer() {
               <li className="footer__list-item">
                 <a
                   href="/products/id/10?tab=offer"
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                 >
                   Potassium chloride
                 </a>
@@ -98,7 +98,7 @@ function Footer() {
               <li className="footer__list-item">
                 <a
                   href="/products/id/11?tab=offer"
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                 >
                   Ammophos
                 </a>
@@ -126,7 +126,7 @@ function Footer() {
               </li>
               <li className="footer__list-item">
                 <a
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                   href="tel:+97145667713"
                 >
                   T: +971 4 566 7713
@@ -134,7 +134,7 @@ function Footer() {
               </li>
               <li className="footer__list-item">
                 <a
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                   href="mailto:info@integral-commodities.ch"
                 >
                   info@integral-commodities.ch
@@ -160,7 +160,7 @@ function Footer() {
               </li>
               <li className="footer__list-item">
                 <a
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                   href="tel:+41912083157"
                 >
                   T: +41912083157
@@ -168,7 +168,7 @@ function Footer() {
               </li>
               <li className="footer__list-item">
                 <a
-                  className={classnames("footer__link", linkClasses.link)}
+                  className={cn('footer__link', linkClasses.link)}
                   href="mailto:info@integral-commodities.ch"
                 >
                   info@integral-commodities.ch
@@ -225,7 +225,9 @@ function Footer() {
                   src="./images/flag-rf.svg"
                   alt=""
                 />
-                <p className="footer__country-title">Russian&nbsp;Federation</p>
+                <p className="footer__country-title">
+                  Russian&nbsp;Federation
+                </p>
               </li>
             </ul>
           </div>
@@ -240,10 +242,7 @@ function Footer() {
           <ul className="footer__copyright-list">
             <li className="footer__copyright-item">
               <a
-                className={classnames(
-                  "footer__copyright-link",
-                  linkClasses.link
-                )}
+                className={cn('footer__copyright-link', linkClasses.link)}
                 href="/documents/terms.pdf"
                 target="_blank"
                 download
@@ -253,10 +252,7 @@ function Footer() {
             </li>
             <li className="footer__copyright-item">
               <a
-                className={classnames(
-                  "footer__copyright-link",
-                  linkClasses.link
-                )}
+                className={cn('footer__copyright-link', linkClasses.link)}
                 href="/documents/privacy.pdf"
                 target="_blank"
                 download

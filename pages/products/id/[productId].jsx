@@ -1,26 +1,23 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect, memo } from 'react';
-import { useJsApiLoader } from '@react-google-maps/api';
-import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { useState, useEffect, useContext, memo } from 'react';
 
-import { getProductById } from 'api/api';
+import { getProductByIdApi } from 'api/api';
 import { capitalize } from 'utils/string-utils';
 import ProductDetails from 'components/product/product-details/product-details';
 import LoadingSpinner from 'components/ui/loading';
 import Breadcrumbs from 'components/ui/breadcrumbs';
 import ProductTabviewTop from 'components/product/product-tabviews/product-tabview-top/product-tabview-top';
-
-import classes from 'components/product/product-details/product-details.module.css';
-import classnames from 'classnames';
 import { initialPorts } from 'components/product/product-tabviews/product-tabview-top/data/values';
 
+import styles from 'components/product/product-details/product-details.module.css';
+import cn from 'classnames';
+
+import { PlacesContext } from 'state/state';
+
 const INFO_FIELDS_TO_FILTER = ['price', 'density'];
-const GOOGLE_API_KEY = 'AIzaSyBHgrjA93fN08uUsixuRj28u4d8QEZPNWo';
-const GOOGLE_API_LIBRARIES = ['places'];
-const GOOGLE_API_LANGUAGE = 'en';
 
 const getBreadcrumbs = (product) => {
-  const homeBreadcrumb = { title: 'Home', link: '/' };
+  const homeBreadcrumb = { title: 'Home', link: '/products/polymers' };
   const categoryBreadcrumb = {
     title: capitalize(product?.category),
     link: `/products/${product?.category}`
@@ -30,13 +27,13 @@ const getBreadcrumbs = (product) => {
   ).value;
   const polymerBreadcrumb = {
     title: polymerType,
-    link: `/products/${product?.category}?type=${polymerType}`
+    link: `/products/${product?.category}?type=${polymerType.toLowerCase()}`
   };
   const gradeBreadcrumb = { title: product?.grade };
   return [
     homeBreadcrumb,
     categoryBreadcrumb,
-    polymerBreadcrumb,
+    polymerType ? polymerBreadcrumb : null,
     gradeBreadcrumb
   ];
 };
@@ -45,76 +42,44 @@ function ProductPage() {
   const router = useRouter();
   const productId = router.query.productId;
 
-  const initialProductData = { product: null, ports: null };
-  const [productPageData, setProductPageData] = useState(initialProductData);
-  const [arePortsUpdated, setArePortsUpdated] = useState(false);
-  const [productIsLoaded, setProductIsLoaded] = useState(false);
-
-  const { isLoaded: googleScriptIsLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: GOOGLE_API_KEY,
-    libraries: GOOGLE_API_LIBRARIES,
-    language: GOOGLE_API_LANGUAGE
-  });
-
-  const handleProductLoad = (product) => {
-    setProductPageData({ ...productPageData, product });
-  };
-
-  const handlePortsLoad = (ports) => {
-    setProductPageData({ ...productPageData, ports });
-  };
+  const { ports, setPorts, arePortsUpdated } = useContext(PlacesContext);
+  const [product, setProduct] = useState(null);
+  const [productIsLoading, setProductIsLoading] = useState(true);
 
   useEffect(() => {
     if (!!productId) {
-      getProductById(productId)
-        .then((data) => handleProductLoad(data))
-        .catch(() => setProductIsLoaded(true));
+      getProductByIdApi(productId)
+        .then((data) => setProduct(data))
+        .catch(() => setProductIsLoading(false));
     }
   }, [productId]);
 
   useEffect(() => {
-    if (productPageData.product && !productPageData.ports) {
-      handlePortsLoad(initialPorts);
+    if (product && !ports.length) {
+      setPorts(initialPorts);
     }
-  }, [productPageData]);
+  }, [product]);
 
   useEffect(() => {
-    if (productPageData.ports && !arePortsUpdated && googleScriptIsLoaded) {
-      const setPortsLatLng = productPageData.ports.map(async (port) => {
-        const geocodes = await geocodeByAddress(port.name);
-        const { lat, lng } = await getLatLng(geocodes[0]);
-        return { ...port, lat, lng };
-      });
-      Promise.all(setPortsLatLng).then((newPorts) => {
-        setArePortsUpdated(true);
-        handlePortsLoad(newPorts);
-      });
+    if (product && arePortsUpdated) {
+      setProductIsLoading(false);
     }
-  }, [productPageData, arePortsUpdated, googleScriptIsLoaded]);
-
-  useEffect(() => {
-    if (arePortsUpdated) {
-      setProductIsLoaded(true);
-    }
-  }, [arePortsUpdated]);
+  }, [product, ports]);
 
   return (
-    <section
-      className={classnames(classes.root__productPage, classes.productPage)}
-    >
-      {!productIsLoaded || !googleScriptIsLoaded ? (
+    <section className={cn(styles.root__productPage, styles.productPage)}>
+      {productIsLoading ? (
         <LoadingSpinner />
-      ) : !productPageData.product ? (
+      ) : !product ? (
         <h2 className={'text-center'}>There is no product!</h2>
       ) : (
         <>
-          <Breadcrumbs list={getBreadcrumbs(productPageData.product)} />
+          <Breadcrumbs list={getBreadcrumbs(product)} />
           <ProductDetails
-            product={productPageData.product}
+            product={product}
             fieldsToFilter={INFO_FIELDS_TO_FILTER}
           />
-          <ProductTabviewTop {...productPageData} />
+          <ProductTabviewTop product={product} ports={ports} />
         </>
       )}
     </section>

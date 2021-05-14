@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { getAnalogsByProductId } from "../../api/api";
-import LoadingSpinner from "../ui/loading";
-import classes from "./latest-offers/latest-offers.module.css";
-import classnames from "classnames";
+import { useState, useEffect } from 'react';
+import { getAnalogsByProductIdApi } from 'api/api';
+import LoadingSpinner from 'components/ui/loading';
+import styles from './latest-offers/latest-offers.module.css';
+import cn from 'classnames';
 
 function ProductAnalogs(props) {
   const { product } = props;
@@ -20,7 +20,7 @@ function ProductAnalogs(props) {
 
   useEffect(() => {
     setIsLoading(true);
-    getAnalogsByProductId(product.id).then((data) => {
+    getAnalogsByProductIdApi(product.id).then((data) => {
       setIsLoading(false);
       setAnalogs(data);
     });
@@ -31,60 +31,60 @@ function ProductAnalogs(props) {
   }
 
   if (!analogs || !analogs.length) {
-    return <h2 className={classes.analogs__noAnalogs}>There is no analogs</h2>;
+    return <h2 className={styles.analogs__noAnalogs}>There is no analogs</h2>;
   }
 
   return (
     <div style={{ marginTop: 80 }}>
-      <table className={classes.currentOffers__table}>
-        <thead className={classes.currentOffers__tableHead}>
-          <tr className={classes.analogs__tableHeaderRow}>
-            <th className={classes.analogs__headerCell}>Grade</th>
-            <th className={classes.analogs__headerCell}>Producer</th>
-            <th className={classes.analogs__headerCell}>MFR (190 С0, 5 Kg)</th>
-            <th className={classes.analogs__headerCell}>Density</th>
-            <th className={classes.analogs__headerCell}>VST</th>
+      <table className={styles.currentOffers__table}>
+        <thead className={styles.currentOffers__tableHead}>
+          <tr className={styles.analogs__tableHeaderRow}>
+            <th className={styles.analogs__headerCell}>Grade</th>
+            <th className={styles.analogs__headerCell}>Producer</th>
+            <th className={styles.analogs__headerCell}>MFR (190 С0, 5 Kg)</th>
+            <th className={styles.analogs__headerCell}>Density</th>
+            <th className={styles.analogs__headerCell}>VST</th>
           </tr>
         </thead>
-        <tbody className={classes.currentOffers__tableBody}>
+        <tbody className={styles.currentOffers__tableBody}>
           {getAnalogsToRender(analogs, isRolledUp).map((offer, i) => (
-            <tr className={classes.currentOffers__tableRow} key={`row-${i}`}>
+            <tr className={styles.currentOffers__tableRow} key={`row-${i}`}>
               <td
-                className={classnames(
-                  classes.currentOffers__tableCell,
-                  classes.analogs__cell
+                className={cn(
+                  styles.currentOffers__tableCell,
+                  styles.analogs__cell
                 )}
               >
                 {offer.grade}
               </td>
               <td
-                className={classnames(
-                  classes.currentOffers__tableCell,
-                  classes.analogs__cell
+                className={cn(
+                  styles.currentOffers__tableCell,
+                  styles.analogs__cell
                 )}
               >
                 {offer.producer}
               </td>
               <td
-                className={classnames(
-                  classes.currentOffers__tableCell,
-                  classes.analogs__cell
+                className={cn(
+                  styles.currentOffers__tableCell,
+                  styles.analogs__cell
                 )}
               >
                 {offer.mfr}
               </td>
               <td
-                className={classnames(
-                  classes.currentOffers__tableCell,
-                  classes.analogs__cell
+                className={cn(
+                  styles.currentOffers__tableCell,
+                  styles.analogs__cell
                 )}
               >
                 {offer.density}
               </td>
               <td
-                className={classnames(
-                  classes.currentOffers__tableCell,
-                  classes.analogs__cell
+                className={cn(
+                  styles.currentOffers__tableCell,
+                  styles.analogs__cell
                 )}
               >
                 {offer.vst}
@@ -93,9 +93,9 @@ function ProductAnalogs(props) {
           ))}
         </tbody>
       </table>
-      <div className={classes.showMoreButtonContainer}>
+      <div className={styles.showMoreButtonContainer}>
         <button
-          className={classes.showMoreButton}
+          className={styles.showMoreButton}
           onClick={() => setIsRolledUp((prevState) => !prevState)}
         >
           {isRolledUp ? `Show more...` : `Show less`}

@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import FormInput from './form-input/form-input';
-import classes from './samples-form.module.css';
+import styles from './samples-form.module.css';
 
 const schema = yup.object().shape({
   companyName: yup.string().required(),
@@ -13,24 +13,19 @@ const schema = yup.object().shape({
   usedFor: yup.string().required(),
   equipmentManufacturer: yup.string(),
   eMail: yup.string().email(),
-  communicationMethod: yup.string(),
+  communicationMethod: yup.string()
 });
 
-const onSubmit = (data) => {}
+const onSubmit = (data) => {};
 
 function SamplesForm() {
   const { register, handleSubmit, errors } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   });
 
   return (
-    <form
-      className={classes.samplesForm}
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <span className={classes.samplesForm__header}>
-        Order sample
-      </span>
+    <form className={styles.samplesForm} onSubmit={handleSubmit(onSubmit)}>
+      <span className={styles.samplesForm__header}>Order sample</span>
       <FormInput
         name="companyName"
         placeholder="Company name*"
@@ -82,9 +77,7 @@ function SamplesForm() {
         error={errors.communicationMethod}
         description="Preferred method of communication"
       />
-      <button className={classes.samplesForm__button}>
-        Ask for Sample
-      </button>
+      <button className={styles.samplesForm__button}>Ask for Sample</button>
     </form>
   );
 }

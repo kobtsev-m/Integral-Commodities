@@ -1,5 +1,5 @@
-import classnames from 'classnames';
-import classes from './form-input.module.css';
+import cn from 'classnames';
+import styles from './form-input.module.css';
 
 function FormInput({
   name,
@@ -7,19 +7,31 @@ function FormInput({
   placeholder,
   error,
   description,
-  subDescription,
+  subDescription
 }) {
   return (
-    <div className={classes.formInput}>
-      {description && <span className={classes.formInput__description}>{description}</span>}
-      {subDescription && <span className={classes.formInput__subDescription}>{subDescription}</span>}
+    <div className={styles.formInput}>
+      {description && (
+        <span className={styles.formInput__description}>{description}</span>
+      )}
+      {subDescription && (
+        <span className={styles.formInput__subDescription}>
+          {subDescription}
+        </span>
+      )}
       <input
-        className={classnames(classes.formInput__input, { [classes.formInput__input_hasError] : !!error })}
+        className={cn(styles.formInput__input, {
+          [styles.formInput__input_hasError]: !!error
+        })}
         name={name}
         ref={refValue}
         placeholder={placeholder}
       />
-      {error && <span className={classes.formInput__error}>Field doesn't fill or fill incorrect </span>}
+      {error && (
+        <span className={styles.formInput__error}>
+          Field doesn't fill or fill incorrect{' '}
+        </span>
+      )}
     </div>
   );
 }

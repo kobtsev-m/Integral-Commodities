@@ -1,18 +1,16 @@
-import classes from './document-info.module.css';
+import styles from './document-info.module.css';
 
 function DocumentInfo({ document }) {
   return (
     <a
-      className={classes.documentInfo}
+      className={styles.documentInfo}
       href={`/documents/${document.value}`}
       target="_blank"
       download
     >
-      <span className={classes.documentInfo__text}>
-        {document.key}
-      </span>
+      <span className={styles.documentInfo__text}>{document.key}</span>
       <img
-        className={classes.documentInfo__icon}
+        className={styles.documentInfo__icon}
         src="/images/document.svg"
         alt="document icon"
       />

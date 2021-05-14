@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-import ProductsList from '../../components/product/product-list/product-list';
-import ProductListTabs from '../../components/product/product-list-tabs/product-list-tabs';
-import LatestOffers from '../../components/product/latest-offers/latest-offers';
-import LoadingSpinner from '../../components/ui/loading';
-import ProductListControls from '../../components/product/product-list-controls/product-list-controls';
-import AskForQuote from '../../components/other-blocks/ask-for-quote/ask-for-quote';
+import ProductsList from 'components/product/product-list/product-list';
+import ProductListTabs from 'components/product/product-list-tabs/product-list-tabs';
+import LatestOffers from 'components/product/latest-offers/latest-offers';
+import LoadingSpinner from 'components/ui/loading';
+import ProductListControls from 'components/product/product-list-controls/product-list-controls';
+import AskForQuote from 'components/other-blocks/ask-for-quote/ask-for-quote';
 
-import { getAllOffers, getAllProducts } from '../../api/api';
-import { Filter, TABS } from '../../utils/const';
+import { getProductsApi, getOffersApi } from 'api/api';
+import { Filter, TABS } from 'utils/const';
 
 function prepareFilterOptions(filter) {
   return filter.options.reduce((acc, option) => {
@@ -36,11 +36,10 @@ function HomePage() {
   const router = useRouter();
   const category = router.query.categoryName;
 
+  const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [offers, setOffers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
   const [filtersState, setFiltersState] = useState({});
 
   useEffect(() => {
@@ -48,11 +47,14 @@ function HomePage() {
   }, [category]);
 
   useEffect(() => {
+    if (products.length) {
+      return;
+    }
     setIsLoading(true);
-    Promise.all([getAllProducts(setProducts), getAllOffers(setOffers)])
+    Promise.all([getProductsApi(setProducts), getOffersApi(setOffers)])
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
-  }, [setProducts]);
+  }, [products]);
 
   useEffect(() => {
     if (products.length) {
@@ -131,7 +133,6 @@ function HomePage() {
         );
       });
     }
-
     return filteredProducts;
   }
 
