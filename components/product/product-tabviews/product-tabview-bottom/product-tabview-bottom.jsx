@@ -1,9 +1,10 @@
+import { useState } from 'react';
+
 import ProductBottomTabs from './components/product-tabs';
 import TabDocuments from './components/tabs/tab-documents/tab-documents';
 import TabApplication from './components/tabs/tab-application/tab-application';
 import TabSamples from './components/tabs/tab-samples/tab-samples';
 import TabFaq from './components/tabs/tab-faq';
-import { useState } from 'react';
 
 const TABS = ['Documents', 'Application', 'Samples', 'FAQ'];
 const CATEGORY_TABS = {

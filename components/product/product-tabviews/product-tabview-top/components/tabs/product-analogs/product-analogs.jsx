@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getAnalogsByProductIdApi } from 'api/api';
 import LoadingSpinner from 'components/ui/loading';
-import styles from './latest-offers/latest-offers.module.css';
-import cn from 'classnames';
 
-function ProductAnalogs(props) {
-  const { product } = props;
+import cn from 'classnames';
+import styles from 'components/product/latest-offers/latest-offers.module.css';
+
+function ProductAnalogs({ product }) {
   const [isLoading, setIsLoading] = useState(false);
   const [analogs, setAnalogs] = useState();
   const [isRolledUp, setIsRolledUp] = useState(true);
@@ -14,7 +14,6 @@ function ProductAnalogs(props) {
     if (isRolledUp) {
       return analogs.slice(0, 5);
     }
-
     return analogs;
   };
 
@@ -98,7 +97,7 @@ function ProductAnalogs(props) {
           className={styles.showMoreButton}
           onClick={() => setIsRolledUp((prevState) => !prevState)}
         >
-          {isRolledUp ? `Show more...` : `Show less`}
+          {isRolledUp ? 'Show more...' : 'Show less'}
         </button>
       </div>
     </div>

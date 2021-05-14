@@ -1,5 +1,6 @@
 /* Price calculator */
 .container {
+    font-family: var(--font-montserrat);
     margin-top: 3em;
     color: #2e2c2f;
 }

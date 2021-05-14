@@ -4,6 +4,9 @@ import { Marker, InfoWindow } from '@react-google-maps/api';
 import { getLatLng } from 'react-places-autocomplete';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { nanoid } from 'nanoid';
+
+import { capitalize } from 'utils/string-utils';
 import { mapContainerStyle, mapMarkerStyle } from './settings/base-settings';
 import { mapCenter, mapZoom, mapOptions } from './settings/base-settings';
 import { mapGlobalStyles } from './settings/styles';
@@ -13,10 +16,13 @@ import { Global } from '@emotion/react';
 import cn from 'classnames';
 import styles from './price-map.module.css';
 
-function PriceMap(props) {
+const MAP_FILTERS = ['prices', 'availability'];
+
+function PriceMap({ ports, onAskForQuote }) {
   const [map, setMap] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [activePlace, setActivePlace] = useState(null);
+  const [activeFilter, setActiveFilter] = useState(MAP_FILTERS[0]);
 
   const handleLoad = useCallback((currentMap) => {
     setMap(currentMap);
@@ -30,8 +36,8 @@ function PriceMap(props) {
     const { lat, lng } = await getLatLng(geocode);
     map.panTo({ lat, lng });
     map.setZoom(mapZoom + 3);
-    setSelectedPlace({ name: geocode.formatted_address, lat, lng });
-    setActivePlace({ name: geocode.formatted_address, lat, lng });
+    setSelectedPlace({ place: geocode.formatted_address, lat, lng });
+    setActivePlace({ place: geocode.formatted_address, lat, lng });
   };
 
   const handlePlaceClear = () => {
@@ -41,8 +47,13 @@ function PriceMap(props) {
     setActivePlace(null);
   };
 
+  const handleFilterClick = (filter) => {
+    setActiveFilter(filter);
+    setActivePlace(null);
+  };
+
   const handleAskForQuoteClick = () => {
-    props.onAskForQuote({ place_of_delivery: activePlace.name });
+    onAskForQuote({ place_of_delivery: activePlace.place });
   };
 
   return (
@@ -50,8 +61,10 @@ function PriceMap(props) {
       <Global styles={mapGlobalStyles} />
       <div className={styles.container}>
         <PriceMapHeader
-          handlePlaceSelect={handlePlaceSelect}
-          handlePlaceClear={handlePlaceClear}
+          activeFilter={activeFilter}
+          onFilterClick={handleFilterClick}
+          onPlaceSelect={handlePlaceSelect}
+          onPlaceClear={handlePlaceClear}
         />
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
@@ -61,20 +74,44 @@ function PriceMap(props) {
           onLoad={handleLoad}
           onUnmount={handleUnmount}
         >
-          {props.ports.length &&
-            props.ports.map((port, i) => (
-              <Marker
-                key={i}
-                position={{ lat: port.lat, lng: port.lng }}
-                icon={{ url: '/' }}
-                label={{
+          {ports?.map((port) => {
+            let markerFields;
+            if (activeFilter === 'availability') {
+              markerFields = {
+                icon: {
+                  url: `/images/ui/${
+                    port.available === 'true'
+                      ? 'check-circle-regular.svg'
+                      : 'times-circle-regular.svg'
+                  }`,
+                  scaledSize: new google.maps.Size(32, 32),
+                  anchor: new google.maps.Point(12, 26)
+                },
+                style: {
+                  fill: port.available === 'true' ? 'green' : 'red'
+                }
+              };
+            } else {
+              markerFields = {
+                icon: {
+                  url: '/'
+                },
+                label: {
                   text: `$${port.price}`,
                   color: port === activePlace ? '#F66E08' : '#02569C',
                   ...mapMarkerStyle
-                }}
+                }
+              };
+            }
+            return (
+              <Marker
+                key={nanoid()}
+                position={{ lat: port.lat, lng: port.lng }}
                 onClick={() => setActivePlace(port)}
+                {...markerFields}
               />
-            ))}
+            );
+          })}
           {selectedPlace && (
             <Marker
               position={{ lat: selectedPlace.lat, lng: selectedPlace.lng }}
@@ -96,9 +133,13 @@ function PriceMap(props) {
                     className={styles.infoWindow__icon}
                     icon={faMapMarkerAlt}
                   />
-                  <span className={'ms-1'}>{activePlace.name}</span>
+                  <span className={'ms-1'}>{activePlace.place}</span>
                 </p>
-                {activePlace.incoterms && (
+                {activeFilter === 'availability' ? (
+                  <p className={cn(styles.infoWindow__text, 'mb-1')}>
+                    Available: {activePlace.available}
+                  </p>
+                ) : (
                   <p className={cn(styles.infoWindow__text, 'mb-1')}>
                     Incoterms: {activePlace.incoterms}
                   </p>
@@ -126,21 +167,23 @@ function PriceMapHeader(props) {
           <PlacesSearch
             placeholder={'Search on the map'}
             isRounded={true}
-            onSelect={props.handlePlaceSelect}
-            onClear={props.handlePlaceClear}
+            onSelect={props.onPlaceSelect}
+            onClear={props.onPlaceClear}
           />
         </div>
         <div className={'col-6 d-flex'}>
-          <button
-            className={cn(styles.mapHeader__button, styles.blue, 'btn me-3')}
-          >
-            Prices
-          </button>
-          <button
-            className={cn(styles.mapHeader__button, styles.white, 'btn')}
-          >
-            Availability
-          </button>
+          {MAP_FILTERS.map((filter) => (
+            <button
+              key={nanoid()}
+              className={cn('btn me-3', styles.mapHeader__button, {
+                [styles.blue]: props.activeFilter === filter,
+                [styles.white]: props.activeFilter !== filter
+              })}
+              onClick={() => props.onFilterClick(filter)}
+            >
+              {capitalize(filter)}
+            </button>
+          ))}
         </div>
       </div>
     </div>

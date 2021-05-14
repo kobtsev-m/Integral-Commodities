@@ -1,16 +1,16 @@
-import styles from './thanks-header.module.scss';
+import styles from './success-offer-header.module.css';
 
-function ThanksHeader() {
+function SuccessOfferHeader() {
   return (
     <div className={styles.thanksHeader}>
       <img
         className={styles.thanksHeader__checkImg}
-        src="/images/thanks-check.svg"
-        alt=""
+        src={'/images/thanks-check.svg'}
+        alt={''}
       />
       <h1 className={styles.thanksHeader__text}>Thank you</h1>
     </div>
   );
 }
 
-export default ThanksHeader;
+export default SuccessOfferHeader;

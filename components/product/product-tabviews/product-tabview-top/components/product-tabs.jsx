@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+
 import cn from 'classnames';
 import styles from './product-tabs.module.css';
 
@@ -21,7 +23,7 @@ function ProductTabs(props) {
       <ul className={styles.productTabs__list}>
         {Object.entries(tabs).map(([tabLabel, tabName]) => (
           <li
-            key={`tab-${tabName}`}
+            key={nanoid()}
             className={cn(styles.productTabs__item, {
               [styles.productTabs__item_active]: tabName === props.activeTab
             })}

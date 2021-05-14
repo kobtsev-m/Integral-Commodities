@@ -22,5 +22,6 @@ export const mapMarkerStyle = {
   fontFamily: 'Montserrat',
   fontWeight: 'bold',
   fontSize: '22px',
-  lineHeight: '27px'
+  lineHeight: '27px',
+  zIndex: -1
 };

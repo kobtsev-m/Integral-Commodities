@@ -1,5 +1,5 @@
-import styles from './product-info.module.css';
 import IconInfo from '../../icons/icon-info';
+import styles from './product-info.module.css';
 
 function ProductInfo(props) {
   const { features } = props;

@@ -1,6 +1,6 @@
-import styles from './thanks-info.module.scss';
+import styles from './success-offer-info.module.css';
 
-function ThanksInfo() {
+function SuccessOfferInfo() {
   return (
     <div className={styles.thanksInfo}>
       <p className={styles.thanksInfo__text}>
@@ -20,4 +20,4 @@ function ThanksInfo() {
   );
 }
 
-export default ThanksInfo;
+export default SuccessOfferInfo;

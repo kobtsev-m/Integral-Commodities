@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
-import cn from 'classnames';
 
+import cn from 'classnames';
 import styles from './checkboxes-filter.module.css';
 
 function CheckboxesFilter(props) {

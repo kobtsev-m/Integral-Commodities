@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import FieldWrapper from './common/field-wrapper';
 import AdditionalInfoField from './fields/additional-info-field';
@@ -12,11 +13,14 @@ import cn from 'classnames';
 import styles from './price-calculator.module.css';
 import stylesUI from 'components/ui/custom-ui.module.css';
 
+import { postInquiriesApi } from 'api/api';
 import { formatWeekYMD } from 'utils/date-utils';
 import { formSchema } from './validation/validation';
 import { incotermsValues, paymentTermsValues } from './options/options';
 
 function PriceCalculator({ initialFormData }) {
+  const router = useRouter();
+
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState({});
   const [touchedFields, setTouchedFields] = useState([]);
@@ -63,7 +67,9 @@ function PriceCalculator({ initialFormData }) {
       .validate(formData, { abortEarly: false })
       .then(() => {
         const formattedData = formatFormData();
-        console.log(formattedData);
+        postInquiriesApi(formattedData).then(() =>
+          router.push('/success-offer')
+        );
       })
       .catch((errors) => {
         const newFormErrors = errors.inner.reduce((acc, e) => {

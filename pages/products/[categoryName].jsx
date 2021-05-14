@@ -18,15 +18,17 @@ function prepareFilterOptions(filter) {
   }, {});
 }
 
-function getFiltersInitialState(category) {
+function getFiltersInitialState(category, optionalFields = {}) {
   if (category && Filter[category.toUpperCase()]) {
     return Filter[category.toUpperCase()].reduce((acc, filter) => {
-      const filterOptions = prepareFilterOptions(filter);
-      acc = {
+      const filterOptionsBase = prepareFilterOptions(filter);
+      const filterOptions = Object.keys(optionalFields).includes(filter.name)
+        ? { ...filterOptionsBase, [optionalFields[filter.name]]: true }
+        : filterOptionsBase;
+      return {
         ...acc,
         [filter.name]: filterOptions
       };
-      return acc;
     }, {});
   }
   return {};
@@ -34,7 +36,7 @@ function getFiltersInitialState(category) {
 
 function HomePage() {
   const router = useRouter();
-  const category = router.query.categoryName;
+  const { categoryName: category, type } = router.query;
 
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
@@ -43,18 +45,17 @@ function HomePage() {
   const [filtersState, setFiltersState] = useState({});
 
   useEffect(() => {
-    setFiltersState(getFiltersInitialState(category));
-  }, [category]);
-
-  useEffect(() => {
-    if (products.length) {
-      return;
-    }
     setIsLoading(true);
     Promise.all([getProductsApi(setProducts), getOffersApi(setOffers)])
-      .catch((err) => console.log(err))
+      .catch((e) => console.log(e))
       .finally(() => setIsLoading(false));
-  }, [products]);
+  }, []);
+
+  useEffect(() => {
+    setFiltersState(
+      getFiltersInitialState(category, type ? { Type: type } : {})
+    );
+  }, [category, type]);
 
   useEffect(() => {
     if (products.length) {
@@ -62,7 +63,7 @@ function HomePage() {
       filteredProducts = filterProducts(filtersState, filteredProducts);
       setFilteredProducts(filteredProducts);
     }
-  }, [products, category, filtersState]);
+  }, [category, products, filtersState]);
 
   function handleSearchSubmit(products) {
     setFiltersState(getFiltersInitialState(category));

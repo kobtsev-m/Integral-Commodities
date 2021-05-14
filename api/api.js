@@ -15,6 +15,17 @@ async function getRequest(requestUrl, callback) {
   return data;
 }
 
+async function postRequest(requestUrl, data) {
+  const response = await fetch(`${BACKEND_URL}${requestUrl}`, {
+    method: 'POST',
+    body: JSON.stringify(data)
+  });
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return await response.json();
+}
+
 export async function getProductsApi(cb) {
   return await getRequest('/products', cb);
 }
@@ -29,4 +40,10 @@ export async function getOffersApi(cb) {
 }
 export async function getProductsBySearchStringApi(searchString) {
   return await getRequest(`/search?search=${searchString}`);
+}
+export async function getPlacesApi(cb) {
+  return await getRequest('/places', cb);
+}
+export async function postInquiriesApi(data) {
+  return await postRequest('/inquiries', data);
 }

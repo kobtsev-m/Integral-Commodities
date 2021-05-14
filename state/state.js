@@ -12,7 +12,7 @@ function GlobalState(props) {
       return;
     }
     const setPortsLatLng = ports.map(async (port) => {
-      const geocodes = await geocodeByAddress(port.name);
+      const geocodes = await geocodeByAddress(port.place);
       const { lat, lng } = await getLatLng(geocodes[0]);
       return { ...port, lat, lng };
     });

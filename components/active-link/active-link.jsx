@@ -1,8 +1,13 @@
+import Link from 'next/link';
 import React, { Children } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
-function ActiveLink({ children, additionalClassName, activeClassName, ...props }) {
+function ActiveLink({
+  children,
+  additionalClassName,
+  activeClassName,
+  ...props
+}) {
   const { asPath } = useRouter();
   const child = Children.only(children);
   const childClassName = additionalClassName || '';
@@ -15,7 +20,7 @@ function ActiveLink({ children, additionalClassName, activeClassName, ...props }
   return (
     <Link {...props}>
       {React.cloneElement(child, {
-        className: className || null,
+        className: className || null
       })}
     </Link>
   );

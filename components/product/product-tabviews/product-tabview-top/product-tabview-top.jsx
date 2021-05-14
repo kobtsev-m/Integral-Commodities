@@ -4,8 +4,8 @@ import { useState, useEffect, memo } from 'react';
 import ProductTabs from './components/product-tabs';
 import PriceMap from './components/tabs/price-map/price-map';
 import PriceCalculator from './components/tabs/price-calculator/price-calculator';
-import ProductTab from './components/tabs/product-tab';
-import ProductAnalogs from '../../product-analogs';
+import ProductTab from './components/tabs/product-tab/product-tab';
+import ProductAnalogs from './components/tabs/product-analogs/product-analogs';
 
 import { initialOfferFormData } from './data/values';
 

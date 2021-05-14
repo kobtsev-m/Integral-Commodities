@@ -1,18 +1,16 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect, useContext, memo } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
-import { getProductByIdApi } from 'api/api';
+import { getProductByIdApi, getPlacesApi } from 'api/api';
+import { PlacesContext } from 'state/state';
 import { capitalize } from 'utils/string-utils';
 import ProductDetails from 'components/product/product-details/product-details';
 import LoadingSpinner from 'components/ui/loading';
 import Breadcrumbs from 'components/ui/breadcrumbs';
 import ProductTabviewTop from 'components/product/product-tabviews/product-tabview-top/product-tabview-top';
-import { initialPorts } from 'components/product/product-tabviews/product-tabview-top/data/values';
 
 import styles from 'components/product/product-details/product-details.module.css';
 import cn from 'classnames';
-
-import { PlacesContext } from 'state/state';
 
 const INFO_FIELDS_TO_FILTER = ['price', 'density'];
 
@@ -27,7 +25,7 @@ const getBreadcrumbs = (product) => {
   ).value;
   const polymerBreadcrumb = {
     title: polymerType,
-    link: `/products/${product?.category}?type=${polymerType.toLowerCase()}`
+    link: `/products/${product?.category}?type=${polymerType?.toUpperCase()}`
   };
   const gradeBreadcrumb = { title: product?.grade };
   return [
@@ -48,15 +46,15 @@ function ProductPage() {
 
   useEffect(() => {
     if (!!productId) {
-      getProductByIdApi(productId)
-        .then((data) => setProduct(data))
-        .catch(() => setProductIsLoading(false));
+      getProductByIdApi(productId, setProduct).catch(() =>
+        setProductIsLoading(false)
+      );
     }
   }, [productId]);
 
   useEffect(() => {
-    if (product && !ports.length) {
-      setPorts(initialPorts);
+    if (product && !arePortsUpdated) {
+      getPlacesApi(setPorts).catch((e) => console.log(e));
     }
   }, [product]);
 
@@ -86,4 +84,4 @@ function ProductPage() {
   );
 }
 
-export default memo(ProductPage);
+export default ProductPage;

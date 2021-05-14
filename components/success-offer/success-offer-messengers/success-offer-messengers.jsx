@@ -1,6 +1,6 @@
-import styles from './thanks-messengers.module.scss';
+import styles from './success-offer-messengers.module.css';
 
-function ThanksMessengers() {
+function SuccessOfferMessengers() {
   return (
     <div className={styles.thanksMessengers}>
       <p className={styles.thanksMessengers__text}>
@@ -58,4 +58,4 @@ function ThanksMessengers() {
   );
 }
 
-export default ThanksMessengers;
+export default SuccessOfferMessengers;
