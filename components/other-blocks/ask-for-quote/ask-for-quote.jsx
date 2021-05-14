@@ -1,46 +1,20 @@
-import { useEffect, useRef } from 'react';
+import { useState } from 'react';
+import { Modal } from 'react-bootstrap';
 
-import AskForQuotePopup from './components/popup';
 import styles from './ask-for-quote.module.css';
-import popupClasses from './components/popup.module.css';
 
-const SCRIPT_NAME =
-  '(function(s, t, e, p, f, o, r, m) {\n' +
-  '        s[t] = s[t] || {};\n' +
-  '        s[t][537651699] = {\n' +
-  '            id: "zh7NMD3",\n' +
-  '            rnd: 537651699\n' +
-  '        };\n' +
-  '        e.async = true;\n' +
-  '        e.src = p + f;\n' +
-  '        document[m](o)[r](e)\n' +
-  '    }(window,"stepFORM_params",document.createElement("script"),document.location.protocol==="https:"?"https:":"http:","//u008796.stepform.io/api.js?id=zh7NMD3","head","appendChild","querySelector"));';
+import PriceCalculator from 'components/product/product-tabviews/product-tabview-top/components/tabs/price-calculator/price-calculator';
+import { initialOfferFormData } from 'components/product/product-tabviews/product-tabview-top/data/values';
 
 function AskForQuote() {
-  const formRef = useRef();
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.textContent = SCRIPT_NAME;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  function handleButtonClick() {
-    document.documentElement.style.overflowY = 'hidden';
-    formRef.current.classList.toggle(popupClasses.popup_opened);
-  }
-
+  const [modalShow, setModalShow] = useState(false);
   return (
     <>
       <div className={styles.ask}>
         <img
           className={styles.ask__image}
-          src="../../images/icon-attention.svg"
-          alt="attention"
+          src={'/images/icon-attention.svg'}
+          alt={'Attention'}
         />
         <p className={styles.ask__text}>
           We deliver worldwide door-to-door and offer volume based, contract
@@ -48,14 +22,30 @@ function AskForQuote() {
           a custom quote within 24 hours.
         </p>
         <button
-          type="button"
+          type={'button'}
           className={styles.ask__link}
-          onClick={handleButtonClick}
+          onClick={() => setModalShow(true)}
         >
           Ask for quote
         </button>
       </div>
-      <AskForQuotePopup popupRef={formRef} />
+      <Modal show={modalShow} size={'lg'} scrollable={true} centered={true}>
+        <Modal.Header>
+          <Modal.Title>Ask for quote</Modal.Title>
+          <button
+            className={'btn-close shadow-none me-1'}
+            onClick={() => setModalShow(false)}
+          ></button>
+        </Modal.Header>
+        <Modal.Body>
+          <div className={'container-fluid py-2'}>
+            <PriceCalculator
+              initialFormData={initialOfferFormData}
+              isEmbed={true}
+            />
+          </div>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }

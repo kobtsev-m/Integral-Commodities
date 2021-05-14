@@ -173,6 +173,9 @@ export const mapStyles = [
 ];
 
 export const mapGlobalStyles = {
+  '.gm-style': {
+    fontFamily: 'montserrat, arial, sans-serif'
+  },
   '.gm-style-iw.gm-style-iw-c': {
     boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.3)'
   },

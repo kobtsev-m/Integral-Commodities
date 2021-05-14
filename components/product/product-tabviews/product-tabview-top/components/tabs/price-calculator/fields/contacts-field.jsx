@@ -39,8 +39,11 @@ function ContactsField(props) {
   };
 
   const handleContanctClick = (methodName) => {
-    if (methodName === 'email') {
-      addMethodToChosen('email');
+    if (chosenMethods.includes(methodName)) {
+      removeMethodFromChosen(methodName);
+    } else if (methodName === 'email') {
+      addMethodToChosen(methodName);
+      setEditingMethod(null);
     } else {
       setEditingMethod(methodName);
     }
@@ -55,18 +58,13 @@ function ContactsField(props) {
   };
 
   const handleContactFormSubmit = (methodName) => {
-    if (!editingMethodValue && !contacts[methodName]) {
+    if (!editingMethodValue) {
       return;
     }
-    const contactValue = editingMethodValue || contacts[methodName];
-    setContacts({ ...contacts, [methodName]: contactValue });
-    if (!editingMethodValue && contacts[methodName]) {
-      removeMethodFromChosen(methodName);
-    } else {
-      addMethodToChosen(methodName);
-    }
+    setContacts({ ...contacts, [methodName]: editingMethodValue });
     setEditingMethod(null);
     setEditingMethodValue('');
+    addMethodToChosen(methodName);
   };
 
   return (
@@ -125,7 +123,6 @@ function ContactsField(props) {
                           name={method.name}
                           placeholder={method.placeholder}
                           onChange={handleContactFormChange}
-                          defaultValue={contacts[method.name]}
                         />
                       </div>
                       <div className={'col-2'}>

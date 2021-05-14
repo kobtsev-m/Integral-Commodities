@@ -18,7 +18,7 @@ import { formatWeekYMD } from 'utils/date-utils';
 import { formSchema } from './validation/validation';
 import { incotermsValues, paymentTermsValues } from './options/options';
 
-function PriceCalculator({ initialFormData }) {
+function PriceCalculator({ initialFormData, isEmbed }) {
   const router = useRouter();
 
   const [formData, setFormData] = useState(initialFormData);
@@ -100,8 +100,6 @@ function PriceCalculator({ initialFormData }) {
               type={'number'}
               placeholder={'50 e.g.'}
               onChange={handleChange}
-              onBlur={handleBlur}
-              error={formErrors['quantity']}
               defaultValue={initialFormData.quantity}
             />
           </FieldWrapper>
@@ -134,6 +132,7 @@ function PriceCalculator({ initialFormData }) {
               name={'delivery_periods'}
               onChange={handleChange}
               defaultValue={initialFormData.delivery_periods}
+              isEmbed={isEmbed}
             />
           </FieldWrapper>
         </div>

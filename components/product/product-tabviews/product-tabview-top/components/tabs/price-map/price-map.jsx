@@ -74,7 +74,7 @@ function PriceMap({ ports, onAskForQuote }) {
           onLoad={handleLoad}
           onUnmount={handleUnmount}
         >
-          {ports?.map((port) => {
+          {ports?.map((port, i) => {
             let markerFields;
             if (activeFilter === 'availability') {
               markerFields = {
@@ -105,7 +105,7 @@ function PriceMap({ ports, onAskForQuote }) {
             }
             return (
               <Marker
-                key={nanoid()}
+                key={i}
                 position={{ lat: port.lat, lng: port.lng }}
                 onClick={() => setActivePlace(port)}
                 {...markerFields}
@@ -115,7 +115,6 @@ function PriceMap({ ports, onAskForQuote }) {
           {selectedPlace && (
             <Marker
               position={{ lat: selectedPlace.lat, lng: selectedPlace.lng }}
-              zIndex={1000}
               onClick={() => setActivePlace(selectedPlace)}
             />
           )}
@@ -140,15 +139,17 @@ function PriceMap({ ports, onAskForQuote }) {
                     Available: {activePlace.available}
                   </p>
                 ) : (
-                  <p className={cn(styles.infoWindow__text, 'mb-1')}>
-                    Incoterms: {activePlace.incoterms}
-                  </p>
+                  activePlace.incoterms && (
+                    <p className={cn(styles.infoWindow__text, 'mb-1')}>
+                      Incoterms: {activePlace.incoterms}
+                    </p>
+                  )
                 )}
                 <span
                   className={styles.infoWindow__link}
                   onClick={handleAskForQuoteClick}
                 >
-                  Ask for qoute
+                  Ask for quote
                 </span>
               </div>
             </InfoWindow>

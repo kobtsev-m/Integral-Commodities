@@ -1,9 +1,9 @@
 .header__wrapper {
-  box-sizing: border-box;
-  max-width: 1160px;
-  padding: 20px 28px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    box-sizing: border-box;
+    max-width: 1160px;
+    padding: 20px 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

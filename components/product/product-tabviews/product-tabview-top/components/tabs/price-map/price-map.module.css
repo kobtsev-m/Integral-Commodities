@@ -1,7 +1,6 @@
 .container {
     position: relative;
     font-family: var(--font-montserrat);
-    margin-top: 3em;
 }
 
 .mapHeader {

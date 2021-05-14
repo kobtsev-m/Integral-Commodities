@@ -18,11 +18,11 @@
 }
 
 .productPage__featuresList {
-    margin: 0;
-    padding: 0;
-    list-style: none;
     display: flex;
     justify-content: space-between;
+    padding: 0;
+    margin-bottom: 100px;
+    list-style: none;
 }
 
 .productPage__feature {

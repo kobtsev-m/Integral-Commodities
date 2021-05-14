@@ -109,7 +109,11 @@ function PeriodField(props) {
 
   return (
     <div className={'row gx-2'}>
-      <div className={'col-12 col-lg-5'}>
+      <div
+        className={cn('col-12 col-lg-5', {
+          'col-lg-12': props.isEmbed
+        })}
+      >
         <div>
           <input
             type={'checkbox'}
@@ -134,10 +138,14 @@ function PeriodField(props) {
         </div>
       </div>
       {selectMode && (
-        <div className={'col-12 col-lg-7 mt-3 mt-lg-0'}>
+        <div
+          className={cn('col-12 col-lg-7 mt-3 mt-lg-0', {
+            'col-lg-12 mt-lg-3': props.isEmbed
+          })}
+        >
           <div className={cn(stylesUI.calendar, 'py-2 px-3')}>
-            <div className={'row g-0'}>
-              <div className={'col-1'}>
+            <div className={'d-flex align-items-center'}>
+              <div style={{ width: '1.5em' }}>
                 <button
                   type={'button'}
                   className={cn(stylesUI.calendar__chevron, 'btn btn-sm')}
@@ -146,12 +154,12 @@ function PeriodField(props) {
                   <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
               </div>
-              <div className={'col-10 d-flex justify-content-center mt-1'}>
+              <div className={'flex-fill d-flex justify-content-center px-2'}>
                 <span className={'text-center'}>
                   {`${currentMonth.name} ${currentMonth.year}`}
                 </span>
               </div>
-              <div className={'col-1'}>
+              <div style={{ width: '1.5em' }}>
                 <button
                   type={'button'}
                   className={cn(stylesUI.calendar__chevron, 'btn btn-sm')}

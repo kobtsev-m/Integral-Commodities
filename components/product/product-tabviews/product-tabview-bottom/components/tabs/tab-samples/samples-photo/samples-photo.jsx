@@ -8,9 +8,6 @@ function SamplesPhoto({ photo, description }) {
         src={(photo && `/images/${photo}`) || '/images/samples.png'}
         alt={`Photo: ${description || 'HDPE B-Y250'}`}
       />
-      <span className={styles.samplesPhoto__description}>
-        {description || 'Sample photo HDPE B-Y250'}
-      </span>
     </div>
   );
 }

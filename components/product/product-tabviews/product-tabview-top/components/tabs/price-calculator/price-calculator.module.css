@@ -1,7 +1,6 @@
 /* Price calculator */
 .container {
     font-family: var(--font-montserrat);
-    margin-top: 3em;
     color: #2e2c2f;
 }
 
@@ -24,15 +23,12 @@
     margin-right: 0.4em;
 }
 
-.contact__icon.active {
-    color: #008cff;
-}
-
 .contact__form {
     position: absolute;
     top: calc(100% + 0.2em);
     right: 0;
     width: 20em;
+    color: #2e2c2f;
     background: #fff;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
     border-radius: 3px;

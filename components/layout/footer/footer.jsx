@@ -1,9 +1,8 @@
 import Link from 'next/link';
-
 import FooterCard from './components/footer-card';
 
-import linkClasses from '../../../styles/blocks/link.module.css';
 import cn from 'classnames';
+import linkClasses from 'styles/blocks/link.module.css';
 
 export const FooterLink = {
   HDPE: {
@@ -233,7 +232,9 @@ function Footer() {
           </div>
         </section>
         <div className="footer__logo-container">
-          <a className="logo logo_place_footer" href="#" />
+          <Link href="/products/polymers">
+            <span className="logo logo_place_footer"></span>
+          </Link>
         </div>
         <div className="footer__copyright-container">
           <p className="footer__copyright">

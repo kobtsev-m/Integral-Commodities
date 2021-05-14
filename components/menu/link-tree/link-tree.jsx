@@ -11,7 +11,6 @@ function handleToggle(links, name) {
   );
 
   const targetElement = newLinks[targetElementIdx];
-  // Оба всегда будут
   const { isToggled: targetIsToggled, depth: targetDepth } = targetElement;
 
   const targetCurrentIsToggled = !targetIsToggled;
@@ -53,133 +52,32 @@ function LinkTree({ toggleMenu }) {
       isShow: true
     },
     {
-      type: 'toggle',
-      isToggled: false,
+      type: 'link',
+      link: '/products/polymers?type=HDPE',
       name: 'HDPE',
       depth: 1,
       isShow: false
     },
     {
       type: 'link',
-      subtype: 'HDPE',
-      procmethod: 'blowmoulding',
-      name: 'Blown moulding',
-      depth: 2,
-      isShow: false
-    },
-    {
-      type: 'link',
-      subtype: 'HDPE',
-      procmethod: 'film',
-      name: 'Film',
-      depth: 2,
-      isShow: false
-    },
-    {
-      type: 'link',
-      subtype: 'HDPE',
-      procmethod: 'injectionmoulding',
-      name: 'Injection moulding',
-      depth: 2,
-      isShow: false
-    },
-    {
-      type: 'link',
-      subtype: 'HDPE',
-      procmethod: 'monofilamentyarn',
-      name: 'Monofilament/Yarn',
-      depth: 2,
-      isShow: false
-    },
-    {
-      type: 'link',
-      subtype: 'HDPE',
-      procmethod: 'pipe',
-      name: 'Pipe',
-      depth: 2,
-      isShow: false
-    },
-    {
-      type: 'toggle',
-      isToggled: false,
+      link: '/products/polymers?type=PP',
       name: 'PP',
       depth: 1,
       isShow: false
     },
     {
       type: 'link',
-      subtype: 'PP',
-      procmethod: 'fiberyarn',
-      name: 'Fiber / Yarn',
-      depth: 2,
-      isShow: false
-    },
-    {
-      type: 'link',
-      subtype: 'PP',
-      procmethod: 'extrusion',
-      name: 'Extrusion',
-      depth: 2,
-      isShow: false
-    },
-    {
-      type: 'link',
-      subtype: 'PP',
-      procmethod: 'injectionmoulding',
-      name: 'Injection moulding',
-      depth: 2,
-      isShow: false
-    },
-    {
-      type: 'link',
-      subtype: 'PP',
-      procmethod: 'blowmoulding',
-      name: 'Blown moulding',
-      depth: 2,
-      isShow: false
-    },
-    {
-      type: 'toggle',
-      isToggled: false,
+      link: '/products/polymers?type=LDPE',
       name: 'LDPE',
       depth: 1,
       isShow: false
     },
     {
-      type: 'link',
-      subtype: 'LDPE',
-      procmethod: 'film',
-      name: 'Film',
-      depth: 2,
-      isShow: false
-    },
-    {
       type: 'toggle',
-      isToggled: false,
+      link: '/products/fertilizers',
       name: 'Fertilizers',
       depth: 0,
       isShow: true
-    },
-    {
-      type: 'link',
-      link: '/products/id/35?tab=offer',
-      name: 'Urea grade B',
-      depth: 1,
-      isShow: false
-    },
-    {
-      type: 'link',
-      link: '/products/id/31?tab=offer',
-      name: 'Potassium chloride',
-      depth: 1,
-      isShow: false
-    },
-    {
-      type: 'link',
-      link: '/products/id/34?tab=offer',
-      name: 'Ammophos',
-      depth: 1,
-      isShow: false
     },
     {
       type: 'link',

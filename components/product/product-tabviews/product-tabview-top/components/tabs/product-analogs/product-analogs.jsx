@@ -34,7 +34,7 @@ function ProductAnalogs({ product }) {
   }
 
   return (
-    <div style={{ marginTop: 80 }}>
+    <div>
       <table className={styles.currentOffers__table}>
         <thead className={styles.currentOffers__tableHead}>
           <tr className={styles.analogs__tableHeaderRow}>

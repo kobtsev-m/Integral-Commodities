@@ -103,7 +103,7 @@
 }
 
 .checkboxInput:focus + label::before {
-    box-shadow: 0 0 0 0.15em rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.1em rgb(2, 86, 156, 0.15);
 }
 
 .checkboxInput:focus:not(:checked) + label::before {
@@ -198,6 +198,10 @@
 
 .calendar__chevron {
     color: rgb(2, 86, 156);
+}
+
+.calendar__chevron:focus {
+    box-shadow: 0 0 0 0.25em rgb(2, 86, 156, 0.2);
 }
 
 .calendar__scrollbox {

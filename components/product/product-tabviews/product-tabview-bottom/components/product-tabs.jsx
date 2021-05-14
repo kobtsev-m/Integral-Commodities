@@ -6,7 +6,7 @@ function ProductBottomTabs(props) {
   const { tabs, isSulphur, activeTab, handleTabClick } = props;
   return (
     <ul
-      className={styles.tabsList}
+      className={cn(styles.tabsList, 'sticky-top')}
       style={isSulphur ? { justifyContent: 'left' } : {}}
     >
       {tabs.map((tab) => (

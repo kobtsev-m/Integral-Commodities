@@ -19,7 +19,7 @@ const otherTypesTabs = {
 function ProductTabs(props) {
   const tabs = props.category === 'polymers' ? polymersTabs : otherTypesTabs;
   return (
-    <div className={styles.productTabs__listWrapper}>
+    <div className={cn(styles.productTabs__listWrapper, 'sticky-top')}>
       <ul className={styles.productTabs__list}>
         {Object.entries(tabs).map(([tabLabel, tabName]) => (
           <li
