@@ -13,7 +13,7 @@ function ProductTabviewTop({ product, ports }) {
   const router = useRouter();
   const productId = +router.query.productId;
 
-  const [activeTab, setActiveTab] = useState(router.query.tab ?? 'offer');
+  const [activeTab, setActiveTab] = useState(router.query.tab ?? 'prices');
   const [offerFormData, setOfferFormData] = useState(initialOfferFormData);
 
   useEffect(() => {

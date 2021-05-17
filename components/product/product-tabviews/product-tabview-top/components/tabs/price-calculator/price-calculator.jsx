@@ -174,7 +174,7 @@ function PriceCalculator({ initialFormData, isEmbed }) {
           >
             Ask for quote
           </button>
-          <div className={'mt-2'}>
+          <div className={'mt-3'}>
             <span className={styles.submitBlock__helpText}>
               We will revert within 48 hours
             </span>

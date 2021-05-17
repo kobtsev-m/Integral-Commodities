@@ -2,7 +2,6 @@ import styles from '../../product-card.module.css';
 
 function ProductCardInfoItem(props) {
   const { field } = props;
-
   return (
     <li className={styles.product__infoItem}>
       {field.key}:{' '}

@@ -1,14 +1,18 @@
-import styles from '../product-details.module.css';
 import { nanoid } from 'nanoid';
+
+import cn from 'classnames';
+import styles from '../product-details.module.css';
 
 function ProductDetailsItem(props) {
   const { field } = props;
 
   return (
-    <li className={styles.productPage__feature} key={nanoid()}>
-      {field.key}:{' '}
-      <span className={styles.productPage__featureValue}>{field.value}</span>
-    </li>
+    <div key={nanoid()} className={cn('col-3')}>
+      <div className={styles.productPage__feature}>
+        {field.key}:{' '}
+        <span className={styles.productPage__featureValue}>{field.value}</span>
+      </div>
+    </div>
   );
 }
 

@@ -4,17 +4,21 @@ import cn from 'classnames';
 import styles from './checkboxes-filter.module.css';
 
 function CheckboxesFilter(props) {
-  const {
-    filterName,
-    filterOptions,
-    onChange,
-    isDroppedDown,
-    onDropDownClick
-  } = props;
+  const { filterName, filter, onChange, isDroppedDown, onDropDownClick } =
+    props;
 
   function handleDropdownClick() {
     onDropDownClick(filterName);
   }
+
+  const handleChange = (filterName, optionName, isChecked) => {
+    onChange({
+      [filterName]: {
+        ...filter,
+        options: { ...filter.options, [optionName]: !isChecked }
+      }
+    });
+  };
 
   return (
     <fieldset className={styles.checkboxFilter} key={nanoid()}>
@@ -23,33 +27,32 @@ function CheckboxesFilter(props) {
         type={'button'}
         onClick={handleDropdownClick}
       >
-        {filterName}
+        {filter.key}
       </button>
       <ul
         className={cn(styles.checkboxFilter__optionsList, {
           [styles.checkboxFilter__optionsList_opened]: isDroppedDown
         })}
       >
-        {Object.entries(filterOptions).map(([name, isChecked]) => {
-          const id = `${filterName}-option-${name}`;
+        {Object.entries(filter.options).map(([optionName, isChecked]) => {
           return (
             <li className={styles.checkboxFilter__optionsItem} key={nanoid()}>
               <label
                 className={styles.checkboxFilter__optionLabel}
-                htmlFor={id}
+                htmlFor={`${filterName}-option-${optionName}`}
               >
                 <input
                   className={styles.checkboxFilter__optionInput}
                   type={'checkbox'}
-                  value={name}
+                  value={optionName}
                   name={filterName}
                   checked={isChecked}
-                  id={id}
+                  id={`${filterName}-option-${optionName}`}
                   onChange={() =>
-                    onChange({ [filterName]: { [name]: !isChecked } })
+                    handleChange(filterName, optionName, isChecked)
                   }
                 />
-                {name}
+                {optionName}
               </label>
             </li>
           );

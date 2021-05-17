@@ -21,47 +21,49 @@ function useOutsideAlerter(ref, cb) {
 
 function ProductListControls(props) {
   const { filtersState, onFiltersChange, onSearchSubmit } = props;
+
   const [droppedDown, setIsDroppedDown] = useState({});
+
   const formRef = useRef(null);
   const searchRef = useRef(null);
 
-  useOutsideAlerter(formRef, handleOutsideClick);
-
   useEffect(() => {
     setIsDroppedDown(getInitialDropDownState());
-  }, [setIsDroppedDown]);
+  }, []);
 
-  function getInitialDropDownState() {
-    return Object.keys(filtersState).reduce((acc, key) => {
-      acc = { ...acc, [key]: false };
-      return acc;
-    }, {});
-  }
+  const getInitialDropDownState = () => {
+    return Object.keys(filtersState).reduce(
+      (acc, key) => ({ ...acc, [key]: false }),
+      {}
+    );
+  };
 
-  function handleChange(res) {
+  const handleChange = (res) => {
     onFiltersChange(res);
-  }
+  };
 
-  function handleDropDownClick(filterName) {
+  const handleDropDownClick = (filterName) => {
     setIsDroppedDown((prevState) => ({
       ...getInitialDropDownState,
       [filterName]: !prevState[filterName]
     }));
-  }
+  };
 
-  function handleOutsideClick() {
+  const handleOutsideClick = () => {
     setIsDroppedDown(getInitialDropDownState());
-  }
+  };
+
+  useOutsideAlerter(formRef, handleOutsideClick);
 
   return (
     <div className={'products__controls'}>
       <form className={styles.filterForm} ref={formRef}>
-        {Object.entries(filtersState).map(([filterName, filterOptions]) => {
+        {Object.entries(filtersState).map(([filterName, filter]) => {
           return (
             <CheckboxesFilter
               key={`filter-${filterName}`}
               filterName={filterName}
-              filterOptions={filterOptions}
+              filter={filter}
               onChange={handleChange}
               isDroppedDown={droppedDown[filterName]}
               onDropDownClick={handleDropDownClick}
@@ -72,8 +74,8 @@ function ProductListControls(props) {
       <form
         className={'products__search-form'}
         name={'search'}
-        onSubmit={async (evt) => {
-          evt.preventDefault();
+        onSubmit={async (event) => {
+          event.preventDefault();
           const searchResult = await getProductsBySearchStringApi(
             searchRef.current.value
           );

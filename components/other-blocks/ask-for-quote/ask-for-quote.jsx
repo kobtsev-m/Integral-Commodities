@@ -29,7 +29,13 @@ function AskForQuote() {
           Ask for quote
         </button>
       </div>
-      <Modal show={modalShow} size={'lg'} scrollable={true} centered={true}>
+      <Modal
+        size={'lg'}
+        scrollable={true}
+        centered={true}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      >
         <Modal.Header>
           <Modal.Title>Ask for quote</Modal.Title>
           <button

@@ -8,3 +8,8 @@
     transform: translateX(5px);
     opacity: 0.8;
 }
+
+.link a:hover,
+a.link:hover {
+    color: #fff;
+}

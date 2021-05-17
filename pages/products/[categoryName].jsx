@@ -9,11 +9,13 @@ import ProductListControls from 'components/product/product-list-controls/produc
 import AskForQuote from 'components/other-blocks/ask-for-quote/ask-for-quote';
 
 import { getProductsApi, getOffersApi } from 'api/api';
-import { Filter, TABS } from 'utils/const';
+import { FILTERS, TABS } from 'utils/const';
 
-function getValueByKeyName(sourceArr, key) {
-  return sourceArr.find((item) => item.key.toLowerCase() === key.toLowerCase())
-    ?.value;
+function getValueByKeyName(arr, key) {
+  const searchedItem = arr.find(
+    (item) => item.key.toLowerCase() === key.toLowerCase()
+  );
+  return searchedItem?.value;
 }
 
 function getArraysIntersection(arr1, arr2) {
@@ -21,26 +23,26 @@ function getArraysIntersection(arr1, arr2) {
 }
 
 function prepareFilterOptions(filter) {
-  return filter.options.reduce((acc, option) => {
-    acc = { ...acc, [option]: false };
-    return acc;
-  }, {});
+  return filter.options.reduce(
+    (acc, option) => ({ ...acc, [option]: false }),
+    {}
+  );
 }
 
-function getFiltersInitialState(category, optionalFields = {}) {
-  if (category && Filter[category.toUpperCase()]) {
-    return Filter[category.toUpperCase()].reduce((acc, filter) => {
-      const filterOptionsBase = prepareFilterOptions(filter);
-      const filterOptions = Object.keys(optionalFields).includes(filter.name)
-        ? { ...filterOptionsBase, [optionalFields[filter.name]]: true }
-        : filterOptionsBase;
-      return {
-        ...acc,
-        [filter.name]: filterOptions
-      };
-    }, {});
+function getFiltersInitialState(category, optionalFields) {
+  if (!category || !FILTERS[category.toUpperCase()]) {
+    return {};
   }
-  return {};
+  return FILTERS[category.toUpperCase()].reduce((acc, filter) => {
+    let options = prepareFilterOptions(filter);
+    if (optionalFields?.[filter.name]) {
+      options = {
+        ...options,
+        [optionalFields[filter.name]]: true
+      };
+    }
+    return { ...acc, [filter.name]: { ...filter, options } };
+  }, {});
 }
 
 function prepareProductDataValue(value) {
@@ -50,44 +52,34 @@ function prepareProductDataValue(value) {
 }
 
 function prepareFilterValues(filtersState) {
-  return Object.entries(filtersState).reduce(
-    (acc, [filterName, filterOptions]) => {
-      const newFilterOptions = Object.entries(filterOptions)
-        .filter(
-          ([_filterOptionName, filterOptionsValue]) => filterOptionsValue
-        )
-        .map((item) => item[0]);
-      if (newFilterOptions.length) {
-        acc = { ...acc, [filterName]: newFilterOptions };
-      }
-      return acc;
-    },
-    {}
-  );
+  return Object.entries(filtersState).reduce((acc, [filterName, filter]) => {
+    const options = Object.entries(filter.options)
+      .filter((item) => item[1])
+      .map((item) => item[0]);
+    if (options.length) {
+      acc = { ...acc, [filterName]: { ...filter, options } };
+    }
+    return acc;
+  }, {});
 }
 
 function filterProducts(filtersState, filteredProducts) {
-  const fulfilledFilter = prepareFilterValues(filtersState);
-  if (Object.keys(fulfilledFilter).length) {
-    filteredProducts = filteredProducts.filter((product) => {
-      const productData = product.card_data.slice();
-      productData.push({ key: 'Grade', value: product.grade });
-      return Object.entries(fulfilledFilter).every(
-        ([filterName, filterOptions]) => {
-          const productValueToFilter = getValueByKeyName(
-            productData,
-            filterName
-          );
-          const matches = getArraysIntersection(
-            prepareProductDataValue(productValueToFilter),
-            filterOptions
-          );
-          return !!matches.length;
-        }
-      );
-    });
+  const fullFilledFilter = prepareFilterValues(filtersState);
+  if (!Object.keys(fullFilledFilter).length) {
+    return filteredProducts;
   }
-  return filteredProducts;
+  return filteredProducts.filter((product) => {
+    const productData = product.card_data.slice();
+    productData.push({ key: 'grade', value: product.grade });
+    return Object.values(fullFilledFilter).every((filter) => {
+      const productValueToFilter = getValueByKeyName(productData, filter.key);
+      const matches = getArraysIntersection(
+        prepareProductDataValue(productValueToFilter),
+        filter.options
+      );
+      return !!matches.length;
+    });
+  });
 }
 
 function filterProductsByCategory(products, category) {
@@ -96,7 +88,7 @@ function filterProductsByCategory(products, category) {
 
 function HomePage() {
   const router = useRouter();
-  const { categoryName: category, type } = router.query;
+  const category = router.query.categoryName;
 
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
@@ -112,38 +104,31 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    setFiltersState(
-      getFiltersInitialState(category, type ? { Type: type } : {})
-    );
-  }, [category, type]);
+    setFiltersState(getFiltersInitialState(category, router.query));
+  }, [router.query]);
 
   useEffect(() => {
     if (products.length) {
       let filteredProducts = filterProductsByCategory(products, category);
-      filteredProducts = filterProducts(filtersState, filteredProducts);
-      setFilteredProducts(filteredProducts);
+      setFilteredProducts(filterProducts(filtersState, filteredProducts));
     }
   }, [products, category, filtersState]);
 
-  function handleSearchSubmit(products) {
+  const handleSearchSubmit = (products) => {
     setFiltersState(getFiltersInitialState(category));
     setTimeout(() => {
       const filteredProducts = filterProductsByCategory(products, category);
       setFilteredProducts(filteredProducts);
     });
-  }
+  };
 
-  function handleFiltersChange(filtersValues) {
-    const [filterName, valueToChange] = Object.entries(filtersValues)[0];
-    setFiltersState({
-      ...filtersState,
-      [filterName]: { ...filtersState[filterName], ...valueToChange }
-    });
-  }
+  const handleFiltersChange = (newFilterState) => {
+    setFiltersState({ ...filtersState, ...newFilterState });
+  };
 
-  function handleFiltersReset() {
+  const handleFiltersReset = () => {
     setFiltersState(getFiltersInitialState(category));
-  }
+  };
 
   return (
     <>
@@ -154,6 +139,7 @@ function HomePage() {
         <ProductListTabs activeTab={category} tabs={TABS} />
         {category === 'polymers' && (
           <ProductListControls
+            category={category}
             filtersState={filtersState}
             onSearchSubmit={handleSearchSubmit}
             onFiltersChange={handleFiltersChange}

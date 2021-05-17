@@ -19,7 +19,6 @@
 
 .productPage__featuresList {
     display: flex;
-    justify-content: space-between;
     padding: 0;
     margin-bottom: 100px;
     list-style: none;
@@ -31,11 +30,8 @@
     font-size: 18px;
     line-height: 22px;
     max-width: 230px;
-
     text-transform: capitalize;
     color: var(--p-text);
-    display: flex;
-    flex-direction: column;
 }
 
 .productPage__featureValue {
