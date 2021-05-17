@@ -11,8 +11,8 @@
     width: 100%;
     max-width: 100%;
     background: url('/images/bg-line.svg') no-repeat bottom;
+    padding: 12px 0 0;
     margin-bottom: 50px;
-    padding-top: 12px;
     transition: max-width 0.2s ease-in-out;
 }
 

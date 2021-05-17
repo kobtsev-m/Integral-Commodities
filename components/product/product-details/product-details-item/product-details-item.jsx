@@ -5,7 +5,6 @@ import styles from '../product-details.module.css';
 
 function ProductDetailsItem(props) {
   const { field } = props;
-
   return (
     <div key={nanoid()} className={cn('col-3')}>
       <div className={styles.productPage__feature}>
