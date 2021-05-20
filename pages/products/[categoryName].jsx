@@ -109,10 +109,6 @@ function HomePage() {
   }, [category]);
 
   useEffect(() => {
-    console.log(offers);
-  }, [offers]);
-
-  useEffect(() => {
     setFiltersState(getFiltersInitialState(category, router.query));
   }, [router.query]);
 

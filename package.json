@@ -15,7 +15,7 @@
     "@hookform/resolvers": "^1.2.0",
     "@popperjs/core": "^2.9.2",
     "@react-google-maps/api": "^2.1.1",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.1",
     "classnames": "2.2.6",
     "nanoid": "3.1.21",
     "next": "10.0.8",

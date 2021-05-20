@@ -151,7 +151,7 @@ function PriceCalculator({ productId, initialFormData, isEmbed }) {
           </FieldWrapper>
         </div>
         <div className={'col-12 col-md-6 mt-4 mt-md-0'}>
-          <FieldWrapper title={'Contact inforamtion'}>
+          <FieldWrapper title={'Contact information'}>
             <ContactsField
               name={'contacts'}
               onChange={handleChange}

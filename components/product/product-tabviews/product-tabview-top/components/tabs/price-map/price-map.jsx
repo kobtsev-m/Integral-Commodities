@@ -132,7 +132,7 @@ function PriceMap({ ports, onAskForQuote }) {
                     className={styles.infoWindow__icon}
                     icon={faMapMarkerAlt}
                   />
-                  <span className={'ml-1'}>{activePlace.name}</span>
+                  <span className={'ms-1'}>{activePlace.name}</span>
                 </p>
                 {activeFilter === 'availability' ? (
                   <p className={cn(styles.infoWindow__text, 'mb-1')}></p>
@@ -172,7 +172,7 @@ function PriceMapHeader(props) {
           {MAP_FILTERS.map((filter) => (
             <button
               key={nanoid()}
-              className={cn('btn mr-3', styles.mapHeader__button, {
+              className={cn('btn me-3', styles.mapHeader__button, {
                 [styles.blue]: props.activeFilter === filter,
                 [styles.white]: props.activeFilter !== filter
               })}

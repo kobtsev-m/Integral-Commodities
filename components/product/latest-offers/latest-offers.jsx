@@ -6,7 +6,7 @@ function LatestOffers(props) {
   const { offers } = props;
 
   if (!offers || !offers.length) {
-    return <h2>There is no latest offers!</h2>;
+    return <h2 className={'mt-4'}>There is no latest offers!</h2>;
   }
 
   return (
