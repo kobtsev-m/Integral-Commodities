@@ -3,19 +3,15 @@ import styles from './product-tabs.module.css';
 import { nanoid } from 'nanoid';
 
 function ProductBottomTabs(props) {
-  const { tabs, isSulphur, activeTab, handleTabClick } = props;
+  const { tabs, activeTab, handleTabClick } = props;
   return (
-    <ul
-      className={cn(styles.tabsList, 'sticky-top')}
-      style={isSulphur ? { justifyContent: 'left' } : {}}
-    >
+    <ul className={cn(styles.tabsList, 'sticky-top')}>
       {tabs.map((tab) => (
         <li
           key={`tab-${nanoid()}`}
           className={cn(styles.tabItem, {
             [styles.tabItem_active]: tab === activeTab
           })}
-          style={isSulphur ? { marginLeft: '150px' } : {}}
           onClick={() => handleTabClick(tab)}
         >
           {tab}

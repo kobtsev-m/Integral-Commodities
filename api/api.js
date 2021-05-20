@@ -6,9 +6,6 @@ async function getRequest(requestUrl, callback) {
     throw Error(response.statusText);
   }
   const data = await response.json();
-  if (!data) {
-    throw Error(response.statusText);
-  }
   if (callback) {
     callback(data);
   }
@@ -35,14 +32,15 @@ export async function getProductByIdApi(id, cb) {
 export async function getAnalogsByProductIdApi(id, cb) {
   return await getRequest(`/analogs/${id}`, cb);
 }
-export async function getOffersApi(cb) {
-  return await getRequest('/offers', cb);
+export async function getOffersApi(category, cb) {
+  return await getRequest(`/offers/${category}`, cb);
 }
 export async function getProductsBySearchStringApi(searchString) {
   return await getRequest(`/search?search=${searchString}`);
 }
-export async function getPlacesApi(cb) {
-  return await getRequest('/places', cb);
+export async function getPlaceCoordinatesByNameApi(name, cb) {
+  const data = await getRequest(`/places/${name}`, cb);
+  return { lat: data.coordinates.lat, lng: data.coordinates.lon };
 }
 export async function postInquiriesApi(data) {
   return await postRequest('/inquiries', data);

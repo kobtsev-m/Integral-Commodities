@@ -42,7 +42,10 @@ function ProductTabviewTop({ product, ports }) {
         <PriceMap ports={ports} onAskForQuote={handleAskForQuote} />
       )}
       {activeTab === 'offer' && (
-        <PriceCalculator initialFormData={offerFormData} />
+        <PriceCalculator
+          productId={product.id}
+          initialFormData={offerFormData}
+        />
       )}
       {activeTab === 'product' && <ProductTab product={product} />}
       {activeTab === 'analogs' && <ProductAnalogs product={product} />}

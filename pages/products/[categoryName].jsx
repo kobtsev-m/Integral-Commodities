@@ -97,22 +97,31 @@ function HomePage() {
   const [offers, setOffers] = useState([]);
 
   useEffect(() => {
-    setIsLoading(true);
-    Promise.all([getProductsApi(setProducts), getOffersApi(setOffers)])
-      .catch((e) => console.log(e))
-      .finally(() => setIsLoading(false));
-  }, []);
+    if (category) {
+      setIsLoading(true);
+      Promise.all([
+        getProductsApi(setProducts),
+        getOffersApi(category, setOffers)
+      ])
+        .catch((e) => console.log(e))
+        .finally(() => setIsLoading(false));
+    }
+  }, [category]);
+
+  useEffect(() => {
+    console.log(offers);
+  }, [offers]);
 
   useEffect(() => {
     setFiltersState(getFiltersInitialState(category, router.query));
   }, [router.query]);
 
   useEffect(() => {
-    if (products.length) {
+    if (products?.length) {
       let filteredProducts = filterProductsByCategory(products, category);
       setFilteredProducts(filterProducts(filtersState, filteredProducts));
     }
-  }, [products, category, filtersState]);
+  }, [category, products, filtersState]);
 
   const handleSearchSubmit = (products) => {
     setFiltersState(getFiltersInitialState(category));

@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect, useContext } from 'react';
 
-import { getProductByIdApi, getPlacesApi } from 'api/api';
-import { PlacesContext } from 'state/state';
+import { getProductByIdApi, getPlaceCoordinatesByNameApi } from 'api/api';
 import { capitalize } from 'utils/string-utils';
 import ProductDetails from 'components/product/product-details/product-details';
 import LoadingSpinner from 'components/ui/loading';
@@ -40,33 +39,43 @@ function ProductPage() {
   const router = useRouter();
   const productId = router.query.productId;
 
-  const { ports, setPorts, arePortsUpdated } = useContext(PlacesContext);
   const [product, setProduct] = useState(null);
-  const [productIsLoading, setProductIsLoading] = useState(true);
+  const [ports, setPorts] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!!productId) {
-      getProductByIdApi(productId, setProduct).catch(() =>
-        setProductIsLoading(false)
-      );
+      getProductByIdApi(productId).then((product) => {
+        setProduct(product);
+        setIsLoading(!!product);
+      });
     }
   }, [productId]);
 
   useEffect(() => {
-    if (product && !arePortsUpdated) {
-      getPlacesApi(setPorts).catch((e) => console.log(e));
+    if (product) {
+      const newPorts = product.doc_data?.find((item) => 'map' in item)?.map;
+      setPorts(newPorts);
+      setIsLoading(!!newPorts?.length);
     }
   }, [product]);
 
   useEffect(() => {
-    if (product && arePortsUpdated) {
-      setProductIsLoading(false);
+    if (ports?.length && !ports[0].lat) {
+      const newPortsPromises = ports.map(async (port) => {
+        const coordinates = await getPlaceCoordinatesByNameApi(port.name);
+        return { ...port, ...coordinates };
+      });
+      Promise.all(newPortsPromises).then((newPorts) => {
+        setPorts(newPorts);
+        setIsLoading(false);
+      });
     }
-  }, [product, ports]);
+  }, [ports]);
 
   return (
     <section className={cn(styles.root__productPage, styles.productPage)}>
-      {productIsLoading ? (
+      {isLoading ? (
         <LoadingSpinner />
       ) : !product ? (
         <h2 className={'text-center'}>There is no product!</h2>

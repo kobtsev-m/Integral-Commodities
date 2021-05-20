@@ -18,4 +18,5 @@ a {
 
 a:hover {
     color: #02569c;
+    text-decoration: none;
 }

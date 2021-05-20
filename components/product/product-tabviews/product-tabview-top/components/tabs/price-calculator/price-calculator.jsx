@@ -18,7 +18,7 @@ import { formatWeekYMD } from 'utils/date-utils';
 import { formSchema } from './validation/validation';
 import { incotermsValues, paymentTermsValues } from './options/options';
 
-function PriceCalculator({ initialFormData, isEmbed }) {
+function PriceCalculator({ productId, initialFormData, isEmbed }) {
   const router = useRouter();
 
   const [formData, setFormData] = useState(initialFormData);
@@ -57,7 +57,8 @@ function PriceCalculator({ initialFormData, isEmbed }) {
       ...formData,
       delivery_periods: formData.delivery_periods.map((week) =>
         formatWeekYMD(week)
-      )
+      ),
+      product_id: productId
     };
   };
 

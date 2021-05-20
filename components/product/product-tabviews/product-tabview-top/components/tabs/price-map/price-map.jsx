@@ -36,8 +36,8 @@ function PriceMap({ ports, onAskForQuote }) {
     const { lat, lng } = await getLatLng(geocode);
     map.panTo({ lat, lng });
     map.setZoom(mapZoom + 3);
-    setSelectedPlace({ place: geocode.formatted_address, lat, lng });
-    setActivePlace({ place: geocode.formatted_address, lat, lng });
+    setSelectedPlace({ name: geocode.formatted_address, lat, lng });
+    setActivePlace({ name: geocode.formatted_address, lat, lng });
   };
 
   const handlePlaceClear = () => {
@@ -53,7 +53,7 @@ function PriceMap({ ports, onAskForQuote }) {
   };
 
   const handleAskForQuoteClick = () => {
-    onAskForQuote({ place_of_delivery: activePlace.place });
+    onAskForQuote({ place_of_delivery: activePlace.name });
   };
 
   return (
@@ -132,18 +132,14 @@ function PriceMap({ ports, onAskForQuote }) {
                     className={styles.infoWindow__icon}
                     icon={faMapMarkerAlt}
                   />
-                  <span className={'ms-1'}>{activePlace.place}</span>
+                  <span className={'ml-1'}>{activePlace.name}</span>
                 </p>
                 {activeFilter === 'availability' ? (
-                  <p className={cn(styles.infoWindow__text, 'mb-1')}>
-                    Available: {activePlace.available}
-                  </p>
+                  <p className={cn(styles.infoWindow__text, 'mb-1')}></p>
                 ) : (
-                  activePlace.incoterms && (
-                    <p className={cn(styles.infoWindow__text, 'mb-1')}>
-                      Incoterms: {activePlace.incoterms}
-                    </p>
-                  )
+                  <p className={cn(styles.infoWindow__text, 'mb-1')}>
+                    Incoterms: {activePlace.incoterms}
+                  </p>
                 )}
                 <span
                   className={styles.infoWindow__link}
@@ -176,7 +172,7 @@ function PriceMapHeader(props) {
           {MAP_FILTERS.map((filter) => (
             <button
               key={nanoid()}
-              className={cn('btn me-3', styles.mapHeader__button, {
+              className={cn('btn mr-3', styles.mapHeader__button, {
                 [styles.blue]: props.activeFilter === filter,
                 [styles.white]: props.activeFilter !== filter
               })}
