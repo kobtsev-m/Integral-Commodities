@@ -55,6 +55,7 @@ function PriceCalculator({ productId, initialFormData, isEmbed }) {
   const formatFormData = () => {
     return {
       ...formData,
+      quantity: +formData.quantity,
       delivery_periods: formData.delivery_periods.map((week) =>
         formatWeekYMD(week)
       ),
@@ -68,6 +69,7 @@ function PriceCalculator({ productId, initialFormData, isEmbed }) {
       .validate(formData, { abortEarly: false })
       .then(() => {
         const formattedData = formatFormData();
+        console.log(formattedData);
         postInquiriesApi(formattedData).then(() =>
           router.push('/success-offer')
         );
