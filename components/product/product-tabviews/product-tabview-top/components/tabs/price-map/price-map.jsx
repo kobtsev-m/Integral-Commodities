@@ -79,11 +79,7 @@ function PriceMap({ ports, onAskForQuote }) {
             if (activeFilter === 'availability') {
               markerFields = {
                 icon: {
-                  url: `/images/ui/${
-                    port.available === 'true'
-                      ? 'check-circle-regular.svg'
-                      : 'times-circle-regular.svg'
-                  }`,
+                  url: '/images/ui/check-circle-regular.svg',
                   scaledSize: new google.maps.Size(32, 32),
                   anchor: new google.maps.Point(12, 26)
                 },
@@ -174,7 +170,8 @@ function PriceMapHeader(props) {
               key={nanoid()}
               className={cn('btn me-3', styles.mapHeader__button, {
                 [styles.blue]: props.activeFilter === filter,
-                [styles.white]: props.activeFilter !== filter
+                [styles.white]: props.activeFilter !== filter,
+                disabled: filter === 'availability'
               })}
               onClick={() => props.onFilterClick(filter)}
             >
