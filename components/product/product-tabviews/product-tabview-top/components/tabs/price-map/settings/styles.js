@@ -189,3 +189,33 @@ export const mapGlobalStyles = {
     width: '100%'
   }
 };
+
+const mapMarkerStyle = {
+  fontFamily: 'Montserrat',
+  fontWeight: 'bold',
+  fontSize: '22px',
+  lineHeight: '27px',
+  zIndex: -1
+};
+
+export const getMarkerFields = (place, activePlace, activeFilter) => {
+  const markerColor = place === activePlace ? 'F66E08' : '02569C';
+  return activeFilter === 'availability'
+    ? {
+        icon: {
+          url: `/images/ui/factory-icon-${markerColor}.svg`,
+          scaledSize: new google.maps.Size(32, 32),
+          anchor: new google.maps.Point(12, 26)
+        }
+      }
+    : {
+        icon: {
+          url: '/'
+        },
+        label: {
+          text: `$${place.price}`,
+          color: `#${markerColor}`,
+          ...mapMarkerStyle
+        }
+      };
+};

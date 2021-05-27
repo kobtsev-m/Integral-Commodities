@@ -17,11 +17,3 @@ export const mapOptions = {
   disableDefaultUI: true,
   zoomControl: true
 };
-
-export const mapMarkerStyle = {
-  fontFamily: 'Montserrat',
-  fontWeight: 'bold',
-  fontSize: '22px',
-  lineHeight: '27px',
-  zIndex: -1
-};

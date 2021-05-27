@@ -7,9 +7,9 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 
 import { capitalize } from 'utils/string-utils';
-import { mapContainerStyle, mapMarkerStyle } from './settings/base-settings';
+import { mapContainerStyle } from './settings/base-settings';
 import { mapCenter, mapZoom, mapOptions } from './settings/base-settings';
-import { mapGlobalStyles } from './settings/styles';
+import { mapGlobalStyles, getMarkerFields } from './settings/styles';
 import PlacesSearch from 'components/other-blocks/places-search/places-search';
 
 import { Global } from '@emotion/react';
@@ -76,36 +76,15 @@ function PriceMap({ ports, factories, onAskForQuote }) {
         >
           {(activeFilter === 'availability' ? factories : ports)?.map(
             (place, i) => {
-              if (!place.lat) {
+              if (!place.lat || !place.lng) {
                 return null;
-              }
-              let markerFields;
-              if (activeFilter === 'availability') {
-                markerFields = {
-                  icon: {
-                    url: '/images/ui/factory-icon.svg',
-                    scaledSize: new google.maps.Size(32, 32),
-                    anchor: new google.maps.Point(12, 26)
-                  }
-                };
-              } else {
-                markerFields = {
-                  icon: {
-                    url: '/'
-                  },
-                  label: {
-                    text: `$${place.price}`,
-                    color: place === activePlace ? '#F66E08' : '#02569C',
-                    ...mapMarkerStyle
-                  }
-                };
               }
               return (
                 <Marker
                   key={i}
                   position={{ lat: place.lat, lng: place.lng }}
                   onClick={() => setActivePlace(place)}
-                  {...markerFields}
+                  {...getMarkerFields(place, activePlace, activeFilter)}
                 />
               );
             }
@@ -132,9 +111,7 @@ function PriceMap({ ports, factories, onAskForQuote }) {
                   />
                   <span className={'ms-1'}>{activePlace.name}</span>
                 </p>
-                {activeFilter === 'availability' ? (
-                  <p className={cn(styles.infoWindow__text, 'mb-1')}></p>
-                ) : (
+                {activeFilter !== 'availability' && (
                   <p className={cn(styles.infoWindow__text, 'mb-1')}>
                     Incoterms: {activePlace.incoterms}
                   </p>
