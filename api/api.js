@@ -40,7 +40,7 @@ export async function getProductsBySearchStringApi(searchString) {
 }
 export async function getPlaceCoordinatesByNameApi(name, cb) {
   const data = await getRequest(`/places/${name}`, cb);
-  return { lat: data.coordinates.lat, lng: data.coordinates.lon };
+  return data?.coordinates;
 }
 export async function postInquiriesApi(data) {
   return await postRequest('/inquiries', data);

@@ -18,7 +18,7 @@ import styles from './price-map.module.css';
 
 const MAP_FILTERS = ['prices', 'availability'];
 
-function PriceMap({ ports, onAskForQuote }) {
+function PriceMap({ ports, factories, onAskForQuote }) {
   const [map, setMap] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [activePlace, setActivePlace] = useState(null);
@@ -74,40 +74,42 @@ function PriceMap({ ports, onAskForQuote }) {
           onLoad={handleLoad}
           onUnmount={handleUnmount}
         >
-          {ports?.map((port, i) => {
-            let markerFields;
-            if (activeFilter === 'availability') {
-              markerFields = {
-                icon: {
-                  url: '/images/ui/check-circle-regular.svg',
-                  scaledSize: new google.maps.Size(32, 32),
-                  anchor: new google.maps.Point(12, 26)
-                },
-                style: {
-                  fill: port.available === 'true' ? 'green' : 'red'
-                }
-              };
-            } else {
-              markerFields = {
-                icon: {
-                  url: '/'
-                },
-                label: {
-                  text: `$${port.price}`,
-                  color: port === activePlace ? '#F66E08' : '#02569C',
-                  ...mapMarkerStyle
-                }
-              };
+          {(activeFilter === 'availability' ? factories : ports)?.map(
+            (place, i) => {
+              if (!place.lat) {
+                return null;
+              }
+              let markerFields;
+              if (activeFilter === 'availability') {
+                markerFields = {
+                  icon: {
+                    url: '/images/ui/factory-icon.svg',
+                    scaledSize: new google.maps.Size(32, 32),
+                    anchor: new google.maps.Point(12, 26)
+                  }
+                };
+              } else {
+                markerFields = {
+                  icon: {
+                    url: '/'
+                  },
+                  label: {
+                    text: `$${place.price}`,
+                    color: place === activePlace ? '#F66E08' : '#02569C',
+                    ...mapMarkerStyle
+                  }
+                };
+              }
+              return (
+                <Marker
+                  key={i}
+                  position={{ lat: place.lat, lng: place.lng }}
+                  onClick={() => setActivePlace(place)}
+                  {...markerFields}
+                />
+              );
             }
-            return (
-              <Marker
-                key={i}
-                position={{ lat: port.lat, lng: port.lng }}
-                onClick={() => setActivePlace(port)}
-                {...markerFields}
-              />
-            );
-          })}
+          )}
           {selectedPlace && (
             <Marker
               position={{ lat: selectedPlace.lat, lng: selectedPlace.lng }}
@@ -170,8 +172,7 @@ function PriceMapHeader(props) {
               key={nanoid()}
               className={cn('btn me-3', styles.mapHeader__button, {
                 [styles.blue]: props.activeFilter === filter,
-                [styles.white]: props.activeFilter !== filter,
-                disabled: filter === 'availability'
+                [styles.white]: props.activeFilter !== filter
               })}
               onClick={() => props.onFilterClick(filter)}
             >

@@ -9,7 +9,7 @@ import ProductAnalogs from './components/tabs/product-analogs/product-analogs';
 
 import { initialOfferFormData } from './data/values';
 
-function ProductTabviewTop({ product, ports }) {
+function ProductTabviewTop({ product, ports, factories }) {
   const router = useRouter();
   const productId = +router.query.productId;
 
@@ -39,7 +39,11 @@ function ProductTabviewTop({ product, ports }) {
         onTabClick={handleTabClick}
       />
       {activeTab === 'prices' && (
-        <PriceMap ports={ports} onAskForQuote={handleAskForQuote} />
+        <PriceMap
+          ports={ports}
+          factories={factories}
+          onAskForQuote={handleAskForQuote}
+        />
       )}
       {activeTab === 'offer' && (
         <PriceCalculator

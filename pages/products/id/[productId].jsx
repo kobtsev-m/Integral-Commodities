@@ -41,6 +41,9 @@ function ProductPage() {
 
   const [product, setProduct] = useState(null);
   const [ports, setPorts] = useState(null);
+  const [factories, setFactories] = useState(null);
+  const [arePortsUpdated, setArePortsUpdated] = useState(false);
+  const [areFactoriesUpdated, setAreFactoriesUpdated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -54,24 +57,42 @@ function ProductPage() {
 
   useEffect(() => {
     if (product) {
-      const newPorts = product.doc_data?.find((item) => 'map' in item)?.map;
+      const mapObj = product.doc_data?.find((item) => 'map' in item);
+      const newPorts = mapObj?.map;
+      const newFactories = mapObj?.availability;
       setPorts(newPorts);
-      setIsLoading(!!newPorts?.length);
+      setFactories(newFactories);
+      setIsLoading(false);
     }
   }, [product]);
 
+  const addCoordinatesToPlaces = (places, callback) => {
+    const newPlacesPromises = places.map(async (place) => {
+      const coordinates = await getPlaceCoordinatesByNameApi(
+        place.name ?? place
+      );
+      return place.name
+        ? { ...place, ...coordinates }
+        : { name: place, ...coordinates };
+    });
+    Promise.all(newPlacesPromises).then((newPlaces) => {
+      callback(newPlaces);
+    });
+  };
+
   useEffect(() => {
-    if (ports?.length && !ports[0].lat) {
-      const newPortsPromises = ports.map(async (port) => {
-        const coordinates = await getPlaceCoordinatesByNameApi(port.name);
-        return { ...port, ...coordinates };
-      });
-      Promise.all(newPortsPromises).then((newPorts) => {
-        setPorts(newPorts);
-        setIsLoading(false);
-      });
+    if (ports?.length && !arePortsUpdated) {
+      setArePortsUpdated(true);
+      addCoordinatesToPlaces(ports, setPorts);
     }
   }, [ports]);
+
+  useEffect(() => {
+    if (factories?.length && !areFactoriesUpdated) {
+      setAreFactoriesUpdated(true);
+      addCoordinatesToPlaces(factories, setFactories);
+    }
+  }, [factories]);
 
   return (
     <section className={cn(styles.root__productPage, styles.productPage)}>
@@ -86,7 +107,11 @@ function ProductPage() {
             product={product}
             fieldsToFilter={INFO_FIELDS_TO_FILTER}
           />
-          <ProductTabviewTop product={product} ports={ports} />
+          <ProductTabviewTop
+            product={product}
+            ports={ports}
+            factories={factories}
+          />
         </>
       )}
     </section>
