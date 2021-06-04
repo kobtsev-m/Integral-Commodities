@@ -10,6 +10,7 @@ import { capitalize } from 'utils/string-utils';
 import { mapContainerStyle } from './settings/base-settings';
 import { mapCenter, mapZoom, mapOptions } from './settings/base-settings';
 import { mapGlobalStyles, getMarkerFields } from './settings/styles';
+import { getInfoWindowOffset, getInfoWindowSize } from './settings/styles';
 import PlacesSearch from 'components/other-blocks/places-search/places-search';
 
 import { Global } from '@emotion/react';
@@ -98,12 +99,10 @@ function PriceMap({ ports, factories, onAskForQuote }) {
           {activePlace && (
             <InfoWindow
               position={{ lat: activePlace.lat, lng: activePlace.lng }}
-              options={{
-                pixelOffset: new window.google.maps.Size(154, 43)
-              }}
+              options={{ pixelOffset: getInfoWindowOffset(activePlace) }}
               onCloseClick={() => setActivePlace(null)}
             >
-              <div className={cn(styles.infoWindow, 'px-1')}>
+              <div className={'px-1'} style={getInfoWindowSize(activePlace)}>
                 <p className={cn(styles.infoWindow__text, 'my-1')}>
                   <FontAwesomeIcon
                     className={styles.infoWindow__icon}
@@ -111,7 +110,7 @@ function PriceMap({ ports, factories, onAskForQuote }) {
                   />
                   <span className={'ms-1'}>{activePlace.name}</span>
                 </p>
-                {activeFilter !== 'availability' && (
+                {activeFilter !== 'availability' && activePlace.incoterms && (
                   <p className={cn(styles.infoWindow__text, 'mb-1')}>
                     Incoterms: {activePlace.incoterms}
                   </p>

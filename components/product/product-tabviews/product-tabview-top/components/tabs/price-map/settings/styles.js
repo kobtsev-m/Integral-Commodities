@@ -187,6 +187,9 @@ export const mapGlobalStyles = {
   },
   '.gm-style-iw-d': {
     width: '100%'
+  },
+  '.gm-ui-hover-effect:focus': {
+    outline: 'none'
   }
 };
 
@@ -218,4 +221,16 @@ export const getMarkerFields = (place, activePlace, activeFilter) => {
           ...mapMarkerStyle
         }
       };
+};
+
+export const getInfoWindowOffset = (activePlace) => {
+  const linesN = Math.ceil(activePlace.name.length / 22);
+  const offsetY = linesN > 2 ? 40 : linesN > 1 ? 35 : 45;
+  return new window.google.maps.Size(150, offsetY);
+};
+
+export const getInfoWindowSize = (activePlace) => {
+  const linesN = Math.ceil(activePlace.name.length / 22);
+  const height = linesN > 2 ? '100px' : linesN > 1 ? '85px' : '70px';
+  return { width: '180px', height };
 };
