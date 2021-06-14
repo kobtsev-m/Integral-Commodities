@@ -16,3 +16,10 @@
 .showMoreBtn:active {
   opacity: 0.3;
 }
+
+@media screen and (max-width: 768px) {
+  .showMoreBtn {
+    font-size: 9px;
+    line-height: 11px;
+  }
+}

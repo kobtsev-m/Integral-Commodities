@@ -6,3 +6,10 @@
   background-size: cover;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 124px;
+    height: 30px;
+  }
+}

@@ -23,3 +23,11 @@
 .products__tab-button:active {
   opacity: 0.3;
 }
+
+@media screen and (max-width: 768px) {
+  .products__tab-button {
+    font-size: 12px;
+    line-height: 15px;
+    padding: 0 15px 6px;
+  }
+}

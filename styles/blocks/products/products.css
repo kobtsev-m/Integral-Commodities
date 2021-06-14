@@ -5,3 +5,9 @@
   flex-direction: column;
   box-sizing: content-box;
 }
+
+@media screen and (max-width: 768px) {
+  .products {
+    max-width: 375px;
+  }
+}

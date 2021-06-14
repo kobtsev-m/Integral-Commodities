@@ -5,3 +5,13 @@
 .products__tab:not(:last-child) {
   margin-right: 125px;
 }
+
+@media screen and (max-width: 768px) {
+  .products__tab {
+    width: unset;
+  }
+
+  .products__tab:not(:last-child) {
+    margin: 0;
+  }
+}

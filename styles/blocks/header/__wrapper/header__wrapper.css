@@ -7,3 +7,10 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 768px) {
+  .header__wrapper {
+    max-width: 375px;
+    padding: 22px;
+  }
+}

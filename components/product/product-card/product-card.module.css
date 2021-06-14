@@ -80,3 +80,54 @@
 .product__priceValue {
   color: var(--p-orange-accent);
 }
+
+@media screen and (max-width: 768px) {
+  .product__link {
+    min-height: unset;
+    padding: 20px 14px 36px;
+    border-top: 2px solid var(--p-blue);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+    transition: all 200ms ease-out;
+  }
+
+  .product__title {
+    margin: 0 0 22px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .product__titleValue {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .product__infoList {
+    margin: 0;
+  }
+
+  .product__infoItem {
+    font-size: 9px;
+    line-height: 11px;
+    margin-bottom: 14px;
+  }
+
+  .product__infoItem:last-child {
+    margin-bottom: 35px;
+  }
+
+  .product__infoValue {
+    font-weight: bold;
+    font-size: 9px;
+    line-height: 11px;
+  }
+
+  .product__price {
+    font-size: 9px;
+    line-height: 11px;
+  }
+
+  .product__priceValue {
+    color: var(--p-orange-accent);
+  }
+}
