@@ -1,9 +1,9 @@
 .event__date {
-    flex: 0 0 253px;
+  flex: 0 0 253px;
 
-    font-size: 80px;
-    line-height: 98px;
-    font-family: var(--font-montserrat);
-    font-weight: 700;
-    color: var(--p-blue)
+  font-size: 80px;
+  line-height: 98px;
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  color: var(--p-blue);
 }

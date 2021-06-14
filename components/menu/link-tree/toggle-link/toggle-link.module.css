@@ -28,7 +28,7 @@
 }
 
 .toggleLink__textArrow:after {
-  content: '';
+  content: "";
 
   position: absolute;
   top: 45%;

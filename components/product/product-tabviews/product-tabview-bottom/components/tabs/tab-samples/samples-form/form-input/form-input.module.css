@@ -24,7 +24,7 @@
 
 .formInput__input:focus {
   border-color: var(--p-orange-accent);
-  outline: none
+  outline: none;
 }
 
 .formInput__input::placeholder {
@@ -52,7 +52,7 @@
   font-weight: 400;
   color: #000000;
 
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .formInput__error {

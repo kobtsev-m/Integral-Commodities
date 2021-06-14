@@ -1,12 +1,12 @@
 .achievement__decoration {
-    flex: 0 0 240px;
+  flex: 0 0 240px;
 
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 
-    display: block;
-    height: 100%;
+  display: block;
+  height: 100%;
 
-    border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
 }

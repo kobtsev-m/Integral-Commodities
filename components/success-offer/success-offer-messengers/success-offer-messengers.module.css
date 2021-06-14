@@ -1,51 +1,51 @@
 .thanksMessengers {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 24px;
 }
 
 .thanksMessengers__text {
-    max-width: 760px;
-    margin: 0;
-    padding: 0;
+  max-width: 760px;
+  margin: 0;
+  padding: 0;
 
-    font-size: 24px;
-    line-height: 29px;
-    font-family: var(--font-montserrat);
-    font-weight: 500;
-    color: var(--p-text);
+  font-size: 24px;
+  line-height: 29px;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  color: var(--p-text);
 
-    text-align: center;
+  text-align: center;
 }
 
 .thanksMessengers__text_blue {
-    color: var(--p-blue);
+  color: var(--p-blue);
 }
 
 .thanksMessengers__text_orange {
-    color: var(--p-orange-accent);
+  color: var(--p-orange-accent);
 }
 
 .thanksMessengersList {
-    display: flex;
-    align-items: center;
-    margin: 48px 0 0;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  margin: 48px 0 0;
+  padding: 0;
 
-    list-style: none;
+  list-style: none;
 }
 
 .thanksMessengersItem:not(:last-child) {
-    margin-right: 40px;
+  margin-right: 40px;
 }
 
 .thanksMessengersItem__link {
-    display: block;
+  display: block;
 }
 
 .thanksMessengersItem__img {
-    width: 81px;
-    height: 81px;
+  width: 81px;
+  height: 81px;
 }

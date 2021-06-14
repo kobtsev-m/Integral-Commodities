@@ -32,7 +32,7 @@
 }
 
 .orderNavigation__item_active::after {
-  content: '';
+  content: "";
   height: 1px;
   width: 100%;
   background-color: var(--p-blue);

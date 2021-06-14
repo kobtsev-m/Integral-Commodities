@@ -1,8 +1,8 @@
 .feature__question {
-    margin-bottom: 11px;
+  margin-bottom: 11px;
 
-    font-size: 36px;
-    line-height: 1.3;
-    font-weight: 500;
-    color: var(--hyper-link-default);
+  font-size: 36px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--hyper-link-default);
 }

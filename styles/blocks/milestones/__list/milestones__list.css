@@ -1,7 +1,7 @@
 .milestones__list {
-    position: relative;
+  position: relative;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

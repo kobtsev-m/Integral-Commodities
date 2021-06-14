@@ -1,23 +1,23 @@
-import { useState, useCallback, memo } from 'react';
-import { GoogleMap } from '@react-google-maps/api';
-import { Marker, InfoWindow } from '@react-google-maps/api';
-import { getLatLng } from 'react-places-autocomplete';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import { nanoid } from 'nanoid';
+import { useState, useCallback, memo } from "react";
+import { GoogleMap } from "@react-google-maps/api";
+import { Marker, InfoWindow } from "@react-google-maps/api";
+import { getLatLng } from "react-places-autocomplete";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { nanoid } from "nanoid";
 
-import { capitalize } from 'utils/string-utils';
-import { mapContainerStyle } from './settings/base-settings';
-import { mapCenter, mapZoom, mapOptions } from './settings/base-settings';
-import { mapGlobalStyles, getMarkerFields } from './settings/styles';
-import { getInfoWindowOffset, getInfoWindowSize } from './settings/styles';
-import PlacesSearch from 'components/other-blocks/places-search/places-search';
+import { capitalize } from "utils/string-utils";
+import { mapContainerStyle } from "./settings/base-settings";
+import { mapCenter, mapZoom, mapOptions } from "./settings/base-settings";
+import { mapGlobalStyles, getMarkerFields } from "./settings/styles";
+import { getInfoWindowOffset, getInfoWindowSize } from "./settings/styles";
+import PlacesSearch from "components/other-blocks/places-search/places-search";
 
-import { Global } from '@emotion/react';
-import cn from 'classnames';
-import styles from './price-map.module.css';
+import { Global } from "@emotion/react";
+import cn from "classnames";
+import styles from "./price-map.module.css";
 
-const MAP_FILTERS = ['prices', 'availability'];
+const MAP_FILTERS = ["prices", "availability"];
 
 function PriceMap({ ports, factories, onAskForQuote }) {
   const [map, setMap] = useState(null);
@@ -75,7 +75,7 @@ function PriceMap({ ports, factories, onAskForQuote }) {
           onLoad={handleLoad}
           onUnmount={handleUnmount}
         >
-          {(activeFilter === 'availability' ? factories : ports)?.map(
+          {(activeFilter === "availability" ? factories : ports)?.map(
             (place, i) => {
               if (!place.lat || !place.lng) {
                 return null;
@@ -102,16 +102,16 @@ function PriceMap({ ports, factories, onAskForQuote }) {
               options={{ pixelOffset: getInfoWindowOffset(activePlace) }}
               onCloseClick={() => setActivePlace(null)}
             >
-              <div className={'px-1'} style={getInfoWindowSize(activePlace)}>
-                <p className={cn(styles.infoWindow__text, 'my-1')}>
+              <div className={"px-1"} style={getInfoWindowSize(activePlace)}>
+                <p className={cn(styles.infoWindow__text, "my-1")}>
                   <FontAwesomeIcon
                     className={styles.infoWindow__icon}
                     icon={faMapMarkerAlt}
                   />
-                  <span className={'ms-1'}>{activePlace.name}</span>
+                  <span className={"ms-1"}>{activePlace.name}</span>
                 </p>
-                {activeFilter !== 'availability' && activePlace.incoterms && (
-                  <p className={cn(styles.infoWindow__text, 'mb-1')}>
+                {activeFilter !== "availability" && activePlace.incoterms && (
+                  <p className={cn(styles.infoWindow__text, "mb-1")}>
                     Incoterms: {activePlace.incoterms}
                   </p>
                 )}
@@ -133,22 +133,22 @@ function PriceMap({ ports, factories, onAskForQuote }) {
 function PriceMapHeader(props) {
   return (
     <div className={styles.mapHeader}>
-      <div className={'row g-3 p-3'}>
-        <div className={'col-6'}>
+      <div className={"row g-3 p-3"}>
+        <div className={"col-6"}>
           <PlacesSearch
-            placeholder={'Search on the map'}
+            placeholder={"Search on the map"}
             isRounded={true}
             onSelect={props.onPlaceSelect}
             onClear={props.onPlaceClear}
           />
         </div>
-        <div className={'col-6 d-flex'}>
+        <div className={"col-6 d-flex"}>
           {MAP_FILTERS.map((filter) => (
             <button
               key={nanoid()}
-              className={cn('btn me-3', styles.mapHeader__button, {
+              className={cn("btn me-3", styles.mapHeader__button, {
                 [styles.blue]: props.activeFilter === filter,
-                [styles.white]: props.activeFilter !== filter
+                [styles.white]: props.activeFilter !== filter,
               })}
               onClick={() => props.onFilterClick(filter)}
             >

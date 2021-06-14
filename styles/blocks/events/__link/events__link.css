@@ -1,18 +1,18 @@
 .events_link {
-    align-self: center;
-    width: 327px;
+  align-self: center;
+  width: 327px;
 
-    box-sizing: border-box;
-    padding: 15px 31px;
+  box-sizing: border-box;
+  padding: 15px 31px;
 
-    background: var(--p-orange-accent);
-    border-radius: 5px;
+  background: var(--p-orange-accent);
+  border-radius: 5px;
 
-    font-size: 100%;
-    line-height: 21px;
-    font-family: var(--font-montserrat);
-    font-weight: 500;
-    color: #FFFFFF;
+  font-size: 100%;
+  line-height: 21px;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  color: #ffffff;
 
-    text-decoration: none;
+  text-decoration: none;
 }

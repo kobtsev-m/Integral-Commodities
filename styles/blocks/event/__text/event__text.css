@@ -1,10 +1,10 @@
 .event__text {
-    margin: 0 0 10px 0;
+  margin: 0 0 10px 0;
 
-    font-size: 18px;
-    line-height: 1.5;
-    font-weight: 400;
-    color: var(--grey-default);
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--grey-default);
 
-    text-transform: lowercase;
+  text-transform: lowercase;
 }

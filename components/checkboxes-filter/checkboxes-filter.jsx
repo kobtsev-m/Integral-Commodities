@@ -1,7 +1,7 @@
-import { nanoid } from 'nanoid';
+import { nanoid } from "nanoid";
 
-import cn from 'classnames';
-import styles from './checkboxes-filter.module.css';
+import cn from "classnames";
+import styles from "./checkboxes-filter.module.css";
 
 function CheckboxesFilter(props) {
   const { filterName, filter, onChange, isDroppedDown, onDropDownClick } =
@@ -15,8 +15,8 @@ function CheckboxesFilter(props) {
     onChange({
       [filterName]: {
         ...filter,
-        options: { ...filter.options, [optionName]: !isChecked }
-      }
+        options: { ...filter.options, [optionName]: !isChecked },
+      },
     });
   };
 
@@ -24,14 +24,14 @@ function CheckboxesFilter(props) {
     <fieldset className={styles.checkboxFilter} key={nanoid()}>
       <button
         className={styles.checkboxFilter__dropDownBtn}
-        type={'button'}
+        type={"button"}
         onClick={handleDropdownClick}
       >
         {filter.key}
       </button>
       <ul
         className={cn(styles.checkboxFilter__optionsList, {
-          [styles.checkboxFilter__optionsList_opened]: isDroppedDown
+          [styles.checkboxFilter__optionsList_opened]: isDroppedDown,
         })}
       >
         {Object.entries(filter.options).map(([optionName, isChecked]) => {
@@ -43,7 +43,7 @@ function CheckboxesFilter(props) {
               >
                 <input
                   className={styles.checkboxFilter__optionInput}
-                  type={'checkbox'}
+                  type={"checkbox"}
                   value={optionName}
                   name={filterName}
                   checked={isChecked}

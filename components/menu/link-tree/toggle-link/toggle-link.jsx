@@ -1,5 +1,5 @@
-import cn from 'classnames';
-import styles from './toggle-link.module.css';
+import cn from "classnames";
+import styles from "./toggle-link.module.css";
 
 function ToggleLink({ linkElement, biggerShift, onClick }) {
   return (

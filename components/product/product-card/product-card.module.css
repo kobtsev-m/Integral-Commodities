@@ -12,16 +12,16 @@
 }
 
 .product__link_category_polymers {
-   border-color: var(--p-blue);
- }
+  border-color: var(--p-blue);
+}
 
 .product__link_category_fertilizers {
-   border-color: var(--green);
- }
+  border-color: var(--green);
+}
 
 .product__link_category_sulphur {
-   border-color: #fae96b;
- }
+  border-color: #fae96b;
+}
 
 .product__link:hover {
   transform: scale(1.05);
@@ -61,8 +61,8 @@
 }
 
 .product__infoItem:last-child {
-   margin-bottom: 35px;
- }
+  margin-bottom: 35px;
+}
 
 .product__infoValue {
   font-weight: bold;
@@ -78,5 +78,5 @@
 }
 
 .product__priceValue {
-  color: var(--p-orange-accent)
+  color: var(--p-orange-accent);
 }

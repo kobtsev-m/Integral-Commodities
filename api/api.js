@@ -1,4 +1,4 @@
-const BACKEND_URL = 'https://integral-commodities.ch/api/v1';
+const BACKEND_URL = "https://integral-commodities.ch/api/v1";
 
 async function getRequest(requestUrl, callback) {
   const response = await fetch(`${BACKEND_URL}${requestUrl}`);
@@ -14,8 +14,8 @@ async function getRequest(requestUrl, callback) {
 
 async function postRequest(requestUrl, data) {
   const response = await fetch(`${BACKEND_URL}${requestUrl}`, {
-    method: 'POST',
-    body: JSON.stringify(data)
+    method: "POST",
+    body: JSON.stringify(data),
   });
   if (!response.ok) {
     throw Error(response.statusText);
@@ -24,7 +24,7 @@ async function postRequest(requestUrl, data) {
 }
 
 export async function getProductsApi(cb) {
-  return await getRequest('/products', cb);
+  return await getRequest("/products", cb);
 }
 export async function getProductByIdApi(id, cb) {
   return await getRequest(`/products/${id}`, cb);
@@ -43,5 +43,5 @@ export async function getPlaceCoordinatesByNameApi(name, cb) {
   return data?.coordinates;
 }
 export async function postInquiriesApi(data) {
-  return await postRequest('/inquiries', data);
+  return await postRequest("/inquiries", data);
 }

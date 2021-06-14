@@ -1,16 +1,16 @@
-import cn from 'classnames';
+import cn from "classnames";
 
-import ActiveLink from '../../../active-link/active-link';
-import styles from './default-link.module.css';
+import ActiveLink from "../../../active-link/active-link";
+import styles from "./default-link.module.css";
 
 function DefaultLink({ linkElement, additionalOnClick }) {
   const { subtype, procmethod, link, name, depth } = linkElement;
 
-  let finalLink = '#';
+  let finalLink = "#";
   if (subtype && procmethod) {
-    const polymersSubtypes = ['HDPE', 'PP', 'LDPE'];
+    const polymersSubtypes = ["HDPE", "PP", "LDPE"];
     const isProductPolymer = polymersSubtypes.includes(subtype.toUpperCase());
-    const baseLink = `/products/${isProductPolymer ? 'polymers' : subtype}`;
+    const baseLink = `/products/${isProductPolymer ? "polymers" : subtype}`;
 
     finalLink = `${baseLink}?type=${subtype.toLowerCase()}&procmethod=${procmethod.toLowerCase()}`;
   } else if (link) {

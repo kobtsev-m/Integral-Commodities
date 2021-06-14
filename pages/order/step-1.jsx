@@ -1,17 +1,17 @@
-import styles from './step-1.module.css';
-import Button from '../../components/ui/button';
-import OrderNavigation from '../../components/order/order-navigation';
-import Breadcrumbs from '../../components/ui/breadcrumbs';
+import styles from "./step-1.module.css";
+import Button from "../../components/ui/button";
+import OrderNavigation from "../../components/order/order-navigation";
+import Breadcrumbs from "../../components/ui/breadcrumbs";
 
 function OrderStep1() {
   const breadcrumbs = [
     {
-      title: 'Home',
-      link: '/'
+      title: "Home",
+      link: "/",
     },
     {
-      title: 'Order process'
-    }
+      title: "Order process",
+    },
   ];
   return (
     <section className={styles.orderContainer}>
@@ -57,9 +57,7 @@ function OrderStep1() {
               alt="Cart icon"
             />
           </span>
-          <p className={styles.orderContainer__detailTitle}>
-            Order volume M/T
-          </p>
+          <p className={styles.orderContainer__detailTitle}>Order volume M/T</p>
           <p className={styles.orderContainer__detailValue}>&#36;152 000</p>
         </li>
         <li className={styles.orderContainer__detailsItem}>
@@ -111,9 +109,7 @@ function OrderStep1() {
               alt="Cart icon"
             />
           </span>
-          <p className={styles.orderContainer__detailTitle}>
-            Terms of payment
-          </p>
+          <p className={styles.orderContainer__detailTitle}>Terms of payment</p>
           <p className={styles.orderContainer__detailValue}>Pre-payment</p>
         </li>
         <li className={styles.orderContainer__detailsItem}>

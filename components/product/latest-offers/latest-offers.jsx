@@ -1,12 +1,12 @@
-import cn from 'classnames';
+import cn from "classnames";
 
-import styles from './latest-offers.module.css';
+import styles from "./latest-offers.module.css";
 
 function LatestOffers(props) {
   const { offers } = props;
 
   if (!offers || !offers.length) {
-    return <h2 className={'mt-4'}>There is no latest offers!</h2>;
+    return <h2 className={"mt-4"}>There is no latest offers!</h2>;
   }
 
   return (
@@ -18,7 +18,7 @@ function LatestOffers(props) {
             paddingLeft: 10,
             marginTop: 80,
             marginBottom: 50,
-            fontWeight: 'normal'
+            fontWeight: "normal",
           }}
         >
           Latest offers
@@ -39,13 +39,13 @@ function LatestOffers(props) {
             </th>
             <th
               className={styles.currentOffers__tableHeaderCell}
-              style={{ textAlign: 'center' }}
+              style={{ textAlign: "center" }}
             >
               Terms of Delivery
             </th>
             <th
               className={styles.currentOffers__tableHeaderCell}
-              style={{ textAlign: 'center' }}
+              style={{ textAlign: "center" }}
             >
               Quantity/MT
             </th>
@@ -66,9 +66,7 @@ function LatestOffers(props) {
               >
                 {offer.date_of_validity}
               </td>
-              <td className={styles.currentOffers__tableCell}>
-                {offer.grade}
-              </td>
+              <td className={styles.currentOffers__tableCell}>{offer.grade}</td>
               <td className={styles.currentOffers__tableCell}>
                 {offer.place_of_delivery}
               </td>
@@ -77,7 +75,7 @@ function LatestOffers(props) {
                   styles.currentOffers__tableCell,
                   styles.currentOffers__tableCell_center
                 )}
-                style={{ textAlign: 'center' }}
+                style={{ textAlign: "center" }}
               >
                 {offer.terms_of_delivery}
               </td>
@@ -86,7 +84,7 @@ function LatestOffers(props) {
                   styles.currentOffers__tableCell,
                   styles.currentOffers__tableCell_center
                 )}
-                style={{ textAlign: 'center' }}
+                style={{ textAlign: "center" }}
               >
                 {offer.quantity}
               </td>

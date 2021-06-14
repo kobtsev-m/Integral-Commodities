@@ -40,7 +40,7 @@
 }
 
 .ask__link:hover {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .ask__link:focus {
@@ -48,7 +48,7 @@
 }
 
 .ask__link:active {
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .ask__hidden {

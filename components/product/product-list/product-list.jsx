@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { nanoid } from 'nanoid';
+import { useState } from "react";
+import { nanoid } from "nanoid";
 
-import ProductCard from '../product-card/product-card';
-import styles from './styles.module.css';
+import ProductCard from "../product-card/product-card";
+import styles from "./styles.module.css";
 
 const PRODUCTS_TO_SHOW_STEP = 8;
 
@@ -26,7 +26,7 @@ function ProductsList({ products }) {
 
   return (
     <>
-      <ul className={'products__list'}>
+      <ul className={"products__list"}>
         {products.slice(0, productsToShow).map((product) => (
           <ProductCard key={nanoid()} product={product} />
         ))}

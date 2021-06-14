@@ -1,20 +1,20 @@
-import styles from './step-1.module.css';
-import Button from '../../components/ui/button';
-import OrderNavigation from '../../components/order/order-navigation';
-import Breadcrumbs from '../../components/ui/breadcrumbs';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import cn from 'classnames';
+import styles from "./step-1.module.css";
+import Button from "../../components/ui/button";
+import OrderNavigation from "../../components/order/order-navigation";
+import Breadcrumbs from "../../components/ui/breadcrumbs";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import cn from "classnames";
 
 function OrderStep3() {
   const breadcrumbs = [
     {
-      title: 'Home',
-      link: '/'
+      title: "Home",
+      link: "/",
     },
     {
-      title: 'Order process'
-    }
+      title: "Order process",
+    },
   ];
 
   const router = useRouter();
@@ -26,8 +26,8 @@ function OrderStep3() {
 
   useEffect(() => {
     // if (formType) {
-    const script = document.createElement('script');
-    script.id = 'kyc';
+    const script = document.createElement("script");
+    script.id = "kyc";
     script.textContent = scriptText;
     document.body.appendChild(script);
     // }
@@ -38,7 +38,7 @@ function OrderStep3() {
 
   function getItemClassNames(isActive) {
     return cn(tabStyles, {
-      [activeTabStyles]: isActive
+      [activeTabStyles]: isActive,
     });
   }
 

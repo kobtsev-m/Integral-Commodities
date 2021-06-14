@@ -1,8 +1,8 @@
-import { nanoid } from 'nanoid';
+import { nanoid } from "nanoid";
 
-import cn from 'classnames';
-import styles from '../product-details.module.css';
-import ProductDetailsItem from '../product-details-item/product-details-item';
+import cn from "classnames";
+import styles from "../product-details.module.css";
+import ProductDetailsItem from "../product-details-item/product-details-item";
 
 function ProductDetailsList(props) {
   const { fields, fieldsToFilter } = props;
@@ -16,7 +16,7 @@ function ProductDetailsList(props) {
   const filteredProductInfo = filterProductInfoFields(fields);
 
   return (
-    <div className={cn('row g-0', styles.productPage__featuresList)}>
+    <div className={cn("row g-0", styles.productPage__featuresList)}>
       {filteredProductInfo.map((item) => (
         <ProductDetailsItem key={nanoid()} field={item} />
       ))}

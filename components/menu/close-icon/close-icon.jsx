@@ -1,4 +1,4 @@
-import styles from './close-icon.module.css';
+import styles from "./close-icon.module.css";
 
 function CloseIcon({ toggleMenu }) {
   return (

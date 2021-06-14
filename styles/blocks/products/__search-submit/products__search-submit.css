@@ -5,6 +5,6 @@
   border-radius: 0 3px 3px 0;
   min-width: 45px;
   max-width: 45px;
-  background: url('../../../../public/images/icon-search.svg') no-repeat center;
+  background: url("../../../../public/images/icon-search.svg") no-repeat center;
   background-size: 22px 22px;
 }

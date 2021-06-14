@@ -1,8 +1,8 @@
 .milestone__date {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
-    font-size: 36px;
-    line-height: 1.3;
-    font-weight: 500;
-    color: var(--p-blue);
+  font-size: 36px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--p-blue);
 }

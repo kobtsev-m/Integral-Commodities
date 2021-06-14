@@ -1,8 +1,8 @@
 .partner__name {
-    margin: 0 0 29px 0;
+  margin: 0 0 29px 0;
 
-    font-size: 36px;
-    line-height: 1.3;
-    font-weight: 700;
-    color: var(--p-blue);
+  font-size: 36px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--p-blue);
 }

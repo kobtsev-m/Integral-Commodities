@@ -252,11 +252,7 @@ function AboutPage() {
                 dubai@integral-commodities.ch
               </p>
             </div>
-            <img
-              className="office__map"
-              src="/images/uae-map.svg"
-              alt=""
-            />
+            <img className="office__map" src="/images/uae-map.svg" alt="" />
           </li>
           <li className="offices__item offices__item_has-two-columns office">
             <div className="office__info office-description">
@@ -318,11 +314,7 @@ function AboutPage() {
                 mersin@integral-commodities.ch
               </p>
             </div>
-            <img
-              className="office__map"
-              src="/images/turkey-map.svg"
-              alt=""
-            />
+            <img className="office__map" src="/images/turkey-map.svg" alt="" />
           </li>
           <li className="offices__item offices__item_has-two-columns office">
             <div className="office__info office-description">
@@ -405,11 +397,7 @@ function AboutPage() {
                 nsk@integral-commodities.ch
               </p>
             </div>
-            <img
-              className="office__map"
-              src="/images/russia-map.svg"
-              alt=""
-            />
+            <img className="office__map" src="/images/russia-map.svg" alt="" />
           </li>
         </ul>
       </section>

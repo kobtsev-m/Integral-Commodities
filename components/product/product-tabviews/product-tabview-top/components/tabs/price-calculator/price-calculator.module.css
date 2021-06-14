@@ -1,68 +1,68 @@
 /* Price calculator */
 .container {
-    font-family: var(--font-montserrat);
-    color: #2e2c2f;
+  font-family: var(--font-montserrat);
+  color: #2e2c2f;
 }
 
 /* Field wrapper */
 .fieldWrapper__title {
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 140%;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
 }
 
 /* Contacts */
 .contact {
-    position: relative;
-    color: #02569c;
-    cursor: pointer;
-    user-select: none;
+  position: relative;
+  color: #02569c;
+  cursor: pointer;
+  user-select: none;
 }
 
 .contact:not(:last-child) {
-    margin-right: 0.4em;
+  margin-right: 0.4em;
 }
 
 .contact__form {
-    position: absolute;
-    top: calc(100% + 0.2em);
-    right: 0;
-    width: 20em;
-    color: #2e2c2f;
-    background: #fff;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-    z-index: 1000;
+  position: absolute;
+  top: calc(100% + 0.2em);
+  right: 0;
+  width: 20em;
+  color: #2e2c2f;
+  background: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  z-index: 1000;
 }
 
 @media (max-width: 575.98px) {
-    .contact__form {
-        left: 0;
-        width: 55vw;
-    }
+  .contact__form {
+    left: 0;
+    width: 55vw;
+  }
 }
 
 .contact__form__close {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 /* Submit block */
 
 .submitBlock {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 4em !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 4em !important;
 }
 
 .submitBlock__helpText {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 25px;
-    text-align: center;
-    color: #02569c;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+  color: #02569c;
 }

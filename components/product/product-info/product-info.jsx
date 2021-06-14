@@ -1,5 +1,5 @@
-import IconInfo from '../../icons/icon-info';
-import styles from './product-info.module.css';
+import IconInfo from "../../icons/icon-info";
+import styles from "./product-info.module.css";
 
 function ProductInfo(props) {
   const { features } = props;
@@ -11,7 +11,7 @@ function ProductInfo(props) {
           <li className={styles.productInfo__item} key={`item-${i}`}>
             <IconInfo />
             <p className={styles.productInfo__itemText}>
-              {feature.key}:{' '}
+              {feature.key}:{" "}
               <span className={styles.productInfo__itemValue}>
                 {feature.value}
               </span>

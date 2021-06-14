@@ -28,7 +28,7 @@
   height: 22px;
 
   border: none;
-  background: url('../../../public/images/x-mark.svg');
+  background: url("../../../public/images/x-mark.svg");
 
   cursor: pointer;
 }

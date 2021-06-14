@@ -1,9 +1,9 @@
 .partners__link {
-    align-self: center;
+  align-self: center;
 
-    font-size: 18px;
-    line-height: 21px;
-    font-family: var(--font-montserrat);
-    font-weight: 400;
-    color: var(--p-blue);
+  font-size: 18px;
+  line-height: 21px;
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  color: var(--p-blue);
 }

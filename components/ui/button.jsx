@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import styles from './button.module.css';
+import Link from "next/link";
+import styles from "./button.module.css";
 
 function Button(props) {
   if (props.usualLink) {

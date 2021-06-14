@@ -1,14 +1,14 @@
-import styles from './success-offer-messengers.module.css';
+import styles from "./success-offer-messengers.module.css";
 
 function SuccessOfferMessengers() {
   return (
     <div className={styles.thanksMessengers}>
       <p className={styles.thanksMessengers__text}>
-        Your request has been sent.{' '}
+        Your request has been sent.{" "}
         <span className={styles.thanksMessengers__text_blue}>
           We will quote within 48 hours
         </span>
-        . If you would like to speak to someone immediatly feel free to{' '}
+        . If you would like to speak to someone immediatly feel free to{" "}
         <span className={styles.thanksMessengers__text_orange}>
           write to the messengers
         </span>

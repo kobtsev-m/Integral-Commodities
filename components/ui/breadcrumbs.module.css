@@ -1,24 +1,24 @@
 .breadcrumbs__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
 }
 
 .breadcrumbs__item {
-    font-family: var(--font-montserrat);
-    font-size: 14px;
-    line-height: 17px;
-    color: var(--grey-default);
-    display: flex;
-    align-items: center;
+  font-family: var(--font-montserrat);
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--grey-default);
+  display: flex;
+  align-items: center;
 }
 
 .breadcrumbs__item:not(:last-child)::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background: url('../../public/images/icon-next-crumb.svg') no-repeat center;
-    margin-left: 10px;
-    margin-right: 10px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: url("../../public/images/icon-next-crumb.svg") no-repeat center;
+  margin-left: 10px;
+  margin-right: 10px;
 }

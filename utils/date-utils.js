@@ -1,5 +1,5 @@
 const getMonthName = (date) => {
-  return date.toLocaleString('en', { month: 'long' });
+  return date.toLocaleString("en", { month: "long" });
 };
 
 export const getCurrentDate = () => {
@@ -36,7 +36,7 @@ export const getMonthsOffsetList = (weeks) => {
         id: months.length,
         name: getMonthName(weeks[i].range[1]),
         year: weeks[i].range[1].getFullYear(),
-        offset: i * weekAttitude
+        offset: i * weekAttitude,
       });
     }
   }
@@ -46,7 +46,7 @@ export const getMonthsOffsetList = (weeks) => {
 export const formatWeekYMD = (week) => {
   return [
     `${week[0].getFullYear()}-${week[0].getMonth() + 1}-${week[0].getDate()}`,
-    `${week[1].getFullYear()}-${week[1].getMonth() + 1}-${week[1].getDate()}`
+    `${week[1].getFullYear()}-${week[1].getMonth() + 1}-${week[1].getDate()}`,
   ];
 };
 

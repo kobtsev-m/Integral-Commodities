@@ -1,4 +1,4 @@
-import styles from './document-info.module.css';
+import styles from "./document-info.module.css";
 
 function DocumentInfo({ document }) {
   return (

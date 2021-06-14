@@ -13,7 +13,8 @@
 
 .checkboxFilter__dropDownBtn {
   border: none;
-  background: transparent url("../../public/images/icon-rollup.svg") no-repeat 100% center;
+  background: transparent url("../../public/images/icon-rollup.svg") no-repeat
+    100% center;
   background-size: 10px 6px;
   padding: 0 20px 0 0;
   font-family: var(--font-montserrat);

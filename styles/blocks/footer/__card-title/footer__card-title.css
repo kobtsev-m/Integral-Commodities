@@ -1,8 +1,8 @@
 .footer__card-title {
-    margin: 0 0 23px;
-    font-family: var(--font-montserrat);
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 140%;
-    color: #fff;
+  margin: 0 0 23px;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  color: #fff;
 }

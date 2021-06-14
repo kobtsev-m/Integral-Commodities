@@ -1,21 +1,21 @@
 .thanksHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .thanksHeader__checkImg {
-    flex: 0 0 80px;
+  flex: 0 0 80px;
 }
 
 .thanksHeader__text {
-    margin: 25px 0 0;
-    padding: 0;
+  margin: 25px 0 0;
+  padding: 0;
 
-    font-size: 64px;
-    line-height: 78px;
-    font-family: var(--font-montserrat);
-    font-weight: 700;
-    color: var(--p-blue);
+  font-size: 64px;
+  line-height: 78px;
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  color: var(--p-blue);
 }

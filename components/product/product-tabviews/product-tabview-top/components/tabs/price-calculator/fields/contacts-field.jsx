@@ -1,20 +1,20 @@
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faTimes } from '@fortawesome/free-solid-svg-icons';
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import cn from 'classnames';
-import styles from '../price-calculator.module.css';
-import stylesUI from 'components/ui/custom-ui.module.css';
+import cn from "classnames";
+import styles from "../price-calculator.module.css";
+import stylesUI from "components/ui/custom-ui.module.css";
 
-import CustomTextInput from 'components/ui/custom-text-input';
-import { contactMethods } from '../options/options';
+import CustomTextInput from "components/ui/custom-text-input";
+import { contactMethods } from "../options/options";
 
 function ContactsField(props) {
   const [contacts, setContacts] = useState(props.defaultValue);
   const [chosenMethods, setChosenMethods] = useState([]);
   const [editingMethod, setEditingMethod] = useState(null);
-  const [editingMethodValue, setEditingMethodValue] = useState('');
+  const [editingMethodValue, setEditingMethodValue] = useState("");
 
   useEffect(() => {
     props.onChange({ [props.name]: contacts });
@@ -41,7 +41,7 @@ function ContactsField(props) {
   const handleContanctClick = (methodName) => {
     if (chosenMethods.includes(methodName)) {
       removeMethodFromChosen(methodName);
-    } else if (methodName === 'email') {
+    } else if (methodName === "email") {
       addMethodToChosen(methodName);
       setEditingMethod(null);
     } else {
@@ -63,42 +63,42 @@ function ContactsField(props) {
     }
     setContacts({ ...contacts, [methodName]: editingMethodValue });
     setEditingMethod(null);
-    setEditingMethodValue('');
+    setEditingMethodValue("");
     addMethodToChosen(methodName);
   };
 
   return (
     <>
-      <div className={'row'}>
-        <div className={'col-12 col-md-6'}>
+      <div className={"row"}>
+        <div className={"col-12 col-md-6"}>
           <label>Name</label>
           <CustomTextInput
-            name={'name'}
-            placeholder={'John Smith'}
-            className={'mt-2'}
+            name={"name"}
+            placeholder={"John Smith"}
+            className={"mt-2"}
             onChange={handleChange}
           />
         </div>
-        <div className={'col-12 col-md-6 mt-3 mt-md-0'}>
+        <div className={"col-12 col-md-6 mt-3 mt-md-0"}>
           <label>
             Email<sup className={stylesUI.textRed}>*</sup>
           </label>
           <CustomTextInput
-            name={'email'}
-            placeholder={'example@gmail.com'}
-            className={'mt-2'}
+            name={"email"}
+            placeholder={"example@gmail.com"}
+            className={"mt-2"}
             onChange={handleChange}
             onBlur={handleBlur}
-            error={props.errors['contacts.email']}
+            error={props.errors["contacts.email"]}
           />
         </div>
       </div>
-      <div className={'row gx-2 align-items-center mt-3'}>
-        <div className={'col-12 col-sm-7'}>
+      <div className={"row gx-2 align-items-center mt-3"}>
+        <div className={"col-12 col-sm-7"}>
           <small>Preferred method of communication:</small>
         </div>
-        <div className={'col-12 col-sm-5 mt-2 mt-md-0'}>
-          <div className={'d-flex justify-content-sm-end'}>
+        <div className={"col-12 col-sm-5 mt-2 mt-md-0"}>
+          <div className={"d-flex justify-content-sm-end"}>
             {contactMethods.map((method, i) => (
               <div key={i} className={styles.contact}>
                 <Image
@@ -108,27 +108,25 @@ function ContactsField(props) {
                       : method.iconSrc
                   }
                   alt={`${method.name}-icon`}
-                  width={'30px'}
-                  height={'30px'}
+                  width={"30px"}
+                  height={"30px"}
                   onClick={() => handleContanctClick(method.name)}
                 />
                 {editingMethod === method.name && (
-                  <div
-                    className={cn(styles.contact__form, 'mt-2 mt-md-0 p-3')}
-                  >
+                  <div className={cn(styles.contact__form, "mt-2 mt-md-0 p-3")}>
                     <label>{method.label}</label>
-                    <div className={'row gx-2 mt-3'}>
-                      <div className={'col-10'}>
+                    <div className={"row gx-2 mt-3"}>
+                      <div className={"col-10"}>
                         <CustomTextInput
                           name={method.name}
                           placeholder={method.placeholder}
                           onChange={handleContactFormChange}
                         />
                       </div>
-                      <div className={'col-2'}>
+                      <div className={"col-2"}>
                         <button
-                          type={'button'}
-                          className={'btn shadow-none h-100'}
+                          type={"button"}
+                          className={"btn shadow-none h-100"}
                           onClick={() => handleContactFormSubmit(method.name)}
                         >
                           <FontAwesomeIcon
@@ -140,8 +138,8 @@ function ContactsField(props) {
                     </div>
                     <div className={styles.contact__form__close}>
                       <button
-                        type={'button'}
-                        className={'btn shadow-none'}
+                        type={"button"}
+                        className={"btn shadow-none"}
                         onClick={handleContactFormClose}
                       >
                         <FontAwesomeIcon

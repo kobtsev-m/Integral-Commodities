@@ -1,102 +1,102 @@
 .currentOffers__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .currentOffers__title {
-    font-family: var(--font-montserrat);
-    color: var(--grey-default);
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 50px;
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 50px;
 }
 
 .currentOffers__titleLabel {
-    font-family: var(--font-montserrat);
-    color: var(--grey-default);
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 25px;
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
 }
 
 .currentOffers__table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .currentOffers__tableHeaderRow {
-    background: url('/images/bg-line-blue.svg') no-repeat 0 calc(100% - 22px);
+  background: url("/images/bg-line-blue.svg") no-repeat 0 calc(100% - 22px);
 }
 
 .currentOffers__tableHeaderCell {
-    font-family: var(--font-montserrat);
-    color: var(--grey-default);
-    padding: 0 10px 44px;
-    font-weight: normal;
-    font-size: 17px;
-    line-height: 25px;
-    text-align: left;
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+  padding: 0 10px 44px;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 25px;
+  text-align: left;
 }
 
 .currentOffers__tableCell {
-    padding: 0 10px 22px;
-    font-family: var(--font-montserrat);
-    color: var(--grey-default);
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 25px;
-    text-align: left;
+  padding: 0 10px 22px;
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: left;
 }
 
 .currentOffers__tableCell_center {
-    /*text-align: center;*/
+  /*text-align: center;*/
 }
 
 .showMoreButtonContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .showMoreButton {
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    padding: 0;
-    margin: 40px 0 0;
-    outline: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 0;
+  margin: 40px 0 0;
+  outline: none;
 
-    background: transparent;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 150%;
-    font-family: var(--font-montserrat);
+  background: transparent;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 150%;
+  font-family: var(--font-montserrat);
 
-    color: #02569c;
+  color: #02569c;
 }
 
 .analogs__cell {
-    padding-top: 22px;
-    border-bottom: 1px solid #d4d4d4;
+  padding-top: 22px;
+  border-bottom: 1px solid #d4d4d4;
 }
 
 .analogs__noAnalogs {
-    font-family: var(--font-montserrat);
-    font-size: 30px;
-    text-align: center;
-    margin: 50px 0;
+  font-family: var(--font-montserrat);
+  font-size: 30px;
+  text-align: center;
+  margin: 50px 0;
 }
 
 .analogs__tableHeaderRow {
-    background: url('/images/bg-line-black.svg') no-repeat 0 calc(100% - 5px);
+  background: url("/images/bg-line-black.svg") no-repeat 0 calc(100% - 5px);
 }
 
 .analogs__headerCell {
-    font-family: var(--font-montserrat);
-    color: var(--grey-default);
-    padding: 0 10px 20px;
-    font-weight: normal;
-    font-size: 19px;
-    text-align: left;
+  font-family: var(--font-montserrat);
+  color: var(--grey-default);
+  padding: 0 10px 20px;
+  font-weight: normal;
+  font-size: 19px;
+  text-align: left;
 }

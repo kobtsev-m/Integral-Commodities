@@ -1,4 +1,4 @@
-import CustomTextarea from 'components/ui/custom-textarea';
+import CustomTextarea from "components/ui/custom-textarea";
 
 function AdditionalInfoField(props) {
   return (

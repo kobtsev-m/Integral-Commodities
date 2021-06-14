@@ -1,5 +1,5 @@
-import cn from 'classnames';
-import styles from './custom-ui.module.css';
+import cn from "classnames";
+import styles from "./custom-ui.module.css";
 
 function CustomTextarea(props) {
   const { onChange, ...restProps } = props;

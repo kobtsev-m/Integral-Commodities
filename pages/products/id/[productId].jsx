@@ -1,37 +1,37 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect, useContext } from 'react';
+import { useRouter } from "next/router";
+import { useState, useEffect, useContext } from "react";
 
-import { getProductByIdApi, getPlaceCoordinatesByNameApi } from 'api/api';
-import { capitalize } from 'utils/string-utils';
-import ProductDetails from 'components/product/product-details/product-details';
-import LoadingSpinner from 'components/ui/loading';
-import Breadcrumbs from 'components/ui/breadcrumbs';
-import ProductTabviewTop from 'components/product/product-tabviews/product-tabview-top/product-tabview-top';
+import { getProductByIdApi, getPlaceCoordinatesByNameApi } from "api/api";
+import { capitalize } from "utils/string-utils";
+import ProductDetails from "components/product/product-details/product-details";
+import LoadingSpinner from "components/ui/loading";
+import Breadcrumbs from "components/ui/breadcrumbs";
+import ProductTabviewTop from "components/product/product-tabviews/product-tabview-top/product-tabview-top";
 
-import styles from 'components/product/product-details/product-details.module.css';
-import cn from 'classnames';
+import styles from "components/product/product-details/product-details.module.css";
+import cn from "classnames";
 
-const INFO_FIELDS_TO_FILTER = ['price', 'density'];
+const INFO_FIELDS_TO_FILTER = ["price", "density"];
 
 const getBreadcrumbs = (product) => {
-  const homeBreadcrumb = { title: 'Home', link: '/products/polymers' };
+  const homeBreadcrumb = { title: "Home", link: "/products/polymers" };
   const categoryBreadcrumb = {
     title: capitalize(product?.category),
-    link: `/products/${product?.category}`
+    link: `/products/${product?.category}`,
   };
   const polymerType = product?.card_data.find(
-    (item) => item.key === 'Type'
+    (item) => item.key === "Type"
   ).value;
   const polymerBreadcrumb = {
     title: polymerType,
-    link: `/products/${product?.category}?type=${polymerType?.toUpperCase()}`
+    link: `/products/${product?.category}?type=${polymerType?.toUpperCase()}`,
   };
   const gradeBreadcrumb = { title: product?.grade };
   return [
     homeBreadcrumb,
     categoryBreadcrumb,
     polymerType ? polymerBreadcrumb : null,
-    gradeBreadcrumb
+    gradeBreadcrumb,
   ];
 };
 
@@ -57,7 +57,7 @@ function ProductPage() {
 
   useEffect(() => {
     if (product) {
-      const mapObj = product.doc_data?.find((item) => 'map' in item);
+      const mapObj = product.doc_data?.find((item) => "map" in item);
       const newPorts = mapObj?.map;
       const newFactories = mapObj?.availability;
       setPorts(newPorts);
@@ -99,7 +99,7 @@ function ProductPage() {
       {isLoading ? (
         <LoadingSpinner />
       ) : !product ? (
-        <h2 className={'text-center'}>There is no product!</h2>
+        <h2 className={"text-center"}>There is no product!</h2>
       ) : (
         <>
           <Breadcrumbs list={getBreadcrumbs(product)} />

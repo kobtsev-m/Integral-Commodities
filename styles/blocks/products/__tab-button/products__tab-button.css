@@ -17,9 +17,9 @@
 }
 
 .products__tab-button:hover {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .products__tab-button:active {
-  opacity: .3;
+  opacity: 0.3;
 }

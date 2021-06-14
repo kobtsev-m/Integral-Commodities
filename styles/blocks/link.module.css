@@ -1,15 +1,15 @@
 .link {
-    cursor: pointer;
-    display: block;
-    transition: all 300ms ease;
+  cursor: pointer;
+  display: block;
+  transition: all 300ms ease;
 }
 
 .link:hover {
-    transform: translateX(5px);
-    opacity: 0.8;
+  transform: translateX(5px);
+  opacity: 0.8;
 }
 
 .link a:hover,
 a.link:hover {
-    color: #fff;
+  color: #fff;
 }

@@ -1,5 +1,5 @@
-import { createContext, useState, useEffect } from 'react';
-import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { createContext, useState, useEffect } from "react";
+import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
 export const PlacesContext = createContext({});
 

@@ -1,10 +1,10 @@
 .partner {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, .06);
-    padding-right: 194px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.06);
+  padding-right: 194px;
 
-    background: #F3F5F8;
-    border-radius: 5px;
+  background: #f3f5f8;
+  border-radius: 5px;
 }

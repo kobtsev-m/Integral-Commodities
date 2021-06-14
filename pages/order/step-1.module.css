@@ -127,7 +127,7 @@
   font-size: 18px;
   line-height: 150%;
 
-  color: #2E2C2F;
+  color: #2e2c2f;
   margin: 0;
 }
 
@@ -138,7 +138,7 @@
   font-family: var(--font-montserrat);
   margin: 0 0 80px;
 
-  color: #2E2C2F;
+  color: #2e2c2f;
 }
 
 .step3__tabs {
@@ -157,7 +157,7 @@
 }
 
 .step3__tab_active {
-  color: #02569C;
+  color: #02569c;
 }
 
 .step3__tab:not(:last-child) {

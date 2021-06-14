@@ -10,9 +10,9 @@
 }
 
 .showMoreBtn:hover {
-   opacity: 0.6;
- }
+  opacity: 0.6;
+}
 
 .showMoreBtn:active {
-   opacity: 0.3;
- }
+  opacity: 0.3;
+}

@@ -1,22 +1,22 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import FieldWrapper from './common/field-wrapper';
-import AdditionalInfoField from './fields/additional-info-field';
-import ContactsField from './fields/contacts-field';
-import IncotermsField from './fields/incoterms-field';
-import PaymentTermsField from './fields/payment-terms-field';
-import PeriodField from './fields/period-field';
-import PlaceField from './fields/place-field';
-import QuantityField from './fields/quantity-field';
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import FieldWrapper from "./common/field-wrapper";
+import AdditionalInfoField from "./fields/additional-info-field";
+import ContactsField from "./fields/contacts-field";
+import IncotermsField from "./fields/incoterms-field";
+import PaymentTermsField from "./fields/payment-terms-field";
+import PeriodField from "./fields/period-field";
+import PlaceField from "./fields/place-field";
+import QuantityField from "./fields/quantity-field";
 
-import cn from 'classnames';
-import styles from './price-calculator.module.css';
-import stylesUI from 'components/ui/custom-ui.module.css';
+import cn from "classnames";
+import styles from "./price-calculator.module.css";
+import stylesUI from "components/ui/custom-ui.module.css";
 
-import { postInquiriesApi } from 'api/api';
-import { formatWeekYMD } from 'utils/date-utils';
-import { formSchema } from './validation/validation';
-import { incotermsValues, paymentTermsValues } from './options/options';
+import { postInquiriesApi } from "api/api";
+import { formatWeekYMD } from "utils/date-utils";
+import { formSchema } from "./validation/validation";
+import { incotermsValues, paymentTermsValues } from "./options/options";
 
 function PriceCalculator({ productId, initialFormData, isEmbed }) {
   const router = useRouter();
@@ -59,7 +59,7 @@ function PriceCalculator({ productId, initialFormData, isEmbed }) {
       delivery_periods: formData.delivery_periods.map((week) =>
         formatWeekYMD(week)
       ),
-      product_id: productId
+      product_id: productId,
     };
   };
 
@@ -71,7 +71,7 @@ function PriceCalculator({ productId, initialFormData, isEmbed }) {
         const formattedData = formatFormData();
         console.log(formattedData);
         postInquiriesApi(formattedData).then(() =>
-          router.push('/success-offer')
+          router.push("/success-offer")
         );
       })
       .catch((errors) => {
@@ -85,54 +85,54 @@ function PriceCalculator({ productId, initialFormData, isEmbed }) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.container}>
-      <div className={'row gx-5'}>
-        <div className={'col-12 col-md-6'}>
-          <FieldWrapper title={'Place of delivery'}>
+      <div className={"row gx-5"}>
+        <div className={"col-12 col-md-6"}>
+          <FieldWrapper title={"Place of delivery"}>
             <PlaceField
-              name={'place_of_delivery'}
-              placeholder={'Type your place of delivery'}
+              name={"place_of_delivery"}
+              placeholder={"Type your place of delivery"}
               onChange={handleChange}
               defaultValue={initialFormData.place_of_delivery}
             />
           </FieldWrapper>
         </div>
-        <div className={'col-12 col-md-6 mt-4 mt-md-0'}>
-          <FieldWrapper title={'Quantity'}>
+        <div className={"col-12 col-md-6 mt-4 mt-md-0"}>
+          <FieldWrapper title={"Quantity"}>
             <QuantityField
-              name={'quantity'}
-              type={'number'}
-              placeholder={'50 e.g.'}
+              name={"quantity"}
+              type={"number"}
+              placeholder={"50 e.g."}
               onChange={handleChange}
               defaultValue={initialFormData.quantity}
             />
           </FieldWrapper>
         </div>
       </div>
-      <div className={'row gx-5 mt-5'}>
-        <FieldWrapper title={'Incoterms'}>
+      <div className={"row gx-5 mt-5"}>
+        <FieldWrapper title={"Incoterms"}>
           <IncotermsField
-            name={'incoterms'}
+            name={"incoterms"}
             values={incotermsValues}
             onChange={handleChange}
             defaultValue={initialFormData.incoterms}
           />
         </FieldWrapper>
       </div>
-      <div className={'row gx-5 mt-5'}>
-        <div className={'col-12 col-md-6'}>
-          <FieldWrapper title={'Terms of payment'}>
+      <div className={"row gx-5 mt-5"}>
+        <div className={"col-12 col-md-6"}>
+          <FieldWrapper title={"Terms of payment"}>
             <PaymentTermsField
-              name={'terms_of_payment'}
+              name={"terms_of_payment"}
               values={paymentTermsValues}
               onChange={handleChange}
               defaultValue={initialFormData.terms_of_payment}
             />
           </FieldWrapper>
         </div>
-        <div className={'col-12 col-md-6 mt-4 mt-md-0'}>
-          <FieldWrapper title={'Delivery period'}>
+        <div className={"col-12 col-md-6 mt-4 mt-md-0"}>
+          <FieldWrapper title={"Delivery period"}>
             <PeriodField
-              name={'delivery_periods'}
+              name={"delivery_periods"}
               onChange={handleChange}
               defaultValue={initialFormData.delivery_periods}
               isEmbed={isEmbed}
@@ -140,22 +140,22 @@ function PriceCalculator({ productId, initialFormData, isEmbed }) {
           </FieldWrapper>
         </div>
       </div>
-      <div className={'row gx-5 mt-5'}>
-        <div className={'col-12 col-md-6'}>
-          <FieldWrapper title={'Additional information'}>
+      <div className={"row gx-5 mt-5"}>
+        <div className={"col-12 col-md-6"}>
+          <FieldWrapper title={"Additional information"}>
             <AdditionalInfoField
-              name={'additional_information'}
-              placeholder={'Company name, order requirements'}
+              name={"additional_information"}
+              placeholder={"Company name, order requirements"}
               rows={4}
               onChange={handleChange}
               defaultValue={initialFormData.additional_information}
             />
           </FieldWrapper>
         </div>
-        <div className={'col-12 col-md-6 mt-4 mt-md-0'}>
-          <FieldWrapper title={'Contact information'}>
+        <div className={"col-12 col-md-6 mt-4 mt-md-0"}>
+          <FieldWrapper title={"Contact information"}>
             <ContactsField
-              name={'contacts'}
+              name={"contacts"}
               onChange={handleChange}
               onBlur={handleBlur}
               errors={formErrors}
@@ -165,19 +165,19 @@ function PriceCalculator({ productId, initialFormData, isEmbed }) {
         </div>
       </div>
 
-      <div className={'row'}>
+      <div className={"row"}>
         <div className={styles.submitBlock}>
           <button
-            type={'submit'}
+            type={"submit"}
             className={cn(stylesUI.btn, stylesUI.large, {
               [stylesUI.isInvalid]: !isFormValid(),
               [stylesUI.orange]: isFormValid(),
-              [stylesUI.red]: !isFormValid()
+              [stylesUI.red]: !isFormValid(),
             })}
           >
             Ask for quote
           </button>
-          <div className={'mt-3'}>
+          <div className={"mt-3"}>
             <span className={styles.submitBlock__helpText}>
               We will revert within 48 hours
             </span>
@@ -185,9 +185,9 @@ function PriceCalculator({ productId, initialFormData, isEmbed }) {
           {!isFormValid() && (
             <div className={cn(stylesUI.errorSpan, stylesUI.above)}>
               {Object.keys(formErrors).length}
-              {' required '}
-              {Object.keys(formErrors).length > 1 ? 'fields are' : 'field is'}
-              {' not completed'}
+              {" required "}
+              {Object.keys(formErrors).length > 1 ? "fields are" : "field is"}
+              {" not completed"}
             </div>
           )}
         </div>
