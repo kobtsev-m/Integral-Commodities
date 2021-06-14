@@ -157,10 +157,10 @@ function HomePage() {
           <>
             <ProductsList products={filteredProducts} />
             <LatestOffers offers={offers} />
-            <AskForQuote />
           </>
         )}
       </section>
+      <AskForQuote />
     </>
   );
 }

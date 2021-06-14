@@ -12,17 +12,7 @@ function LatestOffers(props) {
   return (
     <section className={styles.currentOffers}>
       <header className={styles.currentOffers__header}>
-        <h2
-          className={styles.currentOffers__title}
-          style={{
-            paddingLeft: 10,
-            marginTop: 80,
-            marginBottom: 50,
-            fontWeight: "normal",
-          }}
-        >
-          Latest offers
-        </h2>
+        <h2 className={styles.currentOffers__title}>Latest offers</h2>
       </header>
       <table
         className={styles.currentOffers__table}
@@ -30,7 +20,12 @@ function LatestOffers(props) {
       >
         <thead className={styles.currentOffers__tableHead}>
           <tr className={styles.currentOffers__tableHeaderRow}>
-            <th className={styles.currentOffers__tableHeaderCell}>
+            <th
+              className={cn(
+                styles.currentOffers__tableHeaderCell,
+                styles.mobHiddenCol
+              )}
+            >
               Date of offer
             </th>
             <th className={styles.currentOffers__tableHeaderCell}>Grade</th>
@@ -44,12 +39,20 @@ function LatestOffers(props) {
               Terms of Delivery
             </th>
             <th
-              className={styles.currentOffers__tableHeaderCell}
+              className={cn(
+                styles.currentOffers__tableHeaderCell,
+                styles.mobHiddenCol
+              )}
               style={{ textAlign: "center" }}
             >
               Quantity/MT
             </th>
-            <th className={styles.currentOffers__tableHeaderCell}>
+            <th
+              className={cn(
+                styles.currentOffers__tableHeaderCell,
+                styles.mobHiddenCol
+              )}
+            >
               Payment terms
             </th>
             <th className={styles.currentOffers__tableHeaderCell}>Price/MT</th>
@@ -61,7 +64,8 @@ function LatestOffers(props) {
               <td
                 className={cn(
                   styles.currentOffers__tableCell,
-                  styles.currentOffers__tableCell_center
+                  styles.currentOffers__tableCell_center,
+                  styles.mobHiddenCol
                 )}
               >
                 {offer.date_of_validity}
@@ -82,19 +86,26 @@ function LatestOffers(props) {
               <td
                 className={cn(
                   styles.currentOffers__tableCell,
-                  styles.currentOffers__tableCell_center
+                  styles.currentOffers__tableCell_center,
+                  styles.mobHiddenCol
                 )}
                 style={{ textAlign: "center" }}
               >
                 {offer.quantity}
               </td>
-              <td className={styles.currentOffers__tableCell}>
+              <td
+                className={cn(
+                  styles.currentOffers__tableHeaderCell,
+                  styles.mobHiddenCol
+                )}
+              >
                 {offer.terms_of_payment}
               </td>
               <td
                 className={cn(
                   styles.currentOffers__tableCell,
-                  styles.currentOffers__tableCell_center
+                  styles.currentOffers__tableCell_center,
+                  styles.currentOffers__tableCell_price
                 )}
               >
                 ${offer.price}

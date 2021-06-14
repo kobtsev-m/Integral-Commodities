@@ -11,23 +11,27 @@ function AskForQuote() {
   return (
     <>
       <div className={styles.ask}>
-        <img
-          className={styles.ask__image}
-          src={"/images/icon-attention.svg"}
-          alt={"Attention"}
-        />
-        <p className={styles.ask__text}>
-          We deliver worldwide door-to-door and offer volume based, contract
-          based and other discounts. Please complete the brief form to receive a
-          custom quote within 24 hours.
-        </p>
-        <button
-          type={"button"}
-          className={styles.ask__link}
-          onClick={() => setModalShow(true)}
-        >
-          Ask for quote
-        </button>
+        <div className={styles.contentWrapper}>
+          <img
+            className={styles.ask__image}
+            src={"/images/icon-attention.svg"}
+            alt={"Attention"}
+          />
+          <p className={styles.ask__text}>
+            We deliver worldwide door-to-door and offer volume based, contract
+            based and other discounts. Please complete the brief form to receive
+            a custom quote within 24 hours.
+          </p>
+        </div>
+        <div className={styles.buttonWrapper}>
+          <button
+            type={"button"}
+            className={styles.ask__link}
+            onClick={() => setModalShow(true)}
+          >
+            Ask for quote
+          </button>
+        </div>
       </div>
       <Modal
         size={"lg"}
@@ -41,7 +45,7 @@ function AskForQuote() {
           <button
             className={"btn-close shadow-none me-1"}
             onClick={() => setModalShow(false)}
-          ></button>
+          />
         </Modal.Header>
         <Modal.Body>
           <div className={"container-fluid py-2"}>
