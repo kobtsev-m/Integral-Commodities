@@ -3,6 +3,8 @@ import FooterCard from "./components/footer-card";
 
 import cn from "classnames";
 import linkClasses from "styles/blocks/link.module.css";
+import useWindowDimensions from "../../../hooks/useWindowDemensions";
+import FooterMobile from "../footer-mobile";
 
 export const FooterLink = {
   HDPE: {
@@ -25,10 +27,20 @@ export const FooterLink = {
 };
 
 function Footer() {
+  const { width } = useWindowDimensions();
+
+  if (!width) {
+    return null;
+  }
+
+  if (width <= 768) {
+    return <FooterMobile />;
+  }
+
   return (
     <footer className={"footer"}>
       <div className={"footer__container"}>
-        <section className={"footer__info"}>
+        <div className={"footer__info"}>
           {Object.entries(FooterLink).map(([key, value]) => (
             <FooterCard
               key={`footer-card-${key}-${value}`}
@@ -78,8 +90,8 @@ function Footer() {
               <Link href={"/products/fertilizers"}>Fertilizers</Link>
             </h3>
           </div>
-        </section>
-        <section className={"footer__representations"}>
+        </div>
+        <div className={"footer__representations"}>
           <div className={"footer__card"}>
             <div className={"footer__office-title"}>
               <img
@@ -222,7 +234,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-        </section>
+        </div>
         <div className={"footer__logo-container mt-3"}>
           <Link href={"/products/polymers"}>
             <span className={"logo logo_place_footer"}></span>
