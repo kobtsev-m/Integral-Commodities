@@ -3,3 +3,14 @@
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 40px;
 }
+
+@media screen and (max-width: 768px) {
+  .futures__list {
+    grid-template-columns: initial;
+    grid-gap: initial;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

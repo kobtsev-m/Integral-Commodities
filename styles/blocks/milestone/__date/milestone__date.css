@@ -6,3 +6,10 @@
   font-weight: 500;
   color: var(--p-blue);
 }
+
+@media screen and (max-width: 768px) {
+  .milestone__date {
+    margin-bottom: 9px;
+    font-size: 12px;
+  }
+}

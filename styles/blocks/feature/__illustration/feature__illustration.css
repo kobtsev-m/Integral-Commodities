@@ -2,3 +2,9 @@
   display: flex;
   margin-top: 40px;
 }
+
+@media screen and (max-width: 768px) {
+  .feature__illustration {
+    margin-top: 10px;
+  }
+}

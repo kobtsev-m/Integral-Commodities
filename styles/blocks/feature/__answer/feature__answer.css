@@ -11,3 +11,12 @@
 .feature__answer_size-48 {
   font-size: 48px;
 }
+
+@media screen and (max-width: 768px) {
+  .feature__answer {
+    font-size: 12px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--p-blue);
+  }
+}

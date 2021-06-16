@@ -6,3 +6,12 @@
   font-weight: 500;
   color: var(--grey-default);
 }
+
+@media screen and (max-width: 768px) {
+  .milestone__header {
+    margin: 0 0 9px;
+
+    font-size: 10px;
+    line-height: 12px;
+  }
+}

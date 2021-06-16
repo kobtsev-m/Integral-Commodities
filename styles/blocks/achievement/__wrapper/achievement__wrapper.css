@@ -8,3 +8,15 @@
   background: #f3f5f8;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 768px) {
+  .achievement__wrapper {
+    padding: 23px 15px;
+    align-items: center;
+
+    border-radius: 0;
+    background: #f3f5f8 url("/images/achievement-decoration.svg") no-repeat 96%
+      top;
+    background-size: 100px;
+  }
+}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import classes from "./footer-mobile.module.css";
 
 const FooterMobile = () => {
@@ -29,10 +30,20 @@ const FooterMobile = () => {
           <div className={classes.linksWrapper}>
             <h3 className={classes.linksHeader}>Pages</h3>
             <ul className={classes.linksList}>
-              <li className={classes.linksItem}>About</li>
-              <li className={classes.linksItem}>Order process</li>
-              <li className={classes.linksItem}>Services</li>
-              <li className={classes.linksItem}>Partners</li>
+              <li className={classes.linksItem}>
+                <Link href="/about">
+                  <a>About</a>
+                </Link>
+              </li>
+              <li className={classes.linksItem}>
+                <a href="">Order process</a>
+              </li>
+              <li className={classes.linksItem}>
+                <a href="">Services</a>
+              </li>
+              <li className={classes.linksItem}>
+                <a href="">Partners</a>
+              </li>
             </ul>
           </div>
         </nav>

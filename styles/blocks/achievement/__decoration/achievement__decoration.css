@@ -10,3 +10,9 @@
 
   border-top-right-radius: 5px;
 }
+
+@media screen and (max-width: 768px) {
+  .achievement__decoration {
+    display: none;
+  }
+}

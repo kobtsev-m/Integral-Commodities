@@ -1,6 +1,6 @@
 function AboutPage() {
   return (
-    <div>
+    <>
       <section className="features">
         <ul className="features__list">
           <li className="features__item features__item_has-two-columns feature">
@@ -13,7 +13,7 @@ function AboutPage() {
           <li className="features__item feature">
             <span className="feature__question">What</span>
             <span className="feature__answer feature__answer_size-36">
-              Polymers originating from the Caspian Region
+              Polymers and fertilizers originating from the Caspian Region
             </span>
             <div className="feature__illustration">
               <img
@@ -102,7 +102,7 @@ function AboutPage() {
       </section>
       <section className="futures">
         <h2 className="futures__header">
-          <a name="futures">Futures</a>
+          <a name="futures">Future releases</a>
         </h2>
         <div className="futures__list">
           <div className="futures__item futures__item_big future-card future-card_big">
@@ -125,16 +125,6 @@ function AboutPage() {
           <div className="futures__item futures__item_little future-card future-card_little">
             <img
               className="future-card__icon future-card__icon_little"
-              src="./images/future-reordering.svg"
-              alt=""
-            />
-            <p className="future-card__text future-card__text_little">
-              Re-ordering with few clicks
-            </p>
-          </div>
-          <div className="futures__item futures__item_little future-card future-card_little">
-            <img
-              className="future-card__icon future-card__icon_little"
               src="./images/future-subscription.svg"
               alt=""
             />
@@ -150,6 +140,36 @@ function AboutPage() {
             />
             <p className="future-card__text future-card__text_little">
               Find analog of your grade raw materials
+            </p>
+          </div>
+          <div className="futures__item futures__item_little future-card future-card_little">
+            <img
+              className="future-card__icon future-card__icon_little"
+              src="./images/future-search.svg"
+              alt=""
+            />
+            <p className="future-card__text future-card__text_little">
+              Find analog of your grade raw materials
+            </p>
+          </div>
+          <div className="futures__item futures__item_little future-card future-card_little">
+            <img
+              className="future-card__icon future-card__icon_little"
+              src="./images/future-search.svg"
+              alt=""
+            />
+            <p className="future-card__text future-card__text_little">
+              Find analog of your grade raw materials
+            </p>
+          </div>
+          <div className="futures__item futures__item_little future-card future-card_little">
+            <img
+              className="future-card__icon future-card__icon_little"
+              src="./images/future-subscription.svg"
+              alt=""
+            />
+            <p className="future-card__text future-card__text_little">
+              Subscription to news about product launches, availability, price
             </p>
           </div>
         </div>
@@ -401,7 +421,7 @@ function AboutPage() {
           </li>
         </ul>
       </section>
-    </div>
+    </>
   );
 }
 

@@ -6,3 +6,13 @@
   font-weight: 500;
   color: var(--hyper-link-default);
 }
+
+@media screen and (max-width: 768px) {
+  .feature__question {
+    margin-bottom: 11px;
+
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    font-size: 12px;
+  }
+}

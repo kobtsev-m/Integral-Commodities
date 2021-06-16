@@ -18,3 +18,23 @@
   align-items: center;
   padding: 35px 75px 35px 75px;
 }
+
+@media screen and (max-width: 768px) {
+  .future-card {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 8px;
+    flex-grow: 1;
+    justify-content: flex-start;
+  }
+
+  .future-card_big {
+    align-items: center;
+    padding: 8px;
+  }
+
+  .future-card_little {
+    align-items: center;
+    padding: 8px;
+  }
+}

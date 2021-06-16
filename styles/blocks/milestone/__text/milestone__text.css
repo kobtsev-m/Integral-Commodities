@@ -6,3 +6,9 @@
   font-weight: 400;
   color: var(--grey-default);
 }
+
+@media screen and (max-width: 768px) {
+  .milestone__text {
+    font-size: 10px;
+  }
+}

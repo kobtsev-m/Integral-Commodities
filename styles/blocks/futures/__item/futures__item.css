@@ -5,3 +5,9 @@
 .futures__item_little {
   grid-column-start: span 2;
 }
+
+@media screen and (max-width: 768px) {
+  .futures__item {
+    flex: 0 0 100px;
+  }
+}

@@ -6,3 +6,15 @@
 .feature__illustration-item:not(:last-child) {
   margin-right: 16px;
 }
+
+@media screen and (max-width: 768px) {
+  .feature__illustration-item {
+    flex: initial;
+    width: 24px;
+    height: 27px;
+  }
+
+  .feature__illustration-item:not(:last-child) {
+    margin-right: 10px;
+  }
+}

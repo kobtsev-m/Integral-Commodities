@@ -4,3 +4,12 @@
   display: block;
   margin-right: 49px;
 }
+
+@media screen and (max-width: 768px) {
+  .achievement__logo {
+    flex: initial;
+    margin-right: 11px;
+    width: 41px;
+    height: 30px;
+  }
+}

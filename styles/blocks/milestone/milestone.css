@@ -11,3 +11,15 @@
 
   font-family: var(--font-montserrat);
 }
+
+@media screen and (max-width: 768px) {
+  .milestone {
+    box-shadow: none;
+    padding: 14px 15px;
+
+    background: #f3f5f8;
+    border-radius: 5px;
+
+    font-family: var(--font-montserrat);
+  }
+}

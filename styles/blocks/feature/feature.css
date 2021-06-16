@@ -8,3 +8,10 @@
 
   font-family: var(--font-montserrat);
 }
+
+@media screen and (max-width: 768px) {
+  .feature {
+    border-radius: 0;
+    padding: 14px 15px 19px;
+  }
+}

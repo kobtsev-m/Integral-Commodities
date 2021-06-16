@@ -5,3 +5,11 @@
   justify-content: space-between;
   align-items: center;
 }
+
+@media screen and (max-width: 768px) {
+  .milestones__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+}

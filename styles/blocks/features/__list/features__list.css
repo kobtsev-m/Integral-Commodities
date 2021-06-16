@@ -7,3 +7,16 @@
   padding: 0;
   list-style: none;
 }
+
+@media screen and (max-width: 768px) {
+  .features__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: initial;
+    grid-gap: initial;
+
+    display: flex;
+    flex-direction: column;
+  }
+}
