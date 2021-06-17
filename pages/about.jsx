@@ -1,4 +1,9 @@
+import useWindowDimensions from "../hooks/useWindowDemensions";
+
 function AboutPage() {
+  const { width } = useWindowDimensions();
+  const shouldShowFutureDesc = width > 768;
+
   return (
     <>
       <section className="features">
@@ -115,13 +120,15 @@ function AboutPage() {
               Tracking the shipment online in user account
             </p>
           </div>
-          <div className="futures__item futures__item_big future-desc">
-            <p className="future-desc__text">
-              here we talk about the key event of the company in a couple of
-              short pre-offers. Very succinctly and link to the article, if
-              there is one
-            </p>
-          </div>
+          {shouldShowFutureDesc && (
+            <div className="futures__item futures__item_big future-desc">
+              <p className="future-desc__text">
+                here we talk about the key event of the company in a couple of
+                short pre-offers. Very succinctly and link to the article, if
+                there is one
+              </p>
+            </div>
+          )}
           <div className="futures__item futures__item_little future-card future-card_little">
             <img
               className="future-card__icon future-card__icon_little"
