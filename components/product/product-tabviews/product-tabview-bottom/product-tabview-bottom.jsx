@@ -42,7 +42,7 @@ function ProductTabviewBottom({ product }) {
         <TabApplication application={application} />
       )}
       {activeTab === "Samples" && <TabSamples samples={samples} />}
-      {activeTab == "Photos" && <TabPhotos photos={photos} />}
+      {activeTab === "Photos" && <TabPhotos photos={photos} />}
       {activeTab === "FAQ" && <TabFaq />}
     </>
   );

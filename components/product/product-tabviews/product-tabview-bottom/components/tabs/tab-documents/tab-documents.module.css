@@ -11,3 +11,18 @@
   background-color: #f3f5f8;
   border-radius: 3px;
 }
+
+@media screen and (max-width: 768px) {
+  .tabDocuments {
+    grid-auto-flow: unset;
+    grid-template-rows: unset;
+    grid-auto-columns: unset;
+    grid-gap: unset;
+
+    background-color: white;
+    padding: 40px 20px 40px 0;
+
+    display: flex;
+    flex-direction: column;
+  }
+}

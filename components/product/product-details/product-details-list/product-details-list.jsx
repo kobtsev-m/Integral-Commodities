@@ -16,7 +16,7 @@ function ProductDetailsList(props) {
   const filteredProductInfo = filterProductInfoFields(fields);
 
   return (
-    <div className={cn("row g-0", styles.productPage__featuresList)}>
+    <div className={cn(styles.productPage__featuresList)}>
       {filteredProductInfo.map((item) => (
         <ProductDetailsItem key={nanoid()} field={item} />
       ))}

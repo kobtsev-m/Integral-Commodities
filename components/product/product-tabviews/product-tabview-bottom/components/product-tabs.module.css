@@ -32,3 +32,18 @@
   color: var(--p-text);
   border-bottom: 2px solid var(--p-blue);
 }
+
+@media screen and (max-width: 768px) {
+  .tabItem {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 0 8px 8px;
+  }
+
+  .tabsList {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+}

@@ -5,7 +5,7 @@ import styles from "./breadcrumbs.module.css";
 function Breadcrumbs(props) {
   const { list } = props;
   return (
-    <div className={styles.breadcrumbs}>
+    <>
       <ul className={styles.breadcrumbs__list}>
         {list.map(
           (crumb, i) =>
@@ -20,7 +20,7 @@ function Breadcrumbs(props) {
             )
         )}
       </ul>
-    </div>
+    </>
   );
 }
 

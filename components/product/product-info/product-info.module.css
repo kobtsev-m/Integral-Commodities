@@ -26,3 +26,24 @@
 .productInfo__itemValue {
   font-weight: bold;
 }
+
+@media screen and (max-width: 768px) {
+  .productInfo__list {
+    grid-template-columns: initial;
+    grid-column-gap: initial;
+    grid-row-gap: initial;
+
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .productInfo__item {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .productInfo__item:not(:last-child) {
+    margin-bottom: 21px;
+  }
+}

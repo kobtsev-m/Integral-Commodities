@@ -10,7 +10,7 @@
   justify-content: space-between;
   width: 100%;
   max-width: 100%;
-  background: url("/images/bg-line.svg") no-repeat bottom;
+  background: white url("/images/bg-line.svg") no-repeat bottom;
   padding: 12px 0 0;
   margin-bottom: 50px;
   transition: max-width 0.2s ease-in-out;
@@ -51,4 +51,22 @@
   border: none;
   background: transparent;
   outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .productTabs__button {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 0;
+  }
+
+  .productTabs__list {
+    margin-bottom: 28px;
+  }
+
+  .productTabs__item {
+    padding: 0 8px 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
 }
