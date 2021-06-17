@@ -7,3 +7,9 @@
 
   margin-top: 53px;
 }
+
+@media screen and (max-width: 768px) {
+  .office-description {
+    margin: 0;
+  }
+}

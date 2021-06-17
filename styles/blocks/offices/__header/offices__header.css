@@ -8,3 +8,11 @@
   font-weight: 500;
   color: var(--grey-default);
 }
+
+@media screen and (max-width: 768px) {
+  .offices__header {
+    max-width: 375px;
+    margin: 0 auto 16px;
+    font-size: 12px;
+  }
+}

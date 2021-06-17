@@ -7,4 +7,17 @@
 
   background: #f3f5f8;
   border-radius: 5px;
+  background-size: 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .office {
+    min-height: 160px;
+    padding: 14px;
+    background-color: #f3f5f8;
+    background-position: calc(100% - 14px) 12px;
+    background-repeat: no-repeat;
+    background-size: 205px;
+    border-radius: 0;
+  }
 }

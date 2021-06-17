@@ -8,3 +8,10 @@
   background: #f3f5f8;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 768px) {
+  .events__wrapper {
+    padding: 16px 18px 33px;
+    border-radius: 0;
+  }
+}

@@ -8,3 +8,10 @@
 
   text-transform: lowercase;
 }
+
+@media screen and (max-width: 768px) {
+  .event__text {
+    margin: 0;
+    font-size: 8px;
+  }
+}

@@ -14,3 +14,9 @@
 .milestones__arrow_right {
   right: calc(-41px - 26px);
 }
+
+@media screen and (max-width: 768px) {
+  .milestones__arrow {
+    display: none;
+  }
+}

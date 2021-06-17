@@ -4,3 +4,10 @@
   font-weight: 400;
   color: var(--p-orange-accent);
 }
+
+@media screen and (max-width: 768px) {
+  .event__link {
+    font-size: 8px;
+    align-self: flex-end;
+  }
+}

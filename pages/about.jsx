@@ -214,7 +214,10 @@ function AboutPage() {
       <section className="offices">
         <h2 className="offices__header">Offices</h2>
         <ul className="offices__list">
-          <li className="offices__item offices__item_has-two-columns office">
+          <li
+            className="offices__item offices__item_has-two-columns office"
+            style={{ backgroundImage: "url(/images/switzerland-map.svg)" }}
+          >
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -227,15 +230,14 @@ function AboutPage() {
                 Switzerland
               </h2>
               <p className="office-description__contacts">
-                Via F. Pelli 13B
+                Via F. Pelli 13B, 6900
                 <br />
-                6900 Lugano, Switzerland
+                Lugano, Switzerland
                 <br />
                 <br />
                 T: +41912083157
                 <br />
                 F: +41912083167
-                <br />
                 <br />
                 lugano@integral-commodities.ch
               </p>
@@ -246,7 +248,10 @@ function AboutPage() {
               alt=""
             />
           </li>
-          <li className="offices__item offices__item_has-two-columns office">
+          <li
+            className="offices__item offices__item_has-two-columns office"
+            style={{ backgroundImage: "url(/images/uae-map.svg)" }}
+          >
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -259,22 +264,26 @@ function AboutPage() {
                 UAE
               </h2>
               <p className="office-description__contacts">
-                Platinum Tower , 3905, JLT
+                Platinum Tower,
                 <br />
-                Dubai, United Arab Emirates
+                3905, JLT, Dubai,
+                <br />
+                United Arab Emirates
                 <br />
                 <br />
                 T: +971 4 566 7713
                 <br />
                 F: +41912083167
                 <br />
-                <br />
                 dubai@integral-commodities.ch
               </p>
             </div>
             <img className="office__map" src="/images/uae-map.svg" alt="" />
           </li>
-          <li className="offices__item offices__item_has-two-columns office">
+          <li
+            className="offices__item offices__item_has-two-columns office"
+            style={{ backgroundImage: "url(/images/turkmenistan-map.svg)" }}
+          >
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -289,13 +298,12 @@ function AboutPage() {
               <p className="office-description__contacts">
                 Archabil avenue 17,
                 <br />
-                Senagatchy hotel, office № 1
+                office № 1, 744036,
                 <br />
-                744036, Ashgabat, Turkmenistan
+                Ashgabat, Turkmenistan
                 <br />
                 <br />
                 T: +971 4 566 7713
-                <br />
                 <br />
                 ashgabat@integral-commodities.ch
               </p>
@@ -306,7 +314,10 @@ function AboutPage() {
               alt=""
             />
           </li>
-          <li className="offices__item offices__item_has-two-columns office">
+          <li
+            className="offices__item offices__item_has-two-columns office"
+            style={{ backgroundImage: "url(/images/turkey-map.svg)" }}
+          >
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -330,13 +341,15 @@ function AboutPage() {
                 <br />
                 T: +90 552 294 62 77
                 <br />
-                <br />
                 mersin@integral-commodities.ch
               </p>
             </div>
             <img className="office__map" src="/images/turkey-map.svg" alt="" />
           </li>
-          <li className="offices__item offices__item_has-two-columns office">
+          <li
+            className="offices__item offices__item_has-two-columns office"
+            style={{ backgroundImage: "url(/images/uzbekistan-map.svg)" }}
+          >
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -356,7 +369,6 @@ function AboutPage() {
                 <br />
                 T: +998 99 935 90 90
                 <br />
-                <br />
                 tashkent@integral-commodities.ch
               </p>
             </div>
@@ -366,7 +378,10 @@ function AboutPage() {
               alt=""
             />
           </li>
-          <li className="offices__item offices__item_has-two-columns office">
+          <li
+            className="offices__item offices__item_has-two-columns office"
+            style={{ backgroundImage: "url(/images/kazakhstan-map.svg)" }}
+          >
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -379,13 +394,12 @@ function AboutPage() {
                 Kazakhstan
               </h2>
               <p className="office-description__contacts">
-                Republic of Kazakhstan, Aktu
+                Kazakhstan, Aktu
                 <br />
                 microdistrict 14, 61
                 <br />
                 <br />
                 T: +77750001388
-                <br />
                 <br />
                 aktau@integral-commodities.ch
               </p>
@@ -396,7 +410,10 @@ function AboutPage() {
               alt=""
             />
           </li>
-          <li className="offices__item offices__item_has-two-columns office">
+          <li
+            className="offices__item offices__item_has-two-columns office"
+            style={{ backgroundImage: "url(/images/russia-map.svg)" }}
+          >
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -411,7 +428,9 @@ function AboutPage() {
               <p className="office-description__contacts">
                 Novosibirsk region,
                 <br />
-                Akademgorodok, Musa Jalil 11
+                Akademgorodok,
+                <br />
+                Musa Jalil 11
                 <br />
                 <br />
                 nsk@integral-commodities.ch

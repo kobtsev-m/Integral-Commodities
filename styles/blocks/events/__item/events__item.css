@@ -5,3 +5,9 @@
 .events__item:not(:last-child) {
   margin-bottom: 40px;
 }
+
+@media screen and (max-width: 768px) {
+  .events__item:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}

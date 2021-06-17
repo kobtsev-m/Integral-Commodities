@@ -3,3 +3,11 @@
   margin: 0 auto 190px auto;
   padding: 0 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .offices {
+    max-width: 375px;
+    margin: 0 auto 54px auto;
+    padding: 0 20px;
+  }
+}

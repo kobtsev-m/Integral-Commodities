@@ -9,3 +9,9 @@
 
   white-space: pre;
 }
+
+@media screen and (max-width: 768px) {
+  .office-description__contacts {
+    font-size: 8px;
+  }
+}

@@ -5,3 +5,11 @@
   height: auto;
   margin-bottom: 32px;
 }
+
+@media screen and (max-width: 768px) {
+  .office-description__flag {
+    flex: 0 0;
+    width: 27px;
+    margin-bottom: 9px;
+  }
+}

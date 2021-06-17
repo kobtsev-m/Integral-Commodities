@@ -7,3 +7,10 @@
   font-weight: 700;
   color: var(--p-blue);
 }
+
+@media screen and (max-width: 768px) {
+  .events__name {
+    margin: 0 0 9px 0;
+    font-size: 12px;
+  }
+}

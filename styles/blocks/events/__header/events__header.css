@@ -7,3 +7,10 @@
   font-weight: 500;
   color: var(--hyper-link-default);
 }
+
+@media screen and (max-width: 768px) {
+  .events__header {
+    margin: 0 0 6px 0;
+    font-size: 13px;
+  }
+}
