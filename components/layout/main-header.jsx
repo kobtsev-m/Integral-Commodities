@@ -1,15 +1,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import Menu from "components/menu/menu";
+import SliderMenu from "../SliderMenu";
+import NavMenu from "../NavMenu";
 
 function MainHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = (event) => {
-    document.documentElement.style.overflowY = isMenuOpen ? "auto" : "hidden";
-
-    setIsMenuOpen((prevValue) => !prevValue);
-    event.stopPropagation();
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <header className={"header root__header"}>
@@ -19,7 +16,9 @@ function MainHeader() {
         </Link>
         <button className={"header__menu-button"} onClick={toggleMenu} />
       </div>
-      <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <SliderMenu open={isMenuOpen} title="Menu" onClose={toggleMenu}>
+        <NavMenu onMenuClose={toggleMenu} />
+      </SliderMenu>
     </header>
   );
 }
