@@ -22,7 +22,12 @@ function useOutsideAlerter(ref, cb) {
 }
 
 function ProductListControls(props) {
-  const { filtersState, onFiltersChange, onSearchSubmit } = props;
+  const {
+    filteredProductsCount,
+    filtersState,
+    onFiltersChange,
+    onSearchSubmit,
+  } = props;
   const [droppedDown, setIsDroppedDown] = useState({});
 
   const formRef = useRef(null);
@@ -61,7 +66,11 @@ function ProductListControls(props) {
   return (
     <div className={"products__controls"}>
       {width <= 768 && (
-        <FilterControls filters={filtersState} onChange={handleChange} />
+        <FilterControls
+          filters={filtersState}
+          onChange={handleChange}
+          count={filteredProductsCount}
+        />
       )}
       <form className={styles.filterForm} ref={formRef}>
         {Object.entries(filtersState).map(([filterName, filter]) => {

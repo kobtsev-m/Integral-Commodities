@@ -144,6 +144,7 @@ function HomePage() {
         <ProductListTabs activeTab={category} tabs={TABS} />
         {category === "polymers" && (
           <ProductListControls
+            filteredProductsCount={filteredProducts.length}
             category={category}
             filtersState={filtersState}
             onSearchSubmit={handleSearchSubmit}

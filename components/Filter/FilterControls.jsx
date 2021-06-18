@@ -6,8 +6,9 @@ import SliderMenu from "../SliderMenu";
 import FilterMenu from "./FilterMenu";
 
 const FilterControls = (props) => {
+  const { filters, count, onChange } = props;
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const { filters, onChange } = props;
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
   const handleMenuClose = () => setIsFilterOpen(false);
 
@@ -20,13 +21,26 @@ const FilterControls = (props) => {
         >
           Filters
         </button>
+        <input
+          className={cn(classes.searchInput, {
+            [classes.searchInput_active]: isSearchActive,
+          })}
+          type="text"
+          placeholder="Grade"
+        />
         <button
           className={cn(classes.button, classes.searchButton)}
+          onClick={() => setIsSearchActive(true)}
           aria-label="Search by grade"
         />
       </div>
       <SliderMenu title="Filters" open={isFilterOpen} onClose={handleMenuClose}>
-        <FilterMenu filters={filters} onChange={onChange} />
+        <FilterMenu
+          filters={filters}
+          onChange={onChange}
+          productsCount={count}
+          onClose={handleMenuClose}
+        />
       </SliderMenu>
     </>
   );

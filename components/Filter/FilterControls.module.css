@@ -19,6 +19,31 @@
   margin-right: 20px;
 }
 
+.searchInput {
+  background: #ffffff;
+  font-family: var(--font-montserrat);
+  -webkit-appearance: none;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-size: 9px;
+  line-height: 11px;
+  margin-right: 10px;
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+
+  transition: 300ms ease;
+}
+
+.searchInput_active {
+  flex-grow: 1;
+  visibility: visible;
+  position: static;
+  padding: 4px 4px 4px 10px;
+  transition: 300ms ease;
+}
+
 .filterButton {
   font-family: var(--font-montserrat);
   font-size: 12px;

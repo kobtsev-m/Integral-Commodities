@@ -9,7 +9,7 @@ const getInitialState = (filters) => {
 };
 
 const FilterMenu = (props) => {
-  const { filters, onChange } = props;
+  const { filters, productsCount, onChange, onClose } = props;
 
   const [rollup, setRollup] = useState(getInitialState(filters));
 
@@ -68,6 +68,11 @@ const FilterMenu = (props) => {
           );
         })}
       </ul>
+      <div className={classes.submitWrapper}>
+        <button className={classes.submit} onClick={onClose}>
+          Show {productsCount} products
+        </button>
+      </div>
     </div>
   );
 };
