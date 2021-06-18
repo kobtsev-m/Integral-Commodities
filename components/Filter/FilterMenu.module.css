@@ -70,3 +70,36 @@
 .submit:active {
   transform: scale(0.95);
 }
+
+.optionLabel {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.optionInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.inputReplacement {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  background: url("/images/icon-checkbox.svg") center;
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.optionInput:disabled ~ .inputReplacement {
+}
+.optionInput:checked ~ .inputReplacement {
+  background: url("/images/icon-checkbox-checked.svg") center;
+  background-size: cover;
+}
+.optionInput:focus ~ .inputReplacement {
+}

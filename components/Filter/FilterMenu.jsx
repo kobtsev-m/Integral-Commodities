@@ -43,26 +43,30 @@ const FilterMenu = (props) => {
                 className={classes.optionsList}
                 style={{ display: `${rollup[filterName] ? "block" : "none"}` }}
               >
-                {Object.entries(filterInfo.options).map(
-                  ([optionName, optionValue]) => (
-                    <li className={classes.option}>
-                      <label htmlFor="">
-                        <input
-                          type="checkbox"
-                          checked={filters[filterName].options[optionName]}
-                          onChange={(evt) => {
-                            handleChange(
-                              filterName,
-                              optionName,
-                              evt.target.checked
-                            );
-                          }}
-                        />
-                        {optionName}
-                      </label>
-                    </li>
-                  )
-                )}
+                {Object.entries(filterInfo.options).map(([optionName, _]) => (
+                  <li className={classes.option} key={`option-${optionName}`}>
+                    <label
+                      className={classes.optionLabel}
+                      htmlFor={`option-${optionName}`}
+                    >
+                      <input
+                        className={classes.optionInput}
+                        type="checkbox"
+                        id={`option-${optionName}`}
+                        checked={filters[filterName].options[optionName]}
+                        onChange={(evt) => {
+                          handleChange(
+                            filterName,
+                            optionName,
+                            evt.target.checked
+                          );
+                        }}
+                      />
+                      <span className={classes.inputReplacement} />
+                      {optionName}
+                    </label>
+                  </li>
+                ))}
               </ul>
             </li>
           );
