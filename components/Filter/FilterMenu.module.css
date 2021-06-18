@@ -1,0 +1,42 @@
+.root {
+  height: 100%;
+  overflow: scroll;
+}
+
+.filtersList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.filterItem {
+  border-bottom: 1px solid #dedede;
+  padding: 11px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: var(--font-montserrat);
+  font-size: 14px;
+}
+
+.filterName {
+  flex-grow: 1;
+  display: block;
+}
+
+.rollupBtn {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: transparent url("/images/icon-rollup.svg") no-repeat center;
+  margin-left: auto;
+  transform: rotate(-90deg);
+}
+
+.optionsList {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

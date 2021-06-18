@@ -1,8 +1,17 @@
 import cn from "classnames";
 import classes from "./SliderMenu.module.css";
+import { useEffect } from "react";
 
 const SliderMenu = (props) => {
   const { open, title, onClose } = props;
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.position = "fixed";
+    } else {
+      document.body.style.position = "";
+    }
+  }, [open]);
 
   return (
     <section className={cn(classes.root, { [classes.root_opened]: open })}>

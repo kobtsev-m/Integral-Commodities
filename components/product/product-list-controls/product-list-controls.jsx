@@ -4,6 +4,8 @@ import CheckboxesFilter from "components/checkboxes-filter/checkboxes-filter";
 import { getProductsBySearchStringApi } from "api/api";
 
 import styles from "./product-list-controls.module.css";
+import FilterControls from "../../Filter/FilterControls";
+import useWindowDimensions from "../../../hooks/useWindowDemensions";
 
 function useOutsideAlerter(ref, cb) {
   useEffect(() => {
@@ -21,11 +23,12 @@ function useOutsideAlerter(ref, cb) {
 
 function ProductListControls(props) {
   const { filtersState, onFiltersChange, onSearchSubmit } = props;
-
   const [droppedDown, setIsDroppedDown] = useState({});
 
   const formRef = useRef(null);
   const searchRef = useRef(null);
+
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     setIsDroppedDown(getInitialDropDownState());
@@ -57,6 +60,9 @@ function ProductListControls(props) {
 
   return (
     <div className={"products__controls"}>
+      {width <= 768 && (
+        <FilterControls filters={filtersState} onChange={handleChange} />
+      )}
       <form className={styles.filterForm} ref={formRef}>
         {Object.entries(filtersState).map(([filterName, filter]) => {
           return (
