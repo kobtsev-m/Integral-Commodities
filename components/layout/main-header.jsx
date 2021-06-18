@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
-import Menu from "components/menu/menu";
 import SliderMenu from "../SliderMenu";
-import NavMenu from "../NavMenu";
+import NavMenu from "../NavMenu/NavMenu";
 
 function MainHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
