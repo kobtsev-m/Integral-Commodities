@@ -172,3 +172,83 @@
 .step3__beforeForm .step3__textContent:not(:last-child) {
   margin-bottom: 1em;
 }
+
+@media screen and (max-width: 768px) {
+  .breadcrumbsContainer {
+    margin-top: 0;
+  }
+
+  .orderContainer__intro {
+    font-size: 10px;
+    line-height: 1.4;
+    margin: 25px 0;
+  }
+
+  .orderContainer__title {
+    margin: 0 0 16px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .orderContainer__detailsGrid {
+    grid-template-columns: initial;
+    grid-template-rows: initial;
+    grid-column-gap: initial;
+    grid-row-gap: initial;
+
+    margin: -105px 0 0;
+    padding: 20px 0 0;
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .orderContainer__detailsItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% / 3 - 10px);
+    height: 105px;
+    margin-bottom: 20px;
+  }
+
+  .orderContainer__detailsItem:not(:nth-child(3n + 3)) {
+    margin-right: 10px;
+  }
+
+  .orderContainer__detailTitle {
+    margin: 6px 0;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .orderContainer__detailValue {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .orderContainer__detailIconContainer {
+    width: 25px;
+    height: 25px;
+  }
+
+  .orderContainer__detailIcon {
+    display: block;
+    object-fit: contain;
+  }
+
+  .orderContainer__detailsRowBg {
+    height: 105px;
+  }
+
+  .orderContainer__controlsContainer {
+    display: flex;
+    margin: 0 0 60px;
+    justify-content: center;
+  }
+}

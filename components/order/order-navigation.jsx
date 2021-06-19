@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import styles from "./order-navigation.module.css";
 import IconNext from "../icons/icon-next";
 import cn from "classnames";
+import useWindowDimensions from "../../hooks/useWindowDemensions";
 
 const Step = {
   step1: "Confirm deal",
@@ -24,6 +26,21 @@ function OrderNavigation() {
   const router = useRouter();
   const route = router.route;
   const activeRouteTab = route.split("/")[2].split("-").join("");
+
+  const { width } = useWindowDimensions();
+
+  if (width <= 768) {
+    return (
+      <div className={styles.mobileNav}>
+        <h3 className={styles.stepNum}>Step {activeRouteTab.slice(4)}</h3>
+        <h2 className={styles.stepName}>{Step[activeRouteTab]}</h2>
+        <Link href="/order/step-2">
+          <a className={styles.nextButton} />
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.orderNavigation}>
       <ul className={styles.orderNavigation__list}>

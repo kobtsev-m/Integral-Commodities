@@ -15,7 +15,7 @@ function OrderStep1() {
   ];
   return (
     <section className={styles.orderContainer}>
-      <div style={{ marginTop: 65 }}>
+      <div className={styles.breadcrumbsContainer}>
         <Breadcrumbs list={breadcrumbs} />
       </div>
       <OrderNavigation />
