@@ -7,11 +7,13 @@
   position: absolute !important;
   width: 100%;
   z-index: 1000;
+  display: flex;
+  padding: 20px;
 }
 
 .mapHeader__searchInput.changing {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .mapHeader__button {
@@ -19,8 +21,10 @@
   height: 100%;
   font-size: 16px;
   line-height: 140%;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   border-radius: 23px;
+  border: none;
+  margin-left: 20px;
 }
 
 .mapHeader__button.blue {
@@ -60,4 +64,25 @@
 
 .infoWindow__link:hover {
   color: #e46300;
+}
+
+@media screen and (max-width: 768px) {
+  .mapHeader {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .mapHeader__button {
+    width: 100%;
+    max-width: 100px;
+    font-size: 12px;
+    padding: 5px 0;
+    line-height: 140%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 23px;
+    border: none;
+    margin-left: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
 }

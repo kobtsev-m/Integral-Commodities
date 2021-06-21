@@ -1,0 +1,15 @@
+.root {
+  width: 350px;
+}
+
+@media screen and (max-width: 768px) {
+  .root {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .input {
+    padding: 10px !important;
+    font-size: 12px !important;
+  }
+}

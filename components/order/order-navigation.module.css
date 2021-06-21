@@ -44,9 +44,9 @@
   display: flex;
   flex-wrap: wrap;
   margin: 25px 0 0;
-  padding-bottom: 5px;
   border-bottom: 1px solid #dedede;
 }
+
 .stepNum {
   font-family: var(--font-montserrat);
   font-weight: 500;
@@ -74,4 +74,7 @@
 }
 
 @media screen and (max-width: 768px) {
+  .mobileNav {
+    padding-bottom: 5px;
+  }
 }

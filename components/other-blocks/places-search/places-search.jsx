@@ -4,6 +4,7 @@ import { geocodeByAddress } from "react-places-autocomplete";
 
 import cn from "classnames";
 import stylesUI from "components/ui/custom-ui.module.css";
+import classes from "./places-search.module.css";
 
 export function PlacesSearch(props) {
   const [address, setAddress] = useState(props.defaultValue ?? "");
@@ -44,15 +45,19 @@ export function PlacesSearch(props) {
       onError={() => {}}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <div className={stylesUI.search}>
+        <div className={cn(stylesUI.search, classes.root)}>
           <input
             {...getInputProps({
               ref: searchInput,
               placeholder: props.placeholder,
-              className: cn(stylesUI.textInput, {
-                [stylesUI.rounded]: props.isRounded,
-                [stylesUI.changing]: isInputActive,
-              }),
+              className: cn(
+                stylesUI.textInput,
+                {
+                  [stylesUI.rounded]: props.isRounded,
+                  [stylesUI.changing]: isInputActive,
+                },
+                classes.input
+              ),
               onBlur: handleBlur,
             })}
           />

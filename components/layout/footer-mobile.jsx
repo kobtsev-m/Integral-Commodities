@@ -9,22 +9,36 @@ const FooterMobile = () => {
           <div className={classes.linksWrapper}>
             <h3 className={classes.linksHeader}>Polymers</h3>
             <ul className={classes.linksList}>
-              <li className={classes.linksItem}>HDPE</li>
-              <li className={classes.linksItem}>LDPE</li>
-              <li className={classes.linksItem}>PP</li>
+              <li className={classes.linksItem}>
+                <Link href="/products/polymers?type=HDPE">HDPE</Link>
+              </li>
+              <li className={classes.linksItem}>
+                <Link href="/products/polymers?type=LDPE">LDPE</Link>
+              </li>
+              <li className={classes.linksItem}>
+                <Link href="/products/polymers?type=PP">PP</Link>
+              </li>
             </ul>
           </div>
           <div className={classes.linksWrapper}>
             <h3 className={classes.linksHeader}>Fertilizers</h3>
             <ul className={classes.linksList}>
-              <li className={classes.linksItem}>Urea “B”</li>
-              <li className={classes.linksItem}>Potassium chloride</li>
+              <li className={classes.linksItem}>
+                <Link href="/products/id/9?tab=product">Urea “B”</Link>
+              </li>
+              <li className={classes.linksItem}>
+                <Link href="/products/id/10?tab=product">
+                  Potassium chloride
+                </Link>
+              </li>
             </ul>
           </div>
           <div className={classes.linksWrapper}>
             <h3 className={classes.linksHeader}>Sulphur</h3>
             <ul className={classes.linksList}>
-              <li className={classes.linksItem}>Sulphur lump</li>
+              <li className={classes.linksItem}>
+                <Link href="/products/sulphur">Sulphur lump</Link>
+              </li>
             </ul>
           </div>
           <div className={classes.linksWrapper}>
@@ -36,13 +50,19 @@ const FooterMobile = () => {
                 </Link>
               </li>
               <li className={classes.linksItem}>
-                <a href="">Order process</a>
+                <Link href="/order/step-1">
+                  <a>Order process</a>
+                </Link>
               </li>
               <li className={classes.linksItem}>
-                <a href="">Services</a>
+                <Link href="/services">
+                  <a href="">Services</a>
+                </Link>
               </li>
               <li className={classes.linksItem}>
-                <a href="">Partners</a>
+                <Link href="/partners">
+                  <a href="">Partners</a>
+                </Link>
               </li>
             </ul>
           </div>

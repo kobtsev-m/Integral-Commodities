@@ -43,6 +43,10 @@
   margin-bottom: 5px;
 }
 
+.linksItem a:hover {
+  color: white;
+}
+
 .offices {
   max-width: 375px;
   padding: 0 21px 15px;

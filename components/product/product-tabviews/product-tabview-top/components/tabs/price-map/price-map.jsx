@@ -133,29 +133,27 @@ function PriceMap({ ports, factories, onAskForQuote }) {
 function PriceMapHeader(props) {
   return (
     <div className={styles.mapHeader}>
-      <div className={"row g-3 p-3"}>
-        <div className={"col-6"}>
-          <PlacesSearch
-            placeholder={"Search on the map"}
-            isRounded={true}
-            onSelect={props.onPlaceSelect}
-            onClear={props.onPlaceClear}
-          />
-        </div>
-        <div className={"col-6 d-flex"}>
-          {MAP_FILTERS.map((filter) => (
-            <button
-              key={nanoid()}
-              className={cn("btn me-3", styles.mapHeader__button, {
-                [styles.blue]: props.activeFilter === filter,
-                [styles.white]: props.activeFilter !== filter,
-              })}
-              onClick={() => props.onFilterClick(filter)}
-            >
-              {capitalize(filter)}
-            </button>
-          ))}
-        </div>
+      <div>
+        <PlacesSearch
+          placeholder={"Search on the map"}
+          isRounded={true}
+          onSelect={props.onPlaceSelect}
+          onClear={props.onPlaceClear}
+        />
+      </div>
+      <div>
+        {MAP_FILTERS.map((filter) => (
+          <button
+            key={nanoid()}
+            className={cn(styles.mapHeader__button, {
+              [styles.blue]: props.activeFilter === filter,
+              [styles.white]: props.activeFilter !== filter,
+            })}
+            onClick={() => props.onFilterClick(filter)}
+          >
+            {capitalize(filter)}
+          </button>
+        ))}
       </div>
     </div>
   );

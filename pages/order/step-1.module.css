@@ -21,6 +21,10 @@
   margin: 74px 0 60px;
 }
 
+.breadcrumbsContainer {
+  margin-top: 60px;
+}
+
 .orderContainer__messageContainer {
   margin-bottom: 60px;
 }
