@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .productTabs__list {
@@ -12,19 +13,8 @@
   max-width: 100%;
   background: white url("/images/bg-line.svg") no-repeat bottom;
   padding: 12px 0 0;
-  margin-bottom: 50px;
   transition: max-width 0.2s ease-in-out;
-}
-
-.productTabs__list::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -20px;
-  bottom: 50px;
-  left: -20px;
-  background-color: #fff;
-  z-index: -1;
+  margin: 0;
 }
 
 .productTabs__list_compressed {
@@ -41,7 +31,7 @@
 
 .productTabs__item_active {
   color: var(--p-text);
-  border-bottom: 2px solid var(--p-blue);
+  border-bottom: 2px solid transparent;
 }
 
 .productTabs__button {
@@ -60,7 +50,7 @@
     padding: 0;
   }
 
-  .productTabs__list {
+  .productTabs__listWrapper {
     margin-bottom: 28px;
   }
 
