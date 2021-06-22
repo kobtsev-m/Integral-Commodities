@@ -19,9 +19,11 @@
 
 .productPage__featuresList {
   display: flex;
+  justify-content: space-evenly;
   padding: 0;
   margin-bottom: 70px;
   list-style: none;
+  overflow: scroll;
 }
 
 .productPage__feature {
@@ -84,7 +86,11 @@
   .productPage__feature {
     font-size: 12px;
     line-height: 1.4;
-    flex: 1 0 calc(100% / 3 - 10px);
+    width: 100px;
+  }
+
+  .productPage__feature:not(:last-child) {
+    margin-right: 15px;
   }
 
   .productPage__featureValue {
@@ -94,9 +100,6 @@
   }
 
   .productPage__featuresList {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
     margin-bottom: 50px;
     list-style: none;
     gap: 10px;
