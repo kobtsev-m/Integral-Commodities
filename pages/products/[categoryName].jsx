@@ -91,7 +91,7 @@ function HomePage() {
   const category = router.query.categoryName;
 
   const [isLoading, setIsLoading] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(undefined);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filtersState, setFiltersState] = useState({});
   const [offers, setOffers] = useState([]);
@@ -154,12 +154,12 @@ function HomePage() {
             onReset={handleFiltersReset}
           />
         )}
-        {isLoading ? (
+        {isLoading || !products ? (
           <LoadingSpinner />
         ) : (
           <>
-            <ProductsList products={filteredProducts} />
-            <LatestOffers offers={offers} />
+            <ProductsList loading={isLoading} products={filteredProducts} />
+            <LatestOffers loading={isLoading} offers={offers} />
           </>
         )}
       </section>

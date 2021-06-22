@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 
 const PRODUCTS_TO_SHOW_STEP = 8;
 
-function ProductsList({ products }) {
+function ProductsList({ isLoading, products }) {
   const [productsToShow, setProductsToShow] = useState(PRODUCTS_TO_SHOW_STEP);
 
   const calcProductsToShow = (prevState) => {
@@ -20,7 +20,7 @@ function ProductsList({ products }) {
     setProductsToShow((prevState) => calcProductsToShow(prevState));
   };
 
-  if (!products || !products.length) {
+  if (!products.length) {
     return <h2>There is no products!</h2>;
   }
 
