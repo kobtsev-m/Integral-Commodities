@@ -85,10 +85,16 @@
   .product__link {
     min-height: unset;
     padding: 20px 14px 36px;
-    border-top: 2px solid var(--p-blue);
     border-radius: 4px 4px 0 0;
+  }
+
+  .product__link:hover {
+    transform: initial;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
-    transition: all 200ms ease-out;
+  }
+
+  .product__link:active {
+    transform: scale(0.95);
   }
 
   .product__title {
