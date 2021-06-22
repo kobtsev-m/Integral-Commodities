@@ -34,13 +34,14 @@ const FilterControls = (props) => {
         </button>
         <form
           className={cn({ [classes.searchForm_active]: isSearchActive })}
+          action
           onSubmit={handleSearchButtonClick}
         >
           <input
             className={cn(classes.searchInput, {
               [classes.searchInput_active]: isSearchActive,
             })}
-            type="text"
+            type="search"
             placeholder="Grade"
             value={searchValue}
             onChange={(evt) => setSearchValue(evt.target.value)}
