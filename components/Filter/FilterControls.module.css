@@ -5,6 +5,12 @@
   justify-content: flex-end;
 }
 
+.searchForm_active {
+  flex-grow: 1;
+  display: flex;
+  transition: 300ms ease;
+}
+
 .button {
   padding: 0;
   background-color: transparent;

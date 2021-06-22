@@ -68,8 +68,9 @@ function ProductListControls(props) {
       {width <= 768 && (
         <FilterControls
           filters={filtersState}
-          onChange={handleChange}
           count={filteredProductsCount}
+          onChange={handleChange}
+          onSearch={onSearchSubmit}
         />
       )}
       <form className={styles.filterForm} ref={formRef}>

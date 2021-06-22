@@ -4,13 +4,24 @@ import classes from "./FilterControls.module.css";
 
 import SliderMenu from "../SliderMenu";
 import FilterMenu from "./FilterMenu";
+import { getProductsBySearchStringApi } from "../../api/api";
 
 const FilterControls = (props) => {
-  const { filters, count, onChange } = props;
+  const { filters, count, onChange, onSearch } = props;
+  const [searchValue, setSearchValue] = useState("");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
 
   const handleMenuClose = () => setIsFilterOpen(false);
+  const handleSearchButtonClick = async (evt) => {
+    evt.preventDefault();
+    if (!isSearchActive) {
+      setIsSearchActive(true);
+    } else {
+      const searchResult = await getProductsBySearchStringApi(searchValue);
+      onSearch(searchResult);
+    }
+  };
 
   return (
     <>
@@ -21,18 +32,25 @@ const FilterControls = (props) => {
         >
           Filters
         </button>
-        <input
-          className={cn(classes.searchInput, {
-            [classes.searchInput_active]: isSearchActive,
-          })}
-          type="text"
-          placeholder="Grade"
-        />
-        <button
-          className={cn(classes.button, classes.searchButton)}
-          onClick={() => setIsSearchActive(true)}
-          aria-label="Search by grade"
-        />
+        <form
+          className={cn({ [classes.searchForm_active]: isSearchActive })}
+          onSubmit={handleSearchButtonClick}
+        >
+          <input
+            className={cn(classes.searchInput, {
+              [classes.searchInput_active]: isSearchActive,
+            })}
+            type="text"
+            placeholder="Grade"
+            value={searchValue}
+            onChange={(evt) => setSearchValue(evt.target.value)}
+          />
+          <button
+            type="submit"
+            className={cn(classes.button, classes.searchButton)}
+            aria-label="Search by grade"
+          />
+        </form>
       </div>
       <SliderMenu title="Filters" open={isFilterOpen} onClose={handleMenuClose}>
         <FilterMenu
