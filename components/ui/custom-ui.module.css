@@ -10,7 +10,7 @@
   padding: 1em;
   font-size: 16px;
   line-height: 20px;
-  border-radius: 10px;
+  border-radius: 23px;
 }
 
 .textInput:focus {
@@ -291,4 +291,13 @@
 
 .textLightGrey {
   color: #dedede;
+}
+
+@media screen and (max-width: 768px) {
+  .textInput {
+    font-size: 14px;
+  }
+  .checkboxLabel {
+    font-size: 14px;
+  }
 }

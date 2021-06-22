@@ -30,4 +30,7 @@
     line-height: 15px;
     padding: 0 15px 6px;
   }
+  .products__tab-button:hover {
+    opacity: 1;
+  }
 }

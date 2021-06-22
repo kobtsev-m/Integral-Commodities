@@ -19,7 +19,7 @@
 
 .productPage__featuresList {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 0;
   margin-bottom: 70px;
   list-style: none;
@@ -86,7 +86,10 @@
   .productPage__feature {
     font-size: 12px;
     line-height: 1.4;
-    width: 100px;
+    min-width: 80px;
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
   }
 
   .productPage__feature:not(:last-child) {

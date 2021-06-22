@@ -130,9 +130,9 @@
   font-family: var(--font-montserrat);
   font-size: 18px;
   line-height: 150%;
-
+  margin-top: 80px;
+  margin-bottom: 90px;
   color: #2e2c2f;
-  margin: 0;
 }
 
 .step3__title {
@@ -260,5 +260,25 @@
     display: flex;
     margin: 40px 0 60px;
     justify-content: center;
+  }
+
+  .step3__textContent {
+    margin: 30px 0;
+    font-size: 14px;
+  }
+
+  .step3__title {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0 0 40px;
+  }
+
+  .step3__tab {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .step3__beforeForm {
+    margin-bottom: 0;
   }
 }

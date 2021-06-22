@@ -34,7 +34,12 @@ function CustomCheckboxGroup(props) {
             checked={checkbox.isChecked}
             onChange={() => handleChange(i)}
           />
-          <label htmlFor={`${props.name}_${i}`}>{checkbox.value}</label>
+          <label
+            className={styles.checkboxLabel}
+            htmlFor={`${props.name}_${i}`}
+          >
+            {checkbox.value}
+          </label>
         </div>
       ))}
     </div>

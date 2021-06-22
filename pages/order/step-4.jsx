@@ -50,10 +50,7 @@ function OrderStep3() {
       <div className={styles.step3__orderNavigationContainer}>
         <OrderNavigation nextLink="/order/step-5" />
       </div>
-      <p
-        className={styles.step3__textContent}
-        style={{ marginTop: 80, marginBottom: 90 }}
-      >
+      <p className={cn(styles.step3__textContent, styles.step3__beforeForm)}>
         Please select one of the following payment methods:
       </p>
       <div className="stepform_cBt7XDC rnd_527808932"></div>

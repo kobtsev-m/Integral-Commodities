@@ -1,5 +1,4 @@
 import styles from "./step-1.module.css";
-import Button from "../../components/ui/button";
 import OrderNavigation from "../../components/order/order-navigation";
 import Breadcrumbs from "../../components/ui/breadcrumbs";
 import { useEffect } from "react";
@@ -62,10 +61,7 @@ function OrderStep3() {
       <div className={styles.step3__orderNavigationContainer}>
         <OrderNavigation nextLink="/order/step-4" />
       </div>
-      <p
-        className={styles.step3__textContent}
-        style={{ marginTop: 80, marginBottom: 90 }}
-      >
+      <p className={styles.step3__textContent}>
         We recommend you to provide KYC information now, to enable you to trade
         with us once you are ready to place an order.
       </p>
