@@ -16,10 +16,10 @@ function OrderStep2() {
 
   return (
     <section className={styles.orderContainer}>
-      <div style={{ marginTop: 65 }}>
+      <div className={styles.breadcrumbsContainer}>
         <Breadcrumbs list={breadcrumbs} />
       </div>
-      <OrderNavigation />
+      <OrderNavigation nextLink="/order/step-3?for=companies" />
       <p className={styles.orderContainer__intro}>
         Here you can learn about the Order Process and submit information now,
         to avoid delays with the order when you are ready to place it. For

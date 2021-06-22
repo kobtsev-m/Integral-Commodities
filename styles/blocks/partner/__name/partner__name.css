@@ -6,3 +6,10 @@
   font-weight: 700;
   color: var(--p-blue);
 }
+
+@media screen and (max-width: 768px) {
+  .partner__name {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+  }
+}

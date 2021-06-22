@@ -7,3 +7,15 @@
   font-weight: 700;
   color: var(--p-blue);
 }
+
+@media screen and (max-width: 768px) {
+  .partners__header {
+    margin: 0 0 20px 0;
+
+    font-size: 18px;
+    line-height: 1.3;
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    color: var(--p-blue);
+  }
+}

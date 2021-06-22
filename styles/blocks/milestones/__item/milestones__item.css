@@ -4,7 +4,10 @@
 
 @media screen and (max-width: 768px) {
   .milestones__item {
-    flex: 0 0 160px;
+    flex: 0 0 140px;
     margin-bottom: 15px;
+  }
+  .milestones__item:not(:last-of-type) {
+    margin-right: 15px;
   }
 }

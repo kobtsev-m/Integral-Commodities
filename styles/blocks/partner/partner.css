@@ -8,3 +8,11 @@
   background: #f3f5f8;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 768px) {
+  .partner {
+    flex-direction: column;
+    padding: 20px 20px 10px;
+    border-radius: 0;
+  }
+}

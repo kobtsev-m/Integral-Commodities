@@ -9,6 +9,6 @@
 @media screen and (max-width: 768px) {
   .milestones__list {
     display: flex;
-    flex-wrap: wrap;
+    overflow: scroll;
   }
 }

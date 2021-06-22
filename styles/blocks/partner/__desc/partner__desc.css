@@ -6,3 +6,10 @@
   font-weight: 400;
   color: var(--grey-default);
 }
+
+@media screen and (max-width: 768px) {
+  .partner__desc {
+    margin: 0;
+    font-size: 14px;
+  }
+}

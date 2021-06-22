@@ -18,7 +18,7 @@ function OrderStep1() {
       <div className={styles.breadcrumbsContainer}>
         <Breadcrumbs list={breadcrumbs} />
       </div>
-      <OrderNavigation />
+      <OrderNavigation nextLink="/order/step-2" />
       <p className={styles.orderContainer__intro}>
         Upon placing the Order, You will receive the deal recap similar to the
         below one and will be able to change or to confirm it. The deal

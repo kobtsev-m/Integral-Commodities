@@ -6,3 +6,9 @@
 
   font-family: var(--font-montserrat);
 }
+
+@media screen and (max-width: 768px) {
+  .partner__info-wrapper {
+    padding: 20px 0 10px;
+  }
+}

@@ -44,11 +44,11 @@ function OrderStep3() {
 
   return (
     <section className={styles.orderContainer}>
-      <div style={{ marginTop: 65 }}>
+      <div className={styles.breadcrumbsContainer}>
         <Breadcrumbs list={breadcrumbs} />
       </div>
       <div className={styles.step3__orderNavigationContainer}>
-        <OrderNavigation />
+        <OrderNavigation nextLink="/order/step-5" />
       </div>
       <p
         className={styles.step3__textContent}

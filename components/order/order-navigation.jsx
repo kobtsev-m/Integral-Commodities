@@ -22,7 +22,7 @@ function getStepClassNames(isActive) {
   });
 }
 
-function OrderNavigation() {
+function OrderNavigation(props) {
   const router = useRouter();
   const route = router.route;
   const activeRouteTab = route.split("/")[2].split("-").join("");
@@ -34,7 +34,7 @@ function OrderNavigation() {
       <div className={styles.mobileNav}>
         <h3 className={styles.stepNum}>Step {activeRouteTab.slice(4)}</h3>
         <h2 className={styles.stepName}>{Step[activeRouteTab]}</h2>
-        <Link href="/order/step-2">
+        <Link href={props.nextLink}>
           <a className={styles.nextButton} />
         </Link>
       </div>

@@ -182,6 +182,12 @@
     margin-top: 0;
   }
 
+  .orderContainer {
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
   .orderContainer__intro {
     font-size: 10px;
     line-height: 1.4;
