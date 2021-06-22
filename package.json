@@ -17,6 +17,7 @@
     "@react-google-maps/api": "^2.1.1",
     "bootstrap": "^5.0.1",
     "classnames": "2.2.6",
+    "moment": "2.29.1",
     "nanoid": "3.1.21",
     "next": "10.0.8",
     "popper.js": "^1.16.1",

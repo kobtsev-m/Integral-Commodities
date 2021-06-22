@@ -1,9 +1,31 @@
 import cn from "classnames";
 
 import styles from "./latest-offers.module.css";
+import moment from "moment";
 
 function LatestOffers(props) {
   const { offers } = props;
+
+  const sortedDates = offers
+    .map((o) => o.date_of_validity)
+    .sort((a, b) => {
+      const date1 = moment(a, "DD.MM.YYYY");
+      const date2 = moment(b, "DD.MM.YYYY");
+
+      if (moment(date1).isBefore(moment(date2), "d")) {
+        return 1;
+      } else if (moment(date1).isAfter(moment(date2), "d")) {
+        return -1;
+      }
+
+      return 0;
+    });
+
+  const earliestOfferDate = moment(
+    sortedDates[offers.length - 1],
+    "DD.MM.YYYY"
+  ).format("DD.MM");
+  const latestOfferDate = moment(sortedDates[0], "DD.MM.YYYY").format("DD.MM");
 
   if (!offers || !offers.length) {
     return <h2 className={"mt-4"}>There is no latest offers!</h2>;
@@ -13,6 +35,9 @@ function LatestOffers(props) {
     <section className={styles.currentOffers}>
       <header className={styles.currentOffers__header}>
         <h2 className={styles.currentOffers__title}>Latest offers</h2>
+        <p className={styles.dates}>
+          Dates: {earliestOfferDate} – {latestOfferDate}
+        </p>
       </header>
       <table
         className={styles.currentOffers__table}
@@ -28,7 +53,14 @@ function LatestOffers(props) {
             >
               Date of offer
             </th>
-            <th className={styles.currentOffers__tableHeaderCell}>Grade</th>
+            <th
+              className={cn(
+                styles.currentOffers__tableHeaderCell,
+                styles.headerCell_grade
+              )}
+            >
+              Grade
+            </th>
             <th className={styles.currentOffers__tableHeaderCell}>
               Place of delivery
             </th>

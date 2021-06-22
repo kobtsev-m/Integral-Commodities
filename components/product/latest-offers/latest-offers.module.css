@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.dates {
+  display: none;
+}
+
 .currentOffers__title {
   font-family: var(--font-montserrat);
   color: var(--grey-default);
@@ -106,9 +110,19 @@
 }
 
 @media screen and (max-width: 768px) {
+  .currentOffers__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
   .currentOffers__title {
     font-size: 12px;
+    line-height: 1.4;
+    font-weight: bold;
     margin: 0;
+    margin-top: 30px;
   }
 
   .currentOffers__tableHeaderCell {
@@ -127,5 +141,18 @@
 
   .mobHiddenCol {
     display: none;
+  }
+
+  .dates {
+    display: block;
+    font-family: var(--font-montserrat);
+    font-size: 10px;
+    color: #4f4f4f;
+    align-items: flex-end;
+    margin: 0 0 20px auto;
+  }
+
+  .headerCell_grade {
+    min-width: 70px;
   }
 }
