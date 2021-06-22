@@ -39,7 +39,8 @@ export const LINKS = [
   },
   {
     label: "Services",
-    link: "/services",
+    link: "/about#futures",
+    blancLink: true,
   },
   {
     label: "Partners",

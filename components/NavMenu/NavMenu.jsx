@@ -43,7 +43,11 @@ const NavMenu = (props) => {
           {links.map((l) => {
             const { link, label, children } = l;
             const linkComponent = (
-              <NavLink link={link} onClick={onMenuClose}>
+              <NavLink
+                link={link}
+                onClick={onMenuClose}
+                blancLink={l.blancLink}
+              >
                 {label}
               </NavLink>
             );
