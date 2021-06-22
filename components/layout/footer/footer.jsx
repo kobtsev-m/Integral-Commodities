@@ -182,55 +182,65 @@ function Footer() {
           <div className={"footer__card footer__card_size_double"}>
             <h3 className={"footer__card-title"}>Local representatives</h3>
             <ul className={"footer__countries-list"}>
-              <li className={"footer__country"}>
-                <img
-                  className={"footer__country-image"}
-                  src={"./images/flag-uae.svg"}
-                  alt={""}
-                />
-                <p className={"footer__country-title"}>UAE</p>
+              <li>
+                <a className={"footer__country"} href="/about#dubai">
+                  <img
+                    className={"footer__country-image"}
+                    src={"./images/flag-uae.svg"}
+                    alt={""}
+                  />
+                  <p className={"footer__country-title"}>UAE</p>
+                </a>
               </li>
-              <li className={"footer__country"}>
-                <img
-                  className={"footer__country-image"}
-                  src={"images/flag-uz.svg"}
-                  alt={""}
-                />
-                <p className={"footer__country-title"}>Uzbekistan</p>
+              <li>
+                <a className={"footer__country"} href="/about#uzbekistan">
+                  <img
+                    className={"footer__country-image"}
+                    src={"./images/flag-uz.svg"}
+                    alt={""}
+                  />
+                  <p className={"footer__country-title"}>Uzbekistan</p>
+                </a>
               </li>
-              <li className={"footer__country"}>
-                <img
-                  className={"footer__country-image"}
-                  src={"images/flag-tm.svg"}
-                  alt={""}
-                />
-                <p className={"footer__country-title"}>Turkmenistan</p>
+              <li>
+                <a className={"footer__country"} href="/about#turkmenistan">
+                  <img
+                    className={"footer__country-image"}
+                    src={"./images/flag-tm.svg"}
+                    alt={""}
+                  />
+                  <p className={"footer__country-title"}>Turkmenistan</p>
+                </a>
               </li>
-              <li className={"footer__country"}>
-                <img
-                  className={"footer__country-image"}
-                  src={"images/flag-tr.svg"}
-                  alt={""}
-                />
-                <p className={"footer__country-title"}>Turkey</p>
+              <li>
+                <a className={"footer__country"} href="/about#turkey">
+                  <img
+                    className={"footer__country-image"}
+                    src={"./images/flag-tr.svg"}
+                    alt={""}
+                  />
+                  <p className={"footer__country-title"}>Turkey</p>
+                </a>
               </li>
-              <li className={"footer__country"}>
-                <img
-                  className={"footer__country-image"}
-                  src={"images/flag-kz.svg"}
-                  alt={""}
-                />
-                <p className={"footer__country-title"}>Kazakhstan</p>
+              <li>
+                <a className={"footer__country"} href="/about#kazakhstan">
+                  <img
+                    className={"footer__country-image"}
+                    src={"./images/flag-kz.svg"}
+                    alt={""}
+                  />
+                  <p className={"footer__country-title"}>Kazakhstan</p>
+                </a>
               </li>
-              <li className={"footer__country"}>
-                <img
-                  className={"footer__country-image"}
-                  src={"./images/flag-rf.svg"}
-                  alt={""}
-                />
-                <p className={"footer__country-title"}>
-                  Russian&nbsp;Federation
-                </p>
+              <li>
+                <a className={"footer__country"} href="/about#russia">
+                  <img
+                    className={"footer__country-image"}
+                    src={"./images/flag-rf.svg"}
+                    alt={""}
+                  />
+                  <p className={"footer__country-title"}>Russian Federation</p>
+                </a>
               </li>
             </ul>
           </div>

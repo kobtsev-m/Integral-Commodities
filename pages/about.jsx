@@ -225,6 +225,15 @@ function AboutPage() {
             className="offices__item offices__item_has-two-columns office"
             style={{ backgroundImage: "url(/images/switzerland-map.svg)" }}
           >
+            <a
+              name="lugano"
+              style={{
+                visibility: "hidden",
+                position: "absolute",
+                top: -10,
+                left: 0,
+              }}
+            />
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -259,6 +268,15 @@ function AboutPage() {
             className="offices__item offices__item_has-two-columns office"
             style={{ backgroundImage: "url(/images/uae-map.svg)" }}
           >
+            <a
+              name="dubai"
+              style={{
+                visibility: "hidden",
+                position: "absolute",
+                top: -10,
+                left: 0,
+              }}
+            />
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -291,6 +309,15 @@ function AboutPage() {
             className="offices__item offices__item_has-two-columns office"
             style={{ backgroundImage: "url(/images/turkmenistan-map.svg)" }}
           >
+            <a
+              name="turkmenistan"
+              style={{
+                visibility: "hidden",
+                position: "absolute",
+                top: -10,
+                left: 0,
+              }}
+            />
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -325,6 +352,15 @@ function AboutPage() {
             className="offices__item offices__item_has-two-columns office"
             style={{ backgroundImage: "url(/images/turkey-map.svg)" }}
           >
+            <a
+              name="turkey"
+              style={{
+                visibility: "hidden",
+                position: "absolute",
+                top: -10,
+                left: 0,
+              }}
+            />
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -357,6 +393,15 @@ function AboutPage() {
             className="offices__item offices__item_has-two-columns office"
             style={{ backgroundImage: "url(/images/uzbekistan-map.svg)" }}
           >
+            <a
+              name="uzbekistan"
+              style={{
+                visibility: "hidden",
+                position: "absolute",
+                top: -10,
+                left: 0,
+              }}
+            />
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -389,6 +434,15 @@ function AboutPage() {
             className="offices__item offices__item_has-two-columns office"
             style={{ backgroundImage: "url(/images/kazakhstan-map.svg)" }}
           >
+            <a
+              name="kazakhstan"
+              style={{
+                visibility: "hidden",
+                position: "absolute",
+                top: -10,
+                left: 0,
+              }}
+            />
             <div className="office__info office-description">
               <img
                 className="office-description__flag"
@@ -421,6 +475,15 @@ function AboutPage() {
             className="offices__item offices__item_has-two-columns office"
             style={{ backgroundImage: "url(/images/russia-map.svg)" }}
           >
+            <a
+              name="russia"
+              style={{
+                visibility: "hidden",
+                position: "absolute",
+                top: -10,
+                left: 0,
+              }}
+            />
             <div className="office__info office-description">
               <img
                 className="office-description__flag"

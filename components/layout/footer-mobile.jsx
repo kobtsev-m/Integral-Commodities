@@ -55,9 +55,7 @@ const FooterMobile = () => {
                 </Link>
               </li>
               <li className={classes.linksItem}>
-                <Link href="/services">
-                  <a href="">Services</a>
-                </Link>
+                <a href="/about#futures">Services</a>
               </li>
               <li className={classes.linksItem}>
                 <Link href="/partners">
@@ -70,14 +68,16 @@ const FooterMobile = () => {
         <div className={classes.offices}>
           <ul className={classes.officesList}>
             <li className={classes.officesItem}>
-              <div className={classes.officeHeader}>
-                <img
-                  className={classes.officeImage}
-                  src="/images/flag-uae.svg"
-                  alt=""
-                />
-                <h3 className={classes.officeTitle}>Dubai office</h3>
-              </div>
+              <a href="/about#dubai">
+                <div className={classes.officeHeader}>
+                  <img
+                    className={classes.officeImage}
+                    src="/images/flag-uae.svg"
+                    alt=""
+                  />
+                  <h3 className={classes.officeTitle}>Dubai office</h3>
+                </div>
+              </a>
               <address className={classes.officeContent}>
                 Platinum Tower , 3905, JLT
               </address>
@@ -98,14 +98,16 @@ const FooterMobile = () => {
               </a>
             </li>
             <li className={classes.officesItem}>
-              <div className={classes.officeHeader}>
-                <img
-                  className={classes.officeImage}
-                  src="/images/flag-ch.svg"
-                  alt=""
-                />
-                <h3 className={classes.officeTitle}>Lugano office</h3>
-              </div>
+              <a href="/about#lugano">
+                <div className={classes.officeHeader}>
+                  <img
+                    className={classes.officeImage}
+                    src="/images/flag-ch.svg"
+                    alt=""
+                  />
+                  <h3 className={classes.officeTitle}>Lugano office</h3>
+                </div>
+              </a>
               <address className={classes.officeContent}>
                 Via F. Pelli 13 B. 6900 Lugano, Switzerland
               </address>
@@ -124,53 +126,65 @@ const FooterMobile = () => {
         <div className={classes.locals}>
           <h3 className={classes.localsHeader}>Local representatives</h3>
           <ul className={classes.localsList}>
-            <li className={classes.localsItem}>
-              <img
-                className={classes.localsImage}
-                src="/images/flag-uae.svg"
-                alt=""
-              />
-              <p className={classes.localsName}>UAE</p>
+            <li>
+              <a className={classes.localsItem} href="/about#dubai">
+                <img
+                  className={classes.localsImage}
+                  src="/images/flag-uae.svg"
+                  alt=""
+                />
+                <p className={classes.localsName}>UAE</p>
+              </a>
             </li>
-            <li className={classes.localsItem}>
-              <img
-                className={classes.localsImage}
-                src="/images/flag-uz.svg"
-                alt=""
-              />
-              <p className={classes.localsName}>Uzbekistan</p>
+            <li>
+              <a className={classes.localsItem} href="/about#uzbekistan">
+                <img
+                  className={classes.localsImage}
+                  src="/images/flag-uz.svg"
+                  alt=""
+                />
+                <p className={classes.localsName}>Uzbekistan</p>
+              </a>
             </li>
-            <li className={classes.localsItem}>
-              <img
-                className={classes.localsImage}
-                src="/images/flag-tm.svg"
-                alt=""
-              />
-              <p className={classes.localsName}>Turkmenistan</p>
+            <li>
+              <a className={classes.localsItem} href="/about#turkmenistan">
+                <img
+                  className={classes.localsImage}
+                  src="/images/flag-tm.svg"
+                  alt=""
+                />
+                <p className={classes.localsName}>Turkmenistan</p>
+              </a>
             </li>
-            <li className={classes.localsItem}>
-              <img
-                className={classes.localsImage}
-                src="/images/flag-tr.svg"
-                alt=""
-              />
-              <p className={classes.localsName}>Turkey</p>
+            <li>
+              <a className={classes.localsItem} href="/about#turkey">
+                <img
+                  className={classes.localsImage}
+                  src="/images/flag-tr.svg"
+                  alt=""
+                />
+                <p className={classes.localsName}>Turkey</p>
+              </a>
             </li>
-            <li className={classes.localsItem}>
-              <img
-                className={classes.localsImage}
-                src="/images/flag-kz.svg"
-                alt=""
-              />
-              <p className={classes.localsName}>Kazakhstan</p>
+            <li>
+              <a className={classes.localsItem} href="/about#kazakhstan">
+                <img
+                  className={classes.localsImage}
+                  src="/images/flag-kz.svg"
+                  alt=""
+                />
+                <p className={classes.localsName}>Kazakhstan</p>
+              </a>
             </li>
-            <li className={classes.localsItem}>
-              <img
-                className={classes.localsImage}
-                src="/images/flag-rf.svg"
-                alt=""
-              />
-              <p className={classes.localsName}>Russian Federation</p>
+            <li>
+              <a className={classes.localsItem} href="/about#russia">
+                <img
+                  className={classes.localsImage}
+                  src="/images/flag-rf.svg"
+                  alt=""
+                />
+                <p className={classes.localsName}>Russian Federation</p>
+              </a>
             </li>
           </ul>
         </div>

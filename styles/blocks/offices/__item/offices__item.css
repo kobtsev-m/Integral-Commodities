@@ -1,3 +1,7 @@
+.offices__item {
+  position: relative;
+}
+
 .offices__item_has-two-columns {
   grid-column: 1 / 3;
 }

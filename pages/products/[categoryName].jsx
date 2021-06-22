@@ -138,7 +138,9 @@ function HomePage() {
   return (
     <>
       <h2 className={"slogan root__slogan"}>
-        Save time and get discount for ordering commodities online
+        Save time and get discount
+        <br />
+        for ordering commodities online
       </h2>
       <section className={"products root__products"}>
         <ProductListTabs activeTab={category} tabs={TABS} />
