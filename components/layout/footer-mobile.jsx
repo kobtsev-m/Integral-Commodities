@@ -195,12 +195,22 @@ const FooterMobile = () => {
             </p>
             <ul className={classes.copyrightLinks}>
               <li className={classes.copyrightLinksItem}>
-                <a className={classes.copyrightLink} href="/">
+                <a
+                  className={classes.copyrightLink}
+                  href={"/documents/terms.pdf"}
+                  target={"_blank"}
+                  download
+                >
                   Terms
                 </a>
               </li>
               <li className={classes.copyrightLinksItem}>
-                <a className={classes.copyrightLink} href="/">
+                <a
+                  className={classes.copyrightLink}
+                  href={"/documents/privacy.pdf"}
+                  target={"_blank"}
+                  download
+                >
                   Privacy
                 </a>
               </li>

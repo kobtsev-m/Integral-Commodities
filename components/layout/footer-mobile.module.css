@@ -183,3 +183,7 @@
   padding: 0 5px 2px;
   border-bottom: 1px solid white;
 }
+
+.copyrightLink:hover {
+  color: white;
+}
