@@ -49,3 +49,24 @@
   width: 81px;
   height: 81px;
 }
+
+@media screen and (max-width: 768px) {
+  .thanksMessengers__text {
+    max-width: 375px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .thanksMessengersList {
+    margin: 20px 0 0;
+  }
+
+  .thanksMessengersItem:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .thanksMessengersItem__img {
+    width: 40px;
+    height: auto;
+  }
+}

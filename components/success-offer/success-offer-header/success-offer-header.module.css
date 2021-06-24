@@ -19,3 +19,18 @@
   font-weight: 700;
   color: var(--p-blue);
 }
+
+@media screen and (max-width: 768px) {
+  .thanksHeader__checkImg {
+    flex: initial;
+    width: 50px;
+  }
+
+  .thanksHeader__text {
+    margin: 25px 0 0;
+    padding: 0;
+
+    font-size: 24px;
+    line-height: 1.4;
+  }
+}

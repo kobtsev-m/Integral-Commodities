@@ -5,3 +5,13 @@
   margin: 127px auto 190px;
   padding: 0 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .thanksContainer {
+    width: 100%;
+    max-width: 375px;
+
+    margin: 30px auto 50px;
+    padding: 0 20px;
+  }
+}

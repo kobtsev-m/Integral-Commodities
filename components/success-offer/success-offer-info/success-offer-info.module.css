@@ -24,3 +24,15 @@
   color: var(--p-orange-accent);
   text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) {
+  .thanksInfo {
+    margin-top: 40px;
+    padding: 20px;
+  }
+
+  .thanksInfo__text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
