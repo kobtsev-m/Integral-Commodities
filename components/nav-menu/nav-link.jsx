@@ -1,5 +1,5 @@
-import Link from "next/link";
-import classes from "./NavLink.module.css";
+import Link from 'next/link';
+import classes from './nav-link.module.css';
 
 const NavLink = (props) => {
   const { link, onClick, blancLink } = props;

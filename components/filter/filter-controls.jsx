@@ -1,14 +1,14 @@
-import { useState } from "react";
-import cn from "classnames";
-import classes from "./FilterControls.module.css";
+import { useState } from 'react';
+import cn from 'classnames';
+import classes from './filter-controls.module.css';
 
-import SliderMenu from "../SliderMenu";
-import FilterMenu from "./FilterMenu";
-import { getProductsBySearchStringApi } from "../../api/api";
+import SliderMenu from '../slider-menu/slider-menu';
+import FilterMenu from './filter-menu';
+import { getProductsBySearchStringApi } from '../../api/api';
 
 const FilterControls = (props) => {
   const { filters, count, onChange, onSearch } = props;
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
 
@@ -34,12 +34,11 @@ const FilterControls = (props) => {
         </button>
         <form
           className={cn({ [classes.searchForm_active]: isSearchActive })}
-          action
           onSubmit={handleSearchButtonClick}
         >
           <input
             className={cn(classes.searchInput, {
-              [classes.searchInput_active]: isSearchActive,
+              [classes.searchInput_active]: isSearchActive
             })}
             type="search"
             placeholder="Grade"
@@ -53,7 +52,11 @@ const FilterControls = (props) => {
           />
         </form>
       </div>
-      <SliderMenu title="Filters" open={isFilterOpen} onClose={handleMenuClose}>
+      <SliderMenu
+        title="Filters"
+        open={isFilterOpen}
+        onClose={handleMenuClose}
+      >
         <FilterMenu
           filters={filters}
           onChange={onChange}

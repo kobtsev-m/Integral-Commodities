@@ -1,20 +1,20 @@
-import cn from "classnames";
-import classes from "./SliderMenu.module.css";
-import { useEffect } from "react";
+import cn from 'classnames';
+import classes from './slider-menu.module.css';
+import { useEffect } from 'react';
 
 const SliderMenu = (props) => {
   const { open, title, onClose } = props;
 
   useEffect(() => {
     if (open) {
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-      document.querySelector("jdiv").style.display = "none";
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.querySelector('jdiv').style.display = 'none';
     } else {
-      document.body.style.position = "";
-      const jdiv = document.querySelector("jdiv");
+      document.body.style.position = '';
+      const jdiv = document.querySelector('jdiv');
       if (jdiv) {
-        jdiv.style.display = "block";
+        jdiv.style.display = 'block';
       }
     }
   }, [open]);

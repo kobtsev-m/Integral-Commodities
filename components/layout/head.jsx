@@ -1,4 +1,4 @@
-import HtmlHead from "next/head";
+import HtmlHead from 'next/head';
 
 function Head() {
   return (

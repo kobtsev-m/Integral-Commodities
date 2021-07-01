@@ -1,34 +1,29 @@
-import cn from "classnames";
+import cn from 'classnames';
 
-import styles from "./latest-offers.module.css";
-import moment from "moment";
+import styles from './latest-offers.module.css';
+import moment from 'moment';
 
-function LatestOffers(props) {
-  const { offers } = props;
-
+function LatestOffers({ offers }) {
   const sortedDates = offers
     .map((o) => o.date_of_validity)
     .sort((a, b) => {
-      const date1 = moment(a, "DD.MM.YYYY");
-      const date2 = moment(b, "DD.MM.YYYY");
-
-      if (moment(date1).isBefore(moment(date2), "d")) {
+      const date1 = moment(a, 'DD.MM.YYYY');
+      const date2 = moment(b, 'DD.MM.YYYY');
+      if (moment(date1).isBefore(moment(date2), 'd')) {
         return 1;
-      } else if (moment(date1).isAfter(moment(date2), "d")) {
+      } else if (moment(date1).isAfter(moment(date2), 'd')) {
         return -1;
       }
-
       return 0;
     });
 
-  const earliestOfferDate = moment(
-    sortedDates[offers.length - 1],
-    "DD.MM.YYYY"
-  ).format("DD.MM");
-  const latestOfferDate = moment(sortedDates[0], "DD.MM.YYYY").format("DD.MM");
+  const firstOffer = sortedDates[offers.length - 1];
+  const lastOffer = sortedDates[0];
+  const earliestOfferDate = moment(firstOffer, 'DD.MM.YYYY').format('DD.MM');
+  const latestOfferDate = moment(lastOffer, 'DD.MM.YYYY').format('DD.MM');
 
   if (!offers || !offers.length) {
-    return <h2 className={"mt-4"}>There is no latest offers!</h2>;
+    return <h2 className={'mt-4'}>There is no latest offers!</h2>;
   }
 
   return (
@@ -66,7 +61,7 @@ function LatestOffers(props) {
             </th>
             <th
               className={styles.currentOffers__tableHeaderCell}
-              style={{ textAlign: "center" }}
+              style={{ textAlign: 'center' }}
             >
               Terms of Delivery
             </th>
@@ -75,7 +70,7 @@ function LatestOffers(props) {
                 styles.currentOffers__tableHeaderCell,
                 styles.mobHiddenCol
               )}
-              style={{ textAlign: "center" }}
+              style={{ textAlign: 'center' }}
             >
               Quantity/MT
             </th>
@@ -102,7 +97,9 @@ function LatestOffers(props) {
               >
                 {offer.date_of_validity}
               </td>
-              <td className={styles.currentOffers__tableCell}>{offer.grade}</td>
+              <td className={styles.currentOffers__tableCell}>
+                {offer.grade}
+              </td>
               <td className={styles.currentOffers__tableCell}>
                 {offer.place_of_delivery}
               </td>
@@ -111,7 +108,7 @@ function LatestOffers(props) {
                   styles.currentOffers__tableCell,
                   styles.currentOffers__tableCell_center
                 )}
-                style={{ textAlign: "center" }}
+                style={{ textAlign: 'center' }}
               >
                 {offer.terms_of_delivery}
               </td>
@@ -121,7 +118,7 @@ function LatestOffers(props) {
                   styles.currentOffers__tableCell_center,
                   styles.mobHiddenCol
                 )}
-                style={{ textAlign: "center" }}
+                style={{ textAlign: 'center' }}
               >
                 {offer.quantity}
               </td>

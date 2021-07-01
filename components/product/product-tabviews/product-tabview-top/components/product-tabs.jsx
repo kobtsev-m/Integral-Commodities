@@ -1,30 +1,30 @@
-import { nanoid } from "nanoid";
+import { nanoid } from 'nanoid';
 
-import cn from "classnames";
-import styles from "./product-tabs.module.css";
-import { useEffect, useRef, useState } from "react";
-import useWindowDimensions from "../../../../../hooks/useWindowDemensions";
+import cn from 'classnames';
+import styles from './product-tabs.module.css';
+import { useEffect, useRef, useState } from 'react';
+import useWindowDimensions from '../../../../../hooks/useWindowDemensions';
 
 const polymersTabs = {
-  Prices: "prices",
-  Offer: "offer",
-  Product: "product",
-  Analogs: "analogs",
+  Prices: 'prices',
+  Offer: 'offer',
+  Product: 'product',
+  Analogs: 'analogs'
 };
 
 const otherTypesTabs = {
-  Prices: "prices",
-  Offer: "offer",
-  Product: "product",
+  Prices: 'prices',
+  Offer: 'offer',
+  Product: 'product'
 };
 
 const setClippingRect = (element, width, left) => {
-  element.style.width = width + "px";
-  element.style.left = left + "px";
+  element.style.width = width + 'px';
+  element.style.left = left + 'px';
 };
 
 function ProductTabs(props) {
-  const tabs = props.category === "polymers" ? polymersTabs : otherTypesTabs;
+  const tabs = props.category === 'polymers' ? polymersTabs : otherTypesTabs;
   const tabsElements = useRef();
   const activeTabLine = useRef();
   const [firstElementOffset, setFirstElementOffset] = useState(0);
@@ -48,17 +48,17 @@ function ProductTabs(props) {
   }, [width, firstElementOffset, props.activeTab]);
 
   return (
-    <div className={cn(styles.productTabs__listWrapper, "sticky-top")}>
+    <div className={cn(styles.productTabs__listWrapper, 'sticky-top')}>
       <span
         ref={activeTabLine}
         style={{
           width: 100,
           height: 2,
-          position: "absolute",
-          backgroundColor: "var(--p-blue)",
+          position: 'absolute',
+          backgroundColor: 'var(--p-blue)',
           bottom: 0,
           left: 0,
-          transition: "200ms ease",
+          transition: '200ms ease'
         }}
       />
       <ul className={styles.productTabs__list} ref={tabsElements}>
@@ -66,7 +66,7 @@ function ProductTabs(props) {
           <li
             key={nanoid()}
             className={cn(styles.productTabs__item, {
-              [styles.productTabs__item_active]: tabName === props.activeTab,
+              [styles.productTabs__item_active]: tabName === props.activeTab
             })}
           >
             <button

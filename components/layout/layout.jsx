@@ -1,15 +1,17 @@
-import MainHeader from "./main-header";
-import Footer from "./footer/footer";
-import Head from "./head";
+import MainHeader from './main-header';
+import Footer from './footer/footer';
+import Head from './head';
 
 function Layout(props) {
   return (
-    <div className="root">
+    <>
       <Head />
-      <MainHeader />
-      <main>{props.children}</main>
-      <Footer />
-    </div>
+      <div className={'root'}>
+        <MainHeader />
+        <main>{props.children}</main>
+        <Footer />
+      </div>
+    </>
   );
 }
 

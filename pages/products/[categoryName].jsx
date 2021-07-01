@@ -1,15 +1,15 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-import ProductsList from "components/product/product-list/product-list";
-import ProductListTabs from "components/product/product-list-tabs/product-list-tabs";
-import LatestOffers from "components/product/latest-offers/latest-offers";
-import LoadingSpinner from "components/ui/loading";
-import ProductListControls from "components/product/product-list-controls/product-list-controls";
-import AskForQuote from "components/other-blocks/ask-for-quote/ask-for-quote";
+import ProductsList from 'components/product/product-list/product-list';
+import ProductListTabs from 'components/product/product-list-tabs/product-list-tabs';
+import LatestOffers from 'components/product/latest-offers/latest-offers';
+import LoadingSpinner from 'components/ui/loading';
+import ProductListControls from 'components/product/product-list-controls/product-list-controls';
+import AskForQuote from 'components/other-blocks/ask-for-quote/ask-for-quote';
 
-import { getProductsApi, getOffersApi } from "api/api";
-import { FILTERS, TABS } from "utils/const";
+import { getProductsApi, getOffersApi } from 'api/api';
+import { FILTERS, TABS } from 'utils/const';
 
 function getValueByKeyName(arr, key) {
   const searchedItem = arr.find(
@@ -38,7 +38,7 @@ function getFiltersInitialState(category, optionalFields) {
     if (optionalFields?.[filter.name]) {
       options = {
         ...options,
-        [optionalFields[filter.name]]: true,
+        [optionalFields[filter.name]]: true
       };
     }
     return { ...acc, [filter.name]: { ...filter, options } };
@@ -47,7 +47,7 @@ function getFiltersInitialState(category, optionalFields) {
 
 function prepareProductDataValue(value) {
   return String(value)
-    .split(",")
+    .split(',')
     .map((content) => content.trim());
 }
 
@@ -70,7 +70,7 @@ function filterProducts(filtersState, filteredProducts) {
   }
   return filteredProducts.filter((product) => {
     const productData = product.card_data.slice();
-    productData.push({ key: "grade", value: product.grade });
+    productData.push({ key: 'grade', value: product.grade });
     return Object.values(fullFilledFilter).every((filter) => {
       const productValueToFilter = getValueByKeyName(productData, filter.key);
       const matches = getArraysIntersection(
@@ -90,8 +90,8 @@ function HomePage() {
   const router = useRouter();
   const category = router.query.categoryName;
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [products, setProducts] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filtersState, setFiltersState] = useState({});
   const [offers, setOffers] = useState([]);
@@ -101,7 +101,7 @@ function HomePage() {
       setIsLoading(true);
       Promise.all([
         getProductsApi(setProducts),
-        getOffersApi(category, setOffers),
+        getOffersApi(category, setOffers)
       ])
         .catch((e) => console.log(e))
         .finally(() => setIsLoading(false));
@@ -137,14 +137,14 @@ function HomePage() {
 
   return (
     <>
-      <h2 className={"slogan root__slogan"}>
+      <h2 className={'slogan root__slogan'}>
         Save time and get discount
         <br />
         for ordering commodities online
       </h2>
-      <section className={"products root__products"}>
+      <section className={'products root__products'}>
         <ProductListTabs activeTab={category} tabs={TABS} />
-        {category === "polymers" && (
+        {category === 'polymers' && (
           <ProductListControls
             filteredProductsCount={filteredProducts.length}
             category={category}
@@ -154,16 +154,16 @@ function HomePage() {
             onReset={handleFiltersReset}
           />
         )}
-        {isLoading || !products ? (
+        {isLoading ? (
           <LoadingSpinner />
         ) : (
           <>
             <ProductsList loading={isLoading} products={filteredProducts} />
             <LatestOffers loading={isLoading} offers={offers} />
+            <AskForQuote products={products} />
           </>
         )}
       </section>
-      <AskForQuote />
     </>
   );
 }

@@ -1,5 +1,6 @@
-import classes from "./FilterMenu.module.css";
-import { useState } from "react";
+import classes from './filter-menu.module.css';
+import { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 const getInitialState = (filters) => {
   return Object.keys(filters).reduce((acc, filterName) => {
@@ -18,8 +19,8 @@ const FilterMenu = (props) => {
     onChange({
       [filterName]: {
         ...filter,
-        options: { ...filter.options, [optionName]: isChecked },
-      },
+        options: { ...filter.options, [optionName]: isChecked }
+      }
     });
   };
 
@@ -28,20 +29,20 @@ const FilterMenu = (props) => {
       <ul className={classes.filtersList}>
         {Object.entries(filters).map(([filterName, filterInfo]) => {
           return (
-            <li className={classes.filterItem}>
+            <li key={nanoid()} className={classes.filterItem}>
               <span className={classes.filterName}>{filterInfo.key}</span>
               <button
                 className={classes.rollupBtn}
                 onClick={() =>
                   setRollup((prevState) => ({
                     ...getInitialState(filters),
-                    [filterName]: !prevState[filterName],
+                    [filterName]: !prevState[filterName]
                   }))
                 }
               />
               <ul
                 className={classes.optionsList}
-                style={{ display: `${rollup[filterName] ? "block" : "none"}` }}
+                style={{ display: `${rollup[filterName] ? 'block' : 'none'}` }}
               >
                 {Object.entries(filterInfo.options).map(([optionName, _]) => (
                   <li className={classes.option} key={`option-${optionName}`}>

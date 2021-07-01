@@ -1,14 +1,14 @@
-import { useState, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-import cn from "classnames";
-import stylesUI from "components/ui/custom-ui.module.css";
+import cn from 'classnames';
+import stylesUI from 'components/ui/custom-ui.module.css';
 
-import { getFutureDate, getWeeksRangeList } from "utils/date-utils";
-import { getMonthsOffsetList, formatWeekDM } from "utils/date-utils";
-import { calendarWeeksAfter } from "../options/options";
+import { getFutureDate, getWeeksRangeList } from 'utils/date-utils';
+import { getMonthsOffsetList, formatWeekDM } from 'utils/date-utils';
+import { calendarWeeksAfter } from '../options/options';
 
 function PeriodField(props) {
   const [datesRanges, setDatesRanges] = useState(props.defaultValue);
@@ -97,26 +97,26 @@ function PeriodField(props) {
       }
       let newCustomCheckboxLabel = newDatesRanges.reduce((acc, range) => {
         return acc + `${formatWeekDM(range)}<br/>`;
-      }, "");
+      }, '');
       customCheckboxLabel.current.innerHTML = newCustomCheckboxLabel;
       setDatesRanges(newDatesRanges);
       setSelectMode(false);
     } else {
-      customCheckboxLabel.current.innerHTML = "Custom item";
+      customCheckboxLabel.current.innerHTML = 'Custom item';
       handleDefaultCheckboxClick();
     }
   };
 
   return (
-    <div className={"row gx-2"}>
+    <div className={'row gx-2'}>
       <div
-        className={cn("col-12 col-lg-5", {
-          "col-lg-12": props.isEmbed,
+        className={cn('col-12 col-lg-5', {
+          'col-lg-12': props.isEmbed
         })}
       >
         <div>
           <input
-            type={"checkbox"}
+            type={'checkbox'}
             className={stylesUI.checkboxInput}
             id={`${props.name}_default`}
             onChange={handleDefaultCheckboxClick}
@@ -124,9 +124,9 @@ function PeriodField(props) {
           />
           <label htmlFor={`${props.name}_default`}>8 weeks</label>
         </div>
-        <div className={"mt-2"}>
+        <div className={'mt-2'}>
           <input
-            type={"checkbox"}
+            type={'checkbox'}
             className={stylesUI.checkboxInput}
             id={`${props.name}_custom`}
             onChange={handleCustomCheckboxClick}
@@ -139,37 +139,37 @@ function PeriodField(props) {
       </div>
       {selectMode && (
         <div
-          className={cn("col-12 col-lg-7 mt-3 mt-lg-0", {
-            "col-lg-12 mt-lg-3": props.isEmbed,
+          className={cn('col-12 col-lg-7 mt-3 mt-lg-0', {
+            'col-lg-12 mt-lg-3': props.isEmbed
           })}
         >
-          <div className={cn(stylesUI.calendar, "py-2 px-3")}>
-            <div className={"d-flex align-items-center"}>
-              <div style={{ width: "1.5em" }}>
+          <div className={cn(stylesUI.calendar, 'py-2 px-3')}>
+            <div className={'d-flex align-items-center'}>
+              <div style={{ width: '1.5em' }}>
                 <button
-                  type={"button"}
-                  className={cn(stylesUI.calendar__chevron, "btn btn-sm")}
+                  type={'button'}
+                  className={cn(stylesUI.calendar__chevron, 'btn btn-sm')}
                   onClick={() => handleCustomChevronClick(-1)}
                 >
                   <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
               </div>
-              <div className={"flex-fill d-flex justify-content-center px-2"}>
-                <span className={"text-center"}>
+              <div className={'flex-fill d-flex justify-content-center px-2'}>
+                <span className={'text-center'}>
                   {`${currentMonth.name} ${currentMonth.year}`}
                 </span>
               </div>
-              <div style={{ width: "1.5em" }}>
+              <div style={{ width: '1.5em' }}>
                 <button
-                  type={"button"}
-                  className={cn(stylesUI.calendar__chevron, "btn btn-sm")}
+                  type={'button'}
+                  className={cn(stylesUI.calendar__chevron, 'btn btn-sm')}
                   onClick={() => handleCustomChevronClick(1)}
                 >
                   <FontAwesomeIcon icon={faChevronRight} />
                 </button>
               </div>
             </div>
-            <div className={"row g-0 mt-2"}>
+            <div className={'row g-0 mt-2'}>
               {weeks && (
                 <div
                   ref={calendarScrollbox}
@@ -180,7 +180,7 @@ function PeriodField(props) {
                     <div
                       key={week.id}
                       className={cn(stylesUI.calendar__item, {
-                        [stylesUI.active]: week.selected,
+                        [stylesUI.active]: week.selected
                       })}
                       onClick={() => handleCustomDateClick(week.id)}
                     >
@@ -190,9 +190,9 @@ function PeriodField(props) {
                 </div>
               )}
             </div>
-            <div className={"row g-0 my-2"}>
+            <div className={'row g-0 my-2'}>
               <button
-                type={"button"}
+                type={'button'}
                 className={cn(stylesUI.btn, stylesUI.orange)}
                 onClick={handleCustomSubmitClick}
               >

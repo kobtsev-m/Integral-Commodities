@@ -1,13 +1,12 @@
-import { useState } from "react";
-import cn from "classnames";
+import { useState } from 'react';
+import cn from 'classnames';
 
-import { LINKS } from "../../utils/nav-links";
-import classes from "./NavMenu.module.css";
-import NavLink from "./NavLink";
+import { LINKS } from '../../utils/nav-links';
+import classes from './nav-menu.module.css';
+import NavLink from './nav-link';
+import { nanoid } from 'nanoid';
 
-/*
-  Функция для выделения ссылок, имеющих дочерние ссылки
-*/
+/* Функция для выделения ссылок, имеющих дочерние ссылки */
 const getInitialState = (links, label) => {
   return links.reduce((acc, l) => {
     if (l.children) {
@@ -28,7 +27,7 @@ const NavMenu = (props) => {
 
   const recursivelyRenderLinks = (links, isNested = false, label) => {
     let isGloballyNested = false;
-    return (function () {
+    return (() => {
       if (isNested) {
         isGloballyNested = true;
       }
@@ -37,7 +36,7 @@ const NavMenu = (props) => {
         <ul
           className={cn(classes.linksList, {
             [classes.linksList_nesting]: isNested,
-            [classes.hidden]: isNested && !rollup[label],
+            [classes.hidden]: isNested && !rollup[label]
           })}
         >
           {links.map((l) => {
@@ -55,14 +54,15 @@ const NavMenu = (props) => {
             if (children) {
               return (
                 <li
+                  key={nanoid()}
                   className={cn(classes.linkItem, {
-                    [classes.linkItem_nesting]: isGloballyNested,
+                    [classes.linkItem_nesting]: isGloballyNested
                   })}
                 >
                   {linkComponent}
                   <button
                     className={cn(classes.rollupBtn, {
-                      [classes.rollupBtn_rolled]: rollup[label],
+                      [classes.rollupBtn_rolled]: rollup[label]
                     })}
                     onClick={() =>
                       setRollUp({ ...rollup, [label]: !rollup[label] })
@@ -75,8 +75,9 @@ const NavMenu = (props) => {
 
             return (
               <li
+                key={nanoid()}
                 className={cn(classes.linkItem, {
-                  [classes.linkItem_nesting]: isGloballyNested,
+                  [classes.linkItem_nesting]: isGloballyNested
                 })}
               >
                 {linkComponent}

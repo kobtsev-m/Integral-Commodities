@@ -1,9 +1,9 @@
-import cn from "classnames";
+import cn from 'classnames';
 
-import CloseIcon from "./close-icon/close-icon";
-import LinkTree from "./link-tree/link-tree";
-import Copyright from "./copyright/copyright";
-import styles from "./menu.module.css";
+import CloseIcon from './close-icon/close-icon';
+import LinkTree from './link-tree/link-tree';
+import Copyright from './copyright/copyright';
+import styles from './menu.module.css';
 
 function Menu({ isMenuOpen, toggleMenu }) {
   return (

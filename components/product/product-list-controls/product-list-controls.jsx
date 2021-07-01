@@ -1,11 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from 'react';
 
-import CheckboxesFilter from "components/checkboxes-filter/checkboxes-filter";
-import { getProductsBySearchStringApi } from "api/api";
+import CheckboxesFilter from 'components/checkboxes-filter/checkboxes-filter';
+import { getProductsBySearchStringApi } from 'api/api';
 
-import styles from "./product-list-controls.module.css";
-import FilterControls from "../../Filter/FilterControls";
-import useWindowDimensions from "../../../hooks/useWindowDemensions";
+import styles from './product-list-controls.module.css';
+import FilterControls from '../../filter/filter-controls';
+import useWindowDimensions from '../../../hooks/useWindowDemensions';
 
 function useOutsideAlerter(ref, cb) {
   useEffect(() => {
@@ -14,9 +14,9 @@ function useOutsideAlerter(ref, cb) {
         cb();
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref]);
 }
@@ -26,7 +26,7 @@ function ProductListControls(props) {
     filteredProductsCount,
     filtersState,
     onFiltersChange,
-    onSearchSubmit,
+    onSearchSubmit
   } = props;
   const [droppedDown, setIsDroppedDown] = useState({});
 
@@ -53,7 +53,7 @@ function ProductListControls(props) {
   const handleDropDownClick = (filterName) => {
     setIsDroppedDown((prevState) => ({
       ...getInitialDropDownState,
-      [filterName]: !prevState[filterName],
+      [filterName]: !prevState[filterName]
     }));
   };
 
@@ -64,7 +64,7 @@ function ProductListControls(props) {
   useOutsideAlerter(formRef, handleOutsideClick);
 
   return (
-    <div className={"products__controls"}>
+    <div className={'products__controls'}>
       {width <= 768 && (
         <FilterControls
           filters={filtersState}
@@ -88,8 +88,8 @@ function ProductListControls(props) {
         })}
       </form>
       <form
-        className={"products__search-form"}
-        name={"search"}
+        className={'products__search-form'}
+        name={'search'}
         onSubmit={async (event) => {
           event.preventDefault();
           const searchResult = await getProductsBySearchStringApi(
@@ -98,19 +98,19 @@ function ProductListControls(props) {
           onSearchSubmit(searchResult);
         }}
       >
-        <label className={"products__search-label"} htmlFor={"searchInput"}>
+        <label className={'products__search-label'} htmlFor={'searchInput'}>
           Search
         </label>
         <input
-          className={"products__search-input"}
-          type={"text"}
-          name={"search"}
-          id={"searchInput"}
-          placeholder={"Grade"}
-          autoComplete={"off"}
+          className={'products__search-input'}
+          type={'text'}
+          name={'search'}
+          id={'searchInput'}
+          placeholder={'Grade'}
+          autoComplete={'off'}
           ref={searchRef}
         />
-        <button className={"products__search-submit"} type={"submit"} />
+        <button className={'products__search-submit'} type={'submit'} />
       </form>
     </div>
   );

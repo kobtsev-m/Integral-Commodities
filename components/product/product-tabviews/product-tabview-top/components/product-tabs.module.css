@@ -1,62 +1,62 @@
 .productTabs__listWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
 .productTabs__list {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 100%;
-  background: white url("/images/bg-line.svg") no-repeat bottom;
-  padding: 12px 0 0;
-  transition: max-width 0.2s ease-in-out;
-  margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+    background: white url('/images/bg-line.svg') no-repeat bottom;
+    padding: 12px 0 0;
+    transition: max-width 0.2s ease-in-out;
+    margin: 0;
 }
 
 .productTabs__list_compressed {
-  max-width: 1000px;
+    max-width: 1000px;
 }
 
 .productTabs__item {
-  font-family: var(--font-montserrat);
-  font-size: 22px;
-  line-height: 27px;
-  color: var(--p-grey-dark);
-  padding: 0 15px 10px;
+    font-family: var(--font-montserrat);
+    font-size: 22px;
+    line-height: 27px;
+    color: var(--p-grey-dark);
+    padding: 0 15px 10px;
 }
 
 .productTabs__item_active {
-  color: var(--p-text);
-  border-bottom: 2px solid transparent;
+    color: var(--p-text);
+    border-bottom: 2px solid transparent;
 }
 
 .productTabs__button {
-  color: inherit;
-  cursor: pointer;
-  padding: 0;
-  border: none;
-  background: transparent;
-  outline: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: transparent;
+    outline: none;
 }
 
 @media screen and (max-width: 768px) {
-  .productTabs__button {
-    font-size: 14px;
-    line-height: 1.4;
-    padding: 0;
-  }
+    .productTabs__button {
+        font-size: 14px;
+        line-height: 1.4;
+        padding: 0;
+    }
 
-  .productTabs__listWrapper {
-    margin-bottom: 28px;
-  }
+    .productTabs__listWrapper {
+        margin-bottom: 28px;
+    }
 
-  .productTabs__item {
-    padding: 0 8px 8px;
-    font-size: 14px;
-    line-height: 1.4;
-  }
+    .productTabs__item {
+        padding: 0 8px 8px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
 }

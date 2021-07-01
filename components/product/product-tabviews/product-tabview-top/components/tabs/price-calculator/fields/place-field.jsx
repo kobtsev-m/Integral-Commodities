@@ -1,6 +1,5 @@
-import { memo } from "react";
-import { LoadScript } from "@react-google-maps/api";
-import PlacesSearch from "components/other-blocks/places-search/places-search";
+import { memo } from 'react';
+import PlacesSearch from 'components/other-blocks/places-search/places-search';
 
 function PlaceField(props) {
   const handleSelect = (geocode) => {
@@ -8,7 +7,7 @@ function PlaceField(props) {
   };
 
   const handleClear = () => {
-    props.onChange({ [props.name]: "" });
+    props.onChange({ [props.name]: '' });
   };
 
   return (

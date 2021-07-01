@@ -1,13 +1,13 @@
-import { useState, useRef } from "react";
-import PlacesAutocomplete from "react-places-autocomplete";
-import { geocodeByAddress } from "react-places-autocomplete";
+import { useState, useRef } from 'react';
+import PlacesAutocomplete from 'react-places-autocomplete';
+import { geocodeByAddress } from 'react-places-autocomplete';
 
-import cn from "classnames";
-import stylesUI from "components/ui/custom-ui.module.css";
-import classes from "./places-search.module.css";
+import cn from 'classnames';
+import stylesUI from 'components/ui/custom-ui.module.css';
+import classes from './places-search.module.css';
 
 export function PlacesSearch(props) {
-  const [address, setAddress] = useState(props.defaultValue ?? "");
+  const [address, setAddress] = useState(props.defaultValue ?? '');
   const [isInputActive, setIsInputActive] = useState(false);
   const searchInput = useRef();
 
@@ -20,7 +20,7 @@ export function PlacesSearch(props) {
     if (!isInputActive && !address) {
       searchInput.current.focus();
     } else {
-      setAddress("");
+      setAddress('');
       props.onClear();
     }
   };
@@ -45,25 +45,21 @@ export function PlacesSearch(props) {
       onError={() => {}}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <div className={cn(stylesUI.search, classes.root)}>
+        <div className={stylesUI.search}>
           <input
             {...getInputProps({
               ref: searchInput,
               placeholder: props.placeholder,
-              className: cn(
-                stylesUI.textInput,
-                {
-                  [stylesUI.rounded]: props.isRounded,
-                  [stylesUI.changing]: isInputActive,
-                },
-                classes.input
-              ),
-              onBlur: handleBlur,
+              className: cn(stylesUI.textInput, {
+                [stylesUI.rounded]: props.isRounded,
+                [stylesUI.changing]: isInputActive
+              }),
+              onBlur: handleBlur
             })}
           />
           <div
             className={cn(stylesUI.search__dropdown, {
-              [stylesUI.rounded]: props.isRounded,
+              [stylesUI.rounded]: props.isRounded
             })}
           >
             {isInputActive && (
@@ -83,7 +79,7 @@ export function PlacesSearch(props) {
                   key={i}
                   {...getSuggestionItemProps(suggestion, { className })}
                 >
-                  {suggestion.formattedSuggestion.mainText}{" "}
+                  {suggestion.formattedSuggestion.mainText}{' '}
                   <span className={stylesUI.search__secondaryText}>
                     {suggestion.formattedSuggestion.secondaryText}
                   </span>
@@ -94,7 +90,7 @@ export function PlacesSearch(props) {
           <div
             className={cn(stylesUI.search__icon, {
               [stylesUI.searchIcon]: !isInputActive && !address,
-              [stylesUI.cancelIcon]: isInputActive || !!address,
+              [stylesUI.cancelIcon]: isInputActive || !!address
             })}
             onClick={handleIconClick}
           ></div>

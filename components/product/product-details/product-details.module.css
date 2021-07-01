@@ -1,121 +1,121 @@
 .root__productPage {
-  margin: 30px auto 0;
+    margin: 30px auto 0;
 }
 
 .productPage {
-  box-sizing: content-box;
-  max-width: 1160px;
-  padding: 0 20px 35px;
+    box-sizing: content-box;
+    max-width: 1160px;
+    padding: 0 20px 35px;
 }
 
 .productPage__title {
-  font-family: var(--font-montserrat);
-  color: var(--p-blue);
-  font-weight: bold;
-  font-size: 64px;
-  line-height: 78px;
-  margin: 30px 0 46px;
+    font-family: var(--font-montserrat);
+    color: var(--p-blue);
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 78px;
+    margin: 30px 0 46px;
 }
 
 .productPage__featuresList {
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-  margin-bottom: 70px;
-  list-style: none;
-  overflow: scroll;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 0.5em 0;
+    margin-bottom: 70px;
+    list-style: none;
+    overflow-x: auto;
 }
 
 .productPage__feature {
-  font-family: var(--font-montserrat);
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  max-width: 230px;
-  text-transform: capitalize;
-  color: var(--p-text);
+    font-family: var(--font-montserrat);
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    max-width: 230px;
+    text-transform: capitalize;
+    color: var(--p-text);
 }
 
 .productPage__featureValue {
-  display: block;
-  margin-top: 11px;
-  font-family: var(--font-montserrat);
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
+    display: block;
+    margin-top: 11px;
+    font-family: var(--font-montserrat);
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
 
-  color: var(--grey-default);
+    color: var(--grey-default);
 }
 
 .productPage__infoTitle {
-  font-family: var(--font-montserrat);
-  color: var(--p-text);
-  font-weight: 500;
-  font-size: 20px;
+    font-family: var(--font-montserrat);
+    color: var(--p-text);
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .productPage__infoContent {
-  font-family: var(--font-montserrat);
-  color: var(--p-text);
-  font-weight: normal;
-  font-size: 18px;
-  max-width: 900px;
-  line-height: 1.5;
+    font-family: var(--font-montserrat);
+    color: var(--p-text);
+    font-weight: normal;
+    font-size: 18px;
+    max-width: 900px;
+    line-height: 1.5;
 }
 
 .productPage__BackBtnWrapper {
-  display: flex;
+    display: flex;
 }
 
 .productPage__backBtnText {
-  margin-left: 5px;
+    margin-left: 5px;
 }
 
 @media screen and (max-width: 768px) {
-  .productPage {
-    max-width: 375px;
-    padding: 0 20px 35px;
-  }
+    .productPage {
+        max-width: 375px;
+        padding: 0 20px 35px;
+    }
 
-  .productPage__title {
-    font-size: 24px;
-    line-height: 29px;
-    margin: 25px 0;
-  }
+    .productPage__title {
+        font-size: 24px;
+        line-height: 29px;
+        margin: 25px 0;
+    }
 
-  .productPage__feature {
-    font-size: 12px;
-    line-height: 1.4;
-    min-width: 80px;
-    max-width: 150px;
-    display: flex;
-    flex-direction: column;
-  }
+    .productPage__feature {
+        font-size: 12px;
+        line-height: 1.4;
+        min-width: 80px;
+        max-width: 150px;
+        display: flex;
+        flex-direction: column;
+    }
 
-  .productPage__feature:not(:last-child) {
-    margin-right: 15px;
-  }
+    .productPage__feature:not(:last-child) {
+        margin-right: 15px;
+    }
 
-  .productPage__featureValue {
-    margin-top: 3px;
-    font-size: 12px;
-    line-height: 1.4;
-  }
+    .productPage__featureValue {
+        margin-top: 3px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
 
-  .productPage__featuresList {
-    margin-bottom: 50px;
-    list-style: none;
-    gap: 10px;
-  }
+    .productPage__featuresList {
+        margin-bottom: 50px;
+        list-style: none;
+        gap: 10px;
+    }
 
-  .productPage__infoTitle {
-    font-size: 14px;
-    margin-bottom: 14px;
-  }
+    .productPage__infoTitle {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
 
-  .productPage__infoContent {
-    font-size: 12px;
-    max-width: 900px;
-    margin: 0;
-  }
+    .productPage__infoContent {
+        font-size: 12px;
+        max-width: 900px;
+        margin: 0;
+    }
 }

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import classes from "./footer-mobile.module.css";
+import Link from 'next/link';
+import classes from './footer-mobile.module.css';
 
 const FooterMobile = () => {
   return (
@@ -197,8 +197,8 @@ const FooterMobile = () => {
               <li className={classes.copyrightLinksItem}>
                 <a
                   className={classes.copyrightLink}
-                  href={"/documents/terms.pdf"}
-                  target={"_blank"}
+                  href={'/documents/terms.pdf'}
+                  target={'_blank'}
                   download
                 >
                   Terms
@@ -207,8 +207,8 @@ const FooterMobile = () => {
               <li className={classes.copyrightLinksItem}>
                 <a
                   className={classes.copyrightLink}
-                  href={"/documents/privacy.pdf"}
-                  target={"_blank"}
+                  href={'/documents/privacy.pdf'}
+                  target={'_blank'}
                   download
                 >
                   Privacy

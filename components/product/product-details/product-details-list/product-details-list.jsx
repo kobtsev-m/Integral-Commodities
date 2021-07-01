@@ -1,8 +1,8 @@
-import { nanoid } from "nanoid";
+import { nanoid } from 'nanoid';
 
-import cn from "classnames";
-import styles from "../product-details.module.css";
-import ProductDetailsItem from "../product-details-item/product-details-item";
+import cn from 'classnames';
+import styles from '../product-details.module.css';
+import ProductDetailsItem from '../product-details-item/product-details-item';
 
 function ProductDetailsList(props) {
   const { fields, fieldsToFilter } = props;

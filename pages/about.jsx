@@ -1,8 +1,19 @@
-import useWindowDimensions from "../hooks/useWindowDemensions";
+import { useRef } from 'react';
+import useWindowDimensions from '../hooks/useWindowDemensions';
 
 function AboutPage() {
+  const milestonesBoxRef = useRef();
   const { width } = useWindowDimensions();
   const shouldShowFutureDesc = width > 768;
+
+  const handleMilestonesArrowClick = (side) => {
+    const xDiff = side === 'left' ? -250 : 250;
+    const newScrollPosition = milestonesBoxRef.current.scrollLeft + xDiff;
+    milestonesBoxRef.current.scrollTo({
+      left: newScrollPosition,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <>
@@ -56,8 +67,8 @@ function AboutPage() {
           />
           <p className="achievement__text">
             In 2018 Integral Commodities SA became one of the largest exporters
-            of Polymers (PP, PE), Fertilisers (Urea, Potash), Sulphur and Carbon
-            Black originating from the Greater Caspian Region.
+            of Polymers (PP, PE), Fertilisers (Urea, Potash), Sulphur and
+            Carbon Black originating from the Greater Caspian Region.
           </p>
           <img
             className="achievement__decoration"
@@ -68,42 +79,86 @@ function AboutPage() {
       </section>
       <section className="milestones">
         <h2 className="milestones__header">Key milestones</h2>
-        <div className="milestones__list">
-          <img
-            className="milestones__arrow milestones__arrow_left"
-            src="./images/milestones-left-arrow.svg"
-            alt=""
-          />
+        <img
+          className="milestones__arrow milestones__arrow_left"
+          src={'./images/milestones-left-arrow.svg'}
+          alt={''}
+          onClick={() => handleMilestonesArrowClick('left')}
+        />
+        <div ref={milestonesBoxRef} className="milestones__list">
           <div className="milestones__item milestone">
-            <h3 className="milestone__header">Endtime event</h3>
+            {/* <h3 className="milestone__header">Endtime event</h3> */}
             <span className="milestone__date">2021</span>
             <p className="milestone__text">
-              Here we talk about the key event of the company in a couple of
-              short pre-offers.
+              Integral Commodities launched webshop for selling commodities
+              online
             </p>
           </div>
           <div className="milestones__item milestone">
-            <h3 className="milestone__header">Endtime event</h3>
-            <span className="milestone__date">2021</span>
+            <span className="milestone__date">2019</span>
             <p className="milestone__text">
-              Here we talk about the key event of the company in a couple of
-              short pre-offers.
+              We become strategic partners of Horasis, an independent,
+              international think tank, headquartered in Zurich, Switzerland
+              and dedicated to the innovation and development of sustainable
+              emerging markets
             </p>
           </div>
           <div className="milestones__item milestone">
-            <h3 className="milestone__header">Endtime event</h3>
-            <span className="milestone__date">2020</span>
+            <span className="milestone__date">2018</span>
             <p className="milestone__text">
-              Here we talk about the key event of the company in a couple of
-              short pre-offers.
+              We started exports of dry cargo from the Caspian region and
+              Integral Group became one of the largest exporters and logistics
+              providers for Urea 46%, Carbon black, Sulphur, Polypropylene
+              (PP), Polyethylene (PE) products originating from the Caspian
+              Region.
             </p>
           </div>
-          <img
-            className="milestones__arrow milestones__arrow_right"
-            src="./images/milestones-right-arrow.svg"
-            alt=""
-          />
+          <div className="milestones__item milestone">
+            <span className="milestone__date">2017</span>
+            <p className="milestone__text">
+              We became one of the organisers and the main sponsor of the
+              Caspian Week, the platform for global ideas and the meeting point
+              of global leaders, visionaries and experts with focus on Caspian
+              region
+            </p>
+          </div>
+          <div className="milestones__item milestone">
+            <span className="milestone__date">2017</span>
+            <p className="milestone__text">
+              We joined the St. Petersburg International Commodity Exchange
+              <br />
+              New project was opened in Mexico to help oilfield operators and
+              importers of petroleum products enter the international market
+            </p>
+          </div>
+          <div className="milestones__item milestone">
+            <span className="milestone__date">2016</span>
+            <p className="milestone__text">
+              We became members of the World Economic Forum
+            </p>
+          </div>
+          <div className="milestones__item milestone">
+            <span className="milestone__date">2015</span>
+            <p className="milestone__text">
+              Integral Petroleum became one of the largest exporters and
+              logistics providers for crude oil and petroleum products
+              originating from Caspian Region
+            </p>
+          </div>
+          <div className="milestones__item milestone">
+            <span className="milestone__date">2008</span>
+            <p className="milestone__text">
+              Integral Petroleum, first of the company of Integral Group,
+              established in Geneva, Switzerland
+            </p>
+          </div>
         </div>
+        <img
+          className="milestones__arrow milestones__arrow_right"
+          src={'./images/milestones-right-arrow.svg'}
+          alt={''}
+          onClick={() => handleMilestonesArrowClick('right')}
+        />
       </section>
       <section className="futures">
         <h2 className="futures__header">
@@ -223,15 +278,15 @@ function AboutPage() {
         <ul className="offices__list">
           <li
             className="offices__item offices__item_has-two-columns office"
-            style={{ backgroundImage: "url(/images/switzerland-map.svg)" }}
+            style={{ backgroundImage: 'url(/images/switzerland-map.svg)' }}
           >
             <a
               name="lugano"
               style={{
-                visibility: "hidden",
-                position: "absolute",
+                visibility: 'hidden',
+                position: 'absolute',
                 top: -10,
-                left: 0,
+                left: 0
               }}
             />
             <div className="office__info office-description">
@@ -266,15 +321,15 @@ function AboutPage() {
           </li>
           <li
             className="offices__item offices__item_has-two-columns office"
-            style={{ backgroundImage: "url(/images/uae-map.svg)" }}
+            style={{ backgroundImage: 'url(/images/uae-map.svg)' }}
           >
             <a
               name="dubai"
               style={{
-                visibility: "hidden",
-                position: "absolute",
+                visibility: 'hidden',
+                position: 'absolute',
                 top: -10,
-                left: 0,
+                left: 0
               }}
             />
             <div className="office__info office-description">
@@ -307,15 +362,15 @@ function AboutPage() {
           </li>
           <li
             className="offices__item offices__item_has-two-columns office"
-            style={{ backgroundImage: "url(/images/turkmenistan-map.svg)" }}
+            style={{ backgroundImage: 'url(/images/turkmenistan-map.svg)' }}
           >
             <a
               name="turkmenistan"
               style={{
-                visibility: "hidden",
-                position: "absolute",
+                visibility: 'hidden',
+                position: 'absolute',
                 top: -10,
-                left: 0,
+                left: 0
               }}
             />
             <div className="office__info office-description">
@@ -350,15 +405,15 @@ function AboutPage() {
           </li>
           <li
             className="offices__item offices__item_has-two-columns office"
-            style={{ backgroundImage: "url(/images/turkey-map.svg)" }}
+            style={{ backgroundImage: 'url(/images/turkey-map.svg)' }}
           >
             <a
               name="turkey"
               style={{
-                visibility: "hidden",
-                position: "absolute",
+                visibility: 'hidden',
+                position: 'absolute',
                 top: -10,
-                left: 0,
+                left: 0
               }}
             />
             <div className="office__info office-description">
@@ -391,15 +446,15 @@ function AboutPage() {
           </li>
           <li
             className="offices__item offices__item_has-two-columns office"
-            style={{ backgroundImage: "url(/images/uzbekistan-map.svg)" }}
+            style={{ backgroundImage: 'url(/images/uzbekistan-map.svg)' }}
           >
             <a
               name="uzbekistan"
               style={{
-                visibility: "hidden",
-                position: "absolute",
+                visibility: 'hidden',
+                position: 'absolute',
                 top: -10,
-                left: 0,
+                left: 0
               }}
             />
             <div className="office__info office-description">
@@ -432,15 +487,15 @@ function AboutPage() {
           </li>
           <li
             className="offices__item offices__item_has-two-columns office"
-            style={{ backgroundImage: "url(/images/kazakhstan-map.svg)" }}
+            style={{ backgroundImage: 'url(/images/kazakhstan-map.svg)' }}
           >
             <a
               name="kazakhstan"
               style={{
-                visibility: "hidden",
-                position: "absolute",
+                visibility: 'hidden',
+                position: 'absolute',
                 top: -10,
-                left: 0,
+                left: 0
               }}
             />
             <div className="office__info office-description">
@@ -473,15 +528,15 @@ function AboutPage() {
           </li>
           <li
             className="offices__item offices__item_has-two-columns office"
-            style={{ backgroundImage: "url(/images/russia-map.svg)" }}
+            style={{ backgroundImage: 'url(/images/russia-map.svg)' }}
           >
             <a
               name="russia"
               style={{
-                visibility: "hidden",
-                position: "absolute",
+                visibility: 'hidden',
+                position: 'absolute',
                 top: -10,
-                left: 0,
+                left: 0
               }}
             />
             <div className="office__info office-description">

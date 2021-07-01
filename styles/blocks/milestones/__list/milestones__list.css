@@ -1,14 +1,8 @@
 .milestones__list {
-  position: relative;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media screen and (max-width: 768px) {
-  .milestones__list {
+    position: relative;
     display: flex;
-    overflow: scroll;
-  }
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+    padding-bottom: 20px;
 }
