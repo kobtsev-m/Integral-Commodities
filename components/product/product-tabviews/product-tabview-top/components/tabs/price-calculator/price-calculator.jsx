@@ -109,7 +109,7 @@ function PriceCalculator(props) {
           </div>
         </div>
       )}
-      <div className={'row gx-5 mt-5'}>
+      <div className={'row gx-5 mt-4 mt-md-5'}>
         <div className={'col-12 col-md-6'}>
           <FieldWrapper title={'Place of delivery'}>
             <PlaceField
@@ -132,7 +132,7 @@ function PriceCalculator(props) {
           </FieldWrapper>
         </div>
       </div>
-      <div className={'row gx-5 mt-5'}>
+      <div className={'row gx-5 mt-4 mt-md-5'}>
         <FieldWrapper title={'Incoterms'}>
           <IncotermsField
             name={'incoterms'}
@@ -142,7 +142,7 @@ function PriceCalculator(props) {
           />
         </FieldWrapper>
       </div>
-      <div className={'row gx-5 mt-5'}>
+      <div className={'row gx-5 mt-4 mt-md-5'}>
         <div className={'col-12 col-md-6'}>
           <FieldWrapper title={'Terms of payment'}>
             <PaymentTermsField
@@ -164,7 +164,7 @@ function PriceCalculator(props) {
           </FieldWrapper>
         </div>
       </div>
-      <div className={'row gx-5 mt-5'}>
+      <div className={'row gx-5 mt-4 mt-md-5'}>
         <div className={'col-12 col-md-6'}>
           <FieldWrapper title={'Additional information'}>
             <AdditionalInfoField
