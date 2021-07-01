@@ -1,4 +1,5 @@
 .milestones__item {
+    height: 400px;
     flex: 0 0 360px;
 }
 .milestones__item:not(:last-of-type) {
@@ -7,6 +8,7 @@
 
 @media screen and (max-width: 768px) {
     .milestones__item {
+        height: 280px;
         flex: 0 0 140px;
     }
 }

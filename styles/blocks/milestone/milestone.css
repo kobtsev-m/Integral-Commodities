@@ -1,25 +1,22 @@
 .milestone {
-  display: flex;
-  flex-direction: column;
-
-  box-sizing: border-box;
-  box-shadow: 2px 4px 8px 0 rgba(2, 86, 156, 0.1);
-  padding: 45px 22px 55px 30px;
-
-  background: #f3f5f8;
-  border-radius: 5px;
-
-  font-family: var(--font-montserrat);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 8px 0 rgba(2, 86, 156, 0.1);
+    padding: 45px 22px 55px 30px;
+    background: #f3f5f8;
+    border-radius: 5px;
+    font-family: var(--font-montserrat);
 }
 
 @media screen and (max-width: 768px) {
-  .milestone {
-    box-shadow: none;
-    padding: 14px 15px;
+    .milestone {
+        box-shadow: none;
+        padding: 14px 15px;
 
-    background: #f3f5f8;
-    border-radius: 5px;
+        background: #f3f5f8;
+        border-radius: 5px;
 
-    font-family: var(--font-montserrat);
-  }
+        font-family: var(--font-montserrat);
+    }
 }
