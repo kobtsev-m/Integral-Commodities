@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import cn from 'classnames';
 import styles from './product-tabs.module.css';
 import { useEffect, useRef, useState } from 'react';
-import useWindowDimensions from '../../../../../hooks/useWindowDemensions';
+import useWindowDimensions from '../../../../../utils/hooks/useWindowDemensions';
 
 const polymersTabs = {
   Prices: 'prices',

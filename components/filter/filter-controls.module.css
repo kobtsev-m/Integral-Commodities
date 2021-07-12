@@ -1,65 +1,66 @@
 .root {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
 }
 
 .searchForm_active {
-  flex-grow: 1;
-  display: flex;
-  transition: 300ms ease;
+    flex-grow: 1;
+    display: flex;
+    transition: 300ms ease;
 }
 
 .button {
-  padding: 0;
-  background-color: transparent;
-  border: none;
+    padding: 0;
+    background-color: transparent;
+    border: none;
 }
 
 .button:active {
-  transform: scale(0.9);
+    transform: scale(0.9);
 }
 
 .button:not(:last-child) {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .searchInput {
-  background: #ffffff;
-  font-family: var(--font-montserrat);
-  -webkit-appearance: none;
-  border: none;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  font-size: 9px;
-  line-height: 11px;
-  margin-right: 10px;
-  visibility: hidden;
-  position: absolute;
-  width: 0;
+    background: #ffffff;
+    font-family: var(--font-montserrat);
+    -webkit-appearance: none;
+    border: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-size: 9px;
+    line-height: 11px;
+    margin-right: 10px;
+    visibility: hidden;
+    position: absolute;
+    width: 0;
 
-  transition: 300ms ease;
+    transition: 300ms ease;
 }
 
 .searchInput_active {
-  flex-grow: 1;
-  visibility: visible;
-  position: static;
-  padding: 4px 4px 4px 10px;
-  transition: 300ms ease;
+    flex-grow: 1;
+    visibility: visible;
+    position: static;
+    padding: 4px 4px 4px 10px;
+    transition: 300ms ease;
 }
 
 .filterButton {
-  font-family: var(--font-montserrat);
-  font-size: 12px;
-  padding-left: 15px;
-  background: url("/images/icon-settings.svg") no-repeat left;
+    font-family: var(--font-montserrat);
+    font-size: 12px;
+    padding-left: 15px;
+    background: url('/images/icon-settings.svg') no-repeat left;
 }
 
 .searchButton {
-  width: 20px;
-  height: 20px;
-  background: url("/images/icon-search.svg") no-repeat center;
-  background-size: 15px;
+    width: 20px;
+    height: 20px;
+    background: url('/images/icon-search.svg') no-repeat center;
+    background-size: 15px;
 }

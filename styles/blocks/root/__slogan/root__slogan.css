@@ -1,9 +1,9 @@
 .root__slogan {
-  margin: 97px auto 67px;
+    margin: 97px auto 80px;
 }
 
 @media screen and (max-width: 768px) {
-  .root__slogan {
-    margin: 30px auto 22px;
-  }
+    .root__slogan {
+        margin: 30px auto 22px;
+    }
 }

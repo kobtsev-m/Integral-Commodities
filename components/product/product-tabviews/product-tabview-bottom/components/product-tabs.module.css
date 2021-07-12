@@ -1,49 +1,48 @@
 .tabsList {
-  display: flex;
-  justify-content: space-around;
-  background: url("/images/bg-line.svg") no-repeat bottom;
-  margin-bottom: 20px;
-  padding-top: 14px;
-  list-style: none;
-  z-index: 2000;
+    display: flex;
+    justify-content: space-around;
+    background: url('/images/bg-line.svg') no-repeat bottom;
+    margin-bottom: 20px;
+    padding-top: 14px;
+    list-style: none;
+    z-index: 2000;
 }
 
 .tabsList::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -20px;
-  bottom: 1px;
-  left: -20px;
-  background-color: #fff;
-  z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    bottom: 1px;
+    left: -20px;
+    background-color: #fff;
+    z-index: -1;
 }
 
 .tabItem {
-  font-family: var(--font-montserrat);
-  color: var(--p-grey-dark);
-  font-size: 22px;
-  line-height: 27px;
-  padding: 0 15px 10px;
-  cursor: pointer;
+    font-family: var(--font-montserrat);
+    color: var(--p-grey-dark);
+    font-size: 22px;
+    line-height: 27px;
+    padding: 0 15px 10px;
+    cursor: pointer;
 }
 
 .tabItem_active {
-  color: var(--p-text);
-  border-bottom: 2px solid var(--p-blue);
+    color: var(--p-text);
+    border-bottom: 2px solid var(--p-blue);
 }
 
 @media screen and (max-width: 768px) {
-  .tabItem {
-    font-size: 14px;
-    line-height: 1.4;
-    padding: 0 8px 8px;
-  }
+    .tabItem {
+        font-size: 14px;
+        line-height: 1.4;
+        padding: 0 8px 8px;
+    }
 
-  .tabsList {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 0;
-    margin-bottom: 0;
-  }
+    .tabsList {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 0;
+    }
 }

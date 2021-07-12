@@ -1,68 +1,69 @@
 .checkboxFilter {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  border: none;
-  display: flex;
-  justify-content: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    justify-content: center;
 }
 
-.checkboxFilter:not(:last-of-type) {
-  margin-right: 47px;
+.checkboxFilter {
+    margin-right: 40px;
 }
 
 .checkboxFilter__dropDownBtn {
-  border: none;
-  background: transparent url("../../public/images/icon-rollup.svg") no-repeat
-    100% center;
-  background-size: 10px 6px;
-  padding: 0 20px 0 0;
-  font-family: var(--font-montserrat);
-  font-size: 16px;
-  color: var(--grey);
-  outline: none;
-  cursor: pointer;
+    border: none;
+    background: transparent url('../../public/images/icon-rollup.svg')
+        no-repeat 100% center;
+    background-size: 10px 6px;
+    padding: 0 20px 0 0;
+    font-family: var(--font-montserrat);
+    font-size: 16px;
+    color: var(--grey);
+    outline: none;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .checkboxFilter__optionsList {
-  margin: 10px 0 0;
-  width: 200px;
-  padding: 20px 40px 20px 20px;
-  list-style: none;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 10px 0 0;
+    width: 200px;
+    padding: 20px 40px 20px 20px;
+    list-style: none;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
-  visibility: hidden;
-  opacity: 0;
-  z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10;
 
-  top: 40px;
-  left: 0;
+    top: 40px;
+    left: 0;
 }
 
 .checkboxFilter__optionsList_opened {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
 
 .checkboxFilter__optionsItem:not(:last-child) {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .checkboxFilter__optionLabel {
-  display: flex;
-  align-items: center;
-  font-family: var(--font-montserrat);
-  font-size: 12px;
-  color: var(--grey-default);
+    display: flex;
+    align-items: center;
+    font-family: var(--font-montserrat);
+    font-size: 12px;
+    color: var(--grey-default);
 }
 
 .checkboxFilter__optionInput {
-  margin-right: 10px;
-  min-width: 20px;
-  min-height: 20px;
+    margin-right: 10px;
+    min-width: 20px;
+    min-height: 20px;
 }

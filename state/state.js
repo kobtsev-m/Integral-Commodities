@@ -1,31 +1,31 @@
-import { createContext, useState, useEffect } from "react";
-import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
+import { useReducer, createContext } from 'react';
+import { slugifyLink } from 'utils/nav-links';
+import { getProductsApi } from 'api/api';
+import { productsReducer, ADD_PRODUCTS_GRADE_LIST } from './reducers';
 
-export const PlacesContext = createContext({});
+export const ProductsContext = createContext();
 
 function GlobalState(props) {
-  const [ports, setPorts] = useState([]);
-  const [arePortsUpdated, setArePortsUpdated] = useState(false);
+  const [productState, dispatch] = useReducer(productsReducer, {});
 
-  useEffect(() => {
-    if (!ports.length || arePortsUpdated) {
-      return;
+  const addProductsGradeList = (products) => {
+    dispatch({ type: ADD_PRODUCTS_GRADE_LIST, payload: products });
+  };
+
+  const getProductIdByGrade = async (grade) => {
+    if (!productState.productsGradeList) {
+      const products = await getProductsApi(addProductsGradeList);
+      return products.find((product) => slugifyLink(product) === grade).id;
     }
-    const setPortsLatLng = ports.map(async (port) => {
-      const geocodes = await geocodeByAddress(port.place);
-      const { lat, lng } = await getLatLng(geocodes[0]);
-      return { ...port, lat, lng };
-    });
-    Promise.all(setPortsLatLng).then((newPorts) => {
-      setArePortsUpdated(true);
-      setPorts(newPorts);
-    });
-  }, [ports]);
+    return productState.productsGradeList[grade];
+  };
 
   return (
-    <PlacesContext.Provider value={{ ports, setPorts, arePortsUpdated }}>
+    <ProductsContext.Provider
+      value={{ addProductsGradeList, getProductIdByGrade }}
+    >
       {props.children}
-    </PlacesContext.Provider>
+    </ProductsContext.Provider>
   );
 }
 

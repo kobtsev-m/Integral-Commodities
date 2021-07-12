@@ -56,7 +56,7 @@ const initialLinks = [
   },
   {
     type: 'link',
-    link: '/about',
+    link: '/about-us',
     name: 'About us',
     depth: 0,
     isShow: true
@@ -70,7 +70,7 @@ const initialLinks = [
   },
   {
     type: 'link',
-    link: '/about#futures',
+    link: '/about-us#futures',
     name: 'Services',
     depth: 0,
     isShow: true

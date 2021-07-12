@@ -1,225 +1,225 @@
 export const mapStyles = [
   {
-    featureType: "all",
-    elementType: "geometry.fill",
+    featureType: 'all',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#CAD2D3",
-      },
-    ],
+        color: '#CAD2D3'
+      }
+    ]
   },
   {
-    featureType: "all",
-    elementType: "geometry.stroke",
+    featureType: 'all',
+    elementType: 'geometry.stroke',
     stylers: [
       {
-        color: "#9c9c9c",
-      },
-    ],
+        color: '#9c9c9c'
+      }
+    ]
   },
   {
-    featureType: "all",
-    elementType: "labels.text",
+    featureType: 'all',
+    elementType: 'labels.text',
     stylers: [
       {
-        visibility: "on",
+        visibility: 'on'
       },
       {
-        lightness: "50",
-      },
-    ],
+        lightness: '50'
+      }
+    ]
   },
   {
-    featureType: "landscape",
-    elementType: "all",
+    featureType: 'landscape',
+    elementType: 'all',
     stylers: [
       {
-        color: "#D0D0CF",
-      },
-    ],
+        color: '#D0D0CF'
+      }
+    ]
   },
   {
-    featureType: "landscape",
-    elementType: "geometry.fill",
+    featureType: 'landscape',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#F2F2F1",
-      },
-    ],
+        color: '#F2F2F1'
+      }
+    ]
   },
   {
-    featureType: "landscape.man_made",
-    elementType: "geometry.fill",
+    featureType: 'landscape.man_made',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#ffffff",
-      },
-    ],
+        color: '#ffffff'
+      }
+    ]
   },
   {
-    featureType: "poi",
-    elementType: "all",
+    featureType: 'poi',
+    elementType: 'all',
     stylers: [
       {
-        visibility: "off",
-      },
-    ],
+        visibility: 'off'
+      }
+    ]
   },
   {
-    featureType: "road",
-    elementType: "all",
+    featureType: 'road',
+    elementType: 'all',
     stylers: [
       {
-        saturation: -100,
+        saturation: -100
       },
       {
-        lightness: 45,
-      },
-    ],
+        lightness: 45
+      }
+    ]
   },
   {
-    featureType: "road",
-    elementType: "geometry.fill",
+    featureType: 'road',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#eeeeee",
-      },
-    ],
+        color: '#eeeeee'
+      }
+    ]
   },
   {
-    featureType: "road",
-    elementType: "labels.text.fill",
+    featureType: 'road',
+    elementType: 'labels.text.fill',
     stylers: [
       {
-        color: "#737474",
-      },
-    ],
+        color: '#737474'
+      }
+    ]
   },
   {
-    featureType: "road",
-    elementType: "labels.text.stroke",
+    featureType: 'road',
+    elementType: 'labels.text.stroke',
     stylers: [
       {
-        color: "#ffffff",
-      },
-    ],
+        color: '#ffffff'
+      }
+    ]
   },
   {
-    featureType: "road.highway",
-    elementType: "all",
+    featureType: 'road.highway',
+    elementType: 'all',
     stylers: [
       {
-        visibility: "simplified",
-      },
-    ],
+        visibility: 'simplified'
+      }
+    ]
   },
   {
-    featureType: "road.arterial",
-    elementType: "labels.icon",
+    featureType: 'road.arterial',
+    elementType: 'labels.icon',
     stylers: [
       {
-        visibility: "off",
-      },
-    ],
+        visibility: 'off'
+      }
+    ]
   },
   {
-    featureType: "transit",
-    elementType: "all",
+    featureType: 'transit',
+    elementType: 'all',
     stylers: [
       {
-        visibility: "off",
-      },
-    ],
+        visibility: 'off'
+      }
+    ]
   },
   {
-    featureType: "water",
-    elementType: "all",
+    featureType: 'water',
+    elementType: 'all',
     stylers: [
       {
-        color: "#46bcec",
+        color: '#46bcec'
       },
       {
-        visibility: "on",
-      },
-    ],
+        visibility: 'on'
+      }
+    ]
   },
   {
-    featureType: "water",
-    elementType: "geometry.fill",
+    featureType: 'water',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#CAD2D3",
-      },
-    ],
+        color: '#CAD2D3'
+      }
+    ]
   },
   {
-    featureType: "water",
-    elementType: "labels.text.fill",
+    featureType: 'water',
+    elementType: 'labels.text.fill',
     stylers: [
       {
-        color: "#7b7b7b",
-      },
-    ],
+        color: '#7b7b7b'
+      }
+    ]
   },
   {
-    featureType: "water",
-    elementType: "labels.text.stroke",
+    featureType: 'water',
+    elementType: 'labels.text.stroke',
     stylers: [
       {
-        color: "#ffffff",
-      },
-    ],
-  },
+        color: '#ffffff'
+      }
+    ]
+  }
 ];
 
 export const mapGlobalStyles = {
-  ".gm-style": {
-    fontFamily: "montserrat, arial, sans-serif",
+  '.gm-style': {
+    fontFamily: 'montserrat, arial, sans-serif'
   },
-  ".gm-style-iw.gm-style-iw-c": {
-    boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.3)",
+  '.gm-style-iw.gm-style-iw-c': {
+    boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.3)'
   },
-  ".gm-style .gm-style-iw-t::after": {
-    position: "absolute",
-    top: "-45px !important",
-    left: "-110px !important",
-    transform: "translateY(-50%) rotate(45deg)",
+  '.gm-style .gm-style-iw-t::after': {
+    position: 'absolute',
+    top: '-45px !important',
+    left: '-110px !important',
+    transform: 'translateY(-50%) rotate(45deg)'
   },
-  ".gm-style-iw-d": {
-    width: "100%",
+  '.gm-style-iw-d': {
+    width: '100%'
   },
-  ".gm-ui-hover-effect:focus": {
-    outline: "none",
-  },
+  '.gm-ui-hover-effect:focus': {
+    outline: 'none'
+  }
 };
 
 const mapMarkerStyle = {
-  fontFamily: "Montserrat",
-  fontWeight: "bold",
-  fontSize: "22px",
-  lineHeight: "27px",
-  zIndex: -1,
+  fontFamily: 'Montserrat',
+  fontWeight: 'bold',
+  fontSize: '22px',
+  lineHeight: '27px',
+  zIndex: -1
 };
 
 export const getMarkerFields = (place, activePlace, activeFilter) => {
-  const markerColor = place === activePlace ? "F66E08" : "02569C";
-  return activeFilter === "availability"
+  const markerColor = place === activePlace ? 'F66E08' : '02569C';
+  return activeFilter === 'availability'
     ? {
         icon: {
           url: `/images/ui/factory-icon-${markerColor}.svg`,
           scaledSize: new google.maps.Size(32, 32),
-          anchor: new google.maps.Point(12, 26),
-        },
+          anchor: new google.maps.Point(12, 26)
+        }
       }
     : {
         icon: {
-          url: "/",
+          url: '/'
         },
         label: {
           text: `$${place.price}`,
           color: `#${markerColor}`,
-          ...mapMarkerStyle,
-        },
+          ...mapMarkerStyle
+        }
       };
 };
 
@@ -231,6 +231,6 @@ export const getInfoWindowOffset = (activePlace) => {
 
 export const getInfoWindowSize = (activePlace) => {
   const linesN = Math.ceil(activePlace.name.length / 22);
-  const height = linesN > 2 ? "100px" : linesN > 1 ? "85px" : "70px";
-  return { width: "180px", height };
+  const height = linesN > 2 ? '100px' : linesN > 1 ? '85px' : '70px';
+  return { width: '180px', height };
 };

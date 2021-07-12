@@ -1,5 +1,5 @@
-import DocumentInfo from "./document-info/document-info";
-import styles from "./tab-documents.module.css";
+import DocumentInfo from './document-info/document-info';
+import styles from './tab-documents.module.css';
 
 function TabDocuments({ documents }) {
   return (

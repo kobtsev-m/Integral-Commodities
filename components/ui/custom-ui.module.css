@@ -258,6 +258,14 @@
     padding: 1em 3em;
 }
 
+.btn.blue {
+    background-color: #02569c;
+}
+
+.btn.blue:hover {
+    background-color: #0070bd;
+}
+
 .btn.orange {
     background-color: #f66e08;
 }

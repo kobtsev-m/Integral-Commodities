@@ -1,15 +1,15 @@
-import { nanoid } from "nanoid";
-import cn from "classnames";
+import { nanoid } from 'nanoid';
+import cn from 'classnames';
 
-import ProductTabviewBottom from "../../../../product-tabview-bottom/product-tabview-bottom";
-import ProductInfo from "components/product/product-info/product-info";
+import ProductTabviewBottom from '../../../../product-tabview-bottom/product-tabview-bottom';
+import ProductInfo from 'components/product/product-info/product-info';
 
-import styles from "components/product/product-details/product-details.module.css";
-import tabClasses from "./product-tab.module.css";
+import styles from 'components/product/product-details/product-details.module.css';
+import tabClasses from './product-tab.module.css';
 
 function getProductProperties(product) {
   if (product.properties) {
-    return product.properties.split("• ").slice(1);
+    return product.properties.split('• ').slice(1);
   }
 }
 
@@ -45,7 +45,9 @@ function ProductTab(props) {
       {product.packaging && (
         <div className={cn(tabClasses.tab)}>
           <h2 className={styles.productPage__infoTitle}>Packaging</h2>
-          <p className={styles.productPage__infoContent}>{product.packaging}</p>
+          <p className={styles.productPage__infoContent}>
+            {product.packaging}
+          </p>
         </div>
       )}
       <div className={cn(tabClasses.tab)}>

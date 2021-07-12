@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function IconNext(props) {
   const { size, marginLeft, marginRight, color } = props;
@@ -12,11 +12,11 @@ function IconNext(props) {
       style={{
         marginLeft: marginLeft || 16,
         marginRight: marginRight || 0,
-        fill: color || "#02569C",
+        fill: color || '#02569C',
         width: size ? size.width : 14,
         height: size ? size.height : 12,
         minWidth: size ? size.width : 14,
-        minHeight: size ? size.height : 12,
+        minHeight: size ? size.height : 12
       }}
     >
       <path

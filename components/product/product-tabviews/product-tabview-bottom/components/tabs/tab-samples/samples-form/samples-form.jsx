@@ -1,9 +1,9 @@
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import FormInput from "./form-input/form-input";
-import styles from "./samples-form.module.css";
+import FormInput from './form-input/form-input';
+import styles from './samples-form.module.css';
 
 const schema = yup.object().shape({
   companyName: yup.string().required(),
@@ -13,14 +13,14 @@ const schema = yup.object().shape({
   usedFor: yup.string().required(),
   equipmentManufacturer: yup.string(),
   eMail: yup.string().email(),
-  communicationMethod: yup.string(),
+  communicationMethod: yup.string()
 });
 
 const onSubmit = (data) => {};
 
 function SamplesForm() {
   const { register, handleSubmit, errors } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   });
 
   return (

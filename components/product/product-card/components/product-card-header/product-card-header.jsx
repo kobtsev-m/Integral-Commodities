@@ -1,4 +1,4 @@
-import styles from "../../product-card.module.css";
+import styles from '../../product-card.module.css';
 
 function ProductCardTitle(props) {
   const { children } = props;

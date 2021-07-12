@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import SliderMenu from '../slider-menu/slider-menu';
 import NavMenu from '../nav-menu/nav-menu';
-import useWindowDimensions from '../../hooks/useWindowDemensions';
+import useWindowDimensions from '../../utils/hooks/useWindowDemensions';
 import Menu from '../menu/menu';
 
 function MainHeader() {

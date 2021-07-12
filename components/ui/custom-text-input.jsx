@@ -1,5 +1,5 @@
-import cn from "classnames";
-import styles from "./custom-ui.module.css";
+import cn from 'classnames';
+import styles from './custom-ui.module.css';
 
 function CustomTextInput(props) {
   const { name, className, onChange, onBlur, error, ...restProps } = props;
@@ -7,9 +7,9 @@ function CustomTextInput(props) {
   const handleChange = (event) => {
     onChange({
       [name]:
-        props.type === "number"
+        props.type === 'number'
           ? event.target.valueAsNumber
-          : event.target.value,
+          : event.target.value
     });
   };
   const handleBlur = (event) => {
@@ -20,10 +20,10 @@ function CustomTextInput(props) {
   return (
     <div className={styles.textInputWrapper}>
       <input
-        type={props.type ?? "text"}
+        type={props.type ?? 'text'}
         name={name}
         className={cn(styles.textInput, className, {
-          [styles.isInvalid]: !!error,
+          [styles.isInvalid]: !!error
         })}
         onChange={handleChange}
         onBlur={handleBlur}

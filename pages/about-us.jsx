@@ -1,10 +1,10 @@
 import { useRef } from 'react';
-import useWindowDimensions from '../hooks/useWindowDemensions';
+import useWindowDimensions from '../utils/hooks/useWindowDemensions';
 
 function AboutPage() {
   const milestonesBoxRef = useRef();
-  const { width } = useWindowDimensions();
-  const shouldShowFutureDesc = width > 768;
+  const size = useWindowDimensions();
+  const shouldShowFutureDesc = size.width > 768;
 
   const handleMilestonesArrowClick = (side) => {
     const xDiff = side === 'left' ? -250 : 250;

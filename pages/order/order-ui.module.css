@@ -1,0 +1,144 @@
+.textInputWrapper {
+    position: relative;
+}
+
+.textInput {
+    width: 100%;
+    font-size: 0.8em;
+    color: #2e2c2f;
+    background-color: #eceff1;
+    border: 2px solid #eceff1;
+    border-radius: 6px;
+    padding: 11px;
+    outline: none;
+}
+
+.textInput:focus {
+    box-shadow: 0 0 0 2px rgb(2, 86, 156, 0.8);
+    transition: ease-in-out 0.15s;
+}
+
+.textInput::placeholder {
+    color: #8c8b8e;
+}
+
+/* .textInput:focus::placeholder {
+    opacity: 0;
+    transition: ease-in-out 0.2s;
+} */
+
+.textInput.isInvalid {
+    box-shadow: 0 0 0 2px #ff5c5c;
+}
+
+.errorSpan {
+    position: absolute;
+    color: #fff;
+    background: rgba(251, 63, 74, 0.8);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 0.3em 0.6em;
+    z-index: 2000;
+}
+
+.errorSpan.above {
+    bottom: 115%;
+}
+
+.errorSpan.below {
+    top: 100%;
+}
+
+.fileLabel {
+    font-weight: 500;
+}
+
+.hiddenFileInput {
+    display: none;
+}
+
+.fileInput {
+    width: 100%;
+    border: 2px dashed #c0cad1;
+    border-radius: 5px;
+    background-color: #eceff1;
+    cursor: pointer;
+    padding: 2.5em 0;
+}
+
+.fileInput:hover {
+    background-color: #f2f4f5;
+}
+
+.fileInput.isSelected {
+    border: 2px dashed #11bb41;
+}
+
+.fileInput.isInvalid {
+    border: 2px dashed #ff5c5c;
+}
+
+.fileInputContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fileInputIcon {
+    width: 2.5em;
+    height: 2.5em;
+    background-image: url('/images/ui/upload-icon.svg');
+    background-size: cover;
+    opacity: 0.3;
+}
+
+.fileInput.isSelected .fileInputIcon {
+    background-image: url('/images/ui/success-icon.svg');
+    opacity: 1;
+}
+
+.fileInput.isInvalid .fileInputIcon {
+    background-image: url('/images/ui/error-icon.svg');
+    opacity: 1;
+}
+
+.fileInputBtn {
+    font-size: 0.8em;
+    color: #fff;
+    background-color: #02569c;
+    border: none;
+    border-radius: 1.2em;
+    cursor: pointer;
+    padding: 0.5em 2.2em;
+    margin-top: 0.6em;
+}
+
+.fileInput:hover .fileInputButton {
+    background-color: #0070bd;
+}
+
+.btn {
+    min-width: 150px;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    padding: 1em !important;
+    transition: 0.1s ease-in-out;
+}
+
+.btn.blue {
+    background-color: #02569c;
+}
+
+.btn.blue:hover {
+    background-color: #0070bd;
+}
+
+.btn.red {
+    background-color: #ff5c5c;
+}
+
+.btn.red:hover {
+    background-color: #fd7279;
+}

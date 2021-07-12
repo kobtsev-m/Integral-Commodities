@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect, useContext } from 'react';
+import { ProductsContext } from 'state/state';
+import slugify from 'react-slugify';
 
 import { getProductByIdApi, getPlaceCoordinatesByNameApi } from 'api/api';
 import { capitalize } from 'utils/string-utils';
@@ -37,7 +39,8 @@ const getBreadcrumbs = (product) => {
 
 function ProductPage() {
   const router = useRouter();
-  const productId = router.query.productId;
+  const productGrade = router.query.productGrade;
+  const { getProductIdByGrade } = useContext(ProductsContext);
 
   const [product, setProduct] = useState(null);
   const [ports, setPorts] = useState(null);
@@ -47,13 +50,15 @@ function ProductPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!!productId) {
-      getProductByIdApi(productId).then((product) => {
-        setProduct(product);
-        setIsLoading(!!product);
+    if (!!productGrade) {
+      getProductIdByGrade(productGrade).then((productId) => {
+        getProductByIdApi(productId).then((product) => {
+          setProduct(product);
+          setIsLoading(!!product);
+        });
       });
     }
-  }, [productId]);
+  }, [productGrade]);
 
   useEffect(() => {
     if (product) {
@@ -99,7 +104,7 @@ function ProductPage() {
       {isLoading ? (
         <LoadingSpinner />
       ) : !product ? (
-        <h2 className={'text-center'}>There is no product!</h2>
+        <h2 className={'text-center'}>There are no products!</h2>
       ) : (
         <>
           <Breadcrumbs list={getBreadcrumbs(product)} />

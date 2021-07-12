@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ProductCardTitle from './components/product-card-header/product-card-header';
 import ProductCardInfoList from './components/product-card-info-list/product-card-info-list';
 import ProductCardPrice from './components/product-card-price/product-card-price';
+import { slugifyLink } from 'utils/nav-links';
 
 import cn from 'classnames';
 import styles from './product-card.module.css';
@@ -10,13 +11,13 @@ import styles from './product-card.module.css';
 const FIELDS_TO_FILTER = ['Price'];
 
 function ProductCard({ product }) {
-  const { id, grade, price, card_data: prodData } = product;
+  const { category, grade, price, card_data: prodData } = product;
 
   if (!prodData.find((item) => item.key === 'Application')) {
     prodData.push({ key: 'Application', value: product.application });
   }
 
-  const link = `/products/id/${id}`;
+  const link = `/products/${category}/${slugifyLink(product)}`;
 
   return (
     <li>

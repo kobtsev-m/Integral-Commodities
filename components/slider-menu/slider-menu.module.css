@@ -1,54 +1,52 @@
 .root {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 100%;
-  height: 100vh;
-  background: white;
-  z-index: 1500;
-  transition: all 300ms;
-  display: flex;
-  flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 1500;
+    transition: all 300ms;
+    display: flex;
+    flex-direction: column;
 }
 
 .root_opened {
-  right: 0;
+    right: 0;
 }
 
 .header {
-  display: flex;
-  position: relative;
-  align-items: center;
-  margin: 25px;
-  min-height: 20px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: 25px;
+    min-height: 20px;
 }
 
 .closeBtn {
-  padding: 0;
-  border: none;
-  background: transparent url("/images/icon-rollup.svg") no-repeat center;
-  background-size: 100%;
-  width: 20px;
-  height: 20px;
-  transform: rotate(90deg);
+    padding: 0;
+    border: none;
+    background: transparent url('/images/icon-rollup.svg') no-repeat center;
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    transform: rotate(90deg);
 }
 
 .title {
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  font-family: var(--font-montserrat);
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 17px;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-montserrat);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 17px;
 }
 
 .copyright {
-  font-family: var(--font-montserrat);
-  font-size: 8px;
-  line-height: 1.4;
-  margin-top: auto;
-  margin-bottom: 120px;
-  margin-left: 30px;
+    font-family: var(--font-montserrat);
+    font-size: 8px;
+    line-height: 1.4;
+    margin: auto 30px 20px 30px;
 }

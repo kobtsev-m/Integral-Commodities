@@ -1,3 +1,5 @@
+import slugify from 'react-slugify';
+
 export const LINKS = [
   {
     label: 'Home',
@@ -31,7 +33,7 @@ export const LINKS = [
   },
   {
     label: 'About us',
-    link: '/about'
+    link: '/about-us'
   },
   {
     label: 'Order process',
@@ -39,7 +41,7 @@ export const LINKS = [
   },
   {
     label: 'Services',
-    link: '/about#futures',
+    link: '/about-us#futures',
     blancLink: true
   },
   {
@@ -47,3 +49,12 @@ export const LINKS = [
     link: '/partners'
   }
 ];
+
+export const slugifyLink = (product) => {
+  if (product.grade === 'Sulphur' && product.id == 12) {
+    return 'sulphur-1';
+  } else if (product.grade === 'Sulphur' && product.id == 39) {
+    return 'sulphur-2';
+  }
+  return slugify(product.grade);
+};

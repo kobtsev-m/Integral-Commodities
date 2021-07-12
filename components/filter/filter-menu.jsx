@@ -1,6 +1,6 @@
-import classes from './filter-menu.module.css';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import styles from './filter-menu.module.css';
 
 const getInitialState = (filters) => {
   return Object.keys(filters).reduce((acc, filterName) => {
@@ -14,56 +14,43 @@ const FilterMenu = (props) => {
 
   const [rollup, setRollup] = useState(getInitialState(filters));
 
-  const handleChange = (filterName, optionName, isChecked) => {
-    const filter = filters[filterName];
-    onChange({
-      [filterName]: {
-        ...filter,
-        options: { ...filter.options, [optionName]: isChecked }
-      }
-    });
-  };
-
   return (
-    <div className={classes.root}>
-      <ul className={classes.filtersList}>
+    <div className={styles.root}>
+      <ul className={styles.filtersList}>
         {Object.entries(filters).map(([filterName, filterInfo]) => {
           return (
-            <li key={nanoid()} className={classes.filterItem}>
-              <span className={classes.filterName}>{filterInfo.key}</span>
+            <li key={nanoid()} className={styles.filterItem}>
+              <span className={styles.filterName}>{filterInfo.key}</span>
               <button
-                className={classes.rollupBtn}
-                onClick={() =>
+                type={'button'}
+                className={styles.rollupBtn}
+                onTouchStart={() => {
                   setRollup((prevState) => ({
                     ...getInitialState(filters),
                     [filterName]: !prevState[filterName]
-                  }))
-                }
+                  }));
+                }}
               />
               <ul
-                className={classes.optionsList}
-                style={{ display: `${rollup[filterName] ? 'block' : 'none'}` }}
+                className={styles.optionsList}
+                style={{ display: rollup[filterName] ? 'block' : 'none' }}
               >
                 {Object.entries(filterInfo.options).map(([optionName, _]) => (
-                  <li className={classes.option} key={`option-${optionName}`}>
+                  <li key={nanoid()} className={styles.option}>
                     <label
-                      className={classes.optionLabel}
+                      className={styles.optionLabel}
                       htmlFor={`option-${optionName}`}
                     >
                       <input
-                        className={classes.optionInput}
-                        type="checkbox"
+                        type={'checkbox'}
                         id={`option-${optionName}`}
+                        className={styles.optionInput}
                         checked={filters[filterName].options[optionName]}
-                        onChange={(evt) => {
-                          handleChange(
-                            filterName,
-                            optionName,
-                            evt.target.checked
-                          );
-                        }}
+                        onChange={(e) =>
+                          onChange(filterName, optionName, !e.target.checked)
+                        }
                       />
-                      <span className={classes.inputReplacement} />
+                      <span className={styles.inputReplacement} />
                       {optionName}
                     </label>
                   </li>
@@ -73,8 +60,8 @@ const FilterMenu = (props) => {
           );
         })}
       </ul>
-      <div className={classes.submitWrapper}>
-        <button className={classes.submit} onClick={onClose}>
+      <div className={styles.submitWrapper}>
+        <button type={'button'} className={styles.submit} onClick={onClose}>
           Show {productsCount} products
         </button>
       </div>

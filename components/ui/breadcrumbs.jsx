@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { nanoid } from "nanoid";
-import styles from "./breadcrumbs.module.css";
+import Link from 'next/link';
+import { nanoid } from 'nanoid';
+import styles from './breadcrumbs.module.css';
 
 function Breadcrumbs(props) {
   const { list } = props;

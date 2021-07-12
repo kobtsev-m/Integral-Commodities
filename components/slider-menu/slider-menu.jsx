@@ -1,6 +1,7 @@
-import cn from 'classnames';
-import classes from './slider-menu.module.css';
 import { useEffect } from 'react';
+
+import cn from 'classnames';
+import styles from './slider-menu.module.css';
 
 const SliderMenu = (props) => {
   const { open, title, onClose } = props;
@@ -9,7 +10,10 @@ const SliderMenu = (props) => {
     if (open) {
       document.body.style.position = 'fixed';
       document.body.style.width = '100%';
-      document.querySelector('jdiv').style.display = 'none';
+      const jdiv = document.querySelector('jdiv');
+      if (jdiv) {
+        jdiv.style.display = 'none';
+      }
     } else {
       document.body.style.position = '';
       const jdiv = document.querySelector('jdiv');
@@ -20,17 +24,18 @@ const SliderMenu = (props) => {
   }, [open]);
 
   return (
-    <section className={cn(classes.root, { [classes.root_opened]: open })}>
-      <div className={classes.header}>
+    <section className={cn(styles.root, { [styles.root_opened]: open })}>
+      <div className={styles.header}>
         <button
-          className={classes.closeBtn}
+          type={'button'}
+          className={styles.closeBtn}
           onClick={onClose}
-          aria-label="close menu"
+          aria-label={'close menu'}
         />
-        <h2 className={classes.title}>{title}</h2>
+        <h2 className={styles.title}>{title}</h2>
       </div>
       {props.children}
-      <p className={classes.copyright}>
+      <p className={styles.copyright}>
         &copy; 2021 Integral Commodities. All Rights reserved
       </p>
     </section>

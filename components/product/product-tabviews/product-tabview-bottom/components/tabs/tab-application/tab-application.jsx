@@ -1,5 +1,5 @@
-import ApplicationInfo from "./application-info/application-info";
-import styles from "./tab-application.module.css";
+import ApplicationInfo from './application-info/application-info';
+import styles from './tab-application.module.css';
 
 function TabApplication({ application }) {
   const applicationElements = [];

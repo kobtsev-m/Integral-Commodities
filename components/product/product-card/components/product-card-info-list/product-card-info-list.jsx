@@ -1,7 +1,7 @@
-import { nanoid } from "nanoid";
+import { nanoid } from 'nanoid';
 
-import styles from "../../product-card.module.css";
-import ProductCardInfoItem from "../product-card-info-item/product-card-info-item";
+import styles from '../../product-card.module.css';
+import ProductCardInfoItem from '../product-card-info-item/product-card-info-item';
 
 function ProductCardInfoList(props) {
   const { fields, fieldsToFilter } = props;

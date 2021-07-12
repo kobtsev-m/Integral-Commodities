@@ -4,7 +4,6 @@ import { geocodeByAddress } from 'react-places-autocomplete';
 
 import cn from 'classnames';
 import stylesUI from 'components/ui/custom-ui.module.css';
-import classes from './places-search.module.css';
 
 export function PlacesSearch(props) {
   const [address, setAddress] = useState(props.defaultValue ?? '');

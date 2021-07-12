@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 
 import FooterCard from './components/footer-card';
 
 import cn from 'classnames';
 import linkClasses from 'styles/blocks/link.module.css';
-import useWindowDimensions from '../../../hooks/useWindowDemensions';
+import useWindowDimensions from '../../../utils/hooks/useWindowDemensions';
 import FooterMobile from '../footer-mobile';
 
 export const FooterLink = {
@@ -53,7 +52,7 @@ function Footer() {
             <ul className={'footer__links-list'}>
               <li className={'footer__list-item'}>
                 <a
-                  href={'/about'}
+                  href={'/about-us'}
                   className={cn('footer__link', linkClasses.link)}
                 >
                   About
@@ -69,7 +68,7 @@ function Footer() {
               </li>
               <li className={'footer__list-item'}>
                 <a
-                  href={'/about#futures'}
+                  href={'/about-us#futures'}
                   className={cn('footer__link', linkClasses.link)}
                 >
                   Services
@@ -183,7 +182,7 @@ function Footer() {
             <h3 className={'footer__card-title'}>Local representatives</h3>
             <ul className={'footer__countries-list'}>
               <li>
-                <a className={'footer__country'} href="/about#dubai">
+                <a className={'footer__country'} href="/about-us#dubai">
                   <img
                     className={'footer__country-image'}
                     src={'./images/flag-uae.svg'}
@@ -193,7 +192,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a className={'footer__country'} href="/about#uzbekistan">
+                <a className={'footer__country'} href="/about-us#uzbekistan">
                   <img
                     className={'footer__country-image'}
                     src={'./images/flag-uz.svg'}
@@ -203,7 +202,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a className={'footer__country'} href="/about#turkmenistan">
+                <a className={'footer__country'} href="/about-us#turkmenistan">
                   <img
                     className={'footer__country-image'}
                     src={'./images/flag-tm.svg'}
@@ -213,7 +212,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a className={'footer__country'} href="/about#turkey">
+                <a className={'footer__country'} href="/about-us#turkey">
                   <img
                     className={'footer__country-image'}
                     src={'./images/flag-tr.svg'}
@@ -223,7 +222,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a className={'footer__country'} href="/about#kazakhstan">
+                <a className={'footer__country'} href="/about-us#kazakhstan">
                   <img
                     className={'footer__country-image'}
                     src={'./images/flag-kz.svg'}
@@ -233,7 +232,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a className={'footer__country'} href="/about#russia">
+                <a className={'footer__country'} href="/about-us#russia">
                   <img
                     className={'footer__country-image'}
                     src={'./images/flag-rf.svg'}

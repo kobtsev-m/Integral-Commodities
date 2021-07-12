@@ -45,7 +45,7 @@ const FooterMobile = () => {
             <h3 className={classes.linksHeader}>Pages</h3>
             <ul className={classes.linksList}>
               <li className={classes.linksItem}>
-                <Link href="/about">
+                <Link href="/about-us">
                   <a>About</a>
                 </Link>
               </li>
@@ -55,7 +55,7 @@ const FooterMobile = () => {
                 </Link>
               </li>
               <li className={classes.linksItem}>
-                <a href="/about#futures">Services</a>
+                <a href="/about-us#futures">Services</a>
               </li>
               <li className={classes.linksItem}>
                 <Link href="/partners">
@@ -68,7 +68,7 @@ const FooterMobile = () => {
         <div className={classes.offices}>
           <ul className={classes.officesList}>
             <li className={classes.officesItem}>
-              <a href="/about#dubai">
+              <a href="/about-us#dubai">
                 <div className={classes.officeHeader}>
                   <img
                     className={classes.officeImage}
@@ -98,7 +98,7 @@ const FooterMobile = () => {
               </a>
             </li>
             <li className={classes.officesItem}>
-              <a href="/about#lugano">
+              <a href="/about-us#lugano">
                 <div className={classes.officeHeader}>
                   <img
                     className={classes.officeImage}
@@ -127,7 +127,7 @@ const FooterMobile = () => {
           <h3 className={classes.localsHeader}>Local representatives</h3>
           <ul className={classes.localsList}>
             <li>
-              <a className={classes.localsItem} href="/about#dubai">
+              <a className={classes.localsItem} href="/about-us#dubai">
                 <img
                   className={classes.localsImage}
                   src="/images/flag-uae.svg"
@@ -137,7 +137,7 @@ const FooterMobile = () => {
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about#uzbekistan">
+              <a className={classes.localsItem} href="/about-us#uzbekistan">
                 <img
                   className={classes.localsImage}
                   src="/images/flag-uz.svg"
@@ -147,7 +147,7 @@ const FooterMobile = () => {
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about#turkmenistan">
+              <a className={classes.localsItem} href="/about-us#turkmenistan">
                 <img
                   className={classes.localsImage}
                   src="/images/flag-tm.svg"
@@ -157,7 +157,7 @@ const FooterMobile = () => {
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about#turkey">
+              <a className={classes.localsItem} href="/about-us#turkey">
                 <img
                   className={classes.localsImage}
                   src="/images/flag-tr.svg"
@@ -167,7 +167,7 @@ const FooterMobile = () => {
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about#kazakhstan">
+              <a className={classes.localsItem} href="/about-us#kazakhstan">
                 <img
                   className={classes.localsImage}
                   src="/images/flag-kz.svg"
@@ -177,7 +177,7 @@ const FooterMobile = () => {
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about#russia">
+              <a className={classes.localsItem} href="/about-us#russia">
                 <img
                   className={classes.localsImage}
                   src="/images/flag-rf.svg"

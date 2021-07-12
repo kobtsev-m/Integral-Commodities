@@ -1,6 +1,6 @@
 import IconInfo from '../../icons/icon-info';
 import styles from './product-info.module.css';
-import useWindowDimensions from '../../../hooks/useWindowDemensions';
+import useWindowDimensions from '../../../utils/hooks/useWindowDemensions';
 
 function ProductInfo(props) {
   const { features } = props;

@@ -1,105 +1,107 @@
 .root {
-  height: 100%;
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
-  position: relative;
+    height: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+    position: relative;
 }
 
 .filtersList {
-  margin: 0 0 50px;
-  padding: 0;
-  list-style: none;
+    margin: 0 0 50px;
+    padding: 0;
+    list-style: none;
 }
 
 .filterItem {
-  border-bottom: 1px solid #dedede;
-  padding: 11px 30px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  font-family: var(--font-montserrat);
-  font-size: 14px;
+    border-bottom: 1px solid #dedede;
+    padding: 11px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: var(--font-montserrat);
+    font-size: 14px;
 }
 
 .filterName {
-  flex-grow: 1;
-  display: block;
+    flex-grow: 1;
+    display: block;
 }
 
 .rollupBtn {
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  border: none;
-  background: transparent url("/images/icon-rollup.svg") no-repeat center;
-  margin-left: auto;
-  transform: rotate(-90deg);
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: transparent url('/images/icon-rollup.svg') no-repeat center;
+    margin-left: auto;
+    transform: rotate(-90deg);
+    cursor: pointer;
 }
 
 .optionsList {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .submitWrapper {
-  position: sticky;
-  margin-top: auto;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+    position: sticky;
+    margin-top: auto;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .submit {
-  width: 100%;
-  max-width: 315px;
-  padding: 10px 0;
-  border: none;
-  font-family: var(--font-montserrat);
-  background: var(--p-orange-accent);
-  color: white;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  transition: 100ms ease;
+    width: calc(100% - 40px);
+    padding: 10px 0;
+    border: none;
+    font-family: var(--font-montserrat);
+    background: var(--p-orange-accent);
+    color: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition: 100ms ease;
 }
 
 .submit:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 .optionLabel {
-  padding: 10px;
-  display: flex;
-  align-items: center;
+    padding: 12px 0 0 2px;
+    display: flex;
+    align-items: center;
 }
 
 .optionInput {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
 }
 
 .inputReplacement {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  background: url("/images/icon-checkbox.svg") center;
-  background-size: cover;
-  margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    background: url('/images/icon-checkbox.svg') center;
+    background-size: cover;
+    margin-right: 10px;
 }
 
 .optionInput:disabled ~ .inputReplacement {
 }
+
 .optionInput:checked ~ .inputReplacement {
-  background: url("/images/icon-checkbox-checked.svg") center;
-  background-size: cover;
+    background: url('/images/icon-checkbox-checked.svg') center;
+    background-size: cover;
 }
+
 .optionInput:focus ~ .inputReplacement {
 }

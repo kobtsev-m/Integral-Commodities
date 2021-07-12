@@ -1,0 +1,80 @@
+.orderNavigation {
+    padding-top: 70px;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.orderNavigation__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.orderNavigation__item {
+    font-family: var(--font-montserrat);
+    color: var(--p-grey-dark);
+    font-size: 16px;
+    line-height: 30px;
+    padding-bottom: 15px;
+    position: relative;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.orderNavigation__item:not(:last-child) {
+    margin: 0 27px 0 0;
+}
+
+.orderNavigation__item_active {
+    color: var(--p-blue);
+}
+
+.orderNavigation__item_active::after {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: var(--p-blue);
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.mobileNav {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 25px 0 0;
+    border-bottom: 1px solid #dedede;
+}
+
+.stepNum {
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #e0e0e0;
+    width: 100%;
+}
+.stepName {
+    margin: 10px 0 0;
+    padding-left: 10px;
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #333333;
+}
+.nextButton {
+    width: 27px;
+    height: 27px;
+    padding: 0;
+    border: none;
+    margin-left: auto;
+    background: url('/images/icon-next.svg') no-repeat center;
+}
+
+@media screen and (max-width: 768px) {
+    .mobileNav {
+        padding-bottom: 5px;
+    }
+}

@@ -1,61 +1,35 @@
-import styles from "./step-1.module.css";
-import Button from "../../components/ui/button";
-import OrderNavigation from "../../components/order/order-navigation";
-import Breadcrumbs from "../../components/ui/breadcrumbs";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import cn from "classnames";
+import Breadcrumbs from 'components/ui/breadcrumbs';
+import OrderNavigation from 'components/order/navigation/order-navigation';
+import PaymentForm from 'components/order/forms/payment-form';
 
-function OrderStep3() {
-  const breadcrumbs = [
-    {
-      title: "Home",
-      link: "/",
-    },
-    {
-      title: "Order process",
-    },
-  ];
+import cn from 'classnames';
+import styles from './order.module.css';
 
-  const router = useRouter();
-
-  const formType = router.query.for;
-
-  const scriptText =
-    '(function(s, t, e, p, f, o, r, m) { s[t] = s[t] || {}; s[t][527808932] = { id: "cBt7XDC", rnd: 527808932 }; e.async = true; e.src = p + f; document[m](o)[r](e) }(window,"stepFORM_params",document.createElement("script"),document.location.protocol==="https:"?"https:":"http:","//u008796.stepform.io/api.js?id=cBt7XDC","head","appendChild","querySelector"));';
-
-  useEffect(() => {
-    // if (formType) {
-    const script = document.createElement("script");
-    script.id = "kyc";
-    script.textContent = scriptText;
-    document.body.appendChild(script);
-    // }
-  }, [formType]);
-
-  const tabStyles = styles.step3__tab;
-  const activeTabStyles = styles.step3__tab_active;
-
-  function getItemClassNames(isActive) {
-    return cn(tabStyles, {
-      [activeTabStyles]: isActive,
-    });
+const breadcrumbs = [
+  {
+    title: 'Home',
+    link: '/'
+  },
+  {
+    title: 'Order process'
   }
+];
 
+function OrderStep4(props) {
   return (
     <section className={styles.orderContainer}>
       <div className={styles.breadcrumbsContainer}>
         <Breadcrumbs list={breadcrumbs} />
       </div>
       <div className={styles.step3__orderNavigationContainer}>
-        <OrderNavigation nextLink="/order/step-5" />
+        <OrderNavigation nextLink={'/order/step-5'} />
       </div>
       <p className={cn(styles.step3__textContent, styles.step3__beforeForm)}>
         Please select one of the following payment methods:
       </p>
-      <div className="stepform_cBt7XDC rnd_527808932"></div>
+      <PaymentForm />
     </section>
   );
 }
 
-export default OrderStep3;
+export default OrderStep4;

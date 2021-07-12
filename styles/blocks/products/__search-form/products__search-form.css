@@ -1,11 +1,11 @@
 .products__search-form {
-  display: flex;
-  box-sizing: border-box;
-  justify-content: flex-start;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: flex-start;
 }
 
 @media screen and (max-width: 768px) {
-  .products__search-form {
-    display: none;
-  }
+    .products__search-form {
+        display: none;
+    }
 }

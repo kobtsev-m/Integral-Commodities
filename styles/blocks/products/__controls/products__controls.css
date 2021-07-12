@@ -1,13 +1,13 @@
 .products__controls {
-  margin-bottom: 40px;
-  display: grid;
-  grid-template-columns: 1fr 188px;
-  grid-column-gap: 46px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr 188px;
+    grid-column-gap: 20px;
 }
 
 @media screen and (max-width: 768px) {
-  .products__controls {
-    display: flex;
-    margin-bottom: 20px;
-  }
+    .products__controls {
+        display: flex;
+        margin-bottom: 20px;
+    }
 }

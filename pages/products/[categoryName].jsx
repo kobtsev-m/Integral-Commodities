@@ -127,11 +127,12 @@ function HomePage() {
     });
   };
 
-  const handleFiltersChange = (newFilterState) => {
-    setFiltersState({ ...filtersState, ...newFilterState });
+  const handleFiltersChange = (newFiltersState) => {
+    setFiltersState({ ...filtersState, ...newFiltersState });
   };
 
   const handleFiltersReset = () => {
+    router.replace(`/products/${category}`, null, { scroll: false });
     setFiltersState(getFiltersInitialState(category));
   };
 

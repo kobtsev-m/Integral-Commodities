@@ -1,4 +1,4 @@
-import styles from "./coming-soon.module.css";
+import styles from './coming-soon.module.css';
 
 function ComingSoon() {
   return (

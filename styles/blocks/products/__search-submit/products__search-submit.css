@@ -1,10 +1,11 @@
 .products__search-submit {
-  padding: 0;
-  border: 1px solid var(--font-non-active);
-  border-left: none;
-  border-radius: 0 3px 3px 0;
-  min-width: 45px;
-  max-width: 45px;
-  background: url("../../../../public/images/icon-search.svg") no-repeat center;
-  background-size: 22px 22px;
+    padding: 0;
+    border: 1px solid var(--font-non-active);
+    border-left: none;
+    border-radius: 0 3px 3px 0;
+    min-width: 45px;
+    max-width: 45px;
+    background: url('../../../../public/images/icon-search.svg') no-repeat
+        center;
+    background-size: 22px 22px;
 }

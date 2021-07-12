@@ -1,7 +1,7 @@
-import SuccessOfferHeader from "./success-offer-header/success-offer-header";
-import SuccessOffersMessengers from "./success-offer-messengers/success-offer-messengers";
-import SuccessOfferInfo from "./success-offer-info/success-offer-info";
-import styles from "./success-offer.module.css";
+import SuccessOfferHeader from './success-offer-header/success-offer-header';
+import SuccessOffersMessengers from './success-offer-messengers/success-offer-messengers';
+import SuccessOfferInfo from './success-offer-info/success-offer-info';
+import styles from './success-offer.module.css';
 
 function SuccessOffer() {
   return (

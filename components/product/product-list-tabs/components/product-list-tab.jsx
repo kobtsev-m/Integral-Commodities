@@ -1,13 +1,13 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
 function getTabClasses(isActive, productType) {
-  const styles = ["products__tab-button"];
+  const styles = ['products__tab-button'];
   if (isActive) {
-    styles.push("products__tab-button_active");
+    styles.push('products__tab-button_active');
     styles.push(`products__tab-button_type_${productType}`);
   }
 
-  return styles.join(" ");
+  return styles.join(' ');
 }
 
 function ProductListTab(props) {

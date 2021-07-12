@@ -1,11 +1,12 @@
+import { useRouter } from 'next/router';
 import { useEffect, useState, useRef } from 'react';
 
 import CheckboxesFilter from 'components/checkboxes-filter/checkboxes-filter';
+import FilterControls from 'components/filter/filter-controls';
+import useWindowDimensions from 'utils/hooks/useWindowDemensions';
 import { getProductsBySearchStringApi } from 'api/api';
 
 import styles from './product-list-controls.module.css';
-import FilterControls from '../../filter/filter-controls';
-import useWindowDimensions from '../../../hooks/useWindowDemensions';
 
 function useOutsideAlerter(ref, cb) {
   useEffect(() => {
@@ -26,18 +27,27 @@ function ProductListControls(props) {
     filteredProductsCount,
     filtersState,
     onFiltersChange,
-    onSearchSubmit
+    onSearchSubmit,
+    onReset
   } = props;
+
+  const router = useRouter();
+
   const [droppedDown, setIsDroppedDown] = useState({});
+  const [filtersCount, setFiltersCount] = useState(0);
 
   const formRef = useRef(null);
   const searchRef = useRef(null);
 
-  const { width } = useWindowDimensions();
+  const size = useWindowDimensions();
 
   useEffect(() => {
     setIsDroppedDown(getInitialDropDownState());
   }, []);
+
+  useEffect(() => {
+    setFiltersCount(Object.keys(router.query).length - 1);
+  }, [router.query]);
 
   const getInitialDropDownState = () => {
     return Object.keys(filtersState).reduce(
@@ -46,8 +56,23 @@ function ProductListControls(props) {
     );
   };
 
-  const handleChange = (res) => {
-    onFiltersChange(res);
+  const handleChange = (filterName, optionName, isChecked) => {
+    const newFiltersState = {
+      [filterName]: {
+        ...filtersState[filterName],
+        options: {
+          ...filtersState[filterName].options,
+          [optionName]: !isChecked
+        }
+      }
+    };
+    onFiltersChange(newFiltersState);
+    setFiltersCount(filtersCount + (isChecked ? -1 : 1));
+  };
+
+  const handleClear = () => {
+    onReset();
+    setFiltersCount(0);
   };
 
   const handleDropDownClick = (filterName) => {
@@ -63,16 +88,19 @@ function ProductListControls(props) {
 
   useOutsideAlerter(formRef, handleOutsideClick);
 
+  if (size.width <= 768) {
+    return (
+      <FilterControls
+        filters={filtersState}
+        count={filteredProductsCount}
+        onChange={handleChange}
+        onSearch={onSearchSubmit}
+      />
+    );
+  }
+
   return (
     <div className={'products__controls'}>
-      {width <= 768 && (
-        <FilterControls
-          filters={filtersState}
-          count={filteredProductsCount}
-          onChange={handleChange}
-          onSearch={onSearchSubmit}
-        />
-      )}
       <form className={styles.filterForm} ref={formRef}>
         {Object.entries(filtersState).map(([filterName, filter]) => {
           return (
@@ -86,9 +114,17 @@ function ProductListControls(props) {
             />
           );
         })}
+        {!!filtersCount && (
+          <div className={'d-flex align-items-center'}>
+            <div
+              className={styles.clearFiltersBtn}
+              onClick={handleClear}
+            ></div>
+          </div>
+        )}
       </form>
       <form
-        className={'products__search-form'}
+        className={'products__search-form mt-2'}
         name={'search'}
         onSubmit={async (event) => {
           event.preventDefault();

@@ -15,8 +15,10 @@
     "@hookform/resolvers": "^1.2.0",
     "@popperjs/core": "^2.9.2",
     "@react-google-maps/api": "^2.1.1",
+    "background-image-on-load": "^1.1.0",
     "bootstrap": "^5.0.1",
     "classnames": "2.2.6",
+    "embla-carousel": "^4.5.3",
     "moment": "2.29.1",
     "nanoid": "3.1.21",
     "next": "10.0.8",
@@ -27,6 +29,7 @@
     "react-hook-form": "^6.15.4",
     "react-loader-spinner": "4.0.0",
     "react-places-autocomplete": "^7.3.0",
+    "react-slugify": "^2.0.3",
     "yup": "^0.32.9"
   }
 }
