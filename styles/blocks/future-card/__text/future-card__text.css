@@ -1,13 +1,11 @@
 .future-card__text {
-  margin: 0;
-
   font-family: var(--font-montserrat);
   color: var(--p-blue);
-
   font-size: 22px;
   line-height: 1.4;
   font-weight: 500;
   text-align: center;
+  margin: 0;
 }
 
 .future-card__text_big {

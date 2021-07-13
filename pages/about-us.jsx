@@ -178,7 +178,7 @@ function AboutPage() {
           {shouldShowFutureDesc && (
             <div className="futures__item futures__item_big future-desc">
               <p className="future-desc__text">
-                here we talk about the key event of the company in a couple of
+                Here we talk about the key event of the company in a couple of
                 short pre-offers. Very succinctly and link to the article, if
                 there is one
               </p>
@@ -187,6 +187,36 @@ function AboutPage() {
           <div className="futures__item futures__item_little future-card future-card_little">
             <img
               className="future-card__icon future-card__icon_little"
+              src="./images/future-search.svg"
+              alt=""
+            />
+            <p className="future-card__text future-card__text_little">
+              Find servise providers for your order
+            </p>
+          </div>
+          <div className="futures__item futures__item_little future-card future-card_little">
+            <img
+              className="future-card__icon future-card__icon_little"
+              src="./images/future-online.svg"
+              alt=""
+            />
+            <p className="future-card__text future-card__text_little">
+              Online payment by credit card, bank transfer & bitcoin cash
+            </p>
+          </div>
+          <div className="futures__item futures__item_little future-card future-card_little">
+            <img
+              className="future-card__icon future-card__icon_little"
+              src="./images/future-reordering.svg"
+              alt=""
+            />
+            <p className="future-card__text future-card__text_little">
+              Re-ordering with few clicks
+            </p>
+          </div>
+          <div className="futures__item futures__item_little future-card future-card_little">
+            <img
+              className="future-card__icon future-card__icon_little"
               src="./images/future-subscription.svg"
               alt=""
             />
@@ -202,36 +232,6 @@ function AboutPage() {
             />
             <p className="future-card__text future-card__text_little">
               Find analog of your grade raw materials
-            </p>
-          </div>
-          <div className="futures__item futures__item_little future-card future-card_little">
-            <img
-              className="future-card__icon future-card__icon_little"
-              src="./images/future-search.svg"
-              alt=""
-            />
-            <p className="future-card__text future-card__text_little">
-              Find analog of your grade raw materials
-            </p>
-          </div>
-          <div className="futures__item futures__item_little future-card future-card_little">
-            <img
-              className="future-card__icon future-card__icon_little"
-              src="./images/future-search.svg"
-              alt=""
-            />
-            <p className="future-card__text future-card__text_little">
-              Find analog of your grade raw materials
-            </p>
-          </div>
-          <div className="futures__item futures__item_little future-card future-card_little">
-            <img
-              className="future-card__icon future-card__icon_little"
-              src="./images/future-subscription.svg"
-              alt=""
-            />
-            <p className="future-card__text future-card__text_little">
-              Subscription to news about product launches, availability, price
             </p>
           </div>
         </div>
@@ -251,7 +251,7 @@ function AboutPage() {
                   FIGHTING ILLICIT TRADE AS WELL AS NEW DEVELOPMENTS IN
                   HEALTHCARE, FINANCIAL INCLUSION AND EDUCATION.
                 </p>
-                <span className="event__link">more →</span>
+                <a href="https://caspianweek.com/agenda" className="event__link" target="_blank">more →</a>
               </div>
             </li>
             <li className="events__item event">
@@ -264,13 +264,13 @@ function AboutPage() {
                   FIGHTING ILLICIT TRADE AS WELL AS NEW DEVELOPMENTS IN
                   HEALTHCARE, FINANCIAL INCLUSION AND EDUCATION.
                 </p>
-                <span className="event__link">more →</span>
+                <a href="https://caspianweek.com/agenda" className="event__link" target="_blank">more →</a>
               </div>
             </li>
           </ul>
-          <button className="events_button">
+          <a href="https://caspianweek.com/news" className="events_button" target="_blank">
             Go to official site Caspian Week
-          </button>
+          </a>
         </div>
       </section>
       <section className="offices">

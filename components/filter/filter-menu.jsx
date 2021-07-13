@@ -1,32 +1,41 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+
+import cn from 'classnames';
 import styles from './filter-menu.module.css';
 
-const getInitialState = (filters) => {
-  return Object.keys(filters).reduce((acc, filterName) => {
+const getInitialState = (filtersState) => {
+  return Object.keys(filtersState).reduce((acc, filterName) => {
     acc = { ...acc, [filterName]: false };
     return acc;
   }, {});
 };
 
 const FilterMenu = (props) => {
-  const { filters, productsCount, onChange, onClose } = props;
+  const {
+    filtersState,
+    productsCount,
+    filtersCount,
+    onChange,
+    onClose,
+    onReset
+  } = props;
 
-  const [rollup, setRollup] = useState(getInitialState(filters));
+  const [rollup, setRollup] = useState(getInitialState(filtersState));
 
   return (
     <div className={styles.root}>
       <ul className={styles.filtersList}>
-        {Object.entries(filters).map(([filterName, filterInfo]) => {
+        {Object.entries(filtersState).map(([filterName, filterInfo]) => {
           return (
             <li key={nanoid()} className={styles.filterItem}>
               <span className={styles.filterName}>{filterInfo.key}</span>
               <button
                 type={'button'}
                 className={styles.rollupBtn}
-                onTouchStart={() => {
+                onClick={() => {
                   setRollup((prevState) => ({
-                    ...getInitialState(filters),
+                    ...getInitialState(filtersState),
                     [filterName]: !prevState[filterName]
                   }));
                 }}
@@ -45,7 +54,7 @@ const FilterMenu = (props) => {
                         type={'checkbox'}
                         id={`option-${optionName}`}
                         className={styles.optionInput}
-                        checked={filters[filterName].options[optionName]}
+                        checked={filtersState[filterName].options[optionName]}
                         onChange={(e) =>
                           onChange(filterName, optionName, !e.target.checked)
                         }
@@ -62,8 +71,17 @@ const FilterMenu = (props) => {
       </ul>
       <div className={styles.submitWrapper}>
         <button type={'button'} className={styles.submit} onClick={onClose}>
-          Show {productsCount} products
+          Show {productsCount} {productsCount !== 1 ? 'products' : 'product'}
         </button>
+        {!!filtersCount && (
+          <button
+            type={'button'}
+            className={cn(styles.submit, styles.red, 'mt-2')}
+            onClick={onReset}
+          >
+            Clear filters
+          </button>
+        )}
       </div>
     </div>
   );

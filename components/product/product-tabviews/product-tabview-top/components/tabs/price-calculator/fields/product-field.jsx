@@ -58,7 +58,7 @@ function ProductField(props) {
   };
 
   return (
-    <div className={cn(stylesUI.search)}>
+    <div className={stylesUI.search}>
       <input
         ref={searchInput}
         placeholder={props.placeholder}

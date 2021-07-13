@@ -3,12 +3,12 @@
 }
 
 .future-card__icon_big {
-  width: 90px;
+  height: 90px;
   margin-bottom: 20px;
 }
 
 .future-card__icon_little {
-  width: 55px;
+  height: 55px;
   margin-bottom: 5px;
 }
 
@@ -18,7 +18,7 @@
   }
 
   .future-card__icon_big {
-    width: 20px;
+    height: 20px;
     margin-bottom: 9px;
   }
 

@@ -86,7 +86,7 @@ function LatestOffers({ offers }) {
           </tr>
         </thead>
         <tbody className={styles.currentOffers__tableBody}>
-          {offers.map((offer, i) => (
+          {offers.slice(0, 7).map((offer, i) => (
             <tr className={styles.currentOffers__tableRow} key={`row-${i}`}>
               <td
                 className={cn(

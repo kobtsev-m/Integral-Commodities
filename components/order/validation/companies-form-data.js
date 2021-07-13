@@ -27,20 +27,16 @@ export const companiesFormSchema = yup.object().shape({
   email: yup.string().required('This field is a requred'),
   memorandum_file: yup
     .mixed()
-    .test(
-      'fileSize',
-      'File is too large',
-      (value) => value && value.size <= 10000000
-    )
-    .required('This field is a required'),
+    .test('fileSize', 'File is too large', (value) => {
+      if (!value) return true;
+      return value?.size <= 10000000;
+    }),
   incorporation_certificate_file: yup
     .mixed()
-    .test(
-      'fileSize',
-      'File is too large',
-      (value) => value && value.size <= 10000000
-    )
-    .required('This field is a required'),
+    .test('fileSize', 'File is too large', (value) => {
+      if (!value) return true;
+      return value?.size <= 10000000;
+    }),
   trading_license_file: yup
     .mixed()
     .test('fileSize', 'File is too large', (value) => {
@@ -61,10 +57,8 @@ export const companiesFormSchema = yup.object().shape({
     }),
   bank_reference_letter_file: yup
     .mixed()
-    .test(
-      'fileSize',
-      'File is too large',
-      (value) => value && value.size <= 10000000
-    )
-    .required('This field is a required')
+    .test('fileSize', 'File is too large', (value) => {
+      if (!value) return true;
+      return value?.size <= 10000000;
+    }),
 });

@@ -133,7 +133,7 @@ function PriceMap({ ports, factories, onAskForQuote }) {
 function PriceMapHeader(props) {
   return (
     <div className={cn('row g-0', styles.mapHeader)}>
-      <div className={'col-12 col-md-3'}>
+      <div className={'col-12 col-md-6'}>
         <PlacesSearch
           placeholder={'Search on the map'}
           isRounded={true}
@@ -141,7 +141,7 @@ function PriceMapHeader(props) {
           onClear={props.onPlaceClear}
         />
       </div>
-      <div className={'col-12 col-md-9'}>
+      <div className={'col-12 col-md-6'}>
         {MAP_FILTERS.map((filter) => (
           <button
             key={nanoid()}

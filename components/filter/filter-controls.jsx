@@ -7,12 +7,23 @@ import FilterMenu from './filter-menu';
 import { getProductsBySearchStringApi } from '../../api/api';
 
 const FilterControls = (props) => {
-  const { filters, count, onChange, onSearch } = props;
+  const {
+    filtersState,
+    filtersCount,
+    productsCount,
+    onChange,
+    onSearch,
+    onReset
+  } = props;
+
   const [searchValue, setSearchValue] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
 
-  const handleMenuClose = () => setIsFilterOpen(false);
+  const handleMenuClose = () => {
+    setIsFilterOpen(false);
+  };
+
   const handleSearchButtonClick = async (e) => {
     e.preventDefault();
     if (!isSearchActive) {
@@ -59,10 +70,12 @@ const FilterControls = (props) => {
         onClose={handleMenuClose}
       >
         <FilterMenu
-          filters={filters}
+          filtersState={filtersState}
+          filtersCount={filtersCount}
+          productsCount={productsCount}
           onChange={onChange}
-          productsCount={count}
           onClose={handleMenuClose}
+          onReset={onReset}
         />
       </SliderMenu>
     </>

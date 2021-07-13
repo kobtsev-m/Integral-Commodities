@@ -91,10 +91,12 @@ function ProductListControls(props) {
   if (size.width <= 768) {
     return (
       <FilterControls
-        filters={filtersState}
-        count={filteredProductsCount}
+        filtersState={filtersState}
+        filtersCount={filtersCount}
+        productsCount={filteredProductsCount}
         onChange={handleChange}
         onSearch={onSearchSubmit}
+        onReset={handleClear}
       />
     );
   }

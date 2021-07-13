@@ -1,9 +1,9 @@
+import { useEffect, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
+import useWindowDimensions from 'utils/hooks/useWindowDemensions';
 
 import cn from 'classnames';
 import styles from './product-tabs.module.css';
-import { useEffect, useRef, useState } from 'react';
-import useWindowDimensions from '../../../../../utils/hooks/useWindowDemensions';
 
 const polymersTabs = {
   Prices: 'prices',
@@ -25,15 +25,16 @@ const setClippingRect = (element, width, left) => {
 
 function ProductTabs(props) {
   const tabs = props.category === 'polymers' ? polymersTabs : otherTypesTabs;
+
+  const [firstElementOffset, setFirstElementOffset] = useState(0);
   const tabsElements = useRef();
   const activeTabLine = useRef();
-  const [firstElementOffset, setFirstElementOffset] = useState(0);
-  const { width } = useWindowDimensions();
+  const size = useWindowDimensions();
 
   useEffect(() => {
     const tabs = tabsElements.current.children;
     setFirstElementOffset(tabs[0].getBoundingClientRect().x);
-  }, [width]);
+  }, [size]);
 
   useEffect(() => {
     const activeTab = tabsElements.current
@@ -45,7 +46,7 @@ function ProductTabs(props) {
       activeTab.width,
       activeTab.left - firstElementOffset
     );
-  }, [width, firstElementOffset, props.activeTab]);
+  }, [size, firstElementOffset, props.activeTab]);
 
   return (
     <div className={cn(styles.productTabs__listWrapper, 'sticky-top')}>

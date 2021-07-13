@@ -28,11 +28,6 @@
     cursor: pointer;
 }
 
-.tabItem_active {
-    color: var(--p-text);
-    border-bottom: 2px solid var(--p-blue);
-}
-
 @media screen and (max-width: 768px) {
     .tabItem {
         font-size: 14px;

@@ -5,6 +5,10 @@
   color: var(--p-orange-accent);
 }
 
+.event__link:hover {
+  color: var(--p-orange-accent);
+}
+
 @media screen and (max-width: 768px) {
   .event__link {
     font-size: 8px;

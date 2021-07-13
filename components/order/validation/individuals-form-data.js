@@ -17,26 +17,20 @@ export const individualsFormSchema = yup.object().shape({
   email: yup.string().required('This field is a requred'),
   passport_file: yup
     .mixed()
-    .test(
-      'fileSize',
-      'File is too large',
-      (value) => value && value.size <= 10000000
-    )
-    .required('This field is a required'),
+    .test('fileSize', 'File is too large', (value) => {
+      if (!value) return true;
+      return value?.size <= 10000000;
+    }),
   utility_bill_file: yup
     .mixed()
-    .test(
-      'fileSize',
-      'File is too large',
-      (value) => value && value.size <= 10000000
-    )
-    .required('This field is a required'),
+    .test('fileSize', 'File is too large', (value) => {
+      if (!value) return true;
+      return value?.size <= 10000000;
+    }),
   bank_reference_letter_file: yup
     .mixed()
-    .test(
-      'fileSize',
-      'File is too large',
-      (value) => value && value.size <= 10000000
-    )
-    .required('This field is a required')
+    .test('fileSize', 'File is too large', (value) => {
+      if (!value) return true;
+      return value?.size <= 10000000;
+    })
 });

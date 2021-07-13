@@ -107,7 +107,7 @@ const PrepaymentForm = ({ activeMethod }) => {
         name={'email'}
         placeholder={'Your e-mail'}
         required={true}
-        className={'col-md-12 px-md-0'}
+        className={'px-md-0'}
         onChange={handleChange}
         onBlur={handleBlur}
         errors={formErrors}

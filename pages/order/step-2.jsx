@@ -3,17 +3,17 @@ import Button from 'components/ui/button';
 import OrderNavigation from 'components/order/navigation/order-navigation';
 import Breadcrumbs from 'components/ui/breadcrumbs';
 
-function OrderStep2() {
-  const breadcrumbs = [
-    {
-      title: 'Home',
-      link: '/'
-    },
-    {
-      title: 'Order process'
-    }
-  ];
+const breadcrumbs = [
+  {
+    title: 'Home',
+    link: '/'
+  },
+  {
+    title: 'Order process'
+  }
+];
 
+function OrderStep2() {
   return (
     <section className={styles.orderContainer}>
       <div className={styles.breadcrumbsContainer}>
