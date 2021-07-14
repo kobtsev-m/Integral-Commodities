@@ -1,17 +1,15 @@
 .event__text {
-  margin: 0 0 10px 0;
+    margin: 0 0 10px 0;
 
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  color: var(--grey-default);
-
-  text-transform: lowercase;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--grey-default);
 }
 
 @media screen and (max-width: 768px) {
-  .event__text {
-    margin: 0;
-    font-size: 8px;
-  }
+    .event__text {
+        margin: 0;
+        font-size: 8px;
+    }
 }

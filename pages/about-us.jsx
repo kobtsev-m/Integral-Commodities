@@ -165,25 +165,16 @@ function AboutPage() {
           <a name="futures">Future releases</a>
         </h2>
         <div className="futures__list">
-          <div className="futures__item futures__item_big future-card future-card_big">
+          <div className="futures__item futures__item_little future-card future-card_little">
             <img
-              className="future-card__icon future-card__icon_big"
+              className="future-card__icon future-card__icon_little"
               src="./images/future-tracking.svg"
               alt=""
             />
-            <p className="future-card__text future-card__text_big">
+            <p className="future-card__text future-card__text_little">
               Tracking the shipment online in user account
             </p>
           </div>
-          {shouldShowFutureDesc && (
-            <div className="futures__item futures__item_big future-desc">
-              <p className="future-desc__text">
-                Here we talk about the key event of the company in a couple of
-                short pre-offers. Very succinctly and link to the article, if
-                there is one
-              </p>
-            </div>
-          )}
           <div className="futures__item futures__item_little future-card future-card_little">
             <img
               className="future-card__icon future-card__icon_little"
@@ -245,13 +236,18 @@ function AboutPage() {
               <span className="event__date">2021</span>
               <div className="event__text-wrapper">
                 <p className="event__text">
-                  THE 2020 EDITION WILL BREAK NEW GROUND IN COVERING A BROAD
-                  ARRAY OF TOPICS INCLUDING INNOVATION IN MANUFACTURING,
-                  TRANSPORTATION AND FINANCE, CYBER SECURITY AND AI, AND
-                  FIGHTING ILLICIT TRADE AS WELL AS NEW DEVELOPMENTS IN
-                  HEALTHCARE, FINANCIAL INCLUSION AND EDUCATION.
+                  CASPIAN WEEK IS THE STRATEGIC PARTNER OF THE ANNUAL HORASIS:
+                  THE GLOBAL VISIONS COMMUNITY. On June 8, HORASIS held its
+                  annual global meeting, co-chaired by the Chairman of the
+                  Caspian Week Forum, Murat Seitnepesov.
                 </p>
-                <a href="https://caspianweek.com/agenda" className="event__link" target="_blank">more →</a>
+                <a
+                  href="https://caspianweek.com/caspian-week-a-strategic-partner-of-the-annual-global-meeting-held"
+                  className="event__link"
+                  target="_blank"
+                >
+                  more →
+                </a>
               </div>
             </li>
             <li className="events__item event">
@@ -264,11 +260,21 @@ function AboutPage() {
                   FIGHTING ILLICIT TRADE AS WELL AS NEW DEVELOPMENTS IN
                   HEALTHCARE, FINANCIAL INCLUSION AND EDUCATION.
                 </p>
-                <a href="https://caspianweek.com/agenda" className="event__link" target="_blank">more →</a>
+                <a
+                  href="https://caspianweek.com/agenda"
+                  className="event__link"
+                  target="_blank"
+                >
+                  more →
+                </a>
               </div>
             </li>
           </ul>
-          <a href="https://caspianweek.com/news" className="events_button" target="_blank">
+          <a
+            href="https://caspianweek.com"
+            className="events_button"
+            target="_blank"
+          >
             Go to official site Caspian Week
           </a>
         </div>
