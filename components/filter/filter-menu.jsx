@@ -23,6 +23,11 @@ const FilterMenu = (props) => {
 
   const [rollup, setRollup] = useState(getInitialState(filtersState));
 
+  const handleReset = () => {
+    setRollup(getInitialState(filtersState));
+    onReset();
+  };
+
   return (
     <div className={styles.root}>
       <ul className={styles.filtersList}>
@@ -77,7 +82,7 @@ const FilterMenu = (props) => {
           <button
             type={'button'}
             className={cn(styles.submit, styles.red, 'mt-2')}
-            onClick={onReset}
+            onClick={handleReset}
           >
             Clear filters
           </button>
