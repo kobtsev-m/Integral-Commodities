@@ -8,7 +8,12 @@ body {
 
 html {
     overflow-x: hidden;
-    margin-right: calc(-1 * (100vw - 100%));
+    height: -webkit-fill-available;
+}
+
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
 }
 
 a {
