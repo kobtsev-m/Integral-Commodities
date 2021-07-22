@@ -160,4 +160,10 @@
     font-size: 11px;
     text-align: left;
   }
+
+  .showMoreButton {
+    font-size: 9px;
+    line-height: 11px;
+    margin-top: 20px;
+  }
 }
