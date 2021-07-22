@@ -1,14 +1,17 @@
-import { useState, useEffect } from 'react';
-import { getAnalogsByProductIdApi } from 'api/api';
-import LoadingSpinner from 'components/ui/loading';
+import { useState, useEffect } from "react";
+import { getAnalogsByProductIdApi } from "api/api";
+import LoadingSpinner from "components/ui/loading";
 
-import cn from 'classnames';
-import styles from 'components/product/latest-offers/latest-offers.module.css';
+import cn from "classnames";
+import styles from "components/product/latest-offers/latest-offers.module.css";
+import useWindowDimensions from "../../../../../../../utils/hooks/useWindowDemensions";
 
 function ProductAnalogs({ product }) {
   const [isLoading, setIsLoading] = useState(false);
   const [analogs, setAnalogs] = useState();
   const [isRolledUp, setIsRolledUp] = useState(true);
+
+  const { width } = useWindowDimensions();
 
   const getAnalogsToRender = (analogs, isRolledUp) => {
     if (isRolledUp) {
@@ -40,8 +43,12 @@ function ProductAnalogs({ product }) {
           <tr className={styles.analogs__tableHeaderRow}>
             <th className={styles.analogs__headerCell}>Grade</th>
             <th className={styles.analogs__headerCell}>Producer</th>
-            <th className={styles.analogs__headerCell}>MFR (190 С0, 5 Kg)</th>
-            <th className={styles.analogs__headerCell}>Density</th>
+            <th className={styles.analogs__headerCell}>
+              MFR {width > 768 && "(190 С0, 5 Kg)"}
+            </th>
+            {width > 768 && (
+              <th className={styles.analogs__headerCell}>Density</th>
+            )}
             <th className={styles.analogs__headerCell}>VST</th>
           </tr>
         </thead>
@@ -72,14 +79,16 @@ function ProductAnalogs({ product }) {
               >
                 {offer.mfr}
               </td>
-              <td
-                className={cn(
-                  styles.currentOffers__tableCell,
-                  styles.analogs__cell
-                )}
-              >
-                {offer.density}
-              </td>
+              {width > 768 && (
+                <td
+                  className={cn(
+                    styles.currentOffers__tableCell,
+                    styles.analogs__cell
+                  )}
+                >
+                  {offer.density}
+                </td>
+              )}
               <td
                 className={cn(
                   styles.currentOffers__tableCell,
@@ -97,7 +106,7 @@ function ProductAnalogs({ product }) {
           className={styles.showMoreButton}
           onClick={() => setIsRolledUp((prevState) => !prevState)}
         >
-          {isRolledUp ? 'Show more...' : 'Show less'}
+          {isRolledUp ? "Show more..." : "Show less"}
         </button>
       </div>
     </div>
