@@ -65,11 +65,14 @@ function ProductPage() {
     ).value;
     let polymerBreadcrumb = null;
     if (polymerType) {
-      const polymerTypeLower = polymerType?.toLowerCase();
-      const polymerTypeUpper = polymerType?.toUpperCase();
+      const polymerTypeSingle = polymerType?.toUpperCase().split(', ')[0];
+      const polymerTypeList = polymerType?.toLowerCase().split(', ');
+      const polymersTranslated = polymerTypeList.map((type) =>
+        t(`common:menu.${type}`)
+      );
       polymerBreadcrumb = {
-        title: t(`common:menu.${polymerTypeLower}`),
-        link: `/products/${product?.category}?type=${polymerTypeUpper}`
+        title: polymersTranslated.join(', '),
+        link: `/products/${product?.category}?type=${polymerTypeSingle}`
       };
     }
     const gradeBreadcrumb = {

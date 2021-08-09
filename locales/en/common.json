@@ -5,7 +5,7 @@
     "grade": "Grade",
     "producer": "Producer",
     "mfr 216": "MFR",
-    "mfr (216)": "MFR (2)",
+    "mfr (216)": "MFR (2.16)",
     "mfr (5)": "MFR (5)",
     "density": "Density",
     "processing method": "Processing Method",
@@ -171,7 +171,8 @@
     "sulphur": "Sulphur",
     "hdpe": "HDPE",
     "pp": "PP",
-    "ldpe": "LDPE"
+    "ldpe": "LDPE",
+    "black compound": "Black Compound"
   },
   "latestOffersTitle": "Latest offers",
   "noLatestOffers": "There is no latest offers!",
@@ -202,7 +203,8 @@
     "terms": "Terms",
     "privacy": "Privacy"
   },
-  "noProducts": "There is no products!",
+  "noProducts": "There is no products",
+  "noAnalogs": "There is no analogs",
   "showMore": "Show more...",
   "showLess": "Show less",
   "filtersBtn": "Filters",
