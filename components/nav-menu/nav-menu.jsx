@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import cn from 'classnames';
 
 import { LINKS } from '../../utils/nav-links';
@@ -6,17 +7,14 @@ import classes from './nav-menu.module.css';
 import NavLink from './nav-link';
 import { nanoid } from 'nanoid';
 
-/* Функция для выделения ссылок, имеющих дочерние ссылки */
 const getInitialState = (links, label) => {
   return links.reduce((acc, l) => {
     if (l.children) {
       return getInitialState(l.children, l.label);
     }
-
     if (!label || acc[label]) {
       return acc;
     }
-
     return { ...acc, [label]: false };
   }, {});
 };
@@ -25,13 +23,14 @@ const NavMenu = (props) => {
   const { onMenuClose } = props;
   const [rollup, setRollUp] = useState(getInitialState(LINKS));
 
+  const { t } = useTranslation();
+
   const recursivelyRenderLinks = (links, isNested = false, label) => {
     let isGloballyNested = false;
     return (() => {
       if (isNested) {
         isGloballyNested = true;
       }
-
       return (
         <ul
           className={cn(classes.linksList, {
@@ -47,7 +46,7 @@ const NavMenu = (props) => {
                 onClick={onMenuClose}
                 blancLink={l.blancLink}
               >
-                {label}
+                {t(`common:menu.${label.toLowerCase()}`)}
               </NavLink>
             );
 

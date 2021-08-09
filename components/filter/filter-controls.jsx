@@ -56,7 +56,7 @@ const FilterControls = (props) => {
               [classes.searchInput_active]: isSearchActive
             })}
             type='search'
-            placeholder='Grade'
+            placeholder={t('common:productFields.grade')}
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />

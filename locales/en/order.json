@@ -19,7 +19,7 @@
     "type of client": "Type of client",
     "deal type": "Deal type",
     "place of delivery value": "Novosibirsk, Russian Federation",
-    "terms of delivery value": "Pre-payment",
+    "terms of payment value": "Pre-payment",
     "type of client value": "Distrubitor",
     "deal type value": "Spot",
     "submit button": "Confirm deal"
@@ -38,7 +38,7 @@
     "for private individuals": "For private individuals",
     "counterparty details": "Counterparty details",
     "registered name": "Complete registerd name",
-    "registrtion no": "Registration No",
+    "registration no": "Registration No",
     "country of incorporation": "Country of incorporation",
     "date of birth": "Date & place of birth",
     "residential address": "Residential address",

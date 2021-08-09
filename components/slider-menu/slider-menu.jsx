@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import cn from 'classnames';
 import styles from './slider-menu.module.css';
+import Trans from 'next-translate/Trans';
 
 const SliderMenu = (props) => {
   const { open, title, onClose } = props;
@@ -36,7 +37,8 @@ const SliderMenu = (props) => {
       </div>
       {props.children}
       <p className={styles.copyright}>
-        &copy; 2021 Integral Commodities. All Rights reserved
+        &copy; 2021 Integral Commodities.{' '}
+        <Trans i18nKey='common:footer.all rights reserved' />
       </p>
     </section>
   );
