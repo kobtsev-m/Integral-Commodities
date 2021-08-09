@@ -38,7 +38,8 @@ function LatestOffers({ offers }) {
           <Trans i18nKey='common:latestOffersTitle' />
         </h2>
         <p className={styles.dates}>
-          Dates: {earliestOfferDate} – {latestOfferDate}
+          <Trans i18nKey='common:offerFields.dates' />
+          {`: ${earliestOfferDate} – ${latestOfferDate}`}
         </p>
       </header>
       <table

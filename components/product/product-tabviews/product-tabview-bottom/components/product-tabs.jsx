@@ -24,7 +24,6 @@ function ProductBottomTabs(props) {
 
   useEffect(() => {
     const tabs = tabsElements.current.children;
-    console.log(tabs[0]);
     setFirstElementOffset(tabs[0].getBoundingClientRect().x);
   }, [size]);
 

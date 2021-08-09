@@ -1,66 +1,80 @@
 import Link from 'next/link';
 import classes from './footer-mobile.module.css';
+import useTranslation from 'next-translate/useTranslation';
 
 const FooterMobile = () => {
+  const { t } = useTranslation();
   return (
     <footer className={classes.root}>
       <div className={classes.wrapper}>
         <nav className={classes.nav}>
           <div className={classes.linksWrapper}>
-            <h3 className={classes.linksHeader}>Polymers</h3>
+            <h3 className={classes.linksHeader}>
+              {t('common:menu.polymers')}
+            </h3>
             <ul className={classes.linksList}>
               <li className={classes.linksItem}>
-                <Link href='/products/polymers?type=HDPE'>HDPE</Link>
+                <Link href='/products/polymers?type=HDPE'>
+                  {t('common:menu.hdpe')}
+                </Link>
               </li>
               <li className={classes.linksItem}>
-                <Link href='/products/polymers?type=LDPE'>LDPE</Link>
+                <Link href='/products/polymers?type=LDPE'>
+                  {t('common:menu.ldpe')}
+                </Link>
               </li>
               <li className={classes.linksItem}>
-                <Link href='/products/polymers?type=PP'>PP</Link>
+                <Link href='/products/polymers?type=PP'>
+                  {t('common:menu.pp')}
+                </Link>
               </li>
             </ul>
           </div>
           <div className={classes.linksWrapper}>
-            <h3 className={classes.linksHeader}>Fertilizers</h3>
+            <h3 className={classes.linksHeader}>
+              {t('common:menu.fertilizers')}
+            </h3>
             <ul className={classes.linksList}>
               <li className={classes.linksItem}>
-                <Link href='/products/id/9?tab=product'>Urea “B”</Link>
+                <Link href='/products/id/9?tab=product'>
+                  {t('common:fertilizers.urea grade “b”')}
+                </Link>
               </li>
               <li className={classes.linksItem}>
                 <Link href='/products/id/10?tab=product'>
-                  Potassium chloride
+                  {t('common:fertilizers.potassium chloride')}
                 </Link>
               </li>
             </ul>
           </div>
           <div className={classes.linksWrapper}>
-            <h3 className={classes.linksHeader}>Sulphur</h3>
+            <h3 className={classes.linksHeader}>{t('common:menu.sulphur')}</h3>
             <ul className={classes.linksList}>
               <li className={classes.linksItem}>
-                <Link href='/products/sulphur'>Sulphur lump</Link>
+                <Link href='/products/sulphur'>
+                  {t('common:sulphur.sulphur')}
+                </Link>
               </li>
             </ul>
           </div>
           <div className={classes.linksWrapper}>
-            <h3 className={classes.linksHeader}>Pages</h3>
+            <h3 className={classes.linksHeader}>{t('common:menu.pages')}</h3>
             <ul className={classes.linksList}>
               <li className={classes.linksItem}>
-                <Link href='/about-us'>
-                  <a>About</a>
-                </Link>
+                <Link href='/about-us'>{t('common:menu.about us')}</Link>
               </li>
               <li className={classes.linksItem}>
                 <Link href='/order/step-1'>
-                  <a>Order process</a>
+                  {t('common:menu.order process')}
                 </Link>
               </li>
               <li className={classes.linksItem}>
-                <a href='/about-us#futures'>Services</a>
+                <Link href='/about-us#futures'>
+                  {t('common:menu.services')}
+                </Link>
               </li>
               <li className={classes.linksItem}>
-                <Link href='/partners'>
-                  <a href=''>Partners</a>
-                </Link>
+                <Link href='/partners'>{t('common:menu.partners')}</Link>
               </li>
             </ul>
           </div>
@@ -75,7 +89,9 @@ const FooterMobile = () => {
                     src='/images/flag-uae.svg'
                     alt=''
                   />
-                  <h3 className={classes.officeTitle}>Dubai office</h3>
+                  <h3 className={classes.officeTitle}>
+                    {t('common:footer.dubai office')}
+                  </h3>
                 </div>
               </a>
               <address className={classes.officeContent}>
@@ -105,7 +121,9 @@ const FooterMobile = () => {
                     src='/images/flag-ch.svg'
                     alt=''
                   />
-                  <h3 className={classes.officeTitle}>Lugano office</h3>
+                  <h3 className={classes.officeTitle}>
+                    {t('common:footer.lugano office')}
+                  </h3>
                 </div>
               </a>
               <address className={classes.officeContent}>
@@ -133,7 +151,7 @@ const FooterMobile = () => {
                   src='/images/flag-uae.svg'
                   alt=''
                 />
-                <p className={classes.localsName}>UAE</p>
+                <p className={classes.localsName}>{t('common:footer.uae')}</p>
               </a>
             </li>
             <li>
@@ -143,7 +161,9 @@ const FooterMobile = () => {
                   src='/images/flag-uz.svg'
                   alt=''
                 />
-                <p className={classes.localsName}>Uzbekistan</p>
+                <p className={classes.localsName}>
+                  {t('common:footer.uzbekistan')}
+                </p>
               </a>
             </li>
             <li>
@@ -153,7 +173,9 @@ const FooterMobile = () => {
                   src='/images/flag-tm.svg'
                   alt=''
                 />
-                <p className={classes.localsName}>Turkmenistan</p>
+                <p className={classes.localsName}>
+                  {t('common:footer.turkmenistan')}
+                </p>
               </a>
             </li>
             <li>
@@ -163,7 +185,9 @@ const FooterMobile = () => {
                   src='/images/flag-tr.svg'
                   alt=''
                 />
-                <p className={classes.localsName}>Turkey</p>
+                <p className={classes.localsName}>
+                  {t('common:footer.turkey')}
+                </p>
               </a>
             </li>
             <li>
@@ -173,7 +197,9 @@ const FooterMobile = () => {
                   src='/images/flag-kz.svg'
                   alt=''
                 />
-                <p className={classes.localsName}>Kazakhstan</p>
+                <p className={classes.localsName}>
+                  {t('common:footer.kazakhstan')}
+                </p>
               </a>
             </li>
             <li>
@@ -183,7 +209,9 @@ const FooterMobile = () => {
                   src='/images/flag-rf.svg'
                   alt=''
                 />
-                <p className={classes.localsName}>Russian Federation</p>
+                <p className={classes.localsName}>
+                  {t('common:footer.russia')}
+                </p>
               </a>
             </li>
           </ul>
@@ -191,7 +219,8 @@ const FooterMobile = () => {
         <div className={classes.copyright}>
           <div className={classes.copyrightWrapper}>
             <p className={classes.copyrightText}>
-              &copy; 2021 Integral Commodities. All Rights reserved
+              &copy; 2021 Integral Commodities.{' '}
+              {t('common:footer.all rights reserved')}
             </p>
             <ul className={classes.copyrightLinks}>
               <li className={classes.copyrightLinksItem}>
@@ -201,7 +230,7 @@ const FooterMobile = () => {
                   target='_blank'
                   download
                 >
-                  Terms
+                  {t('common:footer.terms')}
                 </a>
               </li>
               <li className={classes.copyrightLinksItem}>
@@ -211,7 +240,7 @@ const FooterMobile = () => {
                   target='_blank'
                   download
                 >
-                  Privacy
+                  {t('common:footer.privacy')}
                 </a>
               </li>
             </ul>

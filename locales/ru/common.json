@@ -4,7 +4,8 @@
     "type": "Тип",
     "grade": "Марка",
     "producer": "Производитель",
-    "mfr (216)": "ПТР (2)",
+    "mfr 216": "ПТР",
+    "mfr (216)": "ПТР (2.16)",
     "mfr (5)": "ПТР (5)",
     "density": "Плотность",
     "processing method": "Категория применения",
@@ -174,6 +175,7 @@
   "latestOffersTitle": "Последние предложения",
   "noLatestOffers": "Последних заказов пока нет!",
   "offerFields": {
+    "dates": "Даты",
     "date of offer": "Дата",
     "grade": "Марка",
     "place of delivery": "Место доставки",
@@ -190,7 +192,7 @@
     "dubai office": "Дубай",
     "lugano office": "Лугано",
     "uae": "ОАЭ",
-    "uzbekistan": "Узбекмстан",
+    "uzbekistan": "Узбекистан",
     "turkmenistan": "Туркменистан",
     "turkey": "Турция",
     "kazakhstan": "Казахстан",
@@ -201,5 +203,11 @@
   },
   "noProducts": "Указаных товаров в каталоге нет!",
   "showMore": "Показать еще...",
-  "showLess": "Скрыть"
+  "showLess": "Скрыть",
+  "filtersBtn": "Фильтры",
+  "showBtn": "Показать",
+  "clearBtn": "Очистить фильтры",
+  "productsText1": "товар",
+  "productsText2": "товарa",
+  "productsText3": "товаров"
 }

@@ -57,36 +57,32 @@ function Footer() {
             </h3>
             <ul className='footer__links-list'>
               <li className='footer__list-item'>
-                <a
-                  href='/about-us'
-                  className={cn('footer__link', linkClasses.link)}
-                >
-                  <Trans i18nKey='common:menu.about us' />
-                </a>
+                <Link href='/about-us'>
+                  <a className={cn('footer__link', linkClasses.link)}>
+                    {t('common:menu.about us')}
+                  </a>
+                </Link>
               </li>
               <li className='footer__list-item'>
-                <a
-                  href='/order'
-                  className={cn('footer__link', linkClasses.link)}
-                >
-                  <Trans i18nKey='common:menu.order process' />
-                </a>
+                <Link href='/order'>
+                  <a className={cn('footer__link', linkClasses.link)}>
+                    {t('common:menu.order process')}
+                  </a>
+                </Link>
               </li>
               <li className='footer__list-item'>
-                <a
-                  href='/about-us#futures'
-                  className={cn('footer__link', linkClasses.link)}
-                >
-                  <Trans i18nKey='common:menu.services' />
-                </a>
+                <Link href='/about-us#futures'>
+                  <a className={cn('footer__link', linkClasses.link)}>
+                    {t('common:menu.services')}
+                  </a>
+                </Link>
               </li>
               <li className='footer__list-item'>
-                <a
-                  href='/partners'
-                  className={cn('footer__link', linkClasses.link)}
-                >
-                  <Trans i18nKey='common:menu.partners' />
-                </a>
+                <Link href='/partners'>
+                  <a className={cn('footer__link', linkClasses.link)}>
+                    {t('common:menu.partners')}
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -100,21 +96,21 @@ function Footer() {
               <li className='footer__list-item'>
                 <Link href='/products/fertilizers/urea-grade-b-'>
                   <a className={cn('footer__link', linkClasses.link)}>
-                    <Trans i18nKey='common:fertilizers.urea grade “b”' />
+                    {t('common:fertilizers.urea grade “b”')}
                   </a>
                 </Link>
               </li>
               <li className='footer__list-item'>
                 <Link href='/products/fertilizers/potassium-chloride'>
                   <a className={cn('footer__link', linkClasses.link)}>
-                    <Trans i18nKey='common:fertilizers.potassium chloride' />
+                    {t('common:fertilizers.potassium chloride')}
                   </a>
                 </Link>
               </li>
               <li className='footer__list-item'>
                 <Link href='/products/fertilizers/ammophos'>
                   <a className={cn('footer__link', linkClasses.link)}>
-                    <Trans i18nKey='common:fertilizers.ammophos' />
+                    {t('common:fertilizers.ammophos')}
                   </a>
                 </Link>
               </li>

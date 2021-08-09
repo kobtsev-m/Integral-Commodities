@@ -1,9 +1,9 @@
 {
   "tabs": {
     "confirm deal": "Подтверждение сделки",
-    "confirm general terms": "Подтверждение положений",
+    "confirm general terms": "Подтверждение условий использования",
     "provide kyc": "KYC",
-    "make a payment": "Произведение патежа",
+    "make a payment": "Оплата",
     "track order": "Отслеживание заказа"
   },
   "step1": {

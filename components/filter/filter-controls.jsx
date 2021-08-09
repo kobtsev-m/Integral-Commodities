@@ -5,6 +5,7 @@ import classes from './filter-controls.module.css';
 import SliderMenu from '../slider-menu/slider-menu';
 import FilterMenu from './filter-menu';
 import { getProductsBySearchStringApi } from '../../api/api';
+import useTranslation from 'next-translate/useTranslation';
 
 const FilterControls = (props) => {
   const {
@@ -19,6 +20,8 @@ const FilterControls = (props) => {
   const [searchValue, setSearchValue] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
+
+  const { t } = useTranslation();
 
   const handleMenuClose = () => {
     setIsFilterOpen(false);
@@ -42,7 +45,7 @@ const FilterControls = (props) => {
           className={cn(classes.button, classes.filterButton)}
           onClick={() => setIsFilterOpen(true)}
         >
-          Filters
+          {t('common:filtersBtn')}
         </button>
         <form
           className={cn({ [classes.searchForm_active]: isSearchActive })}
@@ -65,7 +68,7 @@ const FilterControls = (props) => {
         </form>
       </div>
       <SliderMenu
-        title='Filters'
+        title={t('common:filtersBtn')}
         open={isFilterOpen}
         onClose={handleMenuClose}
       >

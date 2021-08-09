@@ -4,6 +4,7 @@
     "type": "Type",
     "grade": "Grade",
     "producer": "Producer",
+    "mfr 216": "MFR",
     "mfr (216)": "MFR (2)",
     "mfr (5)": "MFR (5)",
     "density": "Density",
@@ -175,6 +176,7 @@
   "latestOffersTitle": "Latest offers",
   "noLatestOffers": "There is no latest offers!",
   "offerFields": {
+    "dates": "Dates",
     "date of offer": "Date of offer",
     "grade": "Grade",
     "place of delivery": "Place of delivery",
@@ -202,5 +204,11 @@
   },
   "noProducts": "There is no products!",
   "showMore": "Show more...",
-  "showLess": "Show less"
+  "showLess": "Show less",
+  "filtersBtn": "Filters",
+  "showBtn": "Show",
+  "clearBtn": "Clear filters",
+  "productsText1": "product",
+  "productsText2": "products",
+  "productsText3": "products"
 }

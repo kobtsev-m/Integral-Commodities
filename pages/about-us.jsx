@@ -234,7 +234,7 @@ function AboutPage() {
                   className='event__link'
                   target='_blank'
                 >
-                  more →
+                  <Trans i18nKey='about:caspianWeek.more' /> →
                 </a>
               </div>
             </li>
@@ -249,7 +249,7 @@ function AboutPage() {
                   className='event__link'
                   target='_blank'
                 >
-                  more →
+                  <Trans i18nKey='about:caspianWeek.more' /> →
                 </a>
               </div>
             </li>

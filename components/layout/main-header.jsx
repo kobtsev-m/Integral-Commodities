@@ -23,11 +23,11 @@ function MainHeader() {
   const getLanguageButtonHtml = () => {
     return lang === 'en' ? (
       <>
-        <strong>EN</strong> / RU
+        <span style={{ color: '#02569C' }}>ENG</span> / РУС
       </>
     ) : (
       <>
-        EN / <strong>RU</strong>
+        ENG / <span style={{ color: '#02569C' }}>РУС</span>
       </>
     );
   };
@@ -39,7 +39,16 @@ function MainHeader() {
           <span className='logo logo_place_header' />
         </Link>
         <div className='d-flex align-items-center'>
-          <button className='btn shadow-none me-5' onClick={changeLanguage}>
+          <button
+            className='btn shadow-none me-5 d-none d-sm-block'
+            onClick={changeLanguage}
+          >
+            {getLanguageButtonHtml()}
+          </button>
+          <button
+            className='btn btn-sm shadow-none me-3 d-block d-sm-none'
+            onClick={changeLanguage}
+          >
             {getLanguageButtonHtml()}
           </button>
           <button className='header__menu-button' onClick={toggleMenu} />

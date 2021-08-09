@@ -5,6 +5,8 @@ import { getLatLng } from 'react-places-autocomplete';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
 
 import { mapContainerStyle } from './settings/base-settings';
 import { mapCenter, mapZoom, mapOptions } from './settings/base-settings';
@@ -15,8 +17,6 @@ import PlacesSearch from 'components/other-blocks/places-search/places-search';
 import { Global } from '@emotion/react';
 import cn from 'classnames';
 import styles from './price-map.module.css';
-import useTranslation from 'next-translate/useTranslation';
-import Trans from 'next-translate/Trans';
 
 const MAP_FILTERS = ['prices', 'availability'];
 
@@ -113,7 +113,9 @@ function PriceMap({ ports, factories, onAskForQuote }) {
                 </p>
                 {activeFilter !== 'availability' && activePlace.incoterms && (
                   <p className={cn(styles.infoWindow__text, 'mb-1')}>
-                    Incoterms: {activePlace.incoterms}
+                    <Trans i18nKey='calculator:fields.incoterms' />
+                    {': '}
+                    {activePlace.incoterms}
                   </p>
                 )}
                 <span

@@ -40,7 +40,9 @@ function AskForQuote({ products }) {
         onHide={() => setModalShow(false)}
       >
         <Modal.Header>
-          <Modal.Title>Ask for quote</Modal.Title>
+          <Modal.Title>
+            <Trans i18nKey='common:askForQuote.button' />
+          </Modal.Title>
           <button
             className='btn-close shadow-none me-1'
             onClick={() => setModalShow(false)}
