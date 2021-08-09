@@ -3,10 +3,10 @@ import stylesUI from 'pages/order/order-ui.module.css';
 
 function SubmitBlock({ formErrors, isFormValid }) {
   return (
-    <div className={'row mt-5'}>
-      <div className={'position-relative d-flex justify-content-center'}>
+    <div className='row mt-5'>
+      <div className='position-relative d-flex justify-content-center'>
         <button
-          type={'submit'}
+          type='submit'
           className={cn(stylesUI.btn, {
             [stylesUI.blue]: isFormValid(),
             [stylesUI.red]: !isFormValid()

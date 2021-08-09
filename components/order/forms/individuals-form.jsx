@@ -5,14 +5,17 @@ import TextField from '../fields/text-field';
 import FileField from '../fields/file-field';
 import { initialIndividualsFormData } from '../validation/individuals-form-data';
 import { individualsFormSchema } from '../validation/individuals-form-data';
+import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
 import stylesUI from 'pages/order/order-ui.module.css';
 
-function IndividualsForm(props) {
+function IndividualsForm() {
   const [formData, setFormData] = useState(initialIndividualsFormData);
   const [formErrors, setFormErrors] = useState({});
   const [touchedFields, setTouchedFields] = useState([]);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     individualsFormSchema
@@ -59,35 +62,35 @@ function IndividualsForm(props) {
 
   return (
     <form onSubmit={handleSubmit} className={stylesUI.step3__form}>
-      <FieldsBlockWrapper label={'Counterparty details'}>
-        <div className={'row g-0'}>
+      <FieldsBlockWrapper label={t('order:step3.counterparty details')}>
+        <div className='row g-0'>
           <TextField
-            name={'full_name'}
-            placeholder={'Name Surname'}
+            name='full_name'
+            placeholder={t('order:step3.name surname')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
             errors={formErrors}
           />
           <TextField
-            name={'birth_date_and_place'}
-            placeholder={'Date & Place of birth'}
+            name='birth_date_and_place'
+            placeholder={t('order:step3.name surname')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
             errors={formErrors}
           />
           <TextField
-            name={'residential_address'}
-            placeholder={'Residential address'}
+            name='residential_address'
+            placeholder={t('order:step3.name surname')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
             errors={formErrors}
           />
           <TextField
-            name={'email'}
-            placeholder={'Your e-mail'}
+            name='email'
+            placeholder={t('order:step3.email')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -95,11 +98,11 @@ function IndividualsForm(props) {
           />
         </div>
       </FieldsBlockWrapper>
-      <FieldsBlockWrapper label={'Documents required'}>
-        <div className={'row g-0'}>
+      <FieldsBlockWrapper label={t('order:step3.documents required')}>
+        <div className='row g-0'>
           <FileField
-            name={'passport_file'}
-            label={'Passport or another document confirming the identity'}
+            name='passport_file'
+            label={t('order:step3.passport')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -107,10 +110,8 @@ function IndividualsForm(props) {
             errors={formErrors}
           />
           <FileField
-            name={'utility_bill_file'}
-            label={
-              'Utility bill indicating the address (dated within the last 3 months)'
-            }
+            name='utility_bill_file'
+            label={t('order:step3.utility bill')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -118,8 +119,8 @@ function IndividualsForm(props) {
             errors={formErrors}
           />
           <FileField
-            name={'bank_reference_letter_file'}
-            label={'Bank reference letter (dated within the last 3 months)'}
+            name='bank_reference_letter_file'
+            label={t('order:step3.bank reference dated')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -128,23 +129,20 @@ function IndividualsForm(props) {
           />
         </div>
       </FieldsBlockWrapper>
-      <div className={'row mt-5'}>
-        <div className={'position-relative d-flex justify-content-center'}>
+      <div className='row mt-5'>
+        <div className='position-relative d-flex justify-content-center'>
           <button
-            type={'submit'}
+            type='submit'
             className={cn(stylesUI.btn, {
               [stylesUI.blue]: isFormValid(),
               [stylesUI.red]: !isFormValid()
             })}
           >
-            Send KYC Documents
+            {t('order:step3.submit button')}
           </button>
           {!isFormValid() && (
             <div className={cn(stylesUI.errorSpan, stylesUI.above)}>
-              {Object.keys(formErrors).length}
-              {Object.keys(formErrors).length > 1
-                ? ' fields were filled incorrect'
-                : ' field was filled incorrect'}
+              {t('order:step3.incorrect fields')}
             </div>
           )}
         </div>

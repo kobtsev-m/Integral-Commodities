@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
 import useWindowDimensions from 'utils/hooks/useWindowDemensions';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
 import styles from './product-tabs.module.css';
@@ -16,51 +18,60 @@ function ProductBottomTabs(props) {
   const [firstElementOffset, setFirstElementOffset] = useState(0);
   const tabsElements = useRef();
   const activeTabLine = useRef();
+
+  const { lang } = useTranslation();
   const size = useWindowDimensions();
 
   useEffect(() => {
     const tabs = tabsElements.current.children;
+    console.log(tabs[0]);
     setFirstElementOffset(tabs[0].getBoundingClientRect().x);
   }, [size]);
 
   useEffect(() => {
-    const activeTab = tabsElements.current
+    const activeTabSizes = tabsElements.current
       .getElementsByClassName(styles.tabItem_active)[0]
       .getBoundingClientRect();
 
     setClippingRect(
       activeTabLine.current,
-      activeTab.width,
-      activeTab.left - firstElementOffset
+      activeTabSizes.width,
+      activeTabSizes.left - firstElementOffset
     );
-  }, [size, firstElementOffset, props.activeTab]);
+  }, [lang, firstElementOffset, activeTab]);
 
   return (
-    <ul className={cn('sticky-top', styles.tabsList)} ref={tabsElements}>
-      <span
-        ref={activeTabLine}
-        style={{
-          width: 100,
-          height: 2,
-          position: 'absolute',
-          backgroundColor: 'var(--p-blue)',
-          bottom: 0,
-          left: 0,
-          transition: '200ms ease'
-        }}
-      />
-      {tabs.map((tab) => (
-        <li
-          key={`tab-${nanoid()}`}
-          className={cn(styles.tabItem, {
-            [styles.tabItem_active]: tab === activeTab
-          })}
-          onClick={() => handleTabClick(tab)}
-        >
-          {tab}
-        </li>
-      ))}
-    </ul>
+    <div className={cn(styles.tabsList__wrapper, 'sticky-top')}>
+      <ul className={styles.tabsList} ref={tabsElements}>
+        <span
+          ref={activeTabLine}
+          style={{
+            width: 100,
+            height: 2,
+            position: 'absolute',
+            backgroundColor: 'var(--p-blue)',
+            bottom: 0,
+            left: 0,
+            transition: '200ms ease'
+          }}
+        />
+        {tabs.map((tab) => (
+          <li
+            key={nanoid()}
+            className={cn(styles.tabItem, {
+              [styles.tabItem_active]: tab === activeTab
+            })}
+          >
+            <button
+              className={styles.tabsList__button}
+              onClick={() => handleTabClick(tab)}
+            >
+              <Trans i18nKey={`product:tabs.${tab.toLowerCase()}`} />
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

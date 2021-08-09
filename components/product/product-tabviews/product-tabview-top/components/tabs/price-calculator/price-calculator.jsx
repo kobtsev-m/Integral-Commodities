@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import FieldWrapper from './common/field-wrapper';
 import AdditionalInfoField from './fields/additional-info-field';
 import ContactsField from './fields/contacts-field';
@@ -23,13 +24,21 @@ function PriceCalculator(props) {
   const { initialFormData, isEmbed, ...restProps } = props;
 
   const router = useRouter();
+  const { t } = useTranslation();
+
   const products = isEmbed ? restProps.products : null;
   const productId = isEmbed ? null : restProps.productId;
 
   const newFormData = {
     ...initialFormData,
-    product_id: isEmbed ? null : productId
+    product_id: isEmbed ? null : productId,
+    terms_of_payment: t(
+      `calculator:options.${initialFormData.terms_of_payment}`
+    )
   };
+  const paymentTermsValuesUpdated = paymentTermsValues.map((val) =>
+    t(`calculator:options.${val}`)
+  );
 
   const [formData, setFormData] = useState(newFormData);
   const [formErrors, setFormErrors] = useState({});
@@ -91,15 +100,19 @@ function PriceCalculator(props) {
       });
   };
 
+  const getErrorsLen = () => {
+    return Object.keys(formErrors).length > 1 ? 'many' : 'single';
+  };
+
   return (
     <form onSubmit={handleSubmit} className={styles.container}>
       {products && (
-        <div className={'row gx-5'}>
-          <div className={'col-12 col-md-6'}>
-            <FieldWrapper title={'Grade'}>
+        <div className='row gx-5'>
+          <div className='col-12 col-md-6'>
+            <FieldWrapper title={t('calculator:fields.grade')}>
               <ProductField
-                name={'product_id'}
-                placeholder={'Type grade of product'}
+                name='product_id'
+                placeholder={t('calculator:fields.type product grade')}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 errors={formErrors}
@@ -109,109 +122,107 @@ function PriceCalculator(props) {
           </div>
         </div>
       )}
-      <div className={'row gx-5 mt-4 mt-md-5'}>
-        <div className={'col-12 col-md-6'}>
-          <FieldWrapper title={'Place of delivery'}>
+      <div className='row gx-5 mt-4 mt-md-5'>
+        <div className='col-12 col-md-6'>
+          <FieldWrapper title={t('calculator:fields.place of delivery')}>
             <PlaceField
-              name={'place_of_delivery'}
-              placeholder={'Type your place of delivery'}
+              name='place_of_delivery'
+              placeholder={t('calculator:fields.search place of delivery')}
               onChange={handleChange}
-              defaultValue={initialFormData.place_of_delivery}
+              defaultValue={newFormData.place_of_delivery}
             />
           </FieldWrapper>
         </div>
-        <div className={'col-12 col-md-6 mt-4 mt-md-0'}>
-          <FieldWrapper title={'Quantity'}>
+        <div className='col-12 col-md-6 mt-4 mt-md-0'>
+          <FieldWrapper title={t('calculator:fields.quantity')}>
             <QuantityField
-              name={'quantity'}
-              type={'number'}
-              placeholder={'50 e.g.'}
+              name='quantity'
+              type='number'
+              placeholder='50 e.g.'
               onChange={handleChange}
-              defaultValue={initialFormData.quantity}
+              defaultValue={newFormData.quantity}
             />
           </FieldWrapper>
         </div>
       </div>
-      <div className={'row gx-5 mt-4 mt-md-5'}>
-        <FieldWrapper title={'Incoterms'}>
+      <div className='row gx-5 mt-4 mt-md-5'>
+        <FieldWrapper title={t('calculator:fields.incoterms')}>
           <IncotermsField
-            name={'incoterms'}
+            name='incoterms'
             values={incotermsValues}
             onChange={handleChange}
-            defaultValue={initialFormData.incoterms}
+            defaultValue={newFormData.incoterms}
           />
         </FieldWrapper>
       </div>
-      <div className={'row gx-5 mt-4 mt-md-5'}>
-        <div className={'col-12 col-md-6'}>
-          <FieldWrapper title={'Terms of payment'}>
+      <div className='row gx-5 mt-4 mt-md-5'>
+        <div className='col-12 col-md-6'>
+          <FieldWrapper title={t('calculator:fields.terms of payment')}>
             <PaymentTermsField
-              name={'terms_of_payment'}
-              values={paymentTermsValues}
+              name='terms_of_payment'
+              values={paymentTermsValuesUpdated}
               onChange={handleChange}
-              defaultValue={initialFormData.terms_of_payment}
+              defaultValue={newFormData.terms_of_payment}
             />
           </FieldWrapper>
         </div>
-        <div className={'col-12 col-md-6 mt-4 mt-md-0'}>
-          <FieldWrapper title={'Delivery period'}>
+        <div className='col-12 col-md-6 mt-4 mt-md-0'>
+          <FieldWrapper title={t('calculator:fields.delivery period')}>
             <PeriodField
-              name={'delivery_periods'}
+              name='delivery_periods'
               onChange={handleChange}
-              defaultValue={initialFormData.delivery_periods}
+              defaultValue={newFormData.delivery_periods}
               isEmbed={isEmbed}
             />
           </FieldWrapper>
         </div>
       </div>
-      <div className={'row gx-5 mt-4 mt-md-5'}>
-        <div className={'col-12 col-md-6'}>
-          <FieldWrapper title={'Additional information'}>
+      <div className='row gx-5 mt-4 mt-md-5'>
+        <div className='col-12 col-md-6'>
+          <FieldWrapper title={t('calculator:fields.additional information')}>
             <AdditionalInfoField
-              name={'additional_information'}
-              placeholder={'Company name, order requirements'}
+              name='additional_information'
+              placeholder={t('calculator:fields.additional text')}
               rows={4}
               onChange={handleChange}
-              defaultValue={initialFormData.additional_information}
+              defaultValue={newFormData.additional_information}
             />
           </FieldWrapper>
         </div>
-        <div className={'col-12 col-md-6 mt-4 mt-md-0'}>
-          <FieldWrapper title={'Contact information'}>
+        <div className='col-12 col-md-6 mt-4 mt-md-0'>
+          <FieldWrapper title={t('calculator:fields.contact information')}>
             <ContactsField
-              name={'contacts'}
+              name='contacts'
               onChange={handleChange}
               onBlur={handleBlur}
               errors={formErrors}
-              defaultValue={initialFormData.contacts}
+              defaultValue={newFormData.contacts}
             />
           </FieldWrapper>
         </div>
       </div>
 
-      <div className={'row'}>
+      <div className='row'>
         <div className={styles.submitBlock}>
           <button
-            type={'submit'}
+            type='submit'
             className={cn(stylesUI.btn, stylesUI.large, {
               [stylesUI.isInvalid]: !isFormValid(),
               [stylesUI.orange]: isFormValid(),
               [stylesUI.red]: !isFormValid()
             })}
           >
-            Ask for quote
+            {t('common:askForQuote.button')}
           </button>
-          <div className={'mt-3'}>
+          <div className='mt-3'>
             <span className={styles.submitBlock__helpText}>
-              We will revert within 48 hours
+              {t('calculator:fields.we will revert')}
             </span>
           </div>
           {!isFormValid() && (
             <div className={cn(stylesUI.errorSpan, stylesUI.above)}>
-              {Object.keys(formErrors).length}
-              {' required '}
-              {Object.keys(formErrors).length > 1 ? 'fields are' : 'field is'}
-              {' not completed'}
+              {Object.keys(formErrors).length + ' '}
+              {t(`calculator:fields.not completed ${getErrorsLen()}`)}
             </div>
           )}
         </div>

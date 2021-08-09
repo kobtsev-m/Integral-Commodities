@@ -1,17 +1,17 @@
 .products__tab {
-  width: 137px;
+    width: 170px;
 }
 
 .products__tab:not(:last-child) {
-  margin-right: 125px;
+    margin-right: 115px;
 }
 
 @media screen and (max-width: 768px) {
-  .products__tab {
-    width: unset;
-  }
+    .products__tab {
+        width: unset;
+    }
 
-  .products__tab:not(:last-child) {
-    margin: 0;
-  }
+    .products__tab:not(:last-child) {
+        margin: 0;
+    }
 }

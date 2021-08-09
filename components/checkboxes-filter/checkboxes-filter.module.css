@@ -8,7 +8,7 @@
 }
 
 .checkboxFilter {
-    margin-right: 40px;
+    margin-right: 26px;
 }
 
 .checkboxFilter__dropDownBtn {
@@ -16,7 +16,7 @@
     background: transparent url('../../public/images/icon-rollup.svg')
         no-repeat 100% center;
     background-size: 10px 6px;
-    padding: 0 20px 0 0;
+    padding: 0 18px 0 0;
     font-family: var(--font-montserrat);
     font-size: 16px;
     color: var(--grey);

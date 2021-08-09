@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import Trans from 'next-translate/Trans';
 import styles from './toggle-link.module.css';
 
 function ToggleLink({ linkElement, biggerShift, onClick }) {
@@ -10,7 +11,7 @@ function ToggleLink({ linkElement, biggerShift, onClick }) {
       )}
     >
       <span className={styles.toggleLink__text} onClick={onClick}>
-        {linkElement.name}
+        <Trans i18nKey={`common:menu.${linkElement.name.toLowerCase()}`} />
         <div className={styles.toggleLink__textArrow} />
       </span>
     </div>

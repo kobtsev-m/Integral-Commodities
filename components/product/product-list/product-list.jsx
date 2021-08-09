@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 
 import ProductCard from '../product-card/product-card';
 import styles from './styles.module.css';
+import Trans from 'next-translate/Trans';
 
 const PRODUCTS_TO_SHOW_STEP = 8;
 
@@ -21,12 +22,16 @@ function ProductsList({ products }) {
   };
 
   if (!products.length) {
-    return <h2>There are no products!</h2>;
+    return (
+      <h2>
+        <Trans i18nKey='common:noProducts' />
+      </h2>
+    );
   }
 
   return (
     <>
-      <ul className={'products__list'}>
+      <ul className='products__list'>
         {products.slice(0, productsToShow).map((product) => (
           <ProductCard key={nanoid()} product={product} />
         ))}
@@ -36,7 +41,7 @@ function ProductsList({ products }) {
           className={styles.showMoreBtn}
           onClick={handleShowMoreButtonClick}
         >
-          Show more...
+          <Trans i18nKey='common:showMore' />
         </button>
       )}
     </>

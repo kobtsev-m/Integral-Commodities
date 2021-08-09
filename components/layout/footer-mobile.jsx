@@ -10,13 +10,13 @@ const FooterMobile = () => {
             <h3 className={classes.linksHeader}>Polymers</h3>
             <ul className={classes.linksList}>
               <li className={classes.linksItem}>
-                <Link href="/products/polymers?type=HDPE">HDPE</Link>
+                <Link href='/products/polymers?type=HDPE'>HDPE</Link>
               </li>
               <li className={classes.linksItem}>
-                <Link href="/products/polymers?type=LDPE">LDPE</Link>
+                <Link href='/products/polymers?type=LDPE'>LDPE</Link>
               </li>
               <li className={classes.linksItem}>
-                <Link href="/products/polymers?type=PP">PP</Link>
+                <Link href='/products/polymers?type=PP'>PP</Link>
               </li>
             </ul>
           </div>
@@ -24,10 +24,10 @@ const FooterMobile = () => {
             <h3 className={classes.linksHeader}>Fertilizers</h3>
             <ul className={classes.linksList}>
               <li className={classes.linksItem}>
-                <Link href="/products/id/9?tab=product">Urea “B”</Link>
+                <Link href='/products/id/9?tab=product'>Urea “B”</Link>
               </li>
               <li className={classes.linksItem}>
-                <Link href="/products/id/10?tab=product">
+                <Link href='/products/id/10?tab=product'>
                   Potassium chloride
                 </Link>
               </li>
@@ -37,7 +37,7 @@ const FooterMobile = () => {
             <h3 className={classes.linksHeader}>Sulphur</h3>
             <ul className={classes.linksList}>
               <li className={classes.linksItem}>
-                <Link href="/products/sulphur">Sulphur lump</Link>
+                <Link href='/products/sulphur'>Sulphur lump</Link>
               </li>
             </ul>
           </div>
@@ -45,21 +45,21 @@ const FooterMobile = () => {
             <h3 className={classes.linksHeader}>Pages</h3>
             <ul className={classes.linksList}>
               <li className={classes.linksItem}>
-                <Link href="/about-us">
+                <Link href='/about-us'>
                   <a>About</a>
                 </Link>
               </li>
               <li className={classes.linksItem}>
-                <Link href="/order/step-1">
+                <Link href='/order/step-1'>
                   <a>Order process</a>
                 </Link>
               </li>
               <li className={classes.linksItem}>
-                <a href="/about-us#futures">Services</a>
+                <a href='/about-us#futures'>Services</a>
               </li>
               <li className={classes.linksItem}>
-                <Link href="/partners">
-                  <a href="">Partners</a>
+                <Link href='/partners'>
+                  <a href=''>Partners</a>
                 </Link>
               </li>
             </ul>
@@ -68,12 +68,12 @@ const FooterMobile = () => {
         <div className={classes.offices}>
           <ul className={classes.officesList}>
             <li className={classes.officesItem}>
-              <a href="/about-us#dubai">
+              <a href='/about-us#dubai'>
                 <div className={classes.officeHeader}>
                   <img
                     className={classes.officeImage}
-                    src="/images/flag-uae.svg"
-                    alt=""
+                    src='/images/flag-uae.svg'
+                    alt=''
                   />
                   <h3 className={classes.officeTitle}>Dubai office</h3>
                 </div>
@@ -81,29 +81,29 @@ const FooterMobile = () => {
               <address className={classes.officeContent}>
                 Platinum Tower , 3905, JLT
               </address>
-              <a className={classes.officeContent} href="tel:+97145667713">
+              <a className={classes.officeContent} href='tel:+97145667713'>
                 T: +971 4 566 7713
               </a>
               <a
                 className={classes.officeContent}
-                href="mailto:info@integral-commodities.ch"
+                href='mailto:info@integral-commodities.ch'
               >
                 info@integral-commodities.ch
               </a>
               <a
                 className={classes.officeContent}
-                href="mailto:sales@integral-commodities.ch"
+                href='mailto:sales@integral-commodities.ch'
               >
                 sales@integral-commodities.ch
               </a>
             </li>
             <li className={classes.officesItem}>
-              <a href="/about-us#lugano">
+              <a href='/about-us#lugano'>
                 <div className={classes.officeHeader}>
                   <img
                     className={classes.officeImage}
-                    src="/images/flag-ch.svg"
-                    alt=""
+                    src='/images/flag-ch.svg'
+                    alt=''
                   />
                   <h3 className={classes.officeTitle}>Lugano office</h3>
                 </div>
@@ -111,12 +111,12 @@ const FooterMobile = () => {
               <address className={classes.officeContent}>
                 Via F. Pelli 13 B. 6900 Lugano, Switzerland
               </address>
-              <a className={classes.officeContent} href="tel:+41912083157">
+              <a className={classes.officeContent} href='tel:+41912083157'>
                 T: +41912083157
               </a>
               <a
                 className={classes.officeContent}
-                href="mailto:lugano@integral-commodities.ch"
+                href='mailto:lugano@integral-commodities.ch'
               >
                 lugano@integral-commodities.ch
               </a>
@@ -127,61 +127,61 @@ const FooterMobile = () => {
           <h3 className={classes.localsHeader}>Local representatives</h3>
           <ul className={classes.localsList}>
             <li>
-              <a className={classes.localsItem} href="/about-us#dubai">
+              <a className={classes.localsItem} href='/about-us#dubai'>
                 <img
                   className={classes.localsImage}
-                  src="/images/flag-uae.svg"
-                  alt=""
+                  src='/images/flag-uae.svg'
+                  alt=''
                 />
                 <p className={classes.localsName}>UAE</p>
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about-us#uzbekistan">
+              <a className={classes.localsItem} href='/about-us#uzbekistan'>
                 <img
                   className={classes.localsImage}
-                  src="/images/flag-uz.svg"
-                  alt=""
+                  src='/images/flag-uz.svg'
+                  alt=''
                 />
                 <p className={classes.localsName}>Uzbekistan</p>
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about-us#turkmenistan">
+              <a className={classes.localsItem} href='/about-us#turkmenistan'>
                 <img
                   className={classes.localsImage}
-                  src="/images/flag-tm.svg"
-                  alt=""
+                  src='/images/flag-tm.svg'
+                  alt=''
                 />
                 <p className={classes.localsName}>Turkmenistan</p>
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about-us#turkey">
+              <a className={classes.localsItem} href='/about-us#turkey'>
                 <img
                   className={classes.localsImage}
-                  src="/images/flag-tr.svg"
-                  alt=""
+                  src='/images/flag-tr.svg'
+                  alt=''
                 />
                 <p className={classes.localsName}>Turkey</p>
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about-us#kazakhstan">
+              <a className={classes.localsItem} href='/about-us#kazakhstan'>
                 <img
                   className={classes.localsImage}
-                  src="/images/flag-kz.svg"
-                  alt=""
+                  src='/images/flag-kz.svg'
+                  alt=''
                 />
                 <p className={classes.localsName}>Kazakhstan</p>
               </a>
             </li>
             <li>
-              <a className={classes.localsItem} href="/about-us#russia">
+              <a className={classes.localsItem} href='/about-us#russia'>
                 <img
                   className={classes.localsImage}
-                  src="/images/flag-rf.svg"
-                  alt=""
+                  src='/images/flag-rf.svg'
+                  alt=''
                 />
                 <p className={classes.localsName}>Russian Federation</p>
               </a>
@@ -197,8 +197,8 @@ const FooterMobile = () => {
               <li className={classes.copyrightLinksItem}>
                 <a
                   className={classes.copyrightLink}
-                  href={'/documents/terms.pdf'}
-                  target={'_blank'}
+                  href='/documents/terms.pdf'
+                  target='_blank'
                   download
                 >
                   Terms
@@ -207,8 +207,8 @@ const FooterMobile = () => {
               <li className={classes.copyrightLinksItem}>
                 <a
                   className={classes.copyrightLink}
-                  href={'/documents/privacy.pdf'}
-                  target={'_blank'}
+                  href='/documents/privacy.pdf'
+                  target='_blank'
                   download
                 >
                   Privacy

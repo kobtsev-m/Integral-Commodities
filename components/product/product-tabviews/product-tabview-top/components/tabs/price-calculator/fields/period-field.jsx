@@ -7,8 +7,10 @@ import cn from 'classnames';
 import stylesUI from 'components/ui/custom-ui.module.css';
 
 import { getFutureDate, getWeeksRangeList } from 'utils/date-utils';
-import { getMonthsOffsetList, formatWeekDM } from 'utils/date-utils';
 import { calendarWeeksAfter } from '../options/options';
+import { capitalize } from 'utils/string-utils';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
 
 function PeriodField(props) {
   const [datesRanges, setDatesRanges] = useState(props.defaultValue);
@@ -22,13 +24,20 @@ function PeriodField(props) {
   const customCheckboxLabel = useRef();
   const calendarScrollbox = useRef();
 
+  const { lang } = useTranslation();
+
   useEffect(() => {
     const weeksRangeList = getWeeksRangeList(calendarWeeksAfter);
     setWeeks(weeksRangeList);
-    const monthsOffsetList = getMonthsOffsetList(weeksRangeList);
-    setMonths(monthsOffsetList);
-    setCurrentMonth(monthsOffsetList[0]);
   }, []);
+
+  useEffect(() => {
+    if (weeks.length) {
+      const monthsOffsetList = getMonthsOffsetList(weeks);
+      setMonths(monthsOffsetList);
+      setCurrentMonth(monthsOffsetList[currentMonth?.id ?? 0]);
+    }
+  }, [weeks, lang]);
 
   useEffect(() => {
     props.onChange({ [props.name]: datesRanges });
@@ -107,8 +116,36 @@ function PeriodField(props) {
     }
   };
 
+  const getMonthName = (date) => {
+    return capitalize(date.toLocaleString(lang, { month: 'long' }));
+  };
+
+  const getMonthsOffsetList = (weeks) => {
+    let weekAttitude = 1 / weeks.length;
+    let months = [];
+    let currMonth = null;
+    for (let i = 0; i < weeks.length; ++i) {
+      if (currMonth !== weeks[i].range[1].getMonth()) {
+        currMonth = weeks[i].range[1].getMonth();
+        months.push({
+          id: months.length,
+          name: getMonthName(weeks[i].range[1]),
+          year: weeks[i].range[1].getFullYear(),
+          offset: i * weekAttitude
+        });
+      }
+    }
+    return months;
+  };
+
+  const formatWeekDM = (week) => {
+    const day1 = `${week[0].getDate()} ${getMonthName(week[0])}`;
+    const day2 = `${week[1].getDate()} ${getMonthName(week[1])}`;
+    return `${day1} - ${day2}`;
+  };
+
   return (
-    <div className={'row gx-2'}>
+    <div className='row gx-2'>
       <div
         className={cn('col-12 col-lg-5', {
           'col-lg-12': props.isEmbed
@@ -116,24 +153,26 @@ function PeriodField(props) {
       >
         <div>
           <input
-            type={'checkbox'}
+            type='checkbox'
             className={stylesUI.checkboxInput}
             id={`${props.name}_default`}
             onChange={handleDefaultCheckboxClick}
             checked={!isCustom}
           />
-          <label htmlFor={`${props.name}_default`}>8 weeks</label>
+          <label htmlFor={`${props.name}_default`}>
+            <Trans i18nKey='calculator:options.8 weeks' />
+          </label>
         </div>
-        <div className={'mt-2'}>
+        <div className='mt-2'>
           <input
-            type={'checkbox'}
+            type='checkbox'
             className={stylesUI.checkboxInput}
             id={`${props.name}_custom`}
             onChange={handleCustomCheckboxClick}
             checked={isCustom}
           />
           <label ref={customCheckboxLabel} htmlFor={`${props.name}_custom`}>
-            Custom item
+            <Trans i18nKey='calculator:options.custom item' />
           </label>
         </div>
       </div>
@@ -144,24 +183,24 @@ function PeriodField(props) {
           })}
         >
           <div className={cn(stylesUI.calendar, 'py-2 px-3')}>
-            <div className={'d-flex align-items-center'}>
+            <div className='d-flex align-items-center'>
               <div style={{ width: '1.5em' }}>
                 <button
-                  type={'button'}
+                  type='button'
                   className={cn(stylesUI.calendar__chevron, 'btn btn-sm')}
                   onClick={() => handleCustomChevronClick(-1)}
                 >
                   <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
               </div>
-              <div className={'flex-fill d-flex justify-content-center px-2'}>
-                <span className={'text-center'}>
+              <div className='flex-fill d-flex justify-content-center px-2'>
+                <span className='text-center'>
                   {`${currentMonth.name} ${currentMonth.year}`}
                 </span>
               </div>
               <div style={{ width: '1.5em' }}>
                 <button
-                  type={'button'}
+                  type='button'
                   className={cn(stylesUI.calendar__chevron, 'btn btn-sm')}
                   onClick={() => handleCustomChevronClick(1)}
                 >
@@ -169,7 +208,7 @@ function PeriodField(props) {
                 </button>
               </div>
             </div>
-            <div className={'row g-0 mt-2'}>
+            <div className='row g-0 mt-2'>
               {weeks && (
                 <div
                   ref={calendarScrollbox}
@@ -190,13 +229,13 @@ function PeriodField(props) {
                 </div>
               )}
             </div>
-            <div className={'row g-0 my-2'}>
+            <div className='row g-0 my-2'>
               <button
-                type={'button'}
+                type='button'
                 className={cn(stylesUI.btn, stylesUI.orange)}
                 onClick={handleCustomSubmitClick}
               >
-                Done
+                <Trans i18nKey='calculator:fields.done' />
               </button>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import Trans from 'next-translate/Trans';
 
 import styles from './ask-for-quote.module.css';
 
@@ -14,27 +15,25 @@ function AskForQuote({ products }) {
         <div className={styles.contentWrapper}>
           <img
             className={styles.ask__image}
-            src={'/images/icon-attention.svg'}
-            alt={'Attention'}
+            src='/images/icon-attention.svg'
+            alt='Attention'
           />
           <p className={styles.ask__text}>
-            We deliver worldwide door-to-door and offer volume based, contract
-            based and other discounts. Please complete the brief form to
-            receive a custom quote within 24 hours.
+            <Trans i18nKey='common:askForQuote.text' />
           </p>
         </div>
         <div className={styles.buttonWrapper}>
           <button
-            type={'button'}
+            type='button'
             className={styles.ask__link}
             onClick={() => setModalShow(true)}
           >
-            Ask for quote
+            <Trans i18nKey='common:askForQuote.button' />
           </button>
         </div>
       </div>
       <Modal
-        size={'lg'}
+        size='lg'
         scrollable={true}
         centered={true}
         show={modalShow}
@@ -43,12 +42,12 @@ function AskForQuote({ products }) {
         <Modal.Header>
           <Modal.Title>Ask for quote</Modal.Title>
           <button
-            className={'btn-close shadow-none me-1'}
+            className='btn-close shadow-none me-1'
             onClick={() => setModalShow(false)}
           />
         </Modal.Header>
         <Modal.Body>
-          <div className={'container-fluid py-2'}>
+          <div className='container-fluid py-2'>
             <PriceCalculator
               initialFormData={initialOfferFormData}
               isEmbed={true}

@@ -6,20 +6,22 @@ import FileField from '../fields/file-field';
 import SubmitBlock from 'components/common/submit-block';
 import { paymentMethods } from '../validation/payment-form-data';
 import { paymentFormSchema } from '../validation/payment-form-data';
+import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
 import styles from './payment-form.module.css';
 
-function PaymentForm(props) {
+function PaymentForm() {
   const [activeMethod, setActiveMethod] = useState(0);
+  const { t } = useTranslation();
   return (
     <div className={cn(styles.form, 'pb-5')}>
       <div className={styles.checkboxGroup}>
         {paymentMethods.map((methodName, i) => (
           <label key={i} className={styles.checkbox}>
-            <span>{methodName}</span>
+            <span>{t(`order:step4.${methodName.toLowerCase()}`)}</span>
             <input
-              type={'checkbox'}
+              type='checkbox'
               checked={i === activeMethod}
               onChange={() => setActiveMethod(i)}
             />
@@ -27,7 +29,7 @@ function PaymentForm(props) {
           </label>
         ))}
       </div>
-      <div className={'mt-5'}>
+      <div className='mt-5'>
         {activeMethod === 0 || activeMethod === 4 ? (
           <PrepaymentForm activeMethod={activeMethod} />
         ) : activeMethod === 1 || activeMethod === 2 ? (
@@ -45,6 +47,8 @@ const PrepaymentForm = ({ activeMethod }) => {
   const [formErrors, setFormErrors] = useState({});
   const [touchedFields, setTouchedFields] = useState([]);
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     paymentFormSchema[paymentMethods[0]]
       .validate(formData, { abortEarly: false })
@@ -90,24 +94,24 @@ const PrepaymentForm = ({ activeMethod }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p className={'mb-3'}>
+      <p className='mb-3'>
         {activeMethod === 0
-          ? 'Please, make a payment to the bank details indicated on your invoice and upload payment confirmation:'
-          : 'Please, upload audited financial statements for the last 3 years:'}
+          ? t('order:step4.prepayment help')
+          : t('order:step4.deferred payment help')}
       </p>
       <FileField
-        name={'payment_files'}
+        name='payment_files'
         required={true}
-        className={'col-md-12 col-lg-12 px-md-0'}
+        className='col-md-12 col-lg-12 px-md-0'
         onChange={handleChange}
         onBlur={handleBlur}
         errors={formErrors}
       />
       <TextField
-        name={'email'}
-        placeholder={'Your e-mail'}
+        name='email'
+        placeholder={t('order:step4.email')}
         required={true}
-        className={'px-md-0'}
+        className='px-md-0'
         onChange={handleChange}
         onBlur={handleBlur}
         errors={formErrors}
@@ -122,6 +126,8 @@ const BankGuaranteeForm = ({ activeMethod }) => {
   const [formErrors, setFormErrors] = useState({});
   const [touchedFields, setTouchedFields] = useState([]);
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     paymentFormSchema[paymentMethods[2]]
       .validate(formData, { abortEarly: false })
@@ -167,43 +173,42 @@ const BankGuaranteeForm = ({ activeMethod }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p className={'mb-3'}>
-        Please, indicate the details of the bank which will open the{' '}
-        {paymentMethods[activeMethod].toLowerCase()}:
+      <p className='mb-3'>
+        {t(`order:step4.${paymentMethods[activeMethod].toLowerCase()} help`)}
       </p>
-      <div className={'row g-0'}>
+      <div className='row g-0'>
         <TextField
-          name={'bank_name'}
-          placeholder={'Bank name'}
+          name='bank_name'
+          placeholder={t('order:step4.bank name')}
           required={true}
-          className={'ps-md-0'}
+          className='ps-md-0'
           onChange={handleChange}
           onBlur={handleBlur}
           errors={formErrors}
         />
         <TextField
-          name={'bank_address'}
-          placeholder={'Bank address'}
+          name='bank_address'
+          placeholder={t('order:step4.bank address')}
           required={true}
-          className={'pe-md-0'}
+          className='pe-md-0'
           onChange={handleChange}
           onBlur={handleBlur}
           errors={formErrors}
         />
         <TextField
-          name={'bank_swift'}
-          placeholder={'Bank SWIFT code'}
+          name='bank_swift'
+          placeholder={t('order:step4.bank swift')}
           required={true}
-          className={'ps-md-0'}
+          className='ps-md-0'
           onChange={handleChange}
           onBlur={handleBlur}
           errors={formErrors}
         />
         <TextField
-          name={'email'}
-          placeholder={'Your e-mail'}
+          name='email'
+          placeholder={t('order:step4.email')}
           required={true}
-          className={'pe-md-0'}
+          className='pe-md-0'
           onChange={handleChange}
           onBlur={handleBlur}
           errors={formErrors}

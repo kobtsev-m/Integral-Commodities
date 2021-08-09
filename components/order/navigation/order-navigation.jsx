@@ -2,23 +2,25 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import IconNext from 'components/icons/icon-next';
 import useWindowDimensions from 'utils/hooks/useWindowDemensions';
+import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
 import styles from './order-navigation.module.css';
-
-const Step = {
-  step1: 'Confirm deal',
-  step2: 'Confirm General Terms & Conditions',
-  step3: 'Provide KYC',
-  step4: 'Make a payment',
-  step5: 'Track order'
-};
 
 function OrderNavigation(props) {
   const router = useRouter();
   const activeRouteTab = router.route.split('/')[2].split('-').join('');
 
   const size = useWindowDimensions();
+  const { t } = useTranslation();
+
+  const Step = {
+    step1: t('order:tabs.confirm deal'),
+    step2: t('order:tabs.confirm general terms'),
+    step3: t('order:tabs.provide kyc'),
+    step4: t('order:tabs.make a payment'),
+    step5: t('order:tabs.track order')
+  };
 
   const getStepClassNames = (isActive) => {
     return cn(styles.orderNavigation__item, {

@@ -14,8 +14,8 @@ function LoadingSpinner(props) {
       }}
     >
       <Loader
-        type={'Puff'}
-        color={'#02569c'}
+        type='Puff'
+        color='#02569c'
         height={100}
         width={100}
         timeout={3000}

@@ -4,6 +4,8 @@ import useWindowDimensions from 'utils/hooks/useWindowDemensions';
 
 import cn from 'classnames';
 import styles from './product-tabs.module.css';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
 
 const polymersTabs = {
   Prices: 'prices',
@@ -29,6 +31,8 @@ function ProductTabs(props) {
   const [firstElementOffset, setFirstElementOffset] = useState(0);
   const tabsElements = useRef();
   const activeTabLine = useRef();
+
+  const { lang } = useTranslation();
   const size = useWindowDimensions();
 
   useEffect(() => {
@@ -46,7 +50,7 @@ function ProductTabs(props) {
       activeTab.width,
       activeTab.left - firstElementOffset
     );
-  }, [size, firstElementOffset, props.activeTab]);
+  }, [lang, size, firstElementOffset, props.activeTab]);
 
   return (
     <div className={cn(styles.productTabs__listWrapper, 'sticky-top')}>
@@ -74,7 +78,7 @@ function ProductTabs(props) {
               className={styles.productTabs__button}
               onClick={() => props.onTabClick(tabName)}
             >
-              {tabLabel}
+              <Trans i18nKey={`product:tabs.${tabLabel.toLowerCase()}`} />
             </button>
           </li>
         ))}

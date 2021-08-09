@@ -5,14 +5,17 @@ import TextField from '../fields/text-field';
 import FileField from '../fields/file-field';
 import { initialCompaniesFormData } from '../validation/companies-form-data';
 import { companiesFormSchema } from '../validation/companies-form-data';
+import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
 import stylesUI from 'pages/order/order-ui.module.css';
 
-function CompaniesForm(props) {
+function CompaniesForm() {
   const [formData, setFormData] = useState(initialCompaniesFormData);
   const [formErrors, setFormErrors] = useState({});
   const [touchedFields, setTouchedFields] = useState([]);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     companiesFormSchema
@@ -59,77 +62,35 @@ function CompaniesForm(props) {
 
   return (
     <form onSubmit={handleSubmit} className={stylesUI.step3__form}>
-      <FieldsBlockWrapper label={'Counterparty details'}>
-        <div className={'row g-0'}>
+      <FieldsBlockWrapper label={t('order:step3.counterparty details')}>
+        <div className='row g-0'>
           <TextField
-            name={'registered_name'}
-            placeholder={'Complete registered name'}
+            name='registered_name'
+            placeholder={t('order:step3.registered name')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
             errors={formErrors}
           />
           <TextField
-            name={'registration_no'}
-            placeholder={'Registration No'}
+            name='registration_no'
+            placeholder={t('order:step3.registration no')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
             errors={formErrors}
           />
           <TextField
-            name={'incorporation_country'}
-            placeholder={'Country of incorporation'}
+            name='incorporation_country'
+            placeholder={t('order:step3.country of incorporation')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
             errors={formErrors}
           />
           <TextField
-            name={'registration_date'}
-            placeholder={'Date of registration'}
-            required={true}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            errors={formErrors}
-          />
-        </div>
-      </FieldsBlockWrapper>
-      <FieldsBlockWrapper label={'Shareholders, Directors, Partners'}>
-        <div className={'row g-0'}>
-          <TextField
-            name={'name_1'}
-            placeholder={'Name Surname'}
-            required={true}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            errors={formErrors}
-          />
-          <TextField
-            name={'name_2'}
-            placeholder={'Name Surname'}
-            required={false}
-            onChange={handleChange}
-          />
-          <TextField
-            name={'name_3'}
-            placeholder={'Name Surname'}
-            required={false}
-            onChange={handleChange}
-          />
-          <TextField
-            name={'name_4'}
-            placeholder={'Name Surname'}
-            required={false}
-            onChange={handleChange}
-          />
-        </div>
-      </FieldsBlockWrapper>
-      <FieldsBlockWrapper label={'Contact Information'}>
-        <div className={'row g-0'}>
-          <TextField
-            name={'email'}
-            placeholder={'Your e-mail'}
+            name='registration_date'
+            placeholder={t('order:step3.date of registration')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -137,11 +98,53 @@ function CompaniesForm(props) {
           />
         </div>
       </FieldsBlockWrapper>
-      <FieldsBlockWrapper label={'Documents required'}>
-        <div className={'row g-0'}>
+      <FieldsBlockWrapper label={t('order:step3.shareholders')}>
+        <div className='row g-0'>
+          <TextField
+            name='name_1'
+            placeholder={t('order:step3.name surname')}
+            required={true}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            errors={formErrors}
+          />
+          <TextField
+            name='name_2'
+            placeholder={t('order:step3.name surname')}
+            required={false}
+            onChange={handleChange}
+          />
+          <TextField
+            name='name_3'
+            placeholder={t('order:step3.name surname')}
+            required={false}
+            onChange={handleChange}
+          />
+          <TextField
+            name='name_4'
+            placeholder={t('order:step3.name surname')}
+            required={false}
+            onChange={handleChange}
+          />
+        </div>
+      </FieldsBlockWrapper>
+      <FieldsBlockWrapper label={t('order:step3.contact information')}>
+        <div className='row g-0'>
+          <TextField
+            name='email'
+            placeholder='Your e-mail'
+            required={true}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            errors={formErrors}
+          />
+        </div>
+      </FieldsBlockWrapper>
+      <FieldsBlockWrapper label={t('order:step3.documents required')}>
+        <div className='row g-0'>
           <FileField
-            name={'memorandum_file'}
-            label={'Memorandum & Articles of Association'}
+            name='memorandum_file'
+            label={t('order:step3.memorandum')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -149,8 +152,8 @@ function CompaniesForm(props) {
             errors={formErrors}
           />
           <FileField
-            name={'incorporation_certificate_file'}
-            label={'Certificate of Incorporation'}
+            name='incorporation_certificate_file'
+            label={t('order:step3.certificate')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -158,8 +161,8 @@ function CompaniesForm(props) {
             errors={formErrors}
           />
           <FileField
-            name={'trading_license_file'}
-            label={'Trading License'}
+            name='trading_license_file'
+            label={t('order:step3.trading license')}
             required={false}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -167,8 +170,8 @@ function CompaniesForm(props) {
             errors={formErrors}
           />
           <FileField
-            name={'financial_statements_file'}
-            label={'Audited Financial Statements (last 3 years)'}
+            name='financial_statements_file'
+            label={t('order:step3.financial statements')}
             required={false}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -176,8 +179,8 @@ function CompaniesForm(props) {
             errors={formErrors}
           />
           <FileField
-            name={'structure_chart_file'}
-            label={'Corporation Structure Chart'}
+            name='structure_chart_file'
+            label={t('order:step3.structure chart')}
             required={false}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -185,8 +188,8 @@ function CompaniesForm(props) {
             errors={formErrors}
           />
           <FileField
-            name={'bank_reference_letter_file'}
-            label={'Bank Reference Letter'}
+            name='bank_reference_letter_file'
+            label={t('order:step3.bank reference')}
             required={true}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -195,23 +198,20 @@ function CompaniesForm(props) {
           />
         </div>
       </FieldsBlockWrapper>
-      <div className={'row mt-5'}>
-        <div className={'position-relative d-flex justify-content-center'}>
+      <div className='row mt-5'>
+        <div className='position-relative d-flex justify-content-center'>
           <button
-            type={'submit'}
+            type='submit'
             className={cn(stylesUI.btn, {
               [stylesUI.blue]: isFormValid(),
               [stylesUI.red]: !isFormValid()
             })}
           >
-            Send KYC Documents
+            {t('order:step3.submit button')}
           </button>
           {!isFormValid() && (
             <div className={cn(stylesUI.errorSpan, stylesUI.above)}>
-              {Object.keys(formErrors).length}
-              {Object.keys(formErrors).length > 1
-                ? ' fields were filled incorrect'
-                : ' field was filled incorrect'}
+              {t('order:step3.incorrect fields')}
             </div>
           )}
         </div>

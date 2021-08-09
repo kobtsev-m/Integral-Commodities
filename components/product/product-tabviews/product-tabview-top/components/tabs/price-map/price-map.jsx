@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 
-import { capitalize } from 'utils/string-utils';
 import { mapContainerStyle } from './settings/base-settings';
 import { mapCenter, mapZoom, mapOptions } from './settings/base-settings';
 import { mapGlobalStyles, getMarkerFields } from './settings/styles';
@@ -16,6 +15,8 @@ import PlacesSearch from 'components/other-blocks/places-search/places-search';
 import { Global } from '@emotion/react';
 import cn from 'classnames';
 import styles from './price-map.module.css';
+import useTranslation from 'next-translate/useTranslation';
+import Trans from 'next-translate/Trans';
 
 const MAP_FILTERS = ['prices', 'availability'];
 
@@ -102,13 +103,13 @@ function PriceMap({ ports, factories, onAskForQuote }) {
               options={{ pixelOffset: getInfoWindowOffset(activePlace) }}
               onCloseClick={() => setActivePlace(null)}
             >
-              <div className={'px-1'} style={getInfoWindowSize(activePlace)}>
+              <div className='px-1' style={getInfoWindowSize(activePlace)}>
                 <p className={cn(styles.infoWindow__text, 'my-1')}>
                   <FontAwesomeIcon
                     className={styles.infoWindow__icon}
                     icon={faMapMarkerAlt}
                   />
-                  <span className={'ms-1'}>{activePlace.name}</span>
+                  <span className='ms-1'>{activePlace.name}</span>
                 </p>
                 {activeFilter !== 'availability' && activePlace.incoterms && (
                   <p className={cn(styles.infoWindow__text, 'mb-1')}>
@@ -119,7 +120,7 @@ function PriceMap({ ports, factories, onAskForQuote }) {
                   className={styles.infoWindow__link}
                   onClick={handleAskForQuoteClick}
                 >
-                  Ask for quote
+                  <Trans i18nKey='common:askForQuote.button' />
                 </span>
               </div>
             </InfoWindow>
@@ -131,17 +132,18 @@ function PriceMap({ ports, factories, onAskForQuote }) {
 }
 
 function PriceMapHeader(props) {
+  const { t } = useTranslation();
   return (
     <div className={cn('row g-0', styles.mapHeader)}>
-      <div className={'col-12 col-md-6'}>
+      <div className='col-12 col-md-6'>
         <PlacesSearch
-          placeholder={'Search on the map'}
+          placeholder={t('calculator:fields.search place of delivery')}
           isRounded={true}
           onSelect={props.onPlaceSelect}
           onClear={props.onPlaceClear}
         />
       </div>
-      <div className={'col-12 col-md-6'}>
+      <div className='col-12 col-md-6'>
         {MAP_FILTERS.map((filter) => (
           <button
             key={nanoid()}
@@ -151,7 +153,7 @@ function PriceMapHeader(props) {
             })}
             onClick={() => props.onFilterClick(filter)}
           >
-            {capitalize(filter)}
+            <Trans i18nKey={`product:tabs.${filter}`} />
           </button>
         ))}
       </div>

@@ -1,16 +1,24 @@
 import cn from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
 import stylesUI from 'pages/order/order-ui.module.css';
 
 function TextField(props) {
+  const { t } = useTranslation();
+  const getPlaceholder = () => {
+    return (
+      props.placeholder +
+      (props.required ? ' ' + t('order:step3.required') : '')
+    );
+  };
   return (
     <div className={cn('col-12 col-md-6 px-0 py-2 p-md-2', props.className)}>
       <input
-        type={'text'}
+        type='text'
         name={props.name}
         className={cn(stylesUI.textInput, {
           [stylesUI.isInvalid]: props.errors?.[props.name]
         })}
-        placeholder={props.placeholder + (props.required ? ' (required)' : '')}
+        placeholder={getPlaceholder()}
         onChange={(e) => props.onChange({ [props.name]: e.target.value })}
         onBlur={() => (props.onBlur ? props.onBlur(props.name) : {})}
       />

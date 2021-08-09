@@ -1,0 +1,62 @@
+{
+  "tabs": {
+    "prices": "Prices",
+    "offer": "Offer",
+    "product": "Product",
+    "analogs": "Analogs",
+    "availability": "Availability",
+    "documents": "Documents",
+    "photos": "Photos",
+    "application": "Application",
+    "samples": "Samples",
+    "faq": "FAQ"
+  },
+  "emptyForNow": "Empty for now",
+  "samples": {
+    "info": "You can order a product sample for testing on your equipment. <0>We ship 1.0 kg for free.</0> If you need a large batch of goods, we are ready to offer favorableconditions",
+    "order sample": "Order sample",
+    "company name": "Company name *",
+    "company website": "Company website",
+    "company address": "Company address *",
+    "sample size": "Sample size (kg) *",
+    "used for": "Industry the material is going to be used in *",
+    "equipment manufacturer": "Equipment manufacturer",
+    "email": "Email",
+    "email help": "We will send shipment confirmation by email",
+    "communication method": "Preferred method of communication:",
+    "communication method help": "Telephone / Telegram ID / ...",
+    "ask for sample": "Ask for sample"
+  },
+  "info": {
+    "description": "Descirption",
+    "properties": "Properties",
+    "packaging": "Packaging"
+  },
+  "description": {
+    "Т 60-475-119": "T60-475-119 is a high density polyethylene with a narrow molecular weight distribution mass. Parts made from this material show finished polished surface, and also have good impact strength and rigidity.",
+    "Inpipe 100": "INPIPE 100 is a natural color, high strength polyethylene polymer for pipe extrusion. INPIPE 100 is classified as PE 100 according to ISO 12162, based on the analysis of ISO 9080. Compound PE 100s are commonly used for transporting water and gas, as described in ISO 4427 and 4437, respectively.",
+    "T 50-500": "T50-500 is a high density polyethylene with a narrow molecular weight distribution. It is intended for injection molding, where a technical balance and characteristics from the end user are necessary.",
+    "A4009MFN1325": "A4009MFN1325 is a homopolymer of high density polyethylene with a narrow molecular weight distribution, well suited for multiple applications such as ropes and elongated yarns.",
+    "TPP D 30S": "Temperature of admissible deformation at 0,46 MPa, °C, not less than >110. Softening temperature by Vick (10N),°C, not less than 145",
+    "BL6200": "BL 6200 are crisp, predominantly white granules. They are characterized by a high degree of rigidity and fluidity. For their manufacture, the CSTR suspension polymerization method is used. This material is excellent for blow molding.",
+    "15813-020": "Grade 15813-020 is intended for manufacture of products, allowed for food contact, for manufacture of toys. To be used for manufacture of medical accessories, assemblies and parts of medical equipment, devices and tools, allowed for body tissue contact including for internal prosthetics.",
+    "Urea grade “B”": "Carbamide is non-combustible, fire-and is explosion-proof under normal conditions. As regards to its influence on organism, it falls into 3-rd class of hazardous substances.",
+    "Potassium chloride": "Transportation is possible by all means of transport in accordance with the \"Rules cargo transportation\", valid for this type of transport",
+    "Ammophos": "Transportation is possible by all means of transport in accordance with the \"Rules cargo transportation\", valid for this type of transport"
+  },
+  "properties": {
+    "Т 60-475-119": "• High rigidity• Glossy surface aspects • Good impact strength • Meets FDA requirements of 21CFR 177.1520",
+    "T 50-500": "• Good rigidity • High impact strength • Meets FDA requirements of 21CFR 177.1520",
+    "A4009MFN1325": "• High tenacity monofilaments & tapes • Very low gels content• Superior processability & surface quality • Very low MVTR (Moisture Vapour Transmission Rate)",
+    "Inpipe 100": "• Outstandin envirmantal stress crack resistance • High stiffenss• High impact strength (Rapid crack propagation) • Good processability"
+  },
+  "packaging": {
+    "Bags of 25 kg on pallets; thermoresistant paper.": "Bags of 25 kg on pallets; thermoresistant paper.",
+    "Product is packed in polyethylene bags (one bag net weight 2500±025kg) and stacked on flat pallets with shrink film": "Product is packed in polyethylene bags (one bag net weight 25.00±0.25kg) and stacked on flat pallets with shrink film.",
+    "Product is packed in polyethylene bags (one bag net weight 25.00±025kg) and stacked on flat pallets with shrink film Maximum gross weight of a bundle is 2 tons": "Product is packed in polyethylene bags (one bag net weight 25.00±0.25kg) and stacked on flat pallets with shrink film. Maximum gross weight of a bundle is 2 tons.",
+    "Carbamide is packed in paper bitumized of laminated bags, polyethylene bags, woven polymeric laminated bags woven polymeric bags with inserts, and also in soft specialized containers as MKR-1, OS": "Carbamide is packed in paper bitumized of laminated bags, polyethylene bags, woven polymeric laminated bags woven polymeric bags with inserts, and also in soft specialized containers as MKR-1, OS.",
+    "The goods are stored in closed warehouses that protect the product from atmospheric precipitation The product is stored separately from other products, substances and materials.The goods are stored in closed warehouses that protect the product from atmospheric precipitation The product is stored separately from other products, substances and materials": "The goods are stored in closed warehouses that protect the product. from atmospheric precipitation. The product is stored separately from other products, substances and materials.The goods are stored in closed warehouses that protect the product. from atmospheric precipitation. The product is stored separately from other products, substances and materials.",
+    "Shipped in bulk, in bags, containers (FIBC) The goods are stored in closed warehouses that protect the product from atmospheric precipitation The product is stored separately from other products, substances and materials": "Shipped in bulk, in bags, containers (FIBC). The goods are stored in closed warehouses that protect the product. from atmospheric precipitation. The product is stored separately from other products, substances and materials.",
+    "Bulk or bags": "Bulk or bags"
+  }
+}

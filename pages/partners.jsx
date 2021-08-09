@@ -1,211 +1,222 @@
+import Trans from 'next-translate/Trans';
+
 function PartnersPage() {
   return (
-    <section className="partners">
-      <h2 className="partners__header">Partners</h2>
-      <ul className="partners__list">
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+    <section className='partners'>
+      <h2 className='partners__header'>
+        <Trans i18nKey='partners:title' />
+      </h2>
+      <ul className='partners__list'>
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/caspian-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/caspian-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">Caspian week</h3>
-            <p className="partner__desc">
-              <em>The Caspian week</em> conference is a meeting point of
-              visionaries, market leaders and experts with the focus in the
-              caspian region as a vital element of the future global society and
-              economy.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:caspian week.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans
+                i18nKey='partners:caspian week.text'
+                components={[<em />]}
+              />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/integral-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/integral-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">Integral Petroleum</h3>
-            <p className="partner__desc">
-              <em>Integral Petroleum</em> is a trading and logistics company
-              established in 2008 in Geneva, Switzerland, and active primarily
-              in the markets of Caspian Region, the Caucasus, Central Asia and
-              Central America.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:integral petroleum.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans
+                i18nKey='partners:integral petroleum.text'
+                components={[<em />]}
+              />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/socar-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/socar-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">Socar</h3>
-            <p className="partner__desc">
-              State Oil Company of the Republic of Azerbaijan.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:socar.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans i18nKey='partners:socar.text' />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/ady-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/ady-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">ADY CONTAINER</h3>
-            <p className="partner__desc">
-              <em>Ady Container</em> LLC is a full-fledged subsidiary of
-              Azerbaijan Railways CJSC, with a mandate to provide high-quality,
-              reliable freight transport in the country.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:ady container.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans
+                i18nKey='partners:ady container.text'
+                components={[<em />]}
+              />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/ozturk-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/ozturk-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">OZTURK</h3>
-            <p className="partner__desc">
-              <em>Ozturk Container's</em> Technical Team always ready to provide
-              you an expert service and maintanence for all types of containers.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:ozturk.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans i18nKey='partners:ozturk.text' components={[<em />]} />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/change-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/change-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">Change</h3>
-            <p className="partner__desc">
-              Container xChange was built and founded by BCG in 2016, in an
-              effort to help the shipping industry save costs. Building on its
-              success, Container xChange has now been spun off to new owners,
-              with BCG remaining as strategic shareholder.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:change.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans i18nKey='partners:change.text' />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/lwgroup-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/lwgroup-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">LW Group</h3>
-            <p className="partner__desc">
-              <em>LW Group</em> is providing complex multimodal
-              transportation/logistics services/solutions by sea, road and rail
-              connecting West with the East and vice versa.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:lw group.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans i18nKey='partners:lw group.text' components={[<em />]} />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/sarjak-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/sarjak-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">Sarjak</h3>
-            <p className="partner__desc">
-              <em>Sarjak</em> is one of the really innovative NVOCC operators
-              who is recognised for thinking out of the box and providing
-              solutions that are conventionally impossible.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:sarjak.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans i18nKey='partners:sarjak.text' components={[<em />]} />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/median-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/median-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">Median</h3>
-            <p className="partner__desc">
-              Median Logistics provides international trade logistics services
-              to over 300 business networks and experienced personnel in the
-              world's most important shopping centers in the international
-              transport area related to international trade services for its
-              clients abroad and abroad.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:median.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans i18nKey='partners:median.text' />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/cu-lfg-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/cu-lfg-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">CU-LFG LTD</h3>
-            <p className="partner__desc">
-              Railway, Sea, Road transportation &amp; Terminal services.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:cu-lfg ltd.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans i18nKey='partners:cu-lfg ltd.text' />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/esalco-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/esalco-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">ESALCO</h3>
-            <p className="partner__desc">
-              Esalco Lojistik ve Dis Tic A.S (Formerly known as Esalco
-              Logistics) is one of the biggest Freight Forwarder in Turkey,
-              especially in mineral sector, headquartered in Istanbul which has
-              branch offices in Izmir, Mersin and Eskisehir and AHL (Ataturk
-              Airport).
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:esalco.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans i18nKey='partners:esalco.text' />
             </p>
           </div>
         </li>
-        <li className="partners__item partner">
-          <div className="partner__logo-wrapper">
+        <li className='partners__item partner'>
+          <div className='partner__logo-wrapper'>
             <img
-              className="partner__logo"
-              src="./images/boxxport-partner.png"
-              alt=""
+              className='partner__logo'
+              src='./images/boxxport-partner.png'
+              alt=''
             />
           </div>
-          <div className="partner__info-wrapper">
-            <h3 className="partner__name">POXXPORT</h3>
-            <p className="partner__desc">
-              <em>BOXXPORT</em> is an online platform enabling people from
-              across the globe to sell and buy shipping containers online at
-              much-negotiated rate with just a few clicks.
+          <div className='partner__info-wrapper'>
+            <h3 className='partner__name'>
+              <Trans i18nKey='partners:poxxport.title' />
+            </h3>
+            <p className='partner__desc'>
+              <Trans i18nKey='partners:poxxport.text' components={[<em />]} />
             </p>
           </div>
         </li>

@@ -23,11 +23,11 @@ function CustomCheckboxGroup(props) {
   };
 
   return (
-    <div className={'row w-100'}>
+    <div className='row w-100'>
       {checkboxes.map((checkbox, i) => (
         <div key={i} className={props.className} style={props.style}>
           <input
-            type={'checkbox'}
+            type='checkbox'
             className={styles.checkboxInput}
             id={`${props.name}_${i}`}
             value={checkbox.value}

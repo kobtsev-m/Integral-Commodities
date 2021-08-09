@@ -1,7 +1,10 @@
 import cn from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
 import stylesUI from 'pages/order/order-ui.module.css';
 
 function FileField(props) {
+  const { t } = useTranslation();
+
   const isInvalid = !!props.errors?.[props.name];
   const isSelected = !!props.data?.[props.name] && !isInvalid;
   const handleChange = (event) => {
@@ -32,23 +35,25 @@ function FileField(props) {
           >
             <div className={stylesUI.fileInputContent}>
               <div className={stylesUI.fileInputIcon} />
-              <small className={'mt-1'}>
+              <small className='mt-1'>
                 {isInvalid
                   ? props.errors[props.name]
                   : isSelected
-                  ? 'Uploaded'
-                  : 'Drop files here'}
+                  ? t('order:step3.uploaded')
+                  : t('order:step3.drop files')}
               </small>
-              <small className={'text-muted mt-1'}>
-                {isSelected ? props.data[props.name].name : 'Max size: 10MB'}
+              <small className='text-muted mt-1'>
+                {isSelected
+                  ? props.data[props.name].name
+                  : t('order:step3.max size')}
               </small>
               <div className={stylesUI.fileInputBtn}>
-                <span>Choose</span>
+                <span>{t('order:step3.choose')}</span>
               </div>
             </div>
           </label>
           <input
-            type={'file'}
+            type='file'
             id={`fileInput_${props.name}`}
             className={stylesUI.hiddenFileInput}
             onChange={handleChange}

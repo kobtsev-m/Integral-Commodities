@@ -27,10 +27,10 @@ const SliderMenu = (props) => {
     <section className={cn(styles.root, { [styles.root_opened]: open })}>
       <div className={styles.header}>
         <button
-          type={'button'}
+          type='button'
           className={styles.closeBtn}
           onClick={onClose}
-          aria-label={'close menu'}
+          aria-label='close menu'
         />
         <h2 className={styles.title}>{title}</h2>
       </div>

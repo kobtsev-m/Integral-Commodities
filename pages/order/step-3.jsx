@@ -5,23 +5,25 @@ import Breadcrumbs from 'components/ui/breadcrumbs';
 import OrderNavigation from 'components/order/navigation/order-navigation';
 import CompaniesForm from 'components/order/forms/companies-form';
 import IndividualsForm from 'components/order/forms/individuals-form';
+import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
 import styles from './order.module.css';
 
-const breadcrumbs = [
-  {
-    title: 'Home',
-    link: '/'
-  },
-  {
-    title: 'Order process'
-  }
-];
-
-function OrderStep3(props) {
+function OrderStep3() {
+  const { t } = useTranslation();
   const router = useRouter();
   const formType = router.query.for ?? 'companies';
+
+  const breadcrumbs = [
+    {
+      title: t('common:menu.home'),
+      link: '/'
+    },
+    {
+      title: t('common:menu.order process')
+    }
+  ];
 
   function getItemClassNames(isActive) {
     return cn(styles.step3__tab, {
@@ -35,36 +37,27 @@ function OrderStep3(props) {
         <Breadcrumbs list={breadcrumbs} />
       </div>
       <div className={styles.step3__orderNavigationContainer}>
-        <OrderNavigation nextLink={'/order/step-4'} />
+        <OrderNavigation nextLink='/order/step-4' />
       </div>
-      <p className={styles.step3__textContent}>
-        We recommend you to provide KYC information now, to enable you to trade
-        with us once you are ready to place an order.
-      </p>
-      <h1 className={styles.step3__title}>Counterparty form</h1>
+      <p className={styles.step3__textContent}>{t('order:step3.main text')}</p>
+      <h1 className={styles.step3__title}>{t('order:step3.main title')}</h1>
       <div className={styles.step3__tabs}>
-        <Link href={'/order/step-3?for=companies'} scroll={false}>
+        <Link href='/order/step-3?for=companies' scroll={false}>
           <a className={getItemClassNames(formType === 'companies')}>
-            For companies
+            {t('order:step3.for companies')}
           </a>
         </Link>
-        <Link href={'/order/step-3?for=individuals'} scroll={false}>
+        <Link href='/order/step-3?for=individuals' scroll={false}>
           <a className={getItemClassNames(formType === 'individuals')}>
-            For private individuals
+            {t('order:step3.for private individuals')}
           </a>
         </Link>
       </div>
       <div className={styles.step3__beforeForm}>
-        <p className={styles.step3__textContent}>
-          The information requested in this questionnaire is required to enable
-          our company to trade with you.
-        </p>
-        <p className={styles.step3__textContent}>
-          Please ensure that all relevant sections are completed or marked with
-          N/A if not applicable
-        </p>
+        <p className={styles.step3__textContent}>{t('order:step3.info 1')}</p>
+        <p className={styles.step3__textContent}>{t('order:step3.info 2')}</p>
       </div>
-      <div className={'mb-5'}>
+      <div className='mb-5'>
         {formType === 'companies' ? <CompaniesForm /> : <IndividualsForm />}
       </div>
     </section>

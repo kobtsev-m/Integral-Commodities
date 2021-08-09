@@ -5,7 +5,7 @@ function SuccessOfferInfo() {
     <div className={styles.thanksInfo}>
       <p className={styles.thanksInfo__text}>
         Please click{' '}
-        <a className={styles.thanksInfo__link} href="/order">
+        <a className={styles.thanksInfo__link} href='/order'>
           here
         </a>{' '}
         to learn about the Order Process and submit information now, to avoid

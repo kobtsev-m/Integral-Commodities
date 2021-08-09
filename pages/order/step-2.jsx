@@ -2,34 +2,31 @@ import styles from './order.module.css';
 import Button from 'components/ui/button';
 import OrderNavigation from 'components/order/navigation/order-navigation';
 import Breadcrumbs from 'components/ui/breadcrumbs';
-
-const breadcrumbs = [
-  {
-    title: 'Home',
-    link: '/'
-  },
-  {
-    title: 'Order process'
-  }
-];
+import useTranslation from 'next-translate/useTranslation';
 
 function OrderStep2() {
+  const { t } = useTranslation();
+  const breadcrumbs = [
+    {
+      title: t('common:menu.home'),
+      link: '/'
+    },
+    {
+      title: t('common:menu.order process')
+    }
+  ];
   return (
     <section className={styles.orderContainer}>
       <div className={styles.breadcrumbsContainer}>
         <Breadcrumbs list={breadcrumbs} />
       </div>
-      <OrderNavigation nextLink="/order/step-3?for=companies" />
+      <OrderNavigation nextLink='/order/step-3?for=companies' />
       <p className={styles.orderContainer__intro}>
-        Here you can learn about the Order Process and submit information now,
-        to avoid delays with the order when you are ready to place it. For
-        example, we recommend you to send us KYC and bank information (in case
-        you prefer to pay by the letter of credit) as soon as you can so we
-        perform the required checks in advance.
+        {t('order:step2.main text 1')}
       </p>
       <div className={styles.orderContainer__messageContainer}>
         <p className={styles.orderContainer__message}>
-          Download General Terms & Conditions
+          {t('order:step2.main text 2')}
         </p>
       </div>
       <div>
@@ -641,9 +638,9 @@ function OrderStep2() {
         </div>
       </div>
       <div className={styles.orderContainer__controlsContainer}>
-        <Button link={'/order/step-3'}>
+        <Button link='/order/step-3'>
           <span className={styles.orderContainer__confirmButton}>
-            Confirm deal
+            {t('order:step2.submit button')}
           </span>
         </Button>
       </div>

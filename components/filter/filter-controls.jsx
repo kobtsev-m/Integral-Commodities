@@ -38,7 +38,7 @@ const FilterControls = (props) => {
     <>
       <div className={classes.root}>
         <button
-          type={'button'}
+          type='button'
           className={cn(classes.button, classes.filterButton)}
           onClick={() => setIsFilterOpen(true)}
         >
@@ -52,20 +52,20 @@ const FilterControls = (props) => {
             className={cn(classes.searchInput, {
               [classes.searchInput_active]: isSearchActive
             })}
-            type={'search'}
-            placeholder={'Grade'}
+            type='search'
+            placeholder='Grade'
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
           <button
-            type={'submit'}
+            type='submit'
             className={cn(classes.button, classes.searchButton)}
-            aria-label={'Search by grade'}
+            aria-label='Search by grade'
           />
         </form>
       </div>
       <SliderMenu
-        title={'Filters'}
+        title='Filters'
         open={isFilterOpen}
         onClose={handleMenuClose}
       >

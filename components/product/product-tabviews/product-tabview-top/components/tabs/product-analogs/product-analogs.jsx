@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import { getAnalogsByProductIdApi } from "api/api";
-import LoadingSpinner from "components/ui/loading";
+import { useState, useEffect } from 'react';
+import { getAnalogsByProductIdApi } from 'api/api';
+import LoadingSpinner from 'components/ui/loading';
 
-import cn from "classnames";
-import styles from "components/product/latest-offers/latest-offers.module.css";
-import useWindowDimensions from "../../../../../../../utils/hooks/useWindowDemensions";
+import cn from 'classnames';
+import styles from 'components/product/latest-offers/latest-offers.module.css';
+import useWindowDimensions from '../../../../../../../utils/hooks/useWindowDemensions';
+import Trans from 'next-translate/Trans';
 
 function ProductAnalogs({ product }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,15 +42,23 @@ function ProductAnalogs({ product }) {
       <table className={styles.currentOffers__table}>
         <thead className={styles.currentOffers__tableHead}>
           <tr className={styles.analogs__tableHeaderRow}>
-            <th className={styles.analogs__headerCell}>Grade</th>
-            <th className={styles.analogs__headerCell}>Producer</th>
             <th className={styles.analogs__headerCell}>
-              MFR {width > 768 && "(190 С0, 5 Kg)"}
+              <Trans i18nKey='common:productFields.grade' />
+            </th>
+            <th className={styles.analogs__headerCell}>
+              <Trans i18nKey='common:productFields.producer' />
+            </th>
+            <th className={styles.analogs__headerCell}>
+              <Trans i18nKey='common:productFields.mfr (5)' />
             </th>
             {width > 768 && (
-              <th className={styles.analogs__headerCell}>Density</th>
+              <th className={styles.analogs__headerCell}>
+                <Trans i18nKey='common:productFields.density' />
+              </th>
             )}
-            <th className={styles.analogs__headerCell}>VST</th>
+            <th className={styles.analogs__headerCell}>
+              <Trans i18nKey='common:productFields.vst' />
+            </th>
           </tr>
         </thead>
         <tbody className={styles.currentOffers__tableBody}>
@@ -106,7 +115,7 @@ function ProductAnalogs({ product }) {
           className={styles.showMoreButton}
           onClick={() => setIsRolledUp((prevState) => !prevState)}
         >
-          {isRolledUp ? "Show more..." : "Show less"}
+          <Trans i18nKey={`common:${isRolledUp ? 'showMore' : 'showLess'}`} />
         </button>
       </div>
     </div>

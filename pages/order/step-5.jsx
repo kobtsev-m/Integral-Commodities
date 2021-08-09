@@ -19,7 +19,7 @@ function OrderStep5() {
       <div className={styles.breadcrumbsContainer}>
         <Breadcrumbs list={breadcrumbs} />
       </div>
-      <OrderNavigation nextLink={'/'} />
+      <OrderNavigation nextLink='/' />
       <ComingSoon />
     </section>
   );

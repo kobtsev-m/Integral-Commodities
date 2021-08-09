@@ -1,3 +1,4 @@
+import Trans from 'next-translate/Trans';
 import { nanoid } from 'nanoid';
 
 import cn from 'classnames';
@@ -7,14 +8,25 @@ function CheckboxesFilter(props) {
   const { filterName, filter, onChange, isDroppedDown, onDropDownClick } =
     props;
 
+  const getKey = (key) => {
+    return key.replace('.', '').toLowerCase();
+  };
+  const getFullKey = (key, optionName) => {
+    return `filter.${getKey(key)}.${getKey(optionName)}`;
+  };
+
+  const isTranslatableFilter = (filterName) => {
+    return ['type', 'procmethod', 'application'].includes(filterName);
+  };
+
   return (
     <fieldset className={styles.checkboxFilter} key={nanoid()}>
       <button
         className={styles.checkboxFilter__dropDownBtn}
-        type={'button'}
+        type='button'
         onClick={() => onDropDownClick(filterName)}
       >
-        {filter.key}
+        <Trans i18nKey={`common:productFields.${getKey(filter.key)}`} />
       </button>
       <ul
         className={cn(styles.checkboxFilter__optionsList, {
@@ -30,14 +42,20 @@ function CheckboxesFilter(props) {
               >
                 <input
                   className={styles.checkboxFilter__optionInput}
-                  type={'checkbox'}
+                  type='checkbox'
                   value={optionName}
                   name={filterName}
                   checked={isChecked}
                   id={`${filterName}-option-${optionName}`}
                   onChange={() => onChange(filterName, optionName, isChecked)}
                 />
-                {optionName}
+                {isTranslatableFilter(filterName) ? (
+                  <Trans
+                    i18nKey={`common:${getFullKey(filter.key, optionName)}`}
+                  />
+                ) : (
+                  optionName
+                )}
               </label>
             </li>
           );

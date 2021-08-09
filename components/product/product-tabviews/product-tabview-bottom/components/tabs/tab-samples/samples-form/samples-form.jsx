@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import useTranslation from 'next-translate/useTranslation';
 
 import FormInput from './form-input/form-input';
 import styles from './samples-form.module.css';
@@ -19,65 +20,71 @@ const schema = yup.object().shape({
 const onSubmit = (data) => {};
 
 function SamplesForm() {
+  const { t } = useTranslation();
+
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema)
   });
 
   return (
     <form className={styles.samplesForm} onSubmit={handleSubmit(onSubmit)}>
-      <span className={styles.samplesForm__header}>Order sample</span>
+      <span className={styles.samplesForm__header}>
+        {t('product:samples.order sample')}
+      </span>
       <FormInput
-        name="companyName"
-        placeholder="Company name*"
+        name='companyName'
+        placeholder={t('product:samples.company name')}
         refValue={register({ required: true })}
         error={errors.companyName}
       />
       <FormInput
-        name="companyWebsite"
-        placeholder="Company website"
+        name='companyWebsite'
+        placeholder={t('product:samples.company website')}
         refValue={register}
         error={errors.companyWebsite}
       />
       <FormInput
-        name="companyAddress"
-        placeholder="Company address*"
+        name='companyAddress'
+        placeholder={t('product:samples.company address')}
         refValue={register({ required: true })}
         error={errors.companyAddress}
       />
       <FormInput
-        name="sampleSizeKg"
-        placeholder="Company size (kg)*"
+        name='sampleSizeKg'
+        placeholder={t('product:samples.sample size')}
         refValue={register({ required: true })}
         error={errors.sampleSizeKg}
       />
       <FormInput
-        name="usedFor"
-        placeholder="Industry / application the material is to be used for*"
+        name='usedFor'
+        placeholder={t('product:samples.used for')}
         refValue={register({ required: true })}
         error={errors.usedFor}
       />
       <FormInput
-        name="equipmentManufacturer"
-        placeholder="Equipment manufacturer"
+        name='equipmentManufacturer'
+        placeholder={t('product:samples.equipment manufacturer')}
         refValue={register}
         error={errors.equipmentManufacturer}
       />
       <FormInput
-        name="eMail"
-        placeholder="example@site.com"
+        name='email'
+        placeholder='example@site.com'
         refValue={register}
         error={errors.eMail}
-        description="Your E-mail"
-        subDescription="We will send shipment confirmation by email"
+        description={t('product:samples.email')}
+        subDescription={t('product:samples.email help')}
       />
       <FormInput
-        name="communicationMethod"
-        placeholder="tel / telegram ID..."
+        name='communicationMethod'
+        placeholder={t('product:samples.communication method help')}
         refValue={register}
         error={errors.communicationMethod}
-        description="Preferred method of communication"
+        description={t('product:samples.communication method')}
       />
-      <button className={styles.samplesForm__button}>Ask for Sample</button>
+      <button className={styles.samplesForm__button}>
+        {t('product:samples.ask for sample')}
+      </button>
     </form>
   );
 }

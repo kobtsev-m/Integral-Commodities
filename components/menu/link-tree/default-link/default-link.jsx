@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import Trans from 'next-translate/Trans';
 
 import ActiveLink from '../../../active-link/active-link';
 import styles from './default-link.module.css';
@@ -31,7 +32,9 @@ function DefaultLink({ linkElement, additionalOnClick }) {
         )}
         activeClassName={styles.defaultLink__text_active}
       >
-        <a onClick={additionalOnClick}>{name}</a>
+        <a onClick={additionalOnClick}>
+          <Trans i18nKey={`common:menu.${name.toLowerCase()}`} />
+        </a>
       </ActiveLink>
     </div>
   );

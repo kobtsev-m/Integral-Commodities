@@ -1,10 +1,10 @@
 import { useRef } from 'react';
+import Trans from 'next-translate/Trans';
 import useWindowDimensions from '../utils/hooks/useWindowDemensions';
 
 function AboutPage() {
   const milestonesBoxRef = useRef();
   const size = useWindowDimensions();
-  const shouldShowFutureDesc = size.width > 768;
 
   const handleMilestonesArrowClick = (side) => {
     const xDiff = side === 'left' ? -250 : 250;
@@ -17,253 +17,237 @@ function AboutPage() {
 
   return (
     <>
-      <section className="features">
-        <ul className="features__list">
-          <li className="features__item features__item_has-two-columns feature">
-            <span className="feature__question">Why</span>
-            <span className="feature__answer feature__answer_size-48">
-              To make regional products easily accessible for international
-              buyers
+      <section className='features'>
+        <ul className='features__list'>
+          <li className='features__item features__item_has-two-columns feature'>
+            <span className='feature__question'>
+              <Trans i18nKey='about:why.title' />
+            </span>
+            <span className='feature__answer feature__answer_size-48'>
+              <Trans i18nKey='about:why.text' />
             </span>
           </li>
-          <li className="features__item feature">
-            <span className="feature__question">What</span>
-            <span className="feature__answer feature__answer_size-36">
-              Polymers and fertilizers originating from the Caspian Region
+          <li className='features__item feature'>
+            <span className='feature__question'>
+              <Trans i18nKey='about:what.title' />
             </span>
-            <div className="feature__illustration">
+            <span className='feature__answer feature__answer_size-36'>
+              <Trans i18nKey='about:what.text' />
+            </span>
+            <div className='feature__illustration'>
               <img
-                className="feature__illustration-item"
-                src="./images/recycle-hdpe.svg"
-                alt=""
+                className='feature__illustration-item'
+                src='./images/recycle-hdpe.svg'
+                alt=''
               />
               <img
-                className="feature__illustration-item"
-                src="./images/recycle-pp.svg"
-                alt=""
+                className='feature__illustration-item'
+                src='./images/recycle-pp.svg'
+                alt=''
               />
               <img
-                className="feature__illustration-item"
-                src="./images/recycle-ldpe.svg"
-                alt=""
+                className='feature__illustration-item'
+                src='./images/recycle-ldpe.svg'
+                alt=''
               />
             </div>
           </li>
-          <li className="features__item feature">
-            <span className="feature__question">How</span>
-            <span className="feature__answer feature__answer_size-36">
-              Making it possible to find full information, negotiate, complete
-              and track orders online
+          <li className='features__item feature'>
+            <span className='feature__question'>
+              <Trans i18nKey='about:how.title' />
+            </span>
+            <span className='feature__answer feature__answer_size-36'>
+              <Trans i18nKey='about:how.text' />
             </span>
           </li>
         </ul>
       </section>
-      <section className="achievement">
-        <div className="achievement__wrapper">
+      <section className='achievement'>
+        <div className='achievement__wrapper'>
           <img
-            className="achievement__logo"
-            src="./images/achievement-logo.svg"
-            alt=""
+            className='achievement__logo'
+            src='./images/achievement-logo.svg'
+            alt=''
           />
-          <p className="achievement__text">
-            In 2018 Integral Commodities SA became one of the largest exporters
-            of Polymers (PP, PE), Fertilisers (Urea, Potash), Sulphur and
-            Carbon Black originating from the Greater Caspian Region.
+          <p className='achievement__text'>
+            <Trans i18nKey='about:noteBlock' />
           </p>
           <img
-            className="achievement__decoration"
-            src="./images/achievement-decoration.svg"
-            alt=""
+            className='achievement__decoration'
+            src='./images/achievement-decoration.svg'
+            alt=''
           />
         </div>
       </section>
-      <section className="milestones">
-        <h2 className="milestones__header">Key milestones</h2>
+      <section className='milestones'>
+        <h2 className='milestones__header'>
+          <Trans i18nKey='about:keyMilestones.title' />
+        </h2>
         <img
-          className="milestones__arrow milestones__arrow_left"
-          src={'./images/milestones-left-arrow.svg'}
-          alt={''}
+          className='milestones__arrow milestones__arrow_left'
+          src='./images/milestones-left-arrow.svg'
+          alt=''
           onClick={() => handleMilestonesArrowClick('left')}
         />
-        <div ref={milestonesBoxRef} className="milestones__list">
-          <div className="milestones__item milestone">
+        <div ref={milestonesBoxRef} className='milestones__list'>
+          <div className='milestones__item milestone'>
             {/* <h3 className="milestone__header">Endtime event</h3> */}
-            <span className="milestone__date">2021</span>
-            <p className="milestone__text">
-              Integral Commodities launched webshop for selling commodities
-              online
+            <span className='milestone__date'>2021</span>
+            <p className='milestone__text'>
+              <Trans i18nKey='about:keyMilestones.2021' />
             </p>
           </div>
-          <div className="milestones__item milestone">
-            <span className="milestone__date">2019</span>
-            <p className="milestone__text">
-              We become strategic partners of Horasis, an independent,
-              international think tank, headquartered in Zurich, Switzerland
-              and dedicated to the innovation and development of sustainable
-              emerging markets
+          <div className='milestones__item milestone'>
+            <span className='milestone__date'>2019</span>
+            <p className='milestone__text'>
+              <Trans i18nKey='about:keyMilestones.2019' />
             </p>
           </div>
-          <div className="milestones__item milestone">
-            <span className="milestone__date">2018</span>
-            <p className="milestone__text">
-              We started exports of dry cargo from the Caspian region and
-              Integral Group became one of the largest exporters and logistics
-              providers for Urea 46%, Carbon black, Sulphur, Polypropylene
-              (PP), Polyethylene (PE) products originating from the Caspian
-              Region.
+          <div className='milestones__item milestone'>
+            <span className='milestone__date'>2018</span>
+            <p className='milestone__text'>
+              <Trans i18nKey='about:keyMilestones.2018' />
             </p>
           </div>
-          <div className="milestones__item milestone">
-            <span className="milestone__date">2017</span>
-            <p className="milestone__text">
-              We became one of the organisers and the main sponsor of the
-              Caspian Week, the platform for global ideas and the meeting point
-              of global leaders, visionaries and experts with focus on Caspian
-              region
+          <div className='milestones__item milestone'>
+            <span className='milestone__date'>2017</span>
+            <p className='milestone__text'>
+              <Trans i18nKey='about:keyMilestones.2017 1' />
             </p>
           </div>
-          <div className="milestones__item milestone">
-            <span className="milestone__date">2017</span>
-            <p className="milestone__text">
-              We joined the St. Petersburg International Commodity Exchange
-              <br />
-              New project was opened in Mexico to help oilfield operators and
-              importers of petroleum products enter the international market
+          <div className='milestones__item milestone'>
+            <span className='milestone__date'>2017</span>
+            <p className='milestone__text'>
+              <Trans i18nKey='about:keyMilestones.2017 2' />
             </p>
           </div>
-          <div className="milestones__item milestone">
-            <span className="milestone__date">2016</span>
-            <p className="milestone__text">
-              We became members of the World Economic Forum
+          <div className='milestones__item milestone'>
+            <span className='milestone__date'>2016</span>
+            <p className='milestone__text'>
+              <Trans i18nKey='about:keyMilestones.2016' />
             </p>
           </div>
-          <div className="milestones__item milestone">
-            <span className="milestone__date">2015</span>
-            <p className="milestone__text">
-              Integral Petroleum became one of the largest exporters and
-              logistics providers for crude oil and petroleum products
-              originating from Caspian Region
+          <div className='milestones__item milestone'>
+            <span className='milestone__date'>2015</span>
+            <p className='milestone__text'>
+              <Trans i18nKey='about:keyMilestones.2015' />
             </p>
           </div>
-          <div className="milestones__item milestone">
-            <span className="milestone__date">2008</span>
-            <p className="milestone__text">
-              Integral Petroleum, first of the company of Integral Group,
-              established in Geneva, Switzerland
+          <div className='milestones__item milestone'>
+            <span className='milestone__date'>2008</span>
+            <p className='milestone__text'>
+              <Trans i18nKey='about:keyMilestones.2008' />
             </p>
           </div>
         </div>
         <img
-          className="milestones__arrow milestones__arrow_right"
-          src={'./images/milestones-right-arrow.svg'}
-          alt={''}
+          className='milestones__arrow milestones__arrow_right'
+          src='./images/milestones-right-arrow.svg'
+          alt=''
           onClick={() => handleMilestonesArrowClick('right')}
         />
       </section>
-      <section className="futures">
-        <h2 className="futures__header">
-          <a name="futures">Future releases</a>
+      <section className='futures'>
+        <h2 className='futures__header'>
+          <a name='futures'>
+            <Trans i18nKey='about:futureReleases.title' />
+          </a>
         </h2>
-        <div className="futures__list">
-          <div className="futures__item futures__item_little future-card future-card_little">
+        <div className='futures__list'>
+          <div className='futures__item futures__item_little future-card future-card_little'>
             <img
-              className="future-card__icon future-card__icon_little"
-              src="./images/future-tracking.svg"
-              alt=""
+              className='future-card__icon future-card__icon_little'
+              src='./images/future-tracking.svg'
+              alt=''
             />
-            <p className="future-card__text future-card__text_little">
-              Tracking the shipment online in user account
+            <p className='future-card__text future-card__text_little'>
+              <Trans i18nKey='about:futureReleases.tracking' />
             </p>
           </div>
-          <div className="futures__item futures__item_little future-card future-card_little">
+          <div className='futures__item futures__item_little future-card future-card_little'>
             <img
-              className="future-card__icon future-card__icon_little"
-              src="./images/future-search.svg"
-              alt=""
+              className='future-card__icon future-card__icon_little'
+              src='./images/future-search.svg'
+              alt=''
             />
-            <p className="future-card__text future-card__text_little">
-              Find servise providers for your order
+            <p className='future-card__text future-card__text_little'>
+              <Trans i18nKey='about:futureReleases.find service' />
             </p>
           </div>
-          <div className="futures__item futures__item_little future-card future-card_little">
+          <div className='futures__item futures__item_little future-card future-card_little'>
             <img
-              className="future-card__icon future-card__icon_little"
-              src="./images/future-online.svg"
-              alt=""
+              className='future-card__icon future-card__icon_little'
+              src='./images/future-online.svg'
+              alt=''
             />
-            <p className="future-card__text future-card__text_little">
-              Online payment by credit card, bank transfer & bitcoin cash
+            <p className='future-card__text future-card__text_little'>
+              <Trans i18nKey='about:futureReleases.online payment' />
             </p>
           </div>
-          <div className="futures__item futures__item_little future-card future-card_little">
+          <div className='futures__item futures__item_little future-card future-card_little'>
             <img
-              className="future-card__icon future-card__icon_little"
-              src="./images/future-reordering.svg"
-              alt=""
+              className='future-card__icon future-card__icon_little'
+              src='./images/future-reordering.svg'
+              alt=''
             />
-            <p className="future-card__text future-card__text_little">
-              Re-ordering with few clicks
+            <p className='future-card__text future-card__text_little'>
+              <Trans i18nKey='about:futureReleases.re-ordering' />
             </p>
           </div>
-          <div className="futures__item futures__item_little future-card future-card_little">
+          <div className='futures__item futures__item_little future-card future-card_little'>
             <img
-              className="future-card__icon future-card__icon_little"
-              src="./images/future-subscription.svg"
-              alt=""
+              className='future-card__icon future-card__icon_little'
+              src='./images/future-subscription.svg'
+              alt=''
             />
-            <p className="future-card__text future-card__text_little">
-              Subscription to news about product launches, availability, price
+            <p className='future-card__text future-card__text_little'>
+              <Trans i18nKey='about:futureReleases.subscription' />
             </p>
           </div>
-          <div className="futures__item futures__item_little future-card future-card_little">
+          <div className='futures__item futures__item_little future-card future-card_little'>
             <img
-              className="future-card__icon future-card__icon_little"
-              src="./images/future-search.svg"
-              alt=""
+              className='future-card__icon future-card__icon_little'
+              src='./images/future-search.svg'
+              alt=''
             />
-            <p className="future-card__text future-card__text_little">
-              Find analog of your grade raw materials
+            <p className='future-card__text future-card__text_little'>
+              <Trans i18nKey='about:futureReleases.find analog' />
             </p>
           </div>
         </div>
       </section>
-      <section className="events">
-        <div className="events__wrapper">
-          <h2 className="events__header">Organizer</h2>
-          <h3 className="events__name">Caspian Week</h3>
-          <ul className="events__list">
-            <li className="events__item event">
-              <span className="event__date">2021</span>
-              <div className="event__text-wrapper">
-                <p className="event__text">
-                  CASPIAN WEEK IS THE STRATEGIC PARTNER OF THE ANNUAL HORASIS:
-                  THE GLOBAL VISIONS COMMUNITY. On June 8, HORASIS held its
-                  annual global meeting, co-chaired by the Chairman of the
-                  Caspian Week Forum, Murat Seitnepesov.
+      <section className='events'>
+        <div className='events__wrapper'>
+          <h2 className='events__header'>
+            <Trans i18nKey='about:caspianWeek.title' />
+          </h2>
+          <h3 className='events__name'>Caspian Week</h3>
+          <ul className='events__list'>
+            <li className='events__item event'>
+              <span className='event__date'>2021</span>
+              <div className='event__text-wrapper'>
+                <p className='event__text'>
+                  <Trans i18nKey='about:caspianWeek.2021' />
                 </p>
                 <a
-                  href="https://caspianweek.com/caspian-week-a-strategic-partner-of-the-annual-global-meeting-held"
-                  className="event__link"
-                  target="_blank"
+                  href='https://caspianweek.com/caspian-week-a-strategic-partner-of-the-annual-global-meeting-held'
+                  className='event__link'
+                  target='_blank'
                 >
                   more →
                 </a>
               </div>
             </li>
-            <li className="events__item event">
-              <span className="event__date">2020</span>
-              <div className="event__text-wrapper">
-                <p className="event__text">
-                  THE 2020 EDITION WILL BREAK NEW GROUND IN COVERING A BROAD
-                  ARRAY OF TOPICS INCLUDING INNOVATION IN MANUFACTURING,
-                  TRANSPORTATION AND FINANCE, CYBER SECURITY AND AI, AND
-                  FIGHTING ILLICIT TRADE AS WELL AS NEW DEVELOPMENTS IN
-                  HEALTHCARE, FINANCIAL INCLUSION AND EDUCATION.
+            <li className='events__item event'>
+              <span className='event__date'>2020</span>
+              <div className='event__text-wrapper'>
+                <p className='event__text'>
+                  <Trans i18nKey='about:caspianWeek.2020' />
                 </p>
                 <a
-                  href="https://caspianweek.com/agenda"
-                  className="event__link"
-                  target="_blank"
+                  href='https://caspianweek.com/agenda'
+                  className='event__link'
+                  target='_blank'
                 >
                   more →
                 </a>
@@ -271,23 +255,25 @@ function AboutPage() {
             </li>
           </ul>
           <a
-            href="https://caspianweek.com"
-            className="events_button"
-            target="_blank"
+            href='https://caspianweek.com'
+            className='events_button'
+            target='_blank'
           >
-            Go to official site Caspian Week
+            <Trans i18nKey='about:caspianWeek.button' />
           </a>
         </div>
       </section>
-      <section className="offices">
-        <h2 className="offices__header">Offices</h2>
-        <ul className="offices__list">
+      <section className='offices'>
+        <h2 className='offices__header'>
+          <Trans i18nKey='about:offices.title' />
+        </h2>
+        <ul className='offices__list'>
           <li
-            className="offices__item offices__item_has-two-columns office"
+            className='offices__item offices__item_has-two-columns office'
             style={{ backgroundImage: 'url(/images/switzerland-map.svg)' }}
           >
             <a
-              name="lugano"
+              name='lugano'
               style={{
                 visibility: 'hidden',
                 position: 'absolute',
@@ -295,18 +281,16 @@ function AboutPage() {
                 left: 0
               }}
             />
-            <div className="office__info office-description">
+            <div className='office__info office-description'>
               <img
-                className="office-description__flag"
-                src="/images/flag-ch.svg"
-                alt=""
+                className='office-description__flag'
+                src='/images/flag-ch.svg'
+                alt=''
               />
-              <h2 className="office-description__name">
-                Lugano
-                <br />
-                Switzerland
+              <h2 className='office-description__name'>
+                <Trans i18nKey='about:offices.lugano' components={[<br />]} />
               </h2>
-              <p className="office-description__contacts">
+              <p className='office-description__contacts'>
                 Via F. Pelli 13B, 6900
                 <br />
                 Lugano, Switzerland
@@ -320,17 +304,17 @@ function AboutPage() {
               </p>
             </div>
             <img
-              className="office__map"
-              src="/images/switzerland-map.svg"
-              alt=""
+              className='office__map'
+              src='/images/switzerland-map.svg'
+              alt=''
             />
           </li>
           <li
-            className="offices__item offices__item_has-two-columns office"
+            className='offices__item offices__item_has-two-columns office'
             style={{ backgroundImage: 'url(/images/uae-map.svg)' }}
           >
             <a
-              name="dubai"
+              name='dubai'
               style={{
                 visibility: 'hidden',
                 position: 'absolute',
@@ -338,18 +322,16 @@ function AboutPage() {
                 left: 0
               }}
             />
-            <div className="office__info office-description">
+            <div className='office__info office-description'>
               <img
-                className="office-description__flag"
-                src="/images/flag-uae.svg"
-                alt=""
+                className='office-description__flag'
+                src='/images/flag-uae.svg'
+                alt=''
               />
-              <h2 className="office-description__name">
-                Dubai
-                <br />
-                UAE
+              <h2 className='office-description__name'>
+                <Trans i18nKey='about:offices.dubai' components={[<br />]} />
               </h2>
-              <p className="office-description__contacts">
+              <p className='office-description__contacts'>
                 Platinum Tower,
                 <br />
                 3905, JLT, Dubai,
@@ -364,14 +346,14 @@ function AboutPage() {
                 dubai@integral-commodities.ch
               </p>
             </div>
-            <img className="office__map" src="/images/uae-map.svg" alt="" />
+            <img className='office__map' src='/images/uae-map.svg' alt='' />
           </li>
           <li
-            className="offices__item offices__item_has-two-columns office"
+            className='offices__item offices__item_has-two-columns office'
             style={{ backgroundImage: 'url(/images/turkmenistan-map.svg)' }}
           >
             <a
-              name="turkmenistan"
+              name='turkmenistan'
               style={{
                 visibility: 'hidden',
                 position: 'absolute',
@@ -379,18 +361,19 @@ function AboutPage() {
                 left: 0
               }}
             />
-            <div className="office__info office-description">
+            <div className='office__info office-description'>
               <img
-                className="office-description__flag"
-                src="/images/flag-tm.svg"
-                alt=""
+                className='office-description__flag'
+                src='/images/flag-tm.svg'
+                alt=''
               />
-              <h2 className="office-description__name">
-                Ashgabat
-                <br />
-                Turkmenistan
+              <h2 className='office-description__name'>
+                <Trans
+                  i18nKey='about:offices.ashgabat'
+                  components={[<br />]}
+                />
               </h2>
-              <p className="office-description__contacts">
+              <p className='office-description__contacts'>
                 Archabil avenue 17,
                 <br />
                 office № 1, 744036,
@@ -404,17 +387,17 @@ function AboutPage() {
               </p>
             </div>
             <img
-              className="office__map"
-              src="/images/turkmenistan-map.svg"
-              alt=""
+              className='office__map'
+              src='/images/turkmenistan-map.svg'
+              alt=''
             />
           </li>
           <li
-            className="offices__item offices__item_has-two-columns office"
+            className='offices__item offices__item_has-two-columns office'
             style={{ backgroundImage: 'url(/images/turkey-map.svg)' }}
           >
             <a
-              name="turkey"
+              name='turkey'
               style={{
                 visibility: 'hidden',
                 position: 'absolute',
@@ -422,18 +405,16 @@ function AboutPage() {
                 left: 0
               }}
             />
-            <div className="office__info office-description">
+            <div className='office__info office-description'>
               <img
-                className="office-description__flag"
-                src="/images/flag-tr.svg"
-                alt=""
+                className='office-description__flag'
+                src='/images/flag-tr.svg'
+                alt=''
               />
-              <h2 className="office-description__name">
-                Mersin
-                <br />
-                Turkey
+              <h2 className='office-description__name'>
+                <Trans i18nKey='about:offices.mersin' components={[<br />]} />
               </h2>
-              <p className="office-description__contacts">
+              <p className='office-description__contacts'>
                 Kalekoy mahallesi,
                 <br />
                 32027 sokak,
@@ -448,14 +429,14 @@ function AboutPage() {
                 mersin@integral-commodities.ch
               </p>
             </div>
-            <img className="office__map" src="/images/turkey-map.svg" alt="" />
+            <img className='office__map' src='/images/turkey-map.svg' alt='' />
           </li>
           <li
-            className="offices__item offices__item_has-two-columns office"
+            className='offices__item offices__item_has-two-columns office'
             style={{ backgroundImage: 'url(/images/uzbekistan-map.svg)' }}
           >
             <a
-              name="uzbekistan"
+              name='uzbekistan'
               style={{
                 visibility: 'hidden',
                 position: 'absolute',
@@ -463,18 +444,19 @@ function AboutPage() {
                 left: 0
               }}
             />
-            <div className="office__info office-description">
+            <div className='office__info office-description'>
               <img
-                className="office-description__flag"
-                src="/images/flag-uz.svg"
-                alt=""
+                className='office-description__flag'
+                src='/images/flag-uz.svg'
+                alt=''
               />
-              <h2 className="office-description__name">
-                Tashkent
-                <br />
-                Uzbekistan
+              <h2 className='office-description__name'>
+                <Trans
+                  i18nKey='about:offices.tashkent'
+                  components={[<br />]}
+                />
               </h2>
-              <p className="office-description__contacts">
+              <p className='office-description__contacts'>
                 Tashkent, Uzbekistan
                 <br />
                 Mukimiy 162/30, Chilanzar district
@@ -486,17 +468,17 @@ function AboutPage() {
               </p>
             </div>
             <img
-              className="office__map"
-              src="/images/uzbekistan-map.svg"
-              alt=""
+              className='office__map'
+              src='/images/uzbekistan-map.svg'
+              alt=''
             />
           </li>
           <li
-            className="offices__item offices__item_has-two-columns office"
+            className='offices__item offices__item_has-two-columns office'
             style={{ backgroundImage: 'url(/images/kazakhstan-map.svg)' }}
           >
             <a
-              name="kazakhstan"
+              name='kazakhstan'
               style={{
                 visibility: 'hidden',
                 position: 'absolute',
@@ -504,19 +486,17 @@ function AboutPage() {
                 left: 0
               }}
             />
-            <div className="office__info office-description">
+            <div className='office__info office-description'>
               <img
-                className="office-description__flag"
-                src="/images/flag-kz.svg"
-                alt=""
+                className='office-description__flag'
+                src='/images/flag-kz.svg'
+                alt=''
               />
-              <h2 className="office-description__name">
-                Aktau
-                <br />
-                Kazakhstan
+              <h2 className='office-description__name'>
+                <Trans i18nKey='about:offices.aktau' components={[<br />]} />
               </h2>
-              <p className="office-description__contacts">
-                Kazakhstan, Aktu
+              <p className='office-description__contacts'>
+                Kazakhstan, Aktau
                 <br />
                 microdistrict 14, 61
                 <br />
@@ -527,17 +507,17 @@ function AboutPage() {
               </p>
             </div>
             <img
-              className="office__map"
-              src="/images/kazakhstan-map.svg"
-              alt=""
+              className='office__map'
+              src='/images/kazakhstan-map.svg'
+              alt=''
             />
           </li>
           <li
-            className="offices__item offices__item_has-two-columns office"
+            className='offices__item offices__item_has-two-columns office'
             style={{ backgroundImage: 'url(/images/russia-map.svg)' }}
           >
             <a
-              name="russia"
+              name='russia'
               style={{
                 visibility: 'hidden',
                 position: 'absolute',
@@ -545,18 +525,19 @@ function AboutPage() {
                 left: 0
               }}
             />
-            <div className="office__info office-description">
+            <div className='office__info office-description'>
               <img
-                className="office-description__flag"
-                src="/images/flag-rf.svg"
-                alt=""
+                className='office-description__flag'
+                src='/images/flag-rf.svg'
+                alt=''
               />
-              <h2 className="office-description__name">
-                Novosibirsk
-                <br />
-                Russia
+              <h2 className='office-description__name'>
+                <Trans
+                  i18nKey='about:offices.novosibirsk'
+                  components={[<br />]}
+                />
               </h2>
-              <p className="office-description__contacts">
+              <p className='office-description__contacts'>
                 Novosibirsk region,
                 <br />
                 Akademgorodok,
@@ -567,7 +548,7 @@ function AboutPage() {
                 nsk@integral-commodities.ch
               </p>
             </div>
-            <img className="office__map" src="/images/russia-map.svg" alt="" />
+            <img className='office__map' src='/images/russia-map.svg' alt='' />
           </li>
         </ul>
       </section>

@@ -1,11 +1,20 @@
+.tabsList__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 15px;
+}
+
 .tabsList {
     display: flex;
     justify-content: space-around;
-    background: url('/images/bg-line.svg') no-repeat bottom;
-    margin-bottom: 20px;
-    padding-top: 14px;
+    width: 100%;
+    max-width: 100%;
+    background: white url('/images/bg-line.svg') no-repeat bottom;
     list-style: none;
-    z-index: 2000;
+    padding: 12px 0 0;
+    margin: 0;
+    transition: max-width 0.2s ease-in-out;
 }
 
 .tabsList::after {
@@ -19,12 +28,21 @@
     z-index: -1;
 }
 
+.tabsList__button {
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
 .tabItem {
     font-family: var(--font-montserrat);
     color: var(--p-grey-dark);
     font-size: 22px;
     line-height: 27px;
-    padding: 0 15px 10px;
+    padding: 0 15px 15px;
     cursor: pointer;
 }
 

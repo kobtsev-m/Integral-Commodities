@@ -36,7 +36,7 @@ const FilterMenu = (props) => {
             <li key={nanoid()} className={styles.filterItem}>
               <span className={styles.filterName}>{filterInfo.key}</span>
               <button
-                type={'button'}
+                type='button'
                 className={styles.rollupBtn}
                 onClick={() => {
                   setRollup((prevState) => ({
@@ -56,7 +56,7 @@ const FilterMenu = (props) => {
                       htmlFor={`option-${optionName}`}
                     >
                       <input
-                        type={'checkbox'}
+                        type='checkbox'
                         id={`option-${optionName}`}
                         className={styles.optionInput}
                         checked={filtersState[filterName].options[optionName]}
@@ -75,12 +75,12 @@ const FilterMenu = (props) => {
         })}
       </ul>
       <div className={styles.submitWrapper}>
-        <button type={'button'} className={styles.submit} onClick={onClose}>
+        <button type='button' className={styles.submit} onClick={onClose}>
           Show {productsCount} {productsCount !== 1 ? 'products' : 'product'}
         </button>
         {!!filtersCount && (
           <button
-            type={'button'}
+            type='button'
             className={cn(styles.submit, styles.red, 'mt-2')}
             onClick={handleReset}
           >

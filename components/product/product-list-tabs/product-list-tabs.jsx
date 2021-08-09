@@ -9,7 +9,7 @@ function ProductListTabs(props) {
   const formattedActiveTab = convertFirstLetterToUpper(activeTab);
 
   return (
-    <ul className={'products__tabs'}>
+    <ul className='products__tabs'>
       {tabs.map((tab, i) => (
         <ProductListTab
           key={`tab-${i}`}

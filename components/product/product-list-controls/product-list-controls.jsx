@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState, useRef } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 
 import CheckboxesFilter from 'components/checkboxes-filter/checkboxes-filter';
 import FilterControls from 'components/filter/filter-controls';
@@ -32,6 +33,7 @@ function ProductListControls(props) {
   } = props;
 
   const router = useRouter();
+  const { t } = useTranslation();
 
   const [droppedDown, setIsDroppedDown] = useState({});
   const [filtersCount, setFiltersCount] = useState(0);
@@ -102,7 +104,7 @@ function ProductListControls(props) {
   }
 
   return (
-    <div className={'products__controls'}>
+    <div className='products__controls'>
       <form className={styles.filterForm} ref={formRef}>
         {Object.entries(filtersState).map(([filterName, filter]) => {
           return (
@@ -117,7 +119,7 @@ function ProductListControls(props) {
           );
         })}
         {!!filtersCount && (
-          <div className={'d-flex align-items-center'}>
+          <div className='d-flex align-items-center'>
             <div
               className={styles.clearFiltersBtn}
               onClick={handleClear}
@@ -126,8 +128,8 @@ function ProductListControls(props) {
         )}
       </form>
       <form
-        className={'products__search-form mt-2'}
-        name={'search'}
+        className='products__search-form mt-2 d-none d-xl-flex'
+        name='search'
         onSubmit={async (event) => {
           event.preventDefault();
           const searchResult = await getProductsBySearchStringApi(
@@ -136,19 +138,19 @@ function ProductListControls(props) {
           onSearchSubmit(searchResult);
         }}
       >
-        <label className={'products__search-label'} htmlFor={'searchInput'}>
+        <label className='products__search-label' htmlFor='searchInput'>
           Search
         </label>
         <input
-          className={'products__search-input'}
-          type={'text'}
-          name={'search'}
-          id={'searchInput'}
-          placeholder={'Grade'}
-          autoComplete={'off'}
+          className='products__search-input'
+          type='text'
+          name='search'
+          id='searchInput'
+          placeholder={t('common:productFields.grade')}
+          autoComplete='off'
           ref={searchRef}
         />
-        <button className={'products__search-submit'} type={'submit'} />
+        <button className='products__search-submit' type='submit' />
       </form>
     </div>
   );

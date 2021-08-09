@@ -1,44 +1,24 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect, useContext } from 'react';
 import { ProductsContext } from 'state/state';
-import slugify from 'react-slugify';
 
 import { getProductByIdApi, getPlaceCoordinatesByNameApi } from 'api/api';
-import { capitalize } from 'utils/string-utils';
 import ProductDetails from 'components/product/product-details/product-details';
 import LoadingSpinner from 'components/ui/loading';
 import Breadcrumbs from 'components/ui/breadcrumbs';
 import ProductTabviewTop from 'components/product/product-tabviews/product-tabview-top/product-tabview-top';
+import useTranslation from 'next-translate/useTranslation';
 
 import styles from 'components/product/product-details/product-details.module.css';
 import cn from 'classnames';
 
 const INFO_FIELDS_TO_FILTER = ['price', 'density'];
 
-const getBreadcrumbs = (product) => {
-  const homeBreadcrumb = { title: 'Home', link: '/products/sulphur' };
-  const categoryBreadcrumb = {
-    title: capitalize(product?.category),
-    link: `/products/${product?.category}`
-  };
-  const polymerType = product?.card_data.find(
-    (item) => item.key === 'Type'
-  ).value;
-  const polymerBreadcrumb = {
-    title: polymerType,
-    link: `/products/${product?.category}?type=${polymerType?.toUpperCase()}`
-  };
-  const gradeBreadcrumb = { title: product?.grade };
-  return [
-    homeBreadcrumb,
-    categoryBreadcrumb,
-    polymerType ? polymerBreadcrumb : null,
-    gradeBreadcrumb
-  ];
-};
-
 function ProductPage() {
   const router = useRouter();
+  const { t } = useTranslation();
+
+  const category = router.query.categoryName;
   const productGrade = router.query.productGrade;
   const { getProductIdByGrade } = useContext(ProductsContext);
 
@@ -70,6 +50,40 @@ function ProductPage() {
       setIsLoading(false);
     }
   }, [product]);
+
+  const getBreadcrumbs = (product) => {
+    const homeBreadcrumb = {
+      title: t('common:menu.home'),
+      link: '/products/sulphur'
+    };
+    const categoryBreadcrumb = {
+      title: t(`common:menu.${product?.category}`),
+      link: `/products/${product?.category}`
+    };
+    const polymerType = product?.card_data.find(
+      (item) => item.key === 'Type'
+    ).value;
+    let polymerBreadcrumb = null;
+    if (polymerType) {
+      const polymerTypeLower = polymerType?.toLowerCase();
+      const polymerTypeUpper = polymerType?.toUpperCase();
+      polymerBreadcrumb = {
+        title: t(`common:menu.${polymerTypeLower}`),
+        link: `/products/${product?.category}?type=${polymerTypeUpper}`
+      };
+    }
+    const gradeBreadcrumb = {
+      title: ['fertilizers', 'sulphur'].includes(category)
+        ? t(`common:${category}.${product.grade.toLowerCase()}`)
+        : product.grade
+    };
+    return [
+      homeBreadcrumb,
+      categoryBreadcrumb,
+      polymerBreadcrumb,
+      gradeBreadcrumb
+    ];
+  };
 
   const addCoordinatesToPlaces = (places, callback) => {
     const newPlacesPromises = places.map(async (place) => {
@@ -104,7 +118,9 @@ function ProductPage() {
       {isLoading ? (
         <LoadingSpinner />
       ) : !product ? (
-        <h2 className={'text-center'}>There are no products!</h2>
+        <h2 className='text-center'>
+          <Trans i18nKey='common:noProducts' />
+        </h2>
       ) : (
         <>
           <Breadcrumbs list={getBreadcrumbs(product)} />

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Trans from 'next-translate/Trans';
 
 function getTabClasses(isActive, productType) {
   const styles = ['products__tab-button'];
@@ -13,14 +14,13 @@ function getTabClasses(isActive, productType) {
 function ProductListTab(props) {
   const { tab, isActive } = props;
   const router = useRouter();
-
   return (
-    <li className="products__tab">
+    <li className='products__tab'>
       <button
         className={getTabClasses(isActive, router.query.categoryName)}
         onClick={() => router.push(`/products/${tab.toLowerCase()}`)}
       >
-        {tab}
+        <Trans i18nKey={`common:menu.${tab.toLowerCase()}`} />
       </button>
     </li>
   );

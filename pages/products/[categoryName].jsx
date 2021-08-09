@@ -7,6 +7,7 @@ import LatestOffers from 'components/product/latest-offers/latest-offers';
 import LoadingSpinner from 'components/ui/loading';
 import ProductListControls from 'components/product/product-list-controls/product-list-controls';
 import AskForQuote from 'components/other-blocks/ask-for-quote/ask-for-quote';
+import Trans from 'next-translate/Trans';
 
 import { getProductsApi, getOffersApi } from 'api/api';
 import { FILTERS, TABS } from 'utils/const';
@@ -138,12 +139,10 @@ function HomePage() {
 
   return (
     <>
-      <h2 className={'slogan root__slogan'}>
-        Save time and get discount
-        <br />
-        for ordering commodities online
+      <h2 className='slogan root__slogan'>
+        <Trans i18nKey='common:slogan' components={[<br />]} />
       </h2>
-      <section className={'products root__products'}>
+      <section className='products root__products'>
         <ProductListTabs activeTab={category} tabs={TABS} />
         {category === 'polymers' && (
           <ProductListControls

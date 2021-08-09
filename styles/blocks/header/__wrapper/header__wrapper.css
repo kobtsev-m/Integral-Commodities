@@ -1,16 +1,16 @@
 .header__wrapper {
-  box-sizing: border-box;
-  max-width: 1160px;
-  padding: 20px 0;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 768px) {
-  .header__wrapper {
-    max-width: 375px;
-    padding: 22px;
-  }
+    .header__wrapper {
+        max-width: 375px;
+        padding: 22px;
+    }
 }

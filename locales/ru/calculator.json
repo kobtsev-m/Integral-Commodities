@@ -1,0 +1,36 @@
+{
+  "fields": {
+    "grade": "Марка",
+    "place of delivery": "Место доставки",
+    "quantity": "Объем",
+    "incoterms": "Условия доставки",
+    "terms of payment": "Условия платежа",
+    "delivery period": "Период доставки",
+    "additional information": "Дополнительная информация",
+    "contact information": "Контактная информация",
+    "name": "Имя",
+    "email": "Email",
+    "metrix tons": "Тонн",
+    "type product grade": "Введите марку товара",
+    "search place of delivery": "Введите место доставки",
+    "additional text": "Название компании, требования к заказу",
+    "name example": "Николай Иванов",
+    "email example": "example@gmail.com",
+    "communication method": "Удобный способ коммуникации:",
+    "we will revert": "Мы вернемся с предложением в течение 48 часов",
+    "done": "Готово",
+    "not completed single": "обязательное поле не заполнено",
+    "not completed many": "обязательных поля не заполнены",
+    "telegram id or phone number:": "Ваш Telegram ID:",
+    "your phone number:": "Ваш номер телефона:",
+    "your skype id:": "Ваш Skype ID:"
+  },
+  "options": {
+    "pre-payment": "Предоплата",
+    "bank guarantee": "Банковская гарантия",
+    "letter of credit": "Аккредитив",
+    "online payment": "Онлайн оплата",
+    "8 weeks": "8 недель",
+    "custom item": "Свой вариант"
+  }
+}

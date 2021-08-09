@@ -1,0 +1,36 @@
+{
+  "fields": {
+    "grade": "Grade",
+    "place of delivery": "Place of delivery",
+    "quantity": "Quantity",
+    "incoterms": "Incoterms",
+    "terms of payment": "Terms of payment",
+    "delivery period": "Delivery period",
+    "additional information": "Additional information",
+    "contact information": "Contact information",
+    "name": "Name",
+    "email": "Email",
+    "metrix tons": "Metric tons",
+    "type product grade": "Type grade of product",
+    "search place of delivery": "Search on the map",
+    "additional text": "Company name, order requirements",
+    "name example": "John Smith",
+    "email example": "example@gmail.com",
+    "communication method": "Preferred method of communication:",
+    "we will revert": "We will revert within 48 hours",
+    "done": "Done",
+    "not completed single": "required field is not completed",
+    "not completed many": "required fields are not completed",
+    "telegram id or phone number:": "Telegram ID or phone number:",
+    "your phone number:": "Your phone number:",
+    "your skype id:": "Your Skype ID:"
+  },
+  "options": {
+    "pre-payment": "Pre-payment",
+    "bank guarantee": "Bank guarantee",
+    "letter of credit": "Letter of credit",
+    "online payment": "Online payment",
+    "8 weeks": "8 weeks",
+    "custom item": "Custom item"
+  }
+}

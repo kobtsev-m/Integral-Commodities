@@ -2,6 +2,7 @@ import cn from 'classnames';
 
 import styles from './latest-offers.module.css';
 import moment from 'moment';
+import Trans from 'next-translate/Trans';
 
 function LatestOffers({ offers }) {
   const sortedDates = offers
@@ -23,13 +24,19 @@ function LatestOffers({ offers }) {
   const latestOfferDate = moment(lastOffer, 'DD.MM.YYYY').format('DD.MM');
 
   if (!offers || !offers.length) {
-    return <h2 className={'mt-4'}>There is no latest offers!</h2>;
+    return (
+      <h2 className='mt-4'>
+        <Trans i18nKey='common:noLatestOffers' />
+      </h2>
+    );
   }
 
   return (
     <section className={styles.currentOffers}>
       <header className={styles.currentOffers__header}>
-        <h2 className={styles.currentOffers__title}>Latest offers</h2>
+        <h2 className={styles.currentOffers__title}>
+          <Trans i18nKey='common:latestOffersTitle' />
+        </h2>
         <p className={styles.dates}>
           Dates: {earliestOfferDate} – {latestOfferDate}
         </p>
@@ -46,7 +53,7 @@ function LatestOffers({ offers }) {
                 styles.mobHiddenCol
               )}
             >
-              Date of offer
+              <Trans i18nKey='common:offerFields.date of offer' />
             </th>
             <th
               className={cn(
@@ -54,16 +61,16 @@ function LatestOffers({ offers }) {
                 styles.headerCell_grade
               )}
             >
-              Grade
+              <Trans i18nKey='common:offerFields.grade' />
             </th>
             <th className={styles.currentOffers__tableHeaderCell}>
-              Place of delivery
+              <Trans i18nKey='common:offerFields.place of delivery' />
             </th>
             <th
               className={styles.currentOffers__tableHeaderCell}
               style={{ textAlign: 'center' }}
             >
-              Terms of Delivery
+              <Trans i18nKey='common:offerFields.terms of delivery' />
             </th>
             <th
               className={cn(
@@ -72,7 +79,7 @@ function LatestOffers({ offers }) {
               )}
               style={{ textAlign: 'center' }}
             >
-              Quantity/MT
+              <Trans i18nKey='common:offerFields.quantity/mt' />
             </th>
             <th
               className={cn(
@@ -80,9 +87,11 @@ function LatestOffers({ offers }) {
                 styles.mobHiddenCol
               )}
             >
-              Payment terms
+              <Trans i18nKey='common:offerFields.payment terms' />
             </th>
-            <th className={styles.currentOffers__tableHeaderCell}>Price/MT</th>
+            <th className={styles.currentOffers__tableHeaderCell}>
+              <Trans i18nKey='common:offerFields.price/mt' />
+            </th>
           </tr>
         </thead>
         <tbody className={styles.currentOffers__tableBody}>
