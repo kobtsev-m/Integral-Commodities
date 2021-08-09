@@ -34,7 +34,11 @@ function ProductAnalogs({ product }) {
   }
 
   if (!analogs || !analogs.length) {
-    return <h2 className={styles.analogs__noAnalogs}>There is no analogs</h2>;
+    return (
+      <h2 className={styles.analogs__noAnalogs}>
+        <Trans i18nKey='common:noAnalogs' />
+      </h2>
+    );
   }
 
   return (
