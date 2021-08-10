@@ -25,7 +25,8 @@
     "email help": "We will send shipment confirmation by email",
     "communication method": "Preferred method of communication:",
     "communication method help": "Telephone / Telegram ID / ...",
-    "ask for sample": "Ask for sample"
+    "ask for sample": "Ask for sample",
+    "error text": "Field doesn't fill or fill incorrect"
   },
   "info": {
     "description": "Descirption",

@@ -25,7 +25,8 @@
     "email help": "Мы отправим подтверждение по электронной почте",
     "communication method": "Предпочтительный способ связи",
     "communication method help": "Телефон / Telegram ID / ...",
-    "ask for sample": "Запросить образец"
+    "ask for sample": "Запросить образец",
+    "error text": "Поля не заполенно или заполнено некорректно"
   },
   "info": {
     "description": "Описание",

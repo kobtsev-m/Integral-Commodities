@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import Trans from 'next-translate/Trans';
 import styles from './form-input.module.css';
 
 function FormInput({
@@ -29,7 +30,7 @@ function FormInput({
       />
       {error && (
         <span className={styles.formInput__error}>
-          Field doesn't fill or fill incorrect{' '}
+          <Trans i18nKey='product:samples.error text' />
         </span>
       )}
     </div>

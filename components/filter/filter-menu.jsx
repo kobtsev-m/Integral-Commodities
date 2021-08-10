@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import useTranslation from 'next-translate/useTranslation';
+import { getKey, getClearedTransKey, getTransValue } from 'utils/i18n';
 
 import cn from 'classnames';
 import styles from './filter-menu.module.css';
@@ -30,26 +31,6 @@ const FilterMenu = (props) => {
     onReset();
   };
 
-  const getFilter = (filter) => {
-    return filter.key
-      .replace('.', '')
-      .replace('(', '')
-      .replace(')', '')
-      .toLowerCase();
-  };
-
-  const getKey = (key) => {
-    return key.replace('.', '').toLowerCase();
-  };
-
-  const getFullKey = (key, optionName) => {
-    return `filter.${getKey(key)}.${getKey(optionName)}`;
-  };
-
-  const isTranslatableFilter = (filterName) => {
-    return ['type', 'procmethod', 'application'].includes(filterName);
-  };
-
   const getProductsText = (productsCount) => {
     const digits = Array.from(String(productsCount)).map(Number);
     if (digits.length == 1 || digits[0] > 1) {
@@ -68,11 +49,11 @@ const FilterMenu = (props) => {
   return (
     <div className={styles.root}>
       <ul className={styles.filtersList}>
-        {Object.entries(filtersState).map(([filterName, filterInfo]) => {
+        {Object.entries(filtersState).map(([filterName, filter]) => {
           return (
             <li key={nanoid()} className={styles.filterItem}>
               <span className={styles.filterName}>
-                {t(`common:productFields.${getFilter(filterInfo)}`)}
+                {getClearedTransKey(t, 'common:productFields', filter.key)}
               </span>
               <button
                 type='button'
@@ -88,7 +69,7 @@ const FilterMenu = (props) => {
                 className={styles.optionsList}
                 style={{ display: rollup[filterName] ? 'block' : 'none' }}
               >
-                {Object.entries(filterInfo.options).map(([optionName, _]) => (
+                {Object.entries(filter.options).map(([optionName, _]) => (
                   <li key={nanoid()} className={styles.option}>
                     <label
                       className={styles.optionLabel}
@@ -104,9 +85,11 @@ const FilterMenu = (props) => {
                         }
                       />
                       <span className={styles.inputReplacement} />
-                      {isTranslatableFilter(filterName)
-                        ? t(`common:${getFullKey(filterInfo.key, optionName)}`)
-                        : optionName}
+                      {getTransValue(
+                        t,
+                        ['common:filter', getKey(filter.key)],
+                        optionName
+                      )}
                     </label>
                   </li>
                 ))}

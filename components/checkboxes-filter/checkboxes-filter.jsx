@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 
 import cn from 'classnames';
 import styles from './checkboxes-filter.module.css';
+import { getKey, getClearedTransKey, getTransValue } from 'utils/i18n';
 
 function CheckboxesFilter(props) {
   const { filterName, filter, onChange, isDroppedDown, onDropDownClick } =
@@ -19,18 +20,6 @@ function CheckboxesFilter(props) {
       .toLowerCase();
   };
 
-  const getKey = (key) => {
-    return key.replace('.', '').toLowerCase();
-  };
-
-  const getFullKey = (key, optionName) => {
-    return `filter.${getKey(key)}.${getKey(optionName)}`;
-  };
-
-  const isTranslatableFilter = (filterName) => {
-    return ['type', 'procmethod', 'application'].includes(filterName);
-  };
-
   return (
     <fieldset className={styles.checkboxFilter} key={nanoid()}>
       <button
@@ -38,7 +27,7 @@ function CheckboxesFilter(props) {
         type='button'
         onClick={() => onDropDownClick(filterName)}
       >
-        <Trans i18nKey={`common:productFields.${getFilter(filter)}`} />
+        {getClearedTransKey(t, 'common:productFields', filter.key)}
       </button>
       <ul
         className={cn(styles.checkboxFilter__optionsList, {
@@ -61,9 +50,11 @@ function CheckboxesFilter(props) {
                   id={`${filterName}-option-${optionName}`}
                   onChange={() => onChange(filterName, optionName, isChecked)}
                 />
-                {isTranslatableFilter(filterName)
-                  ? t(`common:${getFullKey(filter.key, optionName)}`)
-                  : optionName}
+                {getTransValue(
+                  t,
+                  ['common:filter', getKey(filter.key)],
+                  optionName
+                )}
               </label>
             </li>
           );

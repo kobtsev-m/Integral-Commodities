@@ -17,11 +17,11 @@
     "color": "Color",
     "price from": "Price: from",
     "static strenght": "Static strenght",
-    "mass fraction of nitrogen": "Mass fraction of nitrogen",
-    "mass fraction of biuret": "Mass fraction of biuret",
+    "mass fraction of nitrogen": "Mass fraction of nitrogen, min (%)",
+    "mass fraction of biuret": "Mass fraction of biuret, max (%)",
     "mass fractions of water ": "Mass fractions of water",
     "mass fraction of potassium in terms of k2o,%, not less": "Mass fraction of potassium in terms of K2O, not less (%)",
-    "mass fractions of assimilable": "Mass fractions of assimilable",
+    "mass fractions of assimilable": "Mass fractions of assimilable (%)",
     "ph of an aqueous solution with mass share of 10%, not less": "pH of an aqueous solution with mass share of 10%, not less",
     "mass fraction of potassium in terms of k2o in dry matter, %": "Mass fraction of potassium in terms of K2O in dry matter (%)",
     "mass fraction of nitrogen in terms of dry matter, %, not less": "Mass fraction of nitrogen in terms of dry matter, not less (%)",
@@ -71,20 +71,9 @@
     "mass fraction of organic compounds, %": "Mass fraction of organic compounds (%)"
   },
   "filter": {
-    "type": {
-      "hdpe": "HPDE",
-      "pp": "PP",
-      "ldpe": "LDPE",
-      "black compound": "Black Compound"
-    },
-    "processing method": {
-      "blow moulding": "Blow moulding",
-      "extrusion": "Extrusion",
-      "injection moulding": "Injection moulding",
-      "injection molding": "Injection moulding",
-      "pipe": "Pipe",
-      "melt spinning": "Melt spinning",
-      "film": "Film"
+    "producer": {
+      "uz-cor-gas chemical": "Uz-Kor gas chemical",
+      "uz-kor gas chemical": "Uz-Kor gas chemical"
     },
     "application": {
       "baskets": "Baskets",
@@ -129,19 +118,6 @@
       "shopping bag": "Shopping bag",
       "garbage bag (industrial/general packing film)": "Garbage bag (industrial/general packing film)",
       "household electrical appliances": "Household electrical appliances"
-    },
-    "appearance": {
-      "white granule": "White granule",
-      "small crystals of various shades of red-brown": "Small crystals of various shades of red-brown",
-      "light gray granules": "Light gray granules",
-      "granulated product": "Granulated product",
-      "white granules colors": "White granules colors",
-      "granular product without strangers mechanical impurities": "Granular product without strangers mechanical impurities",
-      "crushed lump sulphur": "Crushed lump sulphur",
-      "crushed lump": "Crushed lump sulphur"
-    },
-    "origin": {
-      "uzbekistan": "Uzbekistan"
     }
   },
   "fertilizers": {
@@ -212,5 +188,6 @@
   "clearBtn": "Clear filters",
   "productsText1": "product",
   "productsText2": "products",
-  "productsText3": "products"
+  "productsText3": "products",
+  "null": "null"
 }

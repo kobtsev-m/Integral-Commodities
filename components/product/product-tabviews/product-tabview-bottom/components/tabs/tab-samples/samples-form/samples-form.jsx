@@ -6,21 +6,21 @@ import useTranslation from 'next-translate/useTranslation';
 import FormInput from './form-input/form-input';
 import styles from './samples-form.module.css';
 
-const schema = yup.object().shape({
-  companyName: yup.string().required(),
-  companyWebsite: yup.string().url(),
-  companyAddress: yup.string().required(),
-  sampleSizeKg: yup.number().required().positive().integer(),
-  usedFor: yup.string().required(),
-  equipmentManufacturer: yup.string(),
-  eMail: yup.string().email(),
-  communicationMethod: yup.string()
-});
-
 const onSubmit = (data) => {};
 
 function SamplesForm() {
   const { t } = useTranslation();
+
+  const schema = yup.object().shape({
+    companyName: yup.string().required(),
+    companyWebsite: yup.string().url(),
+    companyAddress: yup.string().required(),
+    sampleSizeKg: yup.number().required().positive().integer(),
+    usedFor: yup.string().required(),
+    equipmentManufacturer: yup.string(),
+    eMail: yup.string().email(),
+    communicationMethod: yup.string()
+  });
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema)

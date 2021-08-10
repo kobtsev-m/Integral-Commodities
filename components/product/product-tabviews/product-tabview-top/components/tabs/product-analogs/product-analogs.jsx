@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
+import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
 import { getAnalogsByProductIdApi } from 'api/api';
 import LoadingSpinner from 'components/ui/loading';
+import { getTransValue } from 'utils/i18n';
 
 import cn from 'classnames';
 import styles from 'components/product/latest-offers/latest-offers.module.css';
 import useWindowDimensions from '../../../../../../../utils/hooks/useWindowDemensions';
-import Trans from 'next-translate/Trans';
 
 function ProductAnalogs({ product }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,6 +15,7 @@ function ProductAnalogs({ product }) {
   const [isRolledUp, setIsRolledUp] = useState(true);
 
   const { width } = useWindowDimensions();
+  const { t } = useTranslation();
 
   const getAnalogsToRender = (analogs, isRolledUp) => {
     if (isRolledUp) {
@@ -82,7 +85,7 @@ function ProductAnalogs({ product }) {
                   styles.analogs__cell
                 )}
               >
-                {offer.producer}
+                {getTransValue(t, 'common:filter.producer', offer.producer)}
               </td>
               <td
                 className={cn(
