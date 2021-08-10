@@ -75,6 +75,15 @@
       "uz-cor-gas chemical": "Uz-Kor gas chemical",
       "uz-kor gas chemical": "Uz-Kor gas chemical"
     },
+    "processing method": {
+      "blow moulding": "Blow moulding",
+      "extrusion": "Extrusion",
+      "injection moulding": "Injection moulding",
+      "injection molding": "Injection molding",
+      "pipe": "Pipe",
+      "melt spinning": "Melt spinning",
+      "film": "Film"
+    },
     "application": {
       "baskets": "Baskets",
       "battery housings": "Battery housings",
