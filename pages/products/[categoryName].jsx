@@ -8,6 +8,7 @@ import LoadingSpinner from 'components/ui/loading';
 import ProductListControls from 'components/product/product-list-controls/product-list-controls';
 import AskForQuote from 'components/other-blocks/ask-for-quote/ask-for-quote';
 import Trans from 'next-translate/Trans';
+import useTranslation from 'next-translate/useTranslation';
 
 import { getProductsApi, getOffersApi } from 'api/api';
 import { FILTERS, TABS } from 'utils/const';
@@ -91,6 +92,8 @@ function HomePage() {
   const router = useRouter();
   const category = router.query.categoryName;
 
+  const { lang } = useTranslation();
+
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -102,12 +105,12 @@ function HomePage() {
       setIsLoading(true);
       Promise.all([
         getProductsApi(setProducts),
-        getOffersApi(category, setOffers)
+        getOffersApi(lang, category, setOffers)
       ])
         .catch((e) => console.log(e))
         .finally(() => setIsLoading(false));
     }
-  }, [category]);
+  }, [lang, category]);
 
   useEffect(() => {
     setFiltersState(getFiltersInitialState(category, router.query));

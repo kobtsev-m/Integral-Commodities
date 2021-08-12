@@ -11,7 +11,7 @@ function CustomCheckboxGroup(props) {
         isChecked: value === props.defaultValue
       }))
     );
-  }, []);
+  }, [props.values]);
 
   const handleChange = (changedIdx) => {
     const checkboxesNew = checkboxes.map((checkbox, i) => ({

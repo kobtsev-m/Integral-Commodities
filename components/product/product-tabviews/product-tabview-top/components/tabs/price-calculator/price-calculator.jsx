@@ -23,8 +23,10 @@ import ProductField from './fields/product-field';
 function PriceCalculator(props) {
   const { initialFormData, isEmbed, ...restProps } = props;
 
+  const [paymentValues, setPaymentValues] = useState([]);
+
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   const products = isEmbed ? restProps.products : null;
   const productId = isEmbed ? null : restProps.productId;
@@ -36,13 +38,16 @@ function PriceCalculator(props) {
       `calculator:options.${initialFormData.terms_of_payment}`
     )
   };
-  const paymentTermsValuesUpdated = paymentTermsValues.map((val) =>
-    t(`calculator:options.${val}`)
-  );
 
   const [formData, setFormData] = useState(newFormData);
   const [formErrors, setFormErrors] = useState({});
   const [touchedFields, setTouchedFields] = useState([]);
+
+  useEffect(() => {
+    setPaymentValues(
+      paymentTermsValues.map((v) => t(`calculator:options.${v}`))
+    );
+  }, [lang]);
 
   useEffect(() => {
     formSchema
@@ -160,7 +165,7 @@ function PriceCalculator(props) {
           <FieldWrapper title={t('calculator:fields.terms of payment')}>
             <PaymentTermsField
               name='terms_of_payment'
-              values={paymentTermsValuesUpdated}
+              values={paymentValues}
               onChange={handleChange}
               defaultValue={newFormData.terms_of_payment}
             />

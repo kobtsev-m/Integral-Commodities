@@ -24,7 +24,7 @@ function PeriodField(props) {
   const customCheckboxLabel = useRef();
   const calendarScrollbox = useRef();
 
-  const { lang } = useTranslation();
+  const { t, lang } = useTranslation();
 
   useEffect(() => {
     const weeksRangeList = getWeeksRangeList(calendarWeeksAfter);
@@ -38,6 +38,12 @@ function PeriodField(props) {
       setCurrentMonth(monthsOffsetList[currentMonth?.id ?? 0]);
     }
   }, [weeks, lang]);
+
+  useEffect(() => {
+    customCheckboxLabel.current.innerHTML = t(
+      'calculator:options.custom item'
+    );
+  }, [lang]);
 
   useEffect(() => {
     props.onChange({ [props.name]: datesRanges });
@@ -111,7 +117,9 @@ function PeriodField(props) {
       setDatesRanges(newDatesRanges);
       setSelectMode(false);
     } else {
-      customCheckboxLabel.current.innerHTML = 'Custom item';
+      customCheckboxLabel.current.innerHTML = t(
+        'calculator:options.custom item'
+      );
       handleDefaultCheckboxClick();
     }
   };
