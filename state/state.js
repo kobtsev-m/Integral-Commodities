@@ -14,7 +14,7 @@ function GlobalState(props) {
 
   const getProductIdByGrade = async (grade) => {
     if (!productState.productsGradeList) {
-      const products = await getProductsApi(addProductsGradeList);
+      const products = await getProductsApi('en', addProductsGradeList);
       return products.find((product) => slugifyLink(product) === grade).id;
     }
     return productState.productsGradeList[grade];

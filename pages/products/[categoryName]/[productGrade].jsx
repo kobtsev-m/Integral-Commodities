@@ -16,13 +16,14 @@ const INFO_FIELDS_TO_FILTER = ['price', 'density'];
 
 function ProductPage() {
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   const category = router.query.categoryName;
   const productGrade = router.query.productGrade;
   const { getProductIdByGrade } = useContext(ProductsContext);
 
   const [product, setProduct] = useState(null);
+  const [productId, setProductId] = useState(null);
   const [ports, setPorts] = useState(null);
   const [factories, setFactories] = useState(null);
   const [arePortsUpdated, setArePortsUpdated] = useState(false);
@@ -31,14 +32,20 @@ function ProductPage() {
 
   useEffect(() => {
     if (!!productGrade) {
-      getProductIdByGrade(productGrade).then((productId) => {
-        getProductByIdApi(productId).then((product) => {
-          setProduct(product);
-          setIsLoading(!!product);
-        });
+      getProductIdByGrade(productGrade).then((id) => {
+        setProductId(id);
       });
     }
   }, [productGrade]);
+
+  useEffect(() => {
+    if (productId) {
+      setIsLoading(true);
+      getProductByIdApi(lang, productId, setProduct)
+        .catch((e) => console.log(e))
+        .then(() => setIsLoading(false));
+    }
+  }, [productId, lang]);
 
   useEffect(() => {
     if (product) {
@@ -121,9 +128,7 @@ function ProductPage() {
       {isLoading ? (
         <LoadingSpinner />
       ) : !product ? (
-        <h2 className='text-center'>
-          <Trans i18nKey='common:noProducts' />
-        </h2>
+        <h2 className='text-center'>{t('common:noProducts')}</h2>
       ) : (
         <>
           <Breadcrumbs list={getBreadcrumbs(product)} />
