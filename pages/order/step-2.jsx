@@ -22,13 +22,8 @@ function OrderStep2() {
       </div>
       <OrderNavigation nextLink='/order/step-3?for=companies' />
       <p className={styles.orderContainer__intro}>
-        {t('order:step2.main text 1')}
+        {t('order:step2.main text')}
       </p>
-      <div className={styles.orderContainer__messageContainer}>
-        <p className={styles.orderContainer__message}>
-          {t('order:step2.main text 2')}
-        </p>
-      </div>
       <div>
         <div className={styles.orderContainer__document}>
           <h2 className={styles.orderContainer__documentHeader}>
@@ -629,11 +624,16 @@ function OrderStep2() {
           <strong>SELLER </strong>
           <br />
           <br />
-          VINCLASS OIL TRADING SA, <br />
+          INTEGRAL COMMODITIES S.A.
           <br />
-          14 RUE GRAND-PLACES, <br />
           <br />
-          1700 FRIBOURG, SWITZERLAND <br />
+          VIA F. PELLI 13B, 6900 LUGANO, SWITZERLAND
+          <br />
+          <br />
+          (HEREINAFTER REFERRED TO AS “SELLER”)
+          <br />
+          <br />
+          <br />
           <br />
         </div>
       </div>
