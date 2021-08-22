@@ -3,6 +3,7 @@ const BACKEND_URL = 'https://integral-commodities.ch/api/v';
 async function getRequest(version, requestUrl, callback) {
   const response = await fetch(`${BACKEND_URL}${version}${requestUrl}`);
   if (!response.ok) {
+    console.log(requestUrl);
     throw Error(response.statusText);
   }
   const data = await response.json();
@@ -23,11 +24,11 @@ async function postRequest(requestUrl, data) {
   return await response.json();
 }
 
-export async function getProductsApi(cb) {
-  return await getRequest(1, '/products', cb);
+export async function getProductsApi(lang, cb) {
+  return await getRequest(2, `/products/${lang}`, cb);
 }
-export async function getProductByIdApi(id, cb) {
-  return await getRequest(1, `/products/${id}`, cb);
+export async function getProductByIdApi(lang, id, cb) {
+  return await getRequest(2, `/products/${lang}/${id}`, cb);
 }
 export async function getAnalogsByProductIdApi(id, cb) {
   return await getRequest(1, `/analogs/${id}`, cb);

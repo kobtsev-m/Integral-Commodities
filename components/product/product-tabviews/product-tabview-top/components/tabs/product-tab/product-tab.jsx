@@ -14,10 +14,7 @@ function ProductTab(props) {
   const { t } = useTranslation();
 
   const getProductProperties = (product) => {
-    if (product.properties) {
-      const localeProperties = t(`product:properties.${product.grade}`);
-      return localeProperties.split('• ').slice(1);
-    }
+    return product.properties.split('• ').slice(1);
   };
 
   const removeAll = (string, char) => {
@@ -36,7 +33,7 @@ function ProductTab(props) {
             {t('product:info.description')}
           </h2>
           <p className={styles.productPage__infoContent}>
-            {t(`product:description.${product.grade}`)}
+            {product.description}
           </p>
         </div>
       )}
@@ -60,7 +57,7 @@ function ProductTab(props) {
             {t('product:info.packaging')}
           </h2>
           <p className={styles.productPage__infoContent}>
-            {t(`product:packaging.${removeAll(product.packaging, '.')}`)}
+            {product.packaging}
           </p>
         </div>
       )}

@@ -104,7 +104,7 @@ function HomePage() {
     if (category) {
       setIsLoading(true);
       Promise.all([
-        getProductsApi(setProducts),
+        getProductsApi(lang, setProducts),
         getOffersApi(lang, category, setOffers)
       ])
         .catch((e) => console.log(e))
