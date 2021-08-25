@@ -7,4 +7,4 @@
 -    ports:
 -      - "3000:3000"
 -    command: >
--      bash -c  "yarn install && yarn run build && yarn run start"
+-      bash -c "yarn install && yarn run build && yarn run start"
