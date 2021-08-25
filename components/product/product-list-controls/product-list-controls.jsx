@@ -73,6 +73,9 @@ function ProductListControls(props) {
   };
 
   const handleClear = () => {
+    if (searchRef.current) {
+      searchRef.current.value = '';
+    }
     onReset();
     setFiltersCount(0);
   };
@@ -149,6 +152,7 @@ function ProductListControls(props) {
           placeholder={t('common:productFields.grade')}
           autoComplete='off'
           ref={searchRef}
+          onChange={() => setFiltersCount(filtersCount + 1)}
         />
         <button className='products__search-submit' type='submit' />
       </form>

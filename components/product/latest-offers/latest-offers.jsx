@@ -134,7 +134,10 @@ function LatestOffers({ offers }) {
                 {offer.quantity}
               </td>
               <td
-                className={cn(styles.currentOffers__tableCell)}
+                className={cn(
+                  styles.currentOffers__tableCell,
+                  styles.mobHiddenCol
+                )}
                 style={{ textAlign: 'center' }}
               >
                 <div className='p-3'>{offer.terms_of_payment}</div>
@@ -146,7 +149,8 @@ function LatestOffers({ offers }) {
                   styles.currentOffers__tableCell_price
                 )}
               >
-                ${offer.price}
+                {offer.price}
+                <Trans i18nKey='common:currencySign' />
               </td>
             </tr>
           ))}

@@ -201,14 +201,19 @@
     }
 
     .orderContainer__intro {
-        font-size: 10px;
+        font-size: 14px;
         line-height: 1.4;
         margin: 25px 0;
     }
 
+    .orderContainer__message {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
     .orderContainer__title {
         margin: 0 0 16px;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 15px;
     }
 
@@ -218,8 +223,8 @@
         grid-column-gap: initial;
         grid-row-gap: initial;
 
-        margin: -105px 0 0;
-        padding: 20px 0 0;
+        margin: -130px 0 0;
+        padding: 20px 10px 0;
         list-style: none;
 
         display: flex;
@@ -265,7 +270,7 @@
     }
 
     .orderContainer__detailsRowBg {
-        height: 105px;
+        height: 130px;
     }
 
     .orderContainer__controlsContainer {
