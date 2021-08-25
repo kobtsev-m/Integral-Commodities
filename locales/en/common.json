@@ -188,6 +188,8 @@
     "terms": "Terms",
     "privacy": "Privacy"
   },
+  "currencySign": "$",
+  "onRequest": "on request",
   "noProducts": "There is no products",
   "noAnalogs": "There is no analogs",
   "showMore": "Show more...",

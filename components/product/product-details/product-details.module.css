@@ -85,8 +85,7 @@
     .productPage__feature {
         font-size: 12px;
         line-height: 1.4;
-        min-width: 80px;
-        max-width: 150px;
+        max-width: 230px;
         display: flex;
         flex-direction: column;
     }

@@ -14,15 +14,13 @@ function ProductTab(props) {
   const { t } = useTranslation();
 
   const getProductProperties = (product) => {
-    return product.properties.split('• ').slice(1);
-  };
-
-  const removeAll = (string, char) => {
-    return string.split(char).join('');
+    if (product.properties) {
+      return product.properties.split('• ').slice(1);
+    }
+    return null;
   };
 
   const productProperties = getProductProperties(product);
-  const hasProperties = productProperties?.length;
 
   return (
     <>
@@ -37,7 +35,7 @@ function ProductTab(props) {
           </p>
         </div>
       )}
-      {!!hasProperties && (
+      {productProperties && (
         <div className={cn(tabClasses.tab)}>
           <h2 className={styles.productPage__infoTitle}>
             {t('product:info.properties')}

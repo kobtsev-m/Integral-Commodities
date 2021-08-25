@@ -26,9 +26,15 @@ function ProductPage() {
   const [productId, setProductId] = useState(null);
   const [ports, setPorts] = useState(null);
   const [factories, setFactories] = useState(null);
-  const [arePortsUpdated, setArePortsUpdated] = useState(false);
-  const [areFactoriesUpdated, setAreFactoriesUpdated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [arePortsUpdated, setArePortsUpdated] = useState(null);
+  const [areFactoriesUpdated, setAreFactoriesUpdated] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+
+  useEffect(() => {
+    setArePortsUpdated(false);
+    setAreFactoriesUpdated(false);
+    setIsLoading(true);
+  }, [lang]);
 
   useEffect(() => {
     if (!!productGrade) {
@@ -39,13 +45,12 @@ function ProductPage() {
   }, [productGrade]);
 
   useEffect(() => {
-    if (productId) {
-      setIsLoading(true);
+    if (productId && isLoading) {
       getProductByIdApi(lang, productId, setProduct)
         .catch((e) => console.log(e))
         .then(() => setIsLoading(false));
     }
-  }, [productId, lang]);
+  }, [productId, isLoading]);
 
   useEffect(() => {
     if (product) {
@@ -57,6 +62,20 @@ function ProductPage() {
       setIsLoading(false);
     }
   }, [product]);
+
+  useEffect(() => {
+    if (ports?.length && !arePortsUpdated) {
+      setArePortsUpdated(true);
+      addCoordinatesToPlaces(ports, setPorts);
+    }
+  }, [ports]);
+
+  useEffect(() => {
+    if (factories?.length && !areFactoriesUpdated) {
+      setAreFactoriesUpdated(true);
+      addCoordinatesToPlaces(factories, setFactories);
+    }
+  }, [factories]);
 
   const getBreadcrumbs = (product) => {
     const homeBreadcrumb = {
@@ -108,20 +127,6 @@ function ProductPage() {
       callback(newPlaces);
     });
   };
-
-  useEffect(() => {
-    if (ports?.length && !arePortsUpdated) {
-      setArePortsUpdated(true);
-      addCoordinatesToPlaces(ports, setPorts);
-    }
-  }, [ports]);
-
-  useEffect(() => {
-    if (factories?.length && !areFactoriesUpdated) {
-      setAreFactoriesUpdated(true);
-      addCoordinatesToPlaces(factories, setFactories);
-    }
-  }, [factories]);
 
   return (
     <section className={cn(styles.root__productPage, styles.productPage)}>

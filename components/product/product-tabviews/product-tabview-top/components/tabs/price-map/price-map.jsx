@@ -1,6 +1,5 @@
 import { useState, useCallback, memo } from 'react';
-import { GoogleMap } from '@react-google-maps/api';
-import { Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import { getLatLng } from 'react-places-autocomplete';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
@@ -25,6 +24,8 @@ function PriceMap({ ports, factories, onAskForQuote }) {
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [activePlace, setActivePlace] = useState(null);
   const [activeFilter, setActiveFilter] = useState(MAP_FILTERS[0]);
+
+  const { t } = useTranslation();
 
   const handleLoad = useCallback((currentMap) => {
     setMap(currentMap);
@@ -86,7 +87,7 @@ function PriceMap({ ports, factories, onAskForQuote }) {
                   key={i}
                   position={{ lat: place.lat, lng: place.lng }}
                   onClick={() => setActivePlace(place)}
-                  {...getMarkerFields(place, activePlace, activeFilter)}
+                  {...getMarkerFields(place, activePlace, activeFilter, t)}
                 />
               );
             }

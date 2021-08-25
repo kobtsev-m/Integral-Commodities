@@ -201,7 +201,7 @@ const mapMarkerStyle = {
   zIndex: -1
 };
 
-export const getMarkerFields = (place, activePlace, activeFilter) => {
+export const getMarkerFields = (place, activePlace, activeFilter, t) => {
   const markerColor = place === activePlace ? 'F66E08' : '02569C';
   return activeFilter === 'availability'
     ? {
@@ -216,7 +216,7 @@ export const getMarkerFields = (place, activePlace, activeFilter) => {
           url: '/'
         },
         label: {
-          text: `$${place.price}`,
+          text: `${place.price}${t('common:currencySign')}`,
           color: `#${markerColor}`,
           ...mapMarkerStyle
         }

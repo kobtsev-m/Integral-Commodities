@@ -1,6 +1,6 @@
 import useTranslation from 'next-translate/useTranslation';
-import styles from '../product-details.module.css';
 import { getKey, getTransKey, getTransValueSplitted } from 'utils/i18n';
+import styles from '../product-details.module.css';
 
 function ProductDetailsItem(props) {
   const { field } = props;

@@ -66,7 +66,7 @@ function OrderStep1() {
           <p className={styles.orderContainer__detailTitle}>
             {t('order:step1.order volume m/t')}
           </p>
-          <p className={styles.orderContainer__detailValue}>&#36;200</p>
+          <p className={styles.orderContainer__detailValue}>200</p>
         </li>
         <li className={styles.orderContainer__detailsItem}>
           <span className={styles.orderContainer__detailIconContainer}>
