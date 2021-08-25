@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Staging') {
             steps {
-                sh 'docker run -p 3000:3000 integral_front'
+                sh 'docker-compose up --build -d'
             }
         }
     }
