@@ -1,22 +1,15 @@
 import styles from './application-info.module.css';
 import useTranslation from 'next-translate/useTranslation';
+import { getTransValue } from 'utils/i18n';
 
 function ApplicationInfo({ photo, description }) {
   const { t } = useTranslation();
 
-  const getDescriptionTrans = (description) => {
+  const getTransDescription = (t, description) => {
     if (!description) {
       return null;
     }
-    return description
-      .split(', ')
-      .map((item) =>
-        t(`common:filter.application.${item.toLowerCase()}`, Object, {
-          fallback: 'null'
-        })
-      )
-      .filter((item) => item !== 'null')
-      .join(', ');
+    return getTransValue(t, ['common:filter', 'application'], description);
   };
 
   return (
@@ -29,7 +22,7 @@ function ApplicationInfo({ photo, description }) {
         />
       )}
       <span className={styles.applicationInfo__description}>
-        {getDescriptionTrans(description) || t('product:emptyForNow')}
+        {getTransDescription(t, description) || t('product:emptyForNow')}
       </span>
     </div>
   );

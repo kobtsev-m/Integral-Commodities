@@ -1,4 +1,5 @@
 import slugify from 'react-slugify';
+import { getTransValue } from './i18n';
 
 export const LINKS = [
   {
@@ -50,11 +51,13 @@ export const LINKS = [
   }
 ];
 
-export const slugifyLink = (product) => {
-  if (product.grade === 'Sulphur' && product.id == 12) {
+export const slugifyLink = (t, product) => {
+  const { id, grade } = product;
+  const gradeT = getTransValue(t, ['common:filter', 'grade'], grade);
+  if (gradeT === 'Sulphur' && id == 12) {
     return 'sulphur-1';
-  } else if (product.grade === 'Sulphur' && product.id == 39) {
+  } else if (gradeT === 'Sulphur' && id == 39) {
     return 'sulphur-2';
   }
-  return slugify(product.grade);
+  return slugify(gradeT);
 };

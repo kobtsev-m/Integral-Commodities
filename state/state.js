@@ -1,23 +1,30 @@
-import { useReducer, createContext } from 'react';
+import { useState, createContext } from 'react';
 import { slugifyLink } from 'utils/nav-links';
 import { getProductsApi } from 'api/api';
-import { productsReducer, ADD_PRODUCTS_GRADE_LIST } from './reducers';
 
 export const ProductsContext = createContext();
 
 function GlobalState(props) {
-  const [productState, dispatch] = useReducer(productsReducer, {});
+  const [productsGradeList, setProductsGradeList] = useState(null);
 
-  const addProductsGradeList = (products) => {
-    dispatch({ type: ADD_PRODUCTS_GRADE_LIST, payload: products });
+  const addProductsGradeList = (t, products) => {
+    const newProductsGradeList = products.reduce(
+      (acc, product) => ({ ...acc, [slugifyLink(t, product)]: product.id }),
+      {}
+    );
+    setProductsGradeList(newProductsGradeList);
   };
 
-  const getProductIdByGrade = async (grade) => {
-    if (!productState.productsGradeList) {
-      const products = await getProductsApi('en', addProductsGradeList);
-      return products.find((product) => slugifyLink(product) === grade).id;
+  const getProductIdByGrade = async (t, grade) => {
+    if (!productsGradeList) {
+      const cb = (products) => addProductsGradeList(t, products);
+      const products = await getProductsApi('en', cb);
+      const product = products.find(
+        (product) => slugifyLink(t, product) === grade
+      );
+      return product?.id;
     }
-    return productState.productsGradeList[grade];
+    return productsGradeList[grade];
   };
 
   return (

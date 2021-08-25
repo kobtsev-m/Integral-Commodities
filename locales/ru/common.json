@@ -11,11 +11,11 @@
     "processing method": "Категория применения",
     "application": "Область применения",
     "appearance": "Внешний вид",
+    "aппearance": "Внешний вид",
     "origin": "Происхождение",
     "vst": "Температура вика",
     "color": "Цвет",
-    "price": "Цена:",
-    "from": "от",
+    "price from": "Цена от:",
     "static strenght": "Статическая сила",
     "mass fraction of nitrogen": "Массовая доля азота, минимум (%)",
     "mass fraction of biuret": "Массовая доля биурета, максимум (%)",
@@ -37,6 +37,8 @@
     "mass fraction of calcium and magnesium nitrates in terms of on cao, %": "Массовая доля нитратов кальция и магния в пересчете на CAO (%)",
     "mass fraction of nitrate and ammonium nitrogen, in terms of nitrogen in dry matter,%": "Массовая доля нитратного и аммиачного азота в пересчете на азот в сухом веществе (%)",
     "mass content of sulphur, not less %": "Масса содержания серы, не менее (%)",
+    "mass content of сера, not less %": "Масса содержания серы, не менее (%)",
+    "mass content of сера, %": "Масса содержания серы, не менее (%)",
     "mass content of organic substances, not more %": "Масса содержания органических веществ, не более (%)",
     "mass content of water, not more %": "Масса содержимого воды, не более (%)",
     "mass fraction of total phosphates in terms of p2o5 in dry matter,% c": "Массовая доля общих фосфатов в пересчете на P2O5 в сухом веществе (%)",
@@ -71,11 +73,23 @@
     "mass fraction of organic compounds, %": "Массовая доля органических соединений (%)"
   },
   "filter": {
+    "grade": {
+      "сера": "Sulphur",
+      "карбамид марки “б”": "Urea grade “B”",
+      "хлорид калия": "Potassium Chloride",
+      "аммофос": "Ammophos",
+      "хлорид аммония": "Ammonium Chloride",
+      "сульфат аммония": "Ammonium Sulfate",
+      "нитрат аммония": "Ammonium Nitrate",
+      "суперфос": "Superfos",
+      "азотно-фосфорные удобрения": "Nitrogen-Phosphoric Fertilizer (NPF)",
+      "нпк 15-15-15": "NPK 15-15-15",
+      "нпк 16-16-16": "NPK 16-16-16"
+    },
     "type": {
       "hdpe": "ПНД",
       "pp": "ПП",
-      "ldpe": "ПВД",
-      "black compound": "ПК"
+      "ldpe": "ПВД"
     },
     "producer": {
       "pjsc «kazanorgsintez»": "ПАО «Казаньоргсинтез»",
@@ -152,19 +166,6 @@
       "shopping bag": "Сумка для покупок",
       "garbage bag (industrial/general packing film)": "Мешки для мусора",
       "household electrical appliances": "Бытовые электроприборы"
-    },
-    "appearance": {
-      "white granule": "Белая гранула",
-      "small crystals of various shades of red-brown": "Мелкие кристаллы различных оттенков красно-коричневого цвета",
-      "light gray granules": "Светло-серые гранулы",
-      "granulated product": "Гранулированный продукт",
-      "white granules colors": "Гранулы белых цветов",
-      "granular product without strangers mechanical impurities": "Гранулированный продукт без посторонних механических примесей",
-      "crushed lump sulphur": "Дробленая сера",
-      "crushed lump": "Дробленая сера"
-    },
-    "origin": {
-      "uzbekistan": "Узбекистан"
     }
   },
   "fertilizers": {
@@ -227,7 +228,7 @@
     "privacy": "Политика конфиденциальности"
   },
   "currencySign": "₽",
-  "onRequest": "по запросу",
+  "onRequest": "По запросу",
   "noProducts": "Указаных товаров в каталоге нет",
   "noAnalogs": "У этого товара нет аналогов",
   "showMore": "Показать еще...",

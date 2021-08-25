@@ -12,11 +12,11 @@
     "application": "Application",
     "mass": "Масса",
     "appearance": "Appearance",
+    "aппearance": "Appearance",
     "origin": "Origin",
     "vst": "VST",
     "color": "Color",
-    "price": "Price:",
-    "from": "from",
+    "price from": "Price from:",
     "static strenght": "Static strenght",
     "mass fraction of nitrogen": "Mass fraction of nitrogen, min (%)",
     "mass fraction of biuret": "Mass fraction of biuret, max (%)",
@@ -38,6 +38,7 @@
     "mass fraction of calcium and magnesium nitrates in terms of on cao, %": "Mass fraction of calcium and magnesium nitrates in terms of on CAO (%)",
     "mass fraction of nitrate and ammonium nitrogen, in terms of nitrogen in dry matter,%": "Mass fraction of nitrate and ammonium nitrogen, in terms of nitrogen in dry matter (%)",
     "mass content of sulphur, not less %": "Mass content of Sulphur, not less (%)",
+    "mass content of сера, %": "Mass content of sulphur, %",
     "mass content of organic substances, not more %": "Mass content of organic substances, not more (%)",
     "mass content of water, not more %": "Mass content of water, not more (%)",
     "mass fraction of total phosphates in terms of p2o5 in dry matter,% c": "Mass fraction of total phosphates in terms of P2O5 in dry matter (%)",
@@ -72,10 +73,6 @@
     "mass fraction of organic compounds, %": "Mass fraction of organic compounds (%)"
   },
   "filter": {
-    "producer": {
-      "uz-cor-gas chemical": "Uz-Kor gas chemical",
-      "uz-kor gas chemical": "Uz-Kor gas chemical"
-    },
     "processing method": {
       "blow moulding": "Blow moulding",
       "extrusion": "Extrusion",
@@ -190,7 +187,7 @@
     "privacy": "Privacy"
   },
   "currencySign": "$",
-  "onRequest": "on request",
+  "onRequest": "On request",
   "noProducts": "There is no products",
   "noAnalogs": "There is no analogs",
   "showMore": "Show more...",

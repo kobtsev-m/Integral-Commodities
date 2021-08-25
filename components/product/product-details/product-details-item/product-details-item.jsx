@@ -1,5 +1,5 @@
 import useTranslation from 'next-translate/useTranslation';
-import { getKey, getTransKey, getTransValueSplitted } from 'utils/i18n';
+import { getTransKey } from 'utils/i18n';
 import styles from '../product-details.module.css';
 
 function ProductDetailsItem(props) {
@@ -9,13 +9,7 @@ function ProductDetailsItem(props) {
     <div className={styles.productPage__feature}>
       {getTransKey(t, 'common:productFields', field.key)}
       {': '}
-      <span className={styles.productPage__featureValue}>
-        {getTransValueSplitted(
-          t,
-          ['common:filter', getKey(field.key)],
-          field.value
-        )}
-      </span>
+      <span className={styles.productPage__featureValue}>{field.value}</span>
     </div>
   );
 }

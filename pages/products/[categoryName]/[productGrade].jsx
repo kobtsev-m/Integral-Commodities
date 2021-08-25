@@ -18,7 +18,6 @@ function ProductPage() {
   const router = useRouter();
   const { t, lang } = useTranslation();
 
-  const category = router.query.categoryName;
   const productGrade = router.query.productGrade;
   const { getProductIdByGrade } = useContext(ProductsContext);
 
@@ -38,7 +37,7 @@ function ProductPage() {
 
   useEffect(() => {
     if (!!productGrade) {
-      getProductIdByGrade(productGrade).then((id) => {
+      getProductIdByGrade(t, productGrade).then((id) => {
         setProductId(id);
       });
     }
@@ -92,19 +91,13 @@ function ProductPage() {
     let polymerBreadcrumb = null;
     if (polymerType) {
       const polymerTypeSingle = polymerType?.toUpperCase().split(', ')[0];
-      const polymerTypeList = polymerType?.toLowerCase().split(', ');
-      const polymersTranslated = polymerTypeList.map((type) =>
-        t(`common:menu.${type}`)
-      );
       polymerBreadcrumb = {
-        title: polymersTranslated.join(', '),
+        title: polymerType,
         link: `/products/${product?.category}?type=${polymerTypeSingle}`
       };
     }
     const gradeBreadcrumb = {
-      title: ['fertilizers', 'sulphur'].includes(category)
-        ? t(`common:${category}.${product.grade.toLowerCase()}`)
-        : product.grade
+      title: product.grade
     };
     return [
       homeBreadcrumb,

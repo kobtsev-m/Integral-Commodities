@@ -12,6 +12,7 @@ import useTranslation from 'next-translate/useTranslation';
 
 import { getProductsApi, getOffersApi } from 'api/api';
 import { FILTERS, TABS } from 'utils/const';
+import { getKey, getTransValue } from 'utils/i18n';
 
 function getValueByKeyName(arr, key) {
   const searchedItem = arr.find(
@@ -24,23 +25,27 @@ function getArraysIntersection(arr1, arr2) {
   return arr1.filter((item) => arr2.includes(item));
 }
 
-function prepareFilterOptions(filter) {
+function getTransOption(t, filter, option) {
+  return getTransValue(t, ['common:filter', getKey(filter.key)], option);
+}
+
+function prepareFilterOptions(t, filter) {
   return filter.options.reduce(
-    (acc, option) => ({ ...acc, [option]: false }),
+    (acc, option) => ({ ...acc, [getTransOption(t, filter, option)]: false }),
     {}
   );
 }
 
-function getFiltersInitialState(category, optionalFields) {
+function getFiltersInitialState(t, category, optionalFields) {
   if (!category || !FILTERS[category.toUpperCase()]) {
     return {};
   }
   return FILTERS[category.toUpperCase()].reduce((acc, filter) => {
-    let options = prepareFilterOptions(filter);
+    let options = prepareFilterOptions(t, filter);
     if (optionalFields?.[filter.name]) {
       options = {
         ...options,
-        [optionalFields[filter.name]]: true
+        [getTransOption(t, filter, optionalFields[filter.name])]: true
       };
     }
     return { ...acc, [filter.name]: { ...filter, options } };
@@ -88,11 +93,22 @@ function filterProductsByCategory(products, category) {
   return products.filter((product) => product.category === category);
 }
 
+function renameFiltersOptions(t, filtersState) {
+  Object.entries(filtersState).forEach(([filter, { key, options }]) => {
+    const newOptions = Object.keys(options).reduce((acc, option) => {
+      const newKey = getTransValue(t, ['common:filter', getKey(key)], option);
+      return { ...acc, [newKey]: options[option] };
+    }, {});
+    filtersState[filter].options = newOptions;
+  });
+  return filtersState;
+}
+
 function HomePage() {
   const router = useRouter();
   const category = router.query.categoryName;
 
-  const { lang } = useTranslation();
+  const { t, lang } = useTranslation();
 
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState(null);
@@ -113,7 +129,7 @@ function HomePage() {
   }, [lang, category]);
 
   useEffect(() => {
-    setFiltersState(getFiltersInitialState(category, router.query));
+    setFiltersState(getFiltersInitialState(t, category, router.query));
   }, [router.query]);
 
   useEffect(() => {

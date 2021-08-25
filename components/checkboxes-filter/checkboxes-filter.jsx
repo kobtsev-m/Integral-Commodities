@@ -1,4 +1,3 @@
-import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import { nanoid } from 'nanoid';
 
@@ -12,12 +11,8 @@ function CheckboxesFilter(props) {
 
   const { t } = useTranslation();
 
-  const getFilter = (filter) => {
-    return filter.key
-      .replace('.', '')
-      .replace('(', '')
-      .replace(')', '')
-      .toLowerCase();
+  const getTransOption = (optionName) => {
+    return getTransValue(t, ['common:filter', getKey(filter.key)], optionName);
   };
 
   return (
@@ -48,13 +43,11 @@ function CheckboxesFilter(props) {
                   name={filterName}
                   checked={isChecked}
                   id={`${filterName}-option-${optionName}`}
-                  onChange={() => onChange(filterName, optionName, isChecked)}
+                  onChange={() =>
+                    onChange(filterName, getTransOption(optionName), isChecked)
+                  }
                 />
-                {getTransValue(
-                  t,
-                  ['common:filter', getKey(filter.key)],
-                  optionName
-                )}
+                {getTransOption(optionName)}
               </label>
             </li>
           );

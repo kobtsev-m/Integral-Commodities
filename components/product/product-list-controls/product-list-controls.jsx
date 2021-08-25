@@ -109,18 +109,16 @@ function ProductListControls(props) {
   return (
     <div className='products__controls'>
       <form className={styles.filterForm} ref={formRef}>
-        {Object.entries(filtersState).map(([filterName, filter]) => {
-          return (
-            <CheckboxesFilter
-              key={`filter-${filterName}`}
-              filterName={filterName}
-              filter={filter}
-              onChange={handleChange}
-              isDroppedDown={droppedDown[filterName]}
-              onDropDownClick={handleDropDownClick}
-            />
-          );
-        })}
+        {Object.entries(filtersState).map(([filterName, filter]) => (
+          <CheckboxesFilter
+            key={`filter-${filterName}`}
+            filterName={filterName}
+            filter={filter}
+            onChange={handleChange}
+            isDroppedDown={droppedDown[filterName]}
+            onDropDownClick={handleDropDownClick}
+          />
+        ))}
         {!!filtersCount && (
           <div className='d-flex align-items-center'>
             <div
