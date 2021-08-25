@@ -1,28 +1,42 @@
 .tabDocuments {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(3, 1fr);
-  grid-auto-columns: minmax(auto, 33%);
-  grid-gap: 33px 80px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-columns: minmax(auto, 33%);
+    grid-gap: 33px 80px;
 
-  box-sizing: border-box;
-  padding: 70px 45px;
+    box-sizing: border-box;
+    padding: 70px 45px;
 
-  background-color: #f3f5f8;
-  border-radius: 3px;
+    background-color: #f3f5f8;
+    border-radius: 3px;
+}
+
+.noDocumentsText {
+    font-size: 20px;
+    line-height: 1.3;
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    color: var(--grey-default);
+    margin-right: 22px;
 }
 
 @media screen and (max-width: 768px) {
-  .tabDocuments {
-    grid-auto-flow: unset;
-    grid-template-rows: unset;
-    grid-auto-columns: unset;
-    grid-gap: unset;
+    .tabDocuments {
+        grid-auto-flow: unset;
+        grid-template-rows: unset;
+        grid-auto-columns: unset;
+        grid-gap: unset;
 
-    background-color: white;
-    padding: 40px 20px 40px 0;
+        background-color: white;
+        padding: 40px 20px 40px 0;
 
-    display: flex;
-    flex-direction: column;
-  }
+        display: flex;
+        flex-direction: column;
+    }
+    .noDocumentsText {
+        font-size: 14px;
+        line-height: 1.3;
+        font-weight: 400;
+    }
 }

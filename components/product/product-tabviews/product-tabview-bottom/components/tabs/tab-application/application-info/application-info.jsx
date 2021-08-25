@@ -21,15 +21,15 @@ function ApplicationInfo({ photo, description }) {
 
   return (
     <div className={styles.applicationInfo}>
-      {(photo || (!photo && !description)) && (
+      {photo && description && (
         <img
           className={styles.applicationInfo__photo}
-          src={(photo && `/images/${photo}`) || '/images/canisters.png'}
-          alt={`Photo: ${description || 'Canisters'}`}
+          src={`/images/${photo}`}
+          alt={`Photo: ${description}`}
         />
       )}
       <span className={styles.applicationInfo__description}>
-        {getDescriptionTrans(description) || 'Canisters'}
+        {getDescriptionTrans(description) || t('product:emptyForNow')}
       </span>
     </div>
   );
