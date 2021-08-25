@@ -1,10 +1,10 @@
-- version: "3"
-- services:
--   nextjs:
--     build: .
--     network_mode: host
--     restart: always
--     ports:
--       - "3000:3000"
--     command: >
--       bash -c "yarn install && yarn run build && yarn run start"
+version: "3"
+services:
+  nextjs:
+    build: .
+    network_mode: host
+    restart: always
+    ports:
+      - "3000:3000"
+    command: >
+      bash -c "yarn install && yarn run build && yarn run start"
