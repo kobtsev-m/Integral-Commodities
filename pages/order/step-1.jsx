@@ -22,8 +22,13 @@ function OrderStep1() {
       </div>
       <OrderNavigation nextLink='/order/step-2' />
       <p className={styles.orderContainer__intro}>
-        {t('order:step1.main text')}
+        {t('order:step1.main text 1')}
       </p>
+      <div className={styles.orderContainer__messageContainer}>
+        <p className={styles.orderContainer__message}>
+          {t('order:step1.main text 2')}
+        </p>
+      </div>
       <h1 className={styles.orderContainer__title}>
         {t('order:step1.grade title')}
       </h1>

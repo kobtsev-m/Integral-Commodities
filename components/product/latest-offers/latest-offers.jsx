@@ -87,6 +87,7 @@ function LatestOffers({ offers }) {
                 styles.currentOffers__tableHeaderCell,
                 styles.mobHiddenCol
               )}
+              style={{ textAlign: 'center' }}
             >
               <Trans i18nKey='common:offerFields.payment terms' />
             </th>
@@ -133,12 +134,10 @@ function LatestOffers({ offers }) {
                 {offer.quantity}
               </td>
               <td
-                className={cn(
-                  styles.currentOffers__tableHeaderCell,
-                  styles.mobHiddenCol
-                )}
+                className={cn(styles.currentOffers__tableCell)}
+                style={{ textAlign: 'center' }}
               >
-                {offer.terms_of_payment}
+                <div className='p-3'>{offer.terms_of_payment}</div>
               </td>
               <td
                 className={cn(

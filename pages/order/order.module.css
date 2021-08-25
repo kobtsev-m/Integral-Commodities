@@ -15,9 +15,8 @@
 
 .orderContainer__intro {
     font-family: var(--font-montserrat);
-    color: var(--p-text);
-    font-size: 18px;
-    line-height: 27px;
+    color: var(--grey-default);
+    font-size: 20px;
     margin: 74px 0 60px;
 }
 
@@ -26,14 +25,14 @@
 }
 
 .orderContainer__messageContainer {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .orderContainer__message {
-    margin: 0;
     font-family: var(--font-montserrat);
     color: var(--grey-default);
     font-size: 20px;
+    margin: 0;
 }
 
 .orderContainer__documentPreview {
