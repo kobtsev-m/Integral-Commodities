@@ -22,7 +22,7 @@ const FilterControls = (props) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
 
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   const handleMenuClose = () => {
     setIsFilterOpen(false);
@@ -39,7 +39,10 @@ const FilterControls = (props) => {
     if (!isSearchActive) {
       setIsSearchActive(true);
     } else {
-      const searchResult = await getProductsBySearchStringApi(searchValue);
+      const searchResult = await getProductsBySearchStringApi(
+        lang,
+        searchValue
+      );
       onSearch(searchResult);
     }
   };

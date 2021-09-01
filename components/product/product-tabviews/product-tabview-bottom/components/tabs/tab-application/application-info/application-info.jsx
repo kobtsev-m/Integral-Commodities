@@ -6,15 +6,17 @@ function ApplicationInfo({ photo, description }) {
   const { t } = useTranslation();
 
   const getTransDescription = (t, description) => {
-    if (!description) {
+    if (!description || description === 'null') {
       return null;
     }
     return getTransValue(t, ['common:filter', 'application'], description);
   };
 
+  const transDescription = getTransDescription(t, description);
+
   return (
     <div className={styles.applicationInfo}>
-      {photo && description && (
+      {photo && transDescription && (
         <img
           className={styles.applicationInfo__photo}
           src={`/images/${photo}`}
@@ -22,7 +24,7 @@ function ApplicationInfo({ photo, description }) {
         />
       )}
       <span className={styles.applicationInfo__description}>
-        {getTransDescription(t, description) || t('product:emptyForNow')}
+        {transDescription || t('product:emptyForNow')}
       </span>
     </div>
   );

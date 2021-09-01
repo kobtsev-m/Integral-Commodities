@@ -33,7 +33,7 @@ function ProductListControls(props) {
   } = props;
 
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   const [droppedDown, setIsDroppedDown] = useState({});
   const [filtersCount, setFiltersCount] = useState(0);
@@ -91,6 +91,15 @@ function ProductListControls(props) {
     setIsDroppedDown(getInitialDropDownState());
   };
 
+  const handleSearchClick = async (event) => {
+    event.preventDefault();
+    const searchResult = await getProductsBySearchStringApi(
+      lang,
+      searchRef.current.value
+    );
+    onSearchSubmit(searchResult);
+  };
+
   useOutsideAlerter(formRef, handleOutsideClick);
 
   if (size.width <= 768) {
@@ -131,13 +140,7 @@ function ProductListControls(props) {
       <form
         className='products__search-form mt-2 d-none d-xl-flex'
         name='search'
-        onSubmit={async (event) => {
-          event.preventDefault();
-          const searchResult = await getProductsBySearchStringApi(
-            searchRef.current.value
-          );
-          onSearchSubmit(searchResult);
-        }}
+        onSubmit={handleSearchClick}
       >
         <label className='products__search-label' htmlFor='searchInput'>
           Search

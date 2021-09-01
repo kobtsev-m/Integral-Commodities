@@ -1,4 +1,6 @@
 import { useState, useRef } from 'react';
+import { getProductsBySearchStringApi } from 'api/api';
+import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
 import stylesUI from 'components/ui/custom-ui.module.css';
@@ -10,18 +12,18 @@ function ProductField(props) {
   const [activeSuggestion, setActiveSuggestion] = useState(null);
 
   const searchInput = useRef();
+  const { lang } = useTranslation();
 
   const refreshSuggestions = (newQuery) => {
-    const filteredProducts = props.products.filter((product) =>
-      product.grade.toLowerCase().includes(newQuery.toLowerCase())
-    );
-    const newSuggestions = filteredProducts.slice(0, 5).map((product) => ({
-      id: product.id,
-      mainText: product.grade,
-      secondaryText: product.card_data[1].value
-    }));
-    setSuggestions(newSuggestions);
-    setIsInputActive(!!newQuery && !!newSuggestions.length);
+    getProductsBySearchStringApi(lang, newQuery).then((filteredProducts) => {
+      const newSuggestions = filteredProducts.slice(0, 5).map((product) => ({
+        id: product.id,
+        mainText: product.grade,
+        secondaryText: product.card_data[1].value
+      }));
+      setSuggestions(newSuggestions);
+      setIsInputActive(!!newQuery && !!newSuggestions.length);
+    });
   };
 
   const handleChange = (newQuery) => {

@@ -93,17 +93,6 @@ function filterProductsByCategory(products, category) {
   return products.filter((product) => product.category === category);
 }
 
-function renameFiltersOptions(t, filtersState) {
-  Object.entries(filtersState).forEach(([filter, { key, options }]) => {
-    const newOptions = Object.keys(options).reduce((acc, option) => {
-      const newKey = getTransValue(t, ['common:filter', getKey(key)], option);
-      return { ...acc, [newKey]: options[option] };
-    }, {});
-    filtersState[filter].options = newOptions;
-  });
-  return filtersState;
-}
-
 function HomePage() {
   const router = useRouter();
   const category = router.query.categoryName;
@@ -140,7 +129,7 @@ function HomePage() {
   }, [category, products, filtersState]);
 
   const handleSearchSubmit = (products) => {
-    setFiltersState(getFiltersInitialState(category));
+    setFiltersState(getFiltersInitialState(t, category));
     setTimeout(() => {
       const filteredProducts = filterProductsByCategory(products, category);
       setFilteredProducts(filteredProducts);

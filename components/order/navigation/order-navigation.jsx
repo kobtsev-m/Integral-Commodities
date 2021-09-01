@@ -30,7 +30,9 @@ function OrderNavigation(props) {
 
   return size.width && size.width <= 768 ? (
     <div className={styles.mobileNav}>
-      <h3 className={styles.stepNum}>Step {activeRouteTab.slice(4)}</h3>
+      <h3 className={styles.stepNum}>
+        {t('order:tabs.step')} {activeRouteTab.slice(4)}
+      </h3>
       <h2 className={styles.stepName}>{Step[activeRouteTab]}</h2>
       <Link href={props.nextLink}>
         <a className={styles.nextButton} />

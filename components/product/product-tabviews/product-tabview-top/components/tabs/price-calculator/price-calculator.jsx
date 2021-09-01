@@ -9,6 +9,7 @@ import PaymentTermsField from './fields/payment-terms-field';
 import PeriodField from './fields/period-field';
 import PlaceField from './fields/place-field';
 import QuantityField from './fields/quantity-field';
+import ProductField from './fields/product-field';
 
 import cn from 'classnames';
 import styles from './price-calculator.module.css';
@@ -18,7 +19,6 @@ import { postInquiriesApi } from 'api/api';
 import { formatWeekYMD } from 'utils/date-utils';
 import { formSchema } from './validation/validation';
 import { incotermsValues, paymentTermsValues } from './options/options';
-import ProductField from './fields/product-field';
 
 function PriceCalculator(props) {
   const { initialFormData, isEmbed, ...restProps } = props;

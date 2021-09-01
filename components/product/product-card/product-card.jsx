@@ -12,7 +12,7 @@ import styles from './product-card.module.css';
 const FIELDS_TO_FILTER = ['Price'];
 
 function ProductCard({ product }) {
-  const { category, grade, price, card_data: prodData } = product;
+  const { category, grade, price, unit, card_data: prodData } = product;
   const { t } = useTranslation();
 
   if (!prodData.find((item) => item.key === 'Application')) {
@@ -37,7 +37,7 @@ function ProductCard({ product }) {
             fields={prodData}
             fieldsToFilter={FIELDS_TO_FILTER}
           />
-          <ProductCardPrice>{price}</ProductCardPrice>
+          <ProductCardPrice currency={unit}>{price}</ProductCardPrice>
         </a>
       </Link>
     </li>

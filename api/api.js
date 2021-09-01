@@ -1,9 +1,10 @@
+import { getArrayFromData } from './utils';
+
 const BACKEND_URL = 'https://integral-commodities.ch/api/v';
 
 async function getRequest(version, requestUrl, callback) {
   const response = await fetch(`${BACKEND_URL}${version}${requestUrl}`);
   if (!response.ok) {
-    console.log(requestUrl);
     throw Error(response.statusText);
   }
   const data = await response.json();
@@ -36,8 +37,9 @@ export async function getAnalogsByProductIdApi(id, cb) {
 export async function getOffersApi(lang, category, cb) {
   return await getRequest(2, `/offers/${lang}/${category}`, cb);
 }
-export async function getProductsBySearchStringApi(searchString) {
-  return await getRequest(1, `/search?search=${searchString}`);
+export async function getProductsBySearchStringApi(lang, query, cb) {
+  const data = await getRequest(2, `/search/${lang}?search=${query}`, cb);
+  return getArrayFromData(data);
 }
 export async function getPlaceCoordinatesByNameApi(name, cb) {
   const data = await getRequest(1, `/places/${name}`, cb);
