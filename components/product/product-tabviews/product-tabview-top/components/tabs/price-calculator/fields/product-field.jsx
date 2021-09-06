@@ -15,7 +15,8 @@ function ProductField(props) {
   const { lang } = useTranslation();
 
   const refreshSuggestions = (newQuery) => {
-    getProductsBySearchStringApi(lang, newQuery).then((filteredProducts) => {
+    getProductsBySearchStringApi(lang, newQuery).then((searchResults) => {
+      const filteredProducts = searchResults.product;
       const newSuggestions = filteredProducts.slice(0, 5).map((product) => ({
         id: product.id,
         mainText: product.grade,

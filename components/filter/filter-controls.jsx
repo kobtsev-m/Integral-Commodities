@@ -39,11 +39,11 @@ const FilterControls = (props) => {
     if (!isSearchActive) {
       setIsSearchActive(true);
     } else {
-      const searchResult = await getProductsBySearchStringApi(
+      const searchResults = await getProductsBySearchStringApi(
         lang,
         searchValue
       );
-      onSearch(searchResult);
+      onSearch(searchResults.product);
     }
   };
 

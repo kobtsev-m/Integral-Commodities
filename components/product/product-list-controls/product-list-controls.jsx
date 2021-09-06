@@ -93,11 +93,11 @@ function ProductListControls(props) {
 
   const handleSearchClick = async (event) => {
     event.preventDefault();
-    const searchResult = await getProductsBySearchStringApi(
+    const searchResults = await getProductsBySearchStringApi(
       lang,
       searchRef.current.value
     );
-    onSearchSubmit(searchResult);
+    onSearchSubmit(searchResults.product);
   };
 
   useOutsideAlerter(formRef, handleOutsideClick);
@@ -133,7 +133,7 @@ function ProductListControls(props) {
             <div
               className={styles.clearFiltersBtn}
               onClick={handleClear}
-            ></div>
+            />
           </div>
         )}
       </form>

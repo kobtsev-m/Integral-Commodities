@@ -39,7 +39,10 @@ export async function getOffersApi(lang, category, cb) {
 }
 export async function getProductsBySearchStringApi(lang, query, cb) {
   const data = await getRequest(2, `/search/${lang}?search=${query}`, cb);
-  return getArrayFromData(data);
+  if (Array.isArray(data) && data.length === 0) {
+    return { product: [], analogs: [] };
+  }
+  return data;
 }
 export async function getPlaceCoordinatesByNameApi(name, cb) {
   const data = await getRequest(1, `/places/${name}`, cb);
