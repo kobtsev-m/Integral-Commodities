@@ -1,5 +1,6 @@
 {
   "slogan": "Save time and get discount<0></0>for ordering commodities online",
+  "homeLink": "/products/sulphur",
   "productFields": {
     "type": "Type",
     "grade": "Grade",
@@ -12,7 +13,6 @@
     "application": "Application",
     "mass": "Масса",
     "appearance": "Appearance",
-    "aппearance": "Appearance",
     "origin": "Origin",
     "vst": "VST",
     "color": "Color",
@@ -155,6 +155,7 @@
     "hdpe": "HDPE",
     "pp": "PP",
     "ldpe": "LDPE",
+    "lldpe": "LLDPE",
     "black compound": "Black Compound"
   },
   "latestOffersTitle": "Latest offers",

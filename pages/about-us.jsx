@@ -545,7 +545,9 @@ function AboutPage() {
                 Musa Jalil 11
                 <br />
                 <br />
-                nsk@integral-commodities.ch
+                T: +7 983 321 95 21
+                <br />
+                commercial@integral-vostok.ru
               </p>
             </div>
             <img className='office__map' src='/images/russia-map.svg' alt='' />

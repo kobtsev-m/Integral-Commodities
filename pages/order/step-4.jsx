@@ -1,10 +1,10 @@
-import Breadcrumbs from 'components/ui/breadcrumbs';
-import OrderNavigation from 'components/order/navigation/order-navigation';
-import PaymentForm from 'components/order/forms/payment-form';
+import Breadcrumbs from 'components/ui/Breadcrumbs/Breadcrumbs';
+import OrderNavigation from 'components/blocks/Order/components/OrderNavigation/OrderNavigation';
+import PaymentForm from 'components/blocks/Order/components/Forms/PaymentForm';
 import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
-import styles from './order.module.css';
+import styles from '../../components/blocks/Order/styles/Order.module.css';
 
 function OrderStep4() {
   const { t } = useTranslation();

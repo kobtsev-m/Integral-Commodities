@@ -1,4 +1,4 @@
-import SuccessOffer from 'components/success-offer/success-offer';
+import SuccessOffer from 'components/blocks/Other/SuccessOffer/SuccessOffer';
 
 function SuccessOfferPage() {
   return <SuccessOffer />;

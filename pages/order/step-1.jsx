@@ -1,7 +1,7 @@
-import styles from './order.module.css';
-import Button from 'components/ui/button';
-import OrderNavigation from 'components/order/navigation/order-navigation';
-import Breadcrumbs from 'components/ui/breadcrumbs';
+import styles from '../../components/blocks/Order/styles/Order.module.css';
+import SimpleButton from 'components/ui/Buttons/SimpleButton';
+import OrderNavigation from 'components/blocks/Order/components/OrderNavigation/OrderNavigation';
+import Breadcrumbs from 'components/ui/Breadcrumbs/Breadcrumbs';
 import useTranslation from 'next-translate/useTranslation';
 
 function OrderStep1() {
@@ -161,11 +161,11 @@ function OrderStep1() {
         </li>
       </ul>
       <div className={styles.orderContainer__controlsContainer}>
-        <Button link='/order/step-2'>
+        <SimpleButton link='/order/step-2'>
           <span className={styles.orderContainer__confirmButton}>
             {t('order:step1.submit button')}
           </span>
-        </Button>
+        </SimpleButton>
       </div>
     </section>
   );

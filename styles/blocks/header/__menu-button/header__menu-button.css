@@ -3,7 +3,7 @@
   height: 18px;
   padding: 0;
   border: none;
-  background: url("../../../../public/images/icon-menu.svg");
+  background: url("/images/icon-menu.svg");
   background-size: cover;
 
   cursor: pointer;

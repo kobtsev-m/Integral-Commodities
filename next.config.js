@@ -10,6 +10,11 @@ module.exports = {
         permanent: true
       },
       {
+        source: '/ru',
+        destination: '/products/polymers',
+        permanent: true
+      },
+      {
         source: '/order',
         destination: '/order/step-1',
         permanent: true

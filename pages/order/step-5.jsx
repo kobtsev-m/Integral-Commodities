@@ -1,8 +1,8 @@
-import OrderNavigation from 'components/order/navigation/order-navigation';
-import Breadcrumbs from 'components/ui/breadcrumbs';
-import ComingSoon from 'components/other-blocks/coming-soon/coming-soon';
+import OrderNavigation from 'components/blocks/Order/components/OrderNavigation/OrderNavigation';
+import Breadcrumbs from 'components/ui/Breadcrumbs/Breadcrumbs';
+import ComingSoon from 'components/blocks/Other/ComingSoon/ComingSoon';
 import useTranslation from 'next-translate/useTranslation';
-import styles from './order.module.css';
+import styles from '../../components/blocks/Order/styles/Order.module.css';
 
 function OrderStep5() {
   const { t } = useTranslation();

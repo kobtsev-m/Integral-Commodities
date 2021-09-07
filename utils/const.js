@@ -4,7 +4,7 @@ export const FILTERS = {
     {
       name: 'type',
       key: 'Type',
-      options: ['HDPE', 'PP', 'LDPE']
+      options: ['HDPE', 'PP', 'LDPE', 'LLDPE']
     },
     {
       name: 'grade',

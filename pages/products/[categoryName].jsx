@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import ProductsList from 'components/product/product-list/product-list';
-import ProductListTabs from 'components/product/product-list-tabs/product-list-tabs';
-import LatestOffers from 'components/product/latest-offers/latest-offers';
-import LoadingSpinner from 'components/ui/loading';
-import ProductListControls from 'components/product/product-list-controls/product-list-controls';
-import AskForQuote from 'components/other-blocks/ask-for-quote/ask-for-quote';
+import ProductsList from 'components/blocks/Home/ProductList/ProductList';
+import ProductTabs from 'components/blocks/Product/ProductTabs/ProductTabs';
+import LatestOffers from 'components/blocks/Home/LatestOffers/LatestOffers';
+import LoadingSpinner from 'components/ui/Loaders/Spinner';
+import FiltersDesktop from 'components/blocks/Home/Filters/desktop/FiltersDesktop';
+import AskForQuote from 'components/blocks/Home/AskForQuote/AskForQuote';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -151,9 +151,9 @@ function HomePage() {
         <Trans i18nKey='common:slogan' components={[<br />]} />
       </h2>
       <section className='products root__products'>
-        <ProductListTabs activeTab={category} tabs={TABS} />
+        <ProductTabs activeTab={category} tabs={TABS} />
         {category === 'polymers' && (
-          <ProductListControls
+          <FiltersDesktop
             filteredProductsCount={filteredProducts.length}
             category={category}
             filtersState={filtersState}

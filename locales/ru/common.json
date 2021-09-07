@@ -1,5 +1,6 @@
 {
   "slogan": "Экономьте время и получайте скидки, заказывая сырьевые продукты онлайн",
+  "homeLink": "/products/polymers",
   "productFields": {
     "type": "Тип",
     "grade": "Марка",
@@ -11,7 +12,6 @@
     "processing method": "Категория применения",
     "application": "Область применения",
     "appearance": "Внешний вид",
-    "aппearance": "Внешний вид",
     "origin": "Происхождение",
     "vst": "Температура вика",
     "color": "Цвет",
@@ -89,7 +89,8 @@
     "type": {
       "hdpe": "ПНД",
       "pp": "ПП",
-      "ldpe": "ПВД"
+      "ldpe": "ПВД",
+      "lldpe": "ЛПЭНП"
     },
     "producer": {
       "pjsc «kazanorgsintez»": "ПАО «Казаньоргсинтез»",
@@ -196,6 +197,7 @@
     "hdpe": "ПНД",
     "pp": "ПП",
     "ldpe": "ПВД",
+    "lldpe": "ЛПЭНП",
     "black compound": "ПК"
   },
   "latestOffersTitle": "Последние предложения",

@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import Breadcrumbs from 'components/ui/breadcrumbs';
-import OrderNavigation from 'components/order/navigation/order-navigation';
-import CompaniesForm from 'components/order/forms/companies-form';
-import IndividualsForm from 'components/order/forms/individuals-form';
+import Breadcrumbs from 'components/ui/Breadcrumbs/Breadcrumbs';
+import OrderNavigation from 'components/blocks/Order/components/OrderNavigation/OrderNavigation';
+import CompaniesForm from 'components/blocks/Order/components/Forms/CompaniesForm';
+import IndividualsForm from 'components/blocks/Order/components/Forms/IndividualsForm';
 import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
-import styles from './order.module.css';
+import styles from '../../components/blocks/Order/styles/Order.module.css';
 
 function OrderStep3() {
   const { t } = useTranslation();

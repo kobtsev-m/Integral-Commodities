@@ -3,13 +3,13 @@ import { useState, useEffect, useContext } from 'react';
 import { ProductsContext } from 'state/state';
 
 import { getProductByIdApi, getPlaceCoordinatesByNameApi } from 'api/api';
-import ProductDetails from 'components/product/product-details/product-details';
-import LoadingSpinner from 'components/ui/loading';
-import Breadcrumbs from 'components/ui/breadcrumbs';
-import ProductTabviewTop from 'components/product/product-tabviews/product-tabview-top/product-tabview-top';
+import ProductDetails from 'components/blocks/Product/ProductDetails/ProductDetails';
+import LoadingSpinner from 'components/ui/Loaders/Spinner';
+import Breadcrumbs from 'components/ui/Breadcrumbs/Breadcrumbs';
+import ProductTabviewTop from 'components/blocks/Product/ProductTabsView/top/ProductTabsViewTop';
 import useTranslation from 'next-translate/useTranslation';
 
-import styles from 'components/product/product-details/product-details.module.css';
+import styles from 'components/blocks/Product/ProductDetails/ProductDetails.module.css';
 import cn from 'classnames';
 
 const INFO_FIELDS_TO_FILTER = ['price', 'density'];
@@ -79,7 +79,7 @@ function ProductPage() {
   const getBreadcrumbs = (product) => {
     const homeBreadcrumb = {
       title: t('common:menu.home'),
-      link: '/products/sulphur'
+      link: t('common:homeLink')
     };
     const categoryBreadcrumb = {
       title: t(`common:menu.${product?.category}`),

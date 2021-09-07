@@ -1,0 +1,52 @@
+.tabApplication {
+  overflow-x: auto;
+
+  background-color: #f3f5f8;
+  border-radius: 3px;
+}
+
+.tabApplication__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 100%;
+  float: left;
+
+  box-sizing: border-box;
+  padding: 68px;
+}
+
+.applicationInfo {
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 6px;
+}
+
+.applicationInfo:first-child {
+  margin-left: 0;
+}
+
+.applicationInfo:last-child {
+  margin-right: 0;
+}
+
+.applicationInfo__photo {
+  display: block;
+
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.applicationInfo__description {
+  font-size: 20px;
+  line-height: 1.3;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  color: var(--grey-default);
+}

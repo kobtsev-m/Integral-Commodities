@@ -164,7 +164,7 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.2.0.tgz#f3933a44e365864f4dad5db94158106d511e8131"
   integrity sha512-sqKVVVOe5ivCaXDWivIJYVSaEgdQK9ul7a4Kity5Iw7u9+wBAPbX1RMSnLLmp7O4Vzj0WOWwMAJsTL00xwaNug==
 
-"@hookform/resolvers@^1.2.0":
+"@hookform/resolvers@1.3.7":
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-1.3.7.tgz#7c164d438b788cc625e46c22885ca6edc254350b"
   integrity sha512-gC06h1hky7gM31UO4Y7DrUQjgZyNIKA3s0/TxXbdeurwhOj07l8Zx8Pomjt93ANOKoZOU2rcHKaZtrEJx1w7tg==
