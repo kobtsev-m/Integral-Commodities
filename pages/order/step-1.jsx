@@ -1,7 +1,7 @@
-import styles from '../../components/blocks/Order/styles/Order.module.css';
-import SimpleButton from 'components/ui/Buttons/SimpleButton';
-import OrderNavigation from 'components/blocks/Order/components/OrderNavigation/OrderNavigation';
-import Breadcrumbs from 'components/ui/Breadcrumbs/Breadcrumbs';
+import styles from '../../components/organisms/Order/styles/Order.module.css';
+import SimpleButton from 'components/atoms/Buttons/SimpleButton';
+import OrderNavigation from 'components/organisms/Order/components/OrderNavigation/OrderNavigation';
+import Breadcrumbs from 'components/atoms/Breadcrumbs/Breadcrumbs';
 import useTranslation from 'next-translate/useTranslation';
 
 function OrderStep1() {

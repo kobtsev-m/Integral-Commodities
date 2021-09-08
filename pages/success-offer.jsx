@@ -1,4 +1,4 @@
-import SuccessOffer from 'components/blocks/Other/SuccessOffer/SuccessOffer';
+import SuccessOffer from 'components/organisms/Other/SuccessOffer/SuccessOffer';
 
 function SuccessOfferPage() {
   return <SuccessOffer />;

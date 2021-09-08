@@ -4,7 +4,6 @@ import useWindowDimensions from '../utils/hooks/useWindowDemensions';
 
 function AboutPage() {
   const milestonesBoxRef = useRef();
-  const size = useWindowDimensions();
 
   const handleMilestonesArrowClick = (side) => {
     const xDiff = side === 'left' ? -250 : 250;

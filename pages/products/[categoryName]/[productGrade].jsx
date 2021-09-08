@@ -3,13 +3,13 @@ import { useState, useEffect, useContext } from 'react';
 import { ProductsContext } from 'state/state';
 
 import { getProductByIdApi, getPlaceCoordinatesByNameApi } from 'api/api';
-import ProductDetails from 'components/blocks/Product/ProductDetails/ProductDetails';
-import LoadingSpinner from 'components/ui/Loaders/Spinner';
-import Breadcrumbs from 'components/ui/Breadcrumbs/Breadcrumbs';
-import ProductTabviewTop from 'components/blocks/Product/ProductTabsView/top/ProductTabsViewTop';
+import ProductDetails from 'components/organisms/Product/ProductDetails/ProductDetails';
+import LoadingSpinner from 'components/atoms/Loaders/Spinner';
+import Breadcrumbs from 'components/atoms/Breadcrumbs/Breadcrumbs';
+import ProductTabviewTop from 'components/organisms/Product/ProductTabsView/top/ProductTabsViewTop';
 import useTranslation from 'next-translate/useTranslation';
 
-import styles from 'components/blocks/Product/ProductDetails/ProductDetails.module.css';
+import styles from 'components/organisms/Product/ProductDetails/ProductDetails.module.css';
 import cn from 'classnames';
 
 const INFO_FIELDS_TO_FILTER = ['price', 'density'];

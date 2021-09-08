@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import ProductsList from 'components/blocks/Home/ProductList/ProductList';
-import ProductTabs from 'components/blocks/Product/ProductTabs/ProductTabs';
-import LatestOffers from 'components/blocks/Home/LatestOffers/LatestOffers';
-import LoadingSpinner from 'components/ui/Loaders/Spinner';
-import FiltersDesktop from 'components/blocks/Home/Filters/desktop/FiltersDesktop';
-import AskForQuote from 'components/blocks/Home/AskForQuote/AskForQuote';
+import ProductsList from 'components/organisms/Home/ProductList/ProductList';
+import ProductTabs from 'components/organisms/Product/ProductTabs/ProductTabs';
+import LatestOffers from 'components/organisms/Home/LatestOffers/LatestOffers';
+import LoadingSpinner from 'components/atoms/Loaders/Spinner';
+import FiltersDesktop from 'components/organisms/Home/Filters/desktop/FiltersDesktop';
+import AskForQuote from 'components/organisms/Home/AskForQuote/AskForQuote';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 

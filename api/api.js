@@ -1,4 +1,4 @@
-import { getRequest, postRequest } from './base';
+import { getRequest, postRequest } from './xhr';
 
 export async function getProductsApi(lang, cb) {
   return await getRequest(2, `/products/${lang}`, cb);

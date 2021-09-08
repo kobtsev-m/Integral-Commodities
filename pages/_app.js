@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import GlobalState from 'state/state';
-import Layout from 'components/layout/Layout';
+import Layout from 'components/templates/Layout/Layout';
 
 import { pageview } from 'utils/analytics';
 import 'public/css/index.css';

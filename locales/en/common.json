@@ -187,7 +187,12 @@
     "terms": "Terms",
     "privacy": "Privacy"
   },
-  "currencySign": "$",
+  "currency": {
+    "default": "$",
+    "грн/кг": "₴",
+    "тенге/кг": "₸",
+    "руб/кг": "₽"
+  },
   "onRequest": "On request",
   "noProducts": "There is no products",
   "noAnalogs": "There is no analogs",
