@@ -70,7 +70,8 @@
     "mass fraction of sulfur, %": "Mass fraction of sulfur (%)",
     "presence of mechanical impurities": "Presence of mechanical impurities",
     "mass fraction of ash, %": "Mass fraction of ash (%)",
-    "mass fraction of organic compounds, %": "Mass fraction of organic compounds (%)"
+    "mass fraction of organic compounds, %": "Mass fraction of organic compounds (%)",
+    "relative extension, %": "Relative extension (%)"
   },
   "filter": {
     "processing method": {
@@ -189,6 +190,7 @@
   },
   "currency": {
     "default": "$",
+    "dollar": "$",
     "грн/кг": "₴",
     "тенге/кг": "₸",
     "руб/кг": "₽"

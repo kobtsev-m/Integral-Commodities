@@ -1,169 +1,171 @@
 .currentOffers__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .dates {
-  display: none;
+    display: none;
 }
 
 .currentOffers__title {
-  font-family: var(--font-montserrat);
-  color: var(--grey-default);
-  font-size: 36px;
-  line-height: 50px;
+    font-family: var(--font-montserrat);
+    color: var(--grey-default);
+    font-size: 36px;
+    line-height: 50px;
 
-  padding-left: 10px;
-  margin-top: 80px;
-  margin-bottom: 50px;
-  font-weight: normal;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    font-weight: normal;
 }
 
 .currentOffers__titleLabel {
-  font-family: var(--font-montserrat);
-  color: var(--grey-default);
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 25px;
+    font-family: var(--font-montserrat);
+    color: var(--grey-default);
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
 }
 
 .currentOffers__table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .currentOffers__tableHeaderRow {
-  background: url("/images/bg-line-blue.svg") no-repeat 0 calc(100% - 22px);
+    background: url('/images/bg-line-blue.svg') no-repeat 0 calc(100% - 22px);
 }
 
 .currentOffers__tableHeaderCell {
-  font-family: var(--font-montserrat);
-  color: var(--grey-default);
-  padding: 0 10px 44px;
-  font-weight: normal;
-  font-size: 17px;
-  line-height: 25px;
-  text-align: left;
+    font-family: var(--font-montserrat);
+    color: var(--grey-default);
+    padding: 0 10px 44px;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 25px;
+    text-align: left;
 }
 
 .currentOffers__tableCell {
-  padding: 0 10px 22px;
-  font-family: var(--font-montserrat);
-  color: var(--grey-default);
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 25px;
-  text-align: left;
+    padding: 0 10px 22px;
+    font-family: var(--font-montserrat);
+    color: var(--grey-default);
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: left;
 }
 
 .currentOffers__tableCell_center {
-  /*text-align: center;*/
+    /*text-align: center;*/
 }
 
 .showMoreButtonContainer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .showMoreButton {
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  padding: 0;
-  margin: 40px 0 0;
-  outline: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 0;
+    margin: 40px 0 0;
+    outline: none;
 
-  background: transparent;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 150%;
-  font-family: var(--font-montserrat);
+    background: transparent;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    font-family: var(--font-montserrat);
 
-  color: #02569c;
+    color: #02569c;
 }
 
 .analogs__cell {
-  padding-top: 22px;
-  border-bottom: 1px solid #d4d4d4;
+    padding-top: 22px;
+    border-bottom: 1px solid #d4d4d4;
 }
 
 .analogs__noAnalogs {
-  font-family: var(--font-montserrat);
-  font-size: 30px;
-  text-align: center;
-  margin: 50px 0;
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    color: var(--grey-default);
+    text-align: center;
+    margin: 50px 0;
 }
 
 .analogs__tableHeaderRow {
-  background: url("/images/bg-line-black.svg") no-repeat 0 calc(100% - 5px);
+    background: url('/images/bg-line-black.svg') no-repeat 0 calc(100% - 5px);
 }
 
 .analogs__headerCell {
-  font-family: var(--font-montserrat);
-  color: var(--grey-default);
-  padding: 0 10px 20px;
-  font-weight: normal;
-  font-size: 19px;
-  text-align: left;
+    font-family: var(--font-montserrat);
+    color: var(--grey-default);
+    padding: 0 10px 20px;
+    font-weight: normal;
+    font-size: 19px;
+    text-align: left;
 }
 
 @media screen and (max-width: 768px) {
-  .currentOffers__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
+    .currentOffers__header {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 
-  .currentOffers__title {
-    font-size: 12px;
-    line-height: 1.4;
-    font-weight: bold;
-    margin: 30px 0 0;
-  }
+    .currentOffers__title {
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: bold;
+        margin: 30px 0 0;
+    }
 
-  .currentOffers__tableHeaderCell {
-    font-size: 10px;
-    line-height: 140%;
-  }
+    .currentOffers__tableHeaderCell {
+        font-size: 10px;
+        line-height: 140%;
+    }
 
-  .currentOffers__tableCell {
-    font-size: 10px;
-    line-height: 140%;
-  }
+    .currentOffers__tableCell {
+        font-size: 10px;
+        line-height: 140%;
+    }
 
-  .currentOffers__tableCell_price {
-    color: #f66e08;
-  }
+    .currentOffers__tableCell_price {
+        color: #f66e08;
+    }
 
-  .mobHiddenCol {
-    display: none;
-  }
+    .mobHiddenCol {
+        display: none;
+    }
 
-  .dates {
-    display: block;
-    font-family: var(--font-montserrat);
-    font-size: 10px;
-    color: #4f4f4f;
-    align-items: flex-end;
-    margin: 0 0 20px auto;
-  }
+    .dates {
+        display: block;
+        font-family: var(--font-montserrat);
+        font-size: 10px;
+        color: #4f4f4f;
+        align-items: flex-end;
+        margin: 0 0 20px auto;
+    }
 
-  .headerCell_grade {
-    min-width: 70px;
-  }
+    .headerCell_grade {
+        min-width: 70px;
+    }
 
-  .analogs__headerCell {
-    padding: 0 5px 10px;
-    font-size: 11px;
-    text-align: left;
-  }
+    .analogs__headerCell {
+        padding: 0 5px 10px;
+        font-size: 11px;
+        text-align: left;
+    }
 
-  .showMoreButton {
-    font-size: 9px;
-    line-height: 11px;
-    margin-top: 20px;
-  }
+    .showMoreButton {
+        font-size: 9px;
+        line-height: 11px;
+        margin-top: 20px;
+    }
 }

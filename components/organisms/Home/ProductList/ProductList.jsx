@@ -22,7 +22,7 @@ function ProductsList({ products }) {
 
   if (!products.length) {
     return (
-      <h2>
+      <h2 className={styles.noProducts}>
         <Trans i18nKey='common:noProducts' />
       </h2>
     );

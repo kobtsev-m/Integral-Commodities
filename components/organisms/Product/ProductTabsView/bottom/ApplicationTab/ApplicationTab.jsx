@@ -21,16 +21,15 @@ function ApplicationTab({ application }) {
 
   if (application) {
     photo = application[0].value;
-    description = application[1].value;
+    photo = photo === 'images/tsh.webp' ? photo : null;
+    description = getTransDescription(t, application[1].value);
   }
-
-  const transDescription = getTransDescription(t, description);
 
   return (
     <div className={styles.tabApplication}>
       <div className={styles.tabApplication__wrapper}>
         <div className={styles.applicationInfo}>
-          {photo && transDescription && (
+          {photo && description && (
             <img
               className={styles.applicationInfo__photo}
               src={`/images/${photo}`}
@@ -38,7 +37,7 @@ function ApplicationTab({ application }) {
             />
           )}
           <span className={styles.applicationInfo__description}>
-            {transDescription || t('product:emptyForNow')}
+            {description || t('product:emptyForNow')}
           </span>
         </div>
       </div>

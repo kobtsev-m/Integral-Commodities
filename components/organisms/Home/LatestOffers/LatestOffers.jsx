@@ -1,8 +1,9 @@
 import cn from 'classnames';
 
-import styles from './LatestOffers.module.css';
 import moment from 'moment';
 import Trans from 'next-translate/Trans';
+
+import styles from './LatestOffers.module.css';
 
 function LatestOffers({ offers }) {
   const sortedDates = offers
@@ -150,7 +151,7 @@ function LatestOffers({ offers }) {
                 )}
               >
                 {offer.price}
-                <Trans i18nKey='common:currency.default' />
+                <Trans i18nKey='common:currency.dollar' />
               </td>
             </tr>
           ))}

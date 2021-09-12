@@ -70,7 +70,8 @@
     "mass fraction of sulfur, %": "Массовая доля серы (%)",
     "presence of mechanical impurities": "Наличие механических примесей",
     "mass fraction of ash, %": "Массовая доля золы (%)",
-    "mass fraction of organic compounds, %": "Массовая доля органических соединений (%)"
+    "mass fraction of organic compounds, %": "Массовая доля органических соединений (%)",
+    "relative extension, %": "Относительное расширение (%)"
   },
   "filter": {
     "grade": {
@@ -208,7 +209,7 @@
     "grade": "Марка",
     "place of delivery": "Место доставки",
     "terms of delivery": "Условия доставки",
-    "quantity/mt": "Объем",
+    "quantity/mt": "Объем/Тонн",
     "payment terms": "Условия оплаты",
     "price/mt": "Цена"
   },
@@ -231,12 +232,13 @@
   },
   "currency": {
     "default": "₽",
+    "dollar": "$",
     "грн/кг": "₴",
     "тенге/кг": "₸",
     "руб/кг": "₽"
   },
   "onRequest": "По запросу",
-  "noProducts": "Указаных товаров в каталоге нет",
+  "noProducts": "Указаных товаров нет в каталоге",
   "noAnalogs": "У этого товара нет аналогов",
   "showMore": "Показать еще...",
   "showLess": "Скрыть",
