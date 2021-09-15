@@ -3,10 +3,11 @@ import { useState } from 'react';
 import cn from 'classnames';
 import styles from './FiltersMobile.module.css';
 
-import MenuSilder from '../../../../templates/Menu/mobile/MenuSlider/MenuSilder';
+import MenuSlider from 'components/templates/Menu/mobile/MenuSlider/MenuSilder';
 import FiltersMobileMenu from './FiltersMobileMenu/FiltersMobileMenu';
-import { getProductsBySearchStringApi } from '../../../../../api/api';
+import { getProductsBySearchStringApi } from 'api/api';
 import useTranslation from 'next-translate/useTranslation';
+import Image from 'next/image';
 
 const FiltersMobile = (props) => {
   const {
@@ -18,6 +19,7 @@ const FiltersMobile = (props) => {
     onReset
   } = props;
 
+  const [isLoading, setIsLoading] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -39,11 +41,11 @@ const FiltersMobile = (props) => {
     if (!isSearchActive) {
       setIsSearchActive(true);
     } else {
-      const searchResults = await getProductsBySearchStringApi(
-        lang,
-        searchValue
-      );
-      onSearch(searchResults.product);
+      setIsLoading(true);
+      getProductsBySearchStringApi(lang, searchValue).then((searchResults) => {
+        setIsLoading(false);
+        onSearch(searchResults.product);
+      });
     }
   };
 
@@ -77,17 +79,29 @@ const FiltersMobile = (props) => {
               <div
                 className={styles.clearFiltersBtn}
                 onClick={handleInputReset}
-              ></div>
+              />
             </div>
           )}
           <button
             type='submit'
             className={cn(styles.button, styles.searchButton)}
             aria-label='Search by grade'
-          />
+          >
+            {isLoading ? (
+              <div className='products__search-spinner spinner-border'>
+                <span className='sr-only' />
+              </div>
+            ) : (
+              <Image
+                src='/images/icon-search.svg'
+                width='17px'
+                height='17px'
+              />
+            )}
+          </button>
         </form>
       </div>
-      <MenuSilder
+      <MenuSlider
         title={t('common:filtersBtn')}
         open={isFilterOpen}
         onClose={handleMenuClose}
@@ -100,7 +114,7 @@ const FiltersMobile = (props) => {
           onClose={handleMenuClose}
           onReset={onReset}
         />
-      </MenuSilder>
+      </MenuSlider>
     </>
   );
 };

@@ -64,9 +64,7 @@
 .searchButton {
     width: 20px;
     height: 20px;
-    background: url('/images/icon-search.svg') no-repeat center;
-    background-size: 15px;
-    margin: 0;
+    margin-left: 2px;
 }
 
 .clearFiltersBtn {

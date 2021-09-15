@@ -140,7 +140,7 @@ function FiltersDesktop(props) {
         )}
       </form>
       <form
-        className='products__search-form mt-2 d-none d-xl-flex'
+        className='products__search-form d-none d-xl-flex'
         name='search'
         onSubmit={handleSearchClick}
       >

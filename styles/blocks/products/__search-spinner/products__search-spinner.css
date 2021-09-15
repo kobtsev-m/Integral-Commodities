@@ -4,3 +4,10 @@
     color: #929292;
     border-width: 0.175em;
 }
+
+@media screen and (max-width: 768px) {
+    .products__search-spinner {
+        width: 15px;
+        height: 15px;
+    }
+}
