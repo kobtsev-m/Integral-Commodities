@@ -52,6 +52,7 @@
 @import url('../../styles/blocks/products/__search-input/products__search-input.css');
 @import url('../../styles/blocks/products/__search-label/products__search-label.css');
 @import url('../../styles/blocks/products/__search-submit/products__search-submit.css');
+@import url('../../styles/blocks/products/__search-spinner/products__search-spinner.css');
 @import url('../../styles/blocks/products/__show-more/products__show-more.css');
 @import url('../../styles/blocks/products/__tab/products__tab.css');
 @import url('../../styles/blocks/products/__tab-button/products__tab-button.css');

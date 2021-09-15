@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState, useRef } from 'react';
 import useTranslation from 'next-translate/useTranslation';
@@ -35,6 +36,7 @@ function FiltersDesktop(props) {
   const router = useRouter();
   const { t, lang } = useTranslation();
 
+  const [isLoading, setIsLoading] = useState(false);
   const [droppedDown, setIsDroppedDown] = useState({});
   const [filtersCount, setFiltersCount] = useState(0);
 
@@ -93,11 +95,14 @@ function FiltersDesktop(props) {
 
   const handleSearchClick = async (event) => {
     event.preventDefault();
-    const searchResults = await getProductsBySearchStringApi(
-      lang,
-      searchRef.current.value
+    setFiltersCount(filtersCount + 1);
+    setIsLoading(true);
+    getProductsBySearchStringApi(lang, searchRef.current.value).then(
+      (searchResults) => {
+        setIsLoading(false);
+        onSearchSubmit(searchResults.product);
+      }
     );
-    onSearchSubmit(searchResults.product);
   };
 
   useOutsideAlerter(formRef, handleOutsideClick);
@@ -150,9 +155,16 @@ function FiltersDesktop(props) {
           placeholder={t('common:productFields.grade')}
           autoComplete='off'
           ref={searchRef}
-          onChange={() => setFiltersCount(filtersCount + 1)}
         />
-        <button className='products__search-submit' type='submit' />
+        <button type='submit' className='products__search-submit'>
+          {isLoading ? (
+            <div className='products__search-spinner spinner-border'>
+              <span className='sr-only' />
+            </div>
+          ) : (
+            <Image src='/images/icon-search.svg' width='25px' height='25px' />
+          )}
+        </button>
       </form>
     </div>
   );
