@@ -1,0 +1,15 @@
+.faqTab {
+    background-color: #f3f5f8;
+    border-radius: 3px;
+    text-align: center;
+    padding: 70px 45px;
+}
+
+.faqText {
+    font-size: 20px;
+    line-height: 1.3;
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    color: var(--grey-default);
+    margin-right: 22px;
+}

@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import useWindowDimensions from 'utils/hooks/useWindowDemensions';
 import Trans from 'next-translate/Trans';
-import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
 import styles from './ProductTabsViewBottom.module.css';
@@ -14,19 +13,25 @@ const setClippingRect = (element, width, left) => {
 function ProductTabsViewBottomList(props) {
   const { tabs, activeTab, handleTabClick } = props;
 
-  const [firstElementOffset, setFirstElementOffset] = useState(0);
+  const [firstElementOffset, setFirstElementOffset] = useState(null);
   const tabsElements = useRef();
   const activeTabLine = useRef();
 
-  const { lang } = useTranslation();
-  const size = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
+    if (!tabsElements.current || !width) {
+      return;
+    }
     const tabs = tabsElements.current.children;
     setFirstElementOffset(tabs[0].getBoundingClientRect().x);
-  }, [size]);
+  }, [tabsElements, width]);
 
   useEffect(() => {
+    if (!firstElementOffset && firstElementOffset !== 0) {
+      return;
+    }
+
     const activeTabSizes = tabsElements.current
       .getElementsByClassName(styles.tabItem_active)[0]
       .getBoundingClientRect();
@@ -36,7 +41,7 @@ function ProductTabsViewBottomList(props) {
       activeTabSizes.width,
       activeTabSizes.left - firstElementOffset
     );
-  }, [lang, firstElementOffset, activeTab]);
+  }, [firstElementOffset, activeTab]);
 
   return (
     <div className={cn(styles.tabsList__wrapper, 'sticky-top')}>

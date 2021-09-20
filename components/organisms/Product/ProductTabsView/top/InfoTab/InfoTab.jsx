@@ -13,7 +13,8 @@ function InfoTab(props) {
 
   const getProductProperties = (product) => {
     if (product.properties) {
-      return product.properties.split('• ').slice(1);
+      const properties = product.properties.split('• ');
+      return properties?.[0] ? properties : properties.slice(1);
     }
     return null;
   };

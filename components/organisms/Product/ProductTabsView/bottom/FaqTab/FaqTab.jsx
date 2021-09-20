@@ -1,10 +1,13 @@
 import Trans from 'next-translate/Trans';
+import styles from './FaqTab.module.css';
 
 function FaqTab() {
   return (
-    <h2 className='my-5'>
-      <Trans i18nKey='product:emptyForNow' />
-    </h2>
+    <div className={styles.faqTab}>
+      <span className={styles.faqText}>
+        <Trans i18nKey='product:emptyForNow' />
+      </span>
+    </div>
   );
 }
 
