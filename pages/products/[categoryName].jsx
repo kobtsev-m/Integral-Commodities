@@ -1,18 +1,19 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useActions } from 'hooks/useActions';
 
-import ProductsList from 'components/organisms/Home/ProductList/ProductList';
-import ProductTabs from 'components/organisms/Product/ProductTabs/ProductTabs';
-import LatestOffers from 'components/organisms/Home/LatestOffers/LatestOffers';
-import LoadingSpinner from 'components/atoms/Loaders/Spinner';
-import FiltersDesktop from 'components/organisms/Home/Filters/desktop/FiltersDesktop';
-import AskForQuote from 'components/organisms/Home/AskForQuote/AskForQuote';
+import ProductsList from 'components/home/ProductList/ProductList';
+import ProductTabs from 'components/product/ProductTabs/ProductTabs';
+import LatestOffers from 'components/home/LatestOffers/LatestOffers';
+import LoadingSpinner from 'components/common/Loaders/Spinner';
+import FiltersDesktop from 'components/home/Filters/desktop/FiltersDesktop';
+import AskForQuote from 'components/home/AskForQuote/AskForQuote';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 
-import { getProductsApi, getOffersApi } from 'api/api';
-import { FILTERS, TABS } from 'utils/const';
-import { getKey, getTransValue } from 'utils/i18n';
+import { FILTERS, TABS } from 'utils/constants';
+import { getKey, getTransValue } from 'utils/i18n.utils';
 
 function getValueByKeyName(arr, key) {
   const searchedItem = arr.find(
@@ -96,25 +97,20 @@ function filterProductsByCategory(products, category) {
 function HomePage() {
   const router = useRouter();
   const category = router.query.categoryName;
-
   const { t, lang } = useTranslation();
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [products, setProducts] = useState(null);
+  const { products, isProductsLoading } = useSelector(
+    (state) => state.products
+  );
+  const { offers, isOffersLoading } = useSelector((state) => state.offers);
+  const { fetchProducts, fetchOffers } = useActions();
+
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filtersState, setFiltersState] = useState({});
-  const [offers, setOffers] = useState([]);
 
   useEffect(() => {
-    if (category) {
-      setIsLoading(true);
-      Promise.all([
-        getProductsApi(lang, setProducts),
-        getOffersApi(lang, category, setOffers)
-      ])
-        .catch((e) => console.log(e))
-        .finally(() => setIsLoading(false));
-    }
+    fetchProducts(lang);
+    fetchOffers(lang, category);
   }, [lang, category]);
 
   useEffect(() => {
@@ -162,15 +158,17 @@ function HomePage() {
             onReset={handleFiltersReset}
           />
         )}
-        {isLoading ? (
+        {isProductsLoading ? (
           <LoadingSpinner />
         ) : (
-          <>
-            <ProductsList loading={isLoading} products={filteredProducts} />
-            <LatestOffers loading={isLoading} offers={offers} />
-            <AskForQuote products={products} />
-          </>
+          <ProductsList products={filteredProducts} />
         )}
+        {isOffersLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <LatestOffers offers={offers} />
+        )}
+        <AskForQuote products={products} />
       </section>
     </>
   );

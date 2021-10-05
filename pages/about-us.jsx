@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Trans from 'next-translate/Trans';
-import useWindowDimensions from '../utils/hooks/useWindowDemensions';
+import { useWindowDimensions } from '../hooks/useWindowDemensions';
 
 function AboutPage() {
   const milestonesBoxRef = useRef();

@@ -1,10 +1,10 @@
-import Breadcrumbs from 'components/atoms/Breadcrumbs/Breadcrumbs';
-import OrderNavigation from 'components/organisms/Order/components/OrderNavigation/OrderNavigation';
-import PaymentForm from 'components/organisms/Order/components/Forms/PaymentForm';
+import Breadcrumbs from 'components/common/Breadcrumbs/Breadcrumbs';
+import OrderNavigation from 'components/order/components/OrderNavigation/OrderNavigation';
+import PaymentForm from 'components/order/components/Forms/PaymentForm';
 import useTranslation from 'next-translate/useTranslation';
 
 import cn from 'classnames';
-import styles from '../../components/organisms/Order/styles/Order.module.css';
+import styles from '../../components/order/styles/Order.module.css';
 
 function OrderStep4() {
   const { t } = useTranslation();

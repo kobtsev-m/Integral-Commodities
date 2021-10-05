@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Provider } from 'react-redux';
+import { store } from 'store';
 
-import GlobalState from 'state/state';
-import Layout from 'components/templates/Layout/Layout';
+import Layout from 'components/layout/Layout/Layout';
 
-import { pageview } from 'utils/analytics';
+import { pageview } from 'utils/analytics.utils';
 import 'public/css/index.css';
 
 function AppWrapper({ Component, pageProps }) {
@@ -22,11 +23,11 @@ function AppWrapper({ Component, pageProps }) {
   }, [router.events]);
 
   return (
-    <GlobalState>
+    <Provider store={store}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </GlobalState>
+    </Provider>
   );
 }
 

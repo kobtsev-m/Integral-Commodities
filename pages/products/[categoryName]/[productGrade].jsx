@@ -1,80 +1,33 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect, useContext } from 'react';
-import { ProductsContext } from 'state/state';
-
-import { getProductByIdApi, getPlaceCoordinatesByNameApi } from 'api/api';
-import ProductDetails from 'components/organisms/Product/ProductDetails/ProductDetails';
-import LoadingSpinner from 'components/atoms/Loaders/Spinner';
-import Breadcrumbs from 'components/atoms/Breadcrumbs/Breadcrumbs';
-import ProductTabviewTop from 'components/organisms/Product/ProductTabsView/top/ProductTabsViewTop';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useActions } from 'hooks/useActions';
+import ProductDetails from 'components/product/ProductDetails/ProductDetails';
+import LoadingSpinner from 'components/common/Loaders/Spinner';
+import Breadcrumbs from 'components/common/Breadcrumbs/Breadcrumbs';
+import ProductTabviewTop from 'components/product/ProductTabsViewTop/ProductTabsViewTop';
 import useTranslation from 'next-translate/useTranslation';
 
-import styles from 'components/organisms/Product/ProductDetails/ProductDetails.module.css';
 import cn from 'classnames';
+import styles from 'components/product/ProductDetails/ProductDetails.module.css';
 
 const INFO_FIELDS_TO_FILTER = ['price', 'density'];
 
 function ProductPage() {
   const router = useRouter();
+  const productGrade = router.query.productGrade;
   const { t, lang } = useTranslation();
 
-  const productGrade = router.query.productGrade;
-  const { getProductIdByGrade } = useContext(ProductsContext);
-
-  const [product, setProduct] = useState(null);
-  const [productId, setProductId] = useState(null);
-  const [ports, setPorts] = useState(null);
-  const [factories, setFactories] = useState(null);
-  const [arePortsUpdated, setArePortsUpdated] = useState(null);
-  const [areFactoriesUpdated, setAreFactoriesUpdated] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
-
-  useEffect(() => {
-    setArePortsUpdated(false);
-    setAreFactoriesUpdated(false);
-    setIsLoading(true);
-  }, [lang]);
+  const { activeProduct, isActiveProductLoading } = useSelector(
+    (state) => state.products
+  );
+  const { fetchActiveProduct } = useActions();
 
   useEffect(() => {
     if (!!productGrade) {
-      getProductIdByGrade(t, productGrade).then((id) => {
-        setProductId(id);
-      });
+      fetchActiveProduct(productGrade, lang, t);
     }
-  }, [productGrade]);
-
-  useEffect(() => {
-    if (productId && isLoading) {
-      getProductByIdApi(lang, productId, setProduct)
-        .catch((e) => console.log(e))
-        .then(() => setIsLoading(false));
-    }
-  }, [productId, isLoading]);
-
-  useEffect(() => {
-    if (product) {
-      const mapObj = product.doc_data?.find((item) => 'map' in item);
-      const newPorts = mapObj?.map;
-      const newFactories = mapObj?.availability;
-      setPorts(newPorts);
-      setFactories(newFactories);
-      setIsLoading(false);
-    }
-  }, [product]);
-
-  useEffect(() => {
-    if (ports?.length && !arePortsUpdated) {
-      setArePortsUpdated(true);
-      addCoordinatesToPlaces(ports, setPorts);
-    }
-  }, [ports]);
-
-  useEffect(() => {
-    if (factories?.length && !areFactoriesUpdated) {
-      setAreFactoriesUpdated(true);
-      addCoordinatesToPlaces(factories, setFactories);
-    }
-  }, [factories]);
+  }, [productGrade, lang]);
 
   const getBreadcrumbs = (product) => {
     const homeBreadcrumb = {
@@ -107,38 +60,20 @@ function ProductPage() {
     ];
   };
 
-  const addCoordinatesToPlaces = (places, callback) => {
-    const newPlacesPromises = places.map(async (place) => {
-      const coordinates = await getPlaceCoordinatesByNameApi(
-        place.name ?? place
-      );
-      return place.name
-        ? { ...place, ...coordinates }
-        : { name: place, ...coordinates };
-    });
-    Promise.all(newPlacesPromises).then((newPlaces) => {
-      callback(newPlaces);
-    });
-  };
-
   return (
     <section className={cn(styles.root__productPage, styles.productPage)}>
-      {isLoading ? (
+      {isActiveProductLoading ? (
         <LoadingSpinner />
-      ) : !product ? (
+      ) : !activeProduct ? (
         <h2 className='text-center'>{t('common:noProducts')}</h2>
       ) : (
         <>
-          <Breadcrumbs list={getBreadcrumbs(product)} />
+          <Breadcrumbs list={getBreadcrumbs(activeProduct)} />
           <ProductDetails
-            product={product}
+            product={activeProduct}
             fieldsToFilter={INFO_FIELDS_TO_FILTER}
           />
-          <ProductTabviewTop
-            product={product}
-            ports={ports}
-            factories={factories}
-          />
+          <ProductTabviewTop product={activeProduct} />
         </>
       )}
     </section>
