@@ -42,13 +42,15 @@ function AnalogsTab({ analogs }) {
               <Trans i18nKey='common:productFields.mfr (5)' />
             </th>
             {width > 768 && (
-              <th className={styles.analogs__headerCell}>
-                <Trans i18nKey='common:productFields.density' />
-              </th>
+              <>
+                <th className={styles.analogs__headerCell}>
+                  <Trans i18nKey='common:productFields.density' />
+                </th>
+                <th className={styles.analogs__headerCell}>
+                  <Trans i18nKey='common:productFields.vst' />
+                </th>
+              </>
             )}
-            <th className={styles.analogs__headerCell}>
-              <Trans i18nKey='common:productFields.vst' />
-            </th>
           </tr>
         </thead>
         <tbody className={styles.currentOffers__tableBody}>
@@ -83,23 +85,25 @@ function AnalogsTab({ analogs }) {
                 {offer.mfr}
               </td>
               {width > 768 && (
-                <td
-                  className={cn(
-                    styles.currentOffers__tableCell,
-                    styles.analogs__cell
-                  )}
-                >
-                  {offer.density}
-                </td>
+                <>
+                  <td
+                    className={cn(
+                      styles.currentOffers__tableCell,
+                      styles.analogs__cell
+                    )}
+                  >
+                    {offer.density}
+                  </td>
+                  <td
+                    className={cn(
+                      styles.currentOffers__tableCell,
+                      styles.analogs__cell
+                    )}
+                  >
+                    {offer.vst}
+                  </td>
+                </>
               )}
-              <td
-                className={cn(
-                  styles.currentOffers__tableCell,
-                  styles.analogs__cell
-                )}
-              >
-                {offer.vst}
-              </td>
             </tr>
           ))}
         </tbody>

@@ -12,12 +12,16 @@ const setClippingRect = (element, width, left) => {
 
 function ProductTabsViewBottomList(props) {
   const { tabs, activeTab, handleTabClick } = props;
+  const { width } = useWindowDimensions();
 
   const [firstElementOffset, setFirstElementOffset] = useState(null);
   const tabsElements = useRef();
   const activeTabLine = useRef();
 
-  const { width } = useWindowDimensions();
+  let filteredTabs = tabs;
+  if (width <= 768) {
+    filteredTabs = tabs.filter((tab) => tab !== 'Samples');
+  }
 
   useEffect(() => {
     if (!tabsElements.current || !width) {
@@ -58,7 +62,7 @@ function ProductTabsViewBottomList(props) {
             transition: '200ms ease'
           }}
         />
-        {tabs.map((tab, i) => (
+        {filteredTabs.map((tab, i) => (
           <li
             key={i}
             className={cn(styles.tabItem, {

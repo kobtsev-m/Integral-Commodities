@@ -21,8 +21,7 @@ const SULPHUR_PHOTOS_SRC = [
 function ProductTabsViewBottom({ product }) {
   const [activeTab, setActiveTab] = useState('Documents');
 
-  const { doc_data: docData } = product;
-  const [documentsObj, applicationObj, samplesObj] = docData;
+  const [documentsObj, applicationObj, samplesObj] = product.doc_data;
   const { documents } = documentsObj;
   const { application } = applicationObj;
   const { samples } = samplesObj;

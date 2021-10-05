@@ -115,7 +115,7 @@ function PriceCalculator(props) {
   return (
     <form onSubmit={handleSubmit} className={styles.container}>
       {products && (
-        <div className='row gx-5'>
+        <div className='row gx-4 gx-md-5'>
           <div className='col-12 col-md-6'>
             <FieldWrapper title={t('calculator:fields.grade')}>
               <ProductField
@@ -130,7 +130,7 @@ function PriceCalculator(props) {
           </div>
         </div>
       )}
-      <div className='row gx-5 mt-4 mt-md-5'>
+      <div className='row gx-4 gx-md-5 mt-4 mt-md-5'>
         <div className='col-12 col-md-6'>
           <FieldWrapper title={t('calculator:fields.place of delivery')}>
             <PlaceField
@@ -153,7 +153,7 @@ function PriceCalculator(props) {
           </FieldWrapper>
         </div>
       </div>
-      <div className='row gx-5 mt-4 mt-md-5'>
+      <div className='row gx-4 gx-md-5 mt-4 mt-md-5'>
         <FieldWrapper title={t('calculator:fields.incoterms')}>
           <IncotermsField
             name='incoterms'
@@ -163,7 +163,7 @@ function PriceCalculator(props) {
           />
         </FieldWrapper>
       </div>
-      <div className='row gx-5 mt-4 mt-md-5'>
+      <div className='row gx-4 gx-md-5 mt-4 mt-md-5'>
         <div className='col-12 col-md-6'>
           <FieldWrapper title={t('calculator:fields.terms of payment')}>
             <PaymentTermsField
@@ -185,7 +185,7 @@ function PriceCalculator(props) {
           </FieldWrapper>
         </div>
       </div>
-      <div className='row gx-5 mt-4 mt-md-5'>
+      <div className='row gx-4 gx-md-5 mt-4 mt-md-5'>
         <div className='col-12 col-md-6'>
           <FieldWrapper title={t('calculator:fields.additional information')}>
             <AdditionalInfoField
