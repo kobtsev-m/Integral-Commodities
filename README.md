@@ -1,7 +1,5 @@
 # Integral Commodities
 
----
-
 ### Useful links:
 
 #### 1. [Figma Integral MVP](https://www.figma.com/file/IRZyjrGrYT6uXfXkFnHXBh/Integral.-MVP-Copy?node-id=374%3A531)
